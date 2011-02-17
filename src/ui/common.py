@@ -28,13 +28,13 @@
 
 '''
 ************************************************************************************************
-***	utilities.py
+***	common.py
 ***
 ***	Platform:
 ***		Windows, Linux, Mac Os X
 ***
 ***	Description:
-***		Tests Utilities Module.
+***		UI Common Module.
 ***
 ***	Others:
 ***
@@ -49,12 +49,18 @@
 #***	External Imports
 #***********************************************************************************************
 import logging
-import sys
+import os
+import platform
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
 
 #***********************************************************************************************
 #***	Internal Imports
 #***********************************************************************************************
+import foundations.common
 import foundations.core as core
+import foundations.exceptions
+import ui.widgets.messageBox as messageBox
 from globals.constants import Constants
 
 #***********************************************************************************************
@@ -62,14 +68,22 @@ from globals.constants import Constants
 #***********************************************************************************************
 LOGGER = logging.getLogger(Constants.logger)
 
-# Starting The Console Handler.
-LOGGING_CONSOLE_HANDLER = logging.StreamHandler(sys.__stdout__)
-LOGGING_CONSOLE_HANDLER.setFormatter(core.LOGGING_FORMATTER)
-LOGGER.addHandler(LOGGING_CONSOLE_HANDLER)
-
 #***********************************************************************************************
 #***	Module Classes And Definitions
 #***********************************************************************************************
+@core.executionTrace
+def uiExtendedExceptionHandler(exception, origin, *args, **kwargs):
+	'''
+	This Definition Provides A Ui Extended Exception Handler.
+	
+	@param exception: Exception. ( Exception )
+	@param origin: Function / Method Raising The Exception. ( String )
+	@param *args: Arguments. ( * )
+	@param **kwargs: Arguments. ( * )
+	'''
+
+	messageBox.messageBox("Error", "Exception", "Exception In '{0}' : {1}".format(origin, exception))
+	foundations.exceptions.defaultExceptionsHandler(exception, origin, *args, **kwargs)
 
 #***********************************************************************************************
 #***	Python End

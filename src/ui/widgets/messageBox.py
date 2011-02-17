@@ -25,16 +25,23 @@
 # The Following Code Is Protected By GNU GPL V3 Licence.
 #
 #***********************************************************************************************
+#
+# If You Are A HDRI Ressources Vendor And Are Interested In Making Your Sets SmartIBL Compliant:
+# Please Contact Us At HDRLabs:
+# Christian Bloch - blochi@edenfx.com
+# Thomas Mansencal - thomas.mansencal@gmail.com
+#
+#***********************************************************************************************
 
 '''
 ************************************************************************************************
-***	utilities.py
+***	messageBox.py
 ***
 ***	Platform:
 ***		Windows, Linux, Mac Os X
 ***
 ***	Description:
-***		Tests Utilities Module.
+***		Message Box Module.
 ***
 ***	Others:
 ***
@@ -50,26 +57,95 @@
 #***********************************************************************************************
 import logging
 import sys
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
 
 #***********************************************************************************************
 #***	Internal Imports
 #***********************************************************************************************
 import foundations.core as core
+import foundations.exceptions
 from globals.constants import Constants
 
 #***********************************************************************************************
-#***	Overall Variables
+#***	Global Variables
 #***********************************************************************************************
 LOGGER = logging.getLogger(Constants.logger)
-
-# Starting The Console Handler.
-LOGGING_CONSOLE_HANDLER = logging.StreamHandler(sys.__stdout__)
-LOGGING_CONSOLE_HANDLER.setFormatter(core.LOGGING_FORMATTER)
-LOGGER.addHandler(LOGGING_CONSOLE_HANDLER)
 
 #***********************************************************************************************
 #***	Module Classes And Definitions
 #***********************************************************************************************
+@core.executionTrace
+def messageBox(type, title, message, icon=None, buttons=QMessageBox.Ok):
+	'''
+	This Definition Provides A Fast GUI Message Box.
+
+	@param title: Current Message Title. ( String )
+	@param message:	Message. ( String )
+	@param icon: Custom Icon. ( QConstant )
+	@param buttons: Custom Buttons. ( QConstant )
+	@return: User Choice. ( Integer )
+	'''
+
+	LOGGER.debug("> Launching sIBL_message().")
+	LOGGER.debug("> Message Type : '{0}'.".format(type))
+	LOGGER.debug("> Title : '{0}'.".format(title))
+	LOGGER.debug("> Message : '{0}'.".format(message))
+
+	messageBox = QMessageBox()
+	messageBox.setWindowTitle("{0} | {1}".format(Constants.applicationName, title))
+	messageBox.setText(message)
+
+	if type == "Critical":
+		if icon:
+			messageBox.setIcon(icon)
+		else:
+			messageBox.setIcon(QMessageBox.Critical)
+		LOGGER.critical("!> {0}".format(message))
+	elif type == "Error":
+		if icon:
+			messageBox.setIcon(icon)
+		else:
+			messageBox.setIcon(QMessageBox.Critical)
+		LOGGER.error("!> {0}".format(message))
+	elif type == "Warning":
+		if icon:
+			messageBox.setIcon(icon)
+		else:
+			messageBox.setIcon(QMessageBox.Warning)
+		LOGGER.warning("{0}".format(message))
+	elif type == "Information":
+		if icon:
+			messageBox.setIcon(icon)
+		else:
+			messageBox.setIcon(QMessageBox.Information)
+		LOGGER.info("{0}".format(message))
+	elif type == "Question":
+		if icon:
+			messageBox.setIcon(icon)
+		else:
+			messageBox.setIcon(QMessageBox.Question)
+		LOGGER.info("{0}".format(message))
+
+	messageBox.setStandardButtons(buttons)
+
+	messageBox.setWindowFlags(Qt.WindowStaysOnTopHint)
+	return messageBox.exec_()
+
+@core.executionTrace
+def standaloneMessageBox(type, caption, message, icon=None, buttons=QMessageBox.Ok):
+	'''
+	This Definition Provides A Standalone Message Box.
+	
+	@param type: MessageBox Type. ( String )
+	@param caption: MessageBox Title. ( String )
+	@param message: MessageBox Message. ( String )	
+	@param icon: Custom Icon. ( QConstant )
+	@param buttons: Custom Buttons. ( QConstant )
+	'''
+
+	application = QApplication(sys.argv)
+	messageBox(type, caption, message, icon, buttons)
 
 #***********************************************************************************************
 #***	Python End
