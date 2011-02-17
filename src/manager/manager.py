@@ -837,7 +837,7 @@ class Manager(object):
 		This Method Gets The Components By Ranking.
 		'''
 
-		return [component[0] for component in sorted([(component, profile.rank) for component, profile in self._components.items()], key=lambda x:(int(x[1])))]
+		return [component[0] for component in sorted(((component, profile.rank) for component, profile in self._components.items()), key=lambda x:(int(x[1])))]
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)

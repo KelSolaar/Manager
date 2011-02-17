@@ -173,7 +173,7 @@ class ManagerTestCase(unittest.TestCase):
 		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		self.assertIsInstance(manager.components, dict)
-		for component in ["{0}.{1}".format(item, name) for item in COMPONENTS.keys() for name in COMPONENTS[item].keys()]:
+		for component in ("{0}.{1}".format(item, name) for item in COMPONENTS.keys() for name in COMPONENTS[item].keys()):
 			self.assertIn(component, manager.components.keys())
 
 	def testInstantiateComponents(self):
