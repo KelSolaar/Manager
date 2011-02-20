@@ -1,6 +1,11 @@
-h1=. Manager - 1.0.0 - Stable
+h1=. Manager - 1.0.1 - Stable
 
 h2=. Change Log
+
+h3. 1.0.1 - Stable
+
+* Replace list comprehension expressions by generators.
+* Add missing units tests dependencies.
 
 h3. 1.0.0 - Stable
 
