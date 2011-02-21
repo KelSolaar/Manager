@@ -170,7 +170,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "gatherComponents" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		self.assertIsInstance(manager.components, dict)
 		for component in ("{0}.{1}".format(item, name) for item in COMPONENTS.keys() for name in COMPONENTS[item].keys()):
@@ -181,7 +181,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "instantiateComponents" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		manager.instantiateComponents()
 		for component in manager.components.values():
@@ -197,7 +197,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "deleteComponents" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		manager.instantiateComponents()
 		for component in dict(manager.components).keys():
@@ -209,7 +209,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "clearComponents" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		manager.instantiateComponents()
 		manager.clearComponents()
@@ -220,7 +220,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "reloadComponent" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		manager.instantiateComponents()
 		for component in manager.components.keys():
@@ -231,7 +231,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "getComponents" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		manager.instantiateComponents()
 		components = manager.getComponents()
@@ -243,7 +243,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "filterComponents" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		manager.instantiateComponents()
 		components = manager.filterComponents("addons")
@@ -255,7 +255,7 @@ class ManagerTestCase(unittest.TestCase):
 		This Method Tests The "Manager" Class "getInterface" Method.
 		'''
 
-		manager = Manager({item:os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
 		manager.instantiateComponents()
 		for component in manager.components.keys():

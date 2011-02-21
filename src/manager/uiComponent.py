@@ -124,7 +124,7 @@ class UiComponent(QWidget):
 		'''
 
 		if value:
-			assert type(value) in (str, unicode), "'{0}' Attribute : '{1}' Type Is Not 'str' or 'unicode' !".format("name", value)
+			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("name", value)
 		self._name = value
 
 	@name.deleter
@@ -134,7 +134,7 @@ class UiComponent(QWidget):
 		This Method Is The Deleter Method For The _name Attribute.
 		'''
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable !".format("name"))
+		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("name"))
 
 	@property
 	def activated(self):
@@ -156,7 +156,7 @@ class UiComponent(QWidget):
 		'''
 
 		if value:
-			assert type(value) is bool, "'{0}' Attribute : '{1}' Type Is Not 'bool' !".format("activated", value)
+			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("activated", value)
 		self._activated = value
 
 	@activated.deleter
@@ -166,7 +166,7 @@ class UiComponent(QWidget):
 		This Method Is The Deleter Method For The _activated Attribute.
 		'''
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable !".format("activated"))
+		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("activated"))
 
 	@property
 	def deactivatable(self):
@@ -188,7 +188,7 @@ class UiComponent(QWidget):
 		'''
 
 		if value:
-			assert type(value) is bool, "'{0}' Attribute : '{1}' Type Is Not 'bool' !".format("deactivatable", value)
+			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("deactivatable", value)
 		self._deactivatable = value
 
 	@deactivatable.deleter
@@ -198,7 +198,7 @@ class UiComponent(QWidget):
 		This Method Is The Deleter Method For The _deactivatable Attribute.
 		'''
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable !".format("deactivatable"))
+		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("deactivatable"))
 
 	@property
 	def uiFile(self):
@@ -220,8 +220,8 @@ class UiComponent(QWidget):
 		'''
 
 		if value:
-			assert type(value) in (str, unicode), "'{0}' Attribute : '{1}' Type Is Not 'str' or 'unicode' !".format("uiFile", value)
-			assert os.path.exists(value), "'{0}' Attribute : '{1}' ui File Doesn't Exists !".format("uiFile", value)
+			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("uiFile", value)
+			assert os.path.exists(value), "'{0}' Attribute: '{1}' ui File Doesn't Exists!".format("uiFile", value)
 		self._uiFile = value
 
 	@uiFile.deleter
@@ -231,7 +231,7 @@ class UiComponent(QWidget):
 		This Method Is The Deleter Method For The _uiFile Attribute.
 		'''
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable !".format("uiFile"))
+		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("uiFile"))
 
 	@property
 	def ui(self):
@@ -260,7 +260,7 @@ class UiComponent(QWidget):
 		This Method Is The Deleter Method For The _ui Attribute.
 		'''
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable !".format("ui"))
+		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("ui"))
 
 	#***************************************************************************************
 	#***	Class Methods
@@ -296,7 +296,7 @@ class UiComponent(QWidget):
 				sys.path.remove(".")
 			return True
 		else:
-			raise foundations.exceptions.ProgrammingError, "'{0}' Component Ui File Doesn't Exists !".format(self._name)
+			raise foundations.exceptions.ProgrammingError, "'{0}' Component Ui File Doesn't Exists!".format(self._name)
 
 #***********************************************************************************************
 #***	Python End

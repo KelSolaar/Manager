@@ -117,7 +117,7 @@ class TestsComponentB(Component):
 		@param value: Attribute Value. ( QObject )
 		'''
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Read Only !".format("container"))
+		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Read Only!".format("container"))
 
 	@container.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -126,7 +126,7 @@ class TestsComponentB(Component):
 		This Method Is The Deleter Method For The _container Attribute.
 		'''
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable !".format("container"))
+		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("container"))
 	#***************************************************************************************
 	#***	Class Methods
 	#***************************************************************************************
