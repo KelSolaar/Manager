@@ -26,7 +26,7 @@
 #
 #***********************************************************************************************
 
-'''
+"""
 ************************************************************************************************
 ***	testsManager.py
 ***
@@ -39,7 +39,7 @@
 ***	Others:
 ***
 ************************************************************************************************
-'''
+"""
 
 #***********************************************************************************************
 #***	Python Begin
@@ -81,14 +81,14 @@ STANDARD_PROFILE_CONTENT = {"name":"core.testsComponentA",
 #***	Module Classes And Definitions
 #***********************************************************************************************
 class ProfileTestCase(unittest.TestCase):
-	'''
+	"""
 	This Class Is The ProfileTestCase Class.
-	'''
+	"""
 
 	def testRequiredAttributes(self):
-		'''
+		"""
 		This Method Tests Presence Of Required Attributes.
-		'''
+		"""
 
 		profile = Profile()
 		requiredAttributes = ("_name",
@@ -109,21 +109,21 @@ class ProfileTestCase(unittest.TestCase):
 			self.assertIn(attribute, profile.__dict__)
 
 def testManagerCallback(profile):
-	'''
+	"""
 	This Definition Is The Manager Test Callback.
-	'''
+	"""
 
 	profile.callback = True
 
 class ManagerTestCase(unittest.TestCase):
-	'''
+	"""
 	This Class Is The ManagerTestCase Class.
-	'''
+	"""
 
 	def testRequiredAttributes(self):
-		'''
+		"""
 		This Method Tests Presence Of Required Attributes.
-		'''
+		"""
 
 		manager = Manager()
 		requiredAttributes = ("_paths",
@@ -135,9 +135,9 @@ class ManagerTestCase(unittest.TestCase):
 			self.assertIn(attribute, manager.__dict__)
 
 	def testRequiredMethods(self):
-		'''
+		"""
 		This Method Tests Presence Of Required Methods.
-		'''
+		"""
 
 		manager = Manager()
 		requiredMethods = ("getProfile",
@@ -152,9 +152,9 @@ class ManagerTestCase(unittest.TestCase):
 			self.assertIn(method, dir(manager))
 
 	def testGetProfile(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "getProfile" Method.
-		'''
+		"""
 
 		path = os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"], "testsComponentA.rc")
 
@@ -166,9 +166,9 @@ class ManagerTestCase(unittest.TestCase):
 			self.assertEqual(getattr(profile, attribute), value)
 
 	def testGatherComponents(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "gatherComponents" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
@@ -177,9 +177,9 @@ class ManagerTestCase(unittest.TestCase):
 			self.assertIn(component, manager.components.keys())
 
 	def testInstantiateComponents(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "instantiateComponents" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
@@ -193,9 +193,9 @@ class ManagerTestCase(unittest.TestCase):
 			self.assertTrue(component.callback)
 
 	def testDeleteComponents(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "deleteComponents" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
@@ -205,9 +205,9 @@ class ManagerTestCase(unittest.TestCase):
 		self.assertTrue(not manager.components.keys())
 
 	def testClearComponents(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "clearComponents" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
@@ -216,9 +216,9 @@ class ManagerTestCase(unittest.TestCase):
 		self.assertTrue(not manager.components.keys())
 
 	def testReloadComponent(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "reloadComponent" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
@@ -227,9 +227,9 @@ class ManagerTestCase(unittest.TestCase):
 			manager.reloadComponent(component)
 
 	def testGetComponents(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "getComponents" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
@@ -239,9 +239,9 @@ class ManagerTestCase(unittest.TestCase):
 		self.assertListEqual(components, COMPONENTS_RANKING)
 
 	def testFilterComponents(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "filterComponents" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()
@@ -251,9 +251,9 @@ class ManagerTestCase(unittest.TestCase):
 		self.assertListEqual(components, ["addons.testsComponentC"])
 
 	def testGetInterface(self):
-		'''
+		"""
 		This Method Tests The "Manager" Class "getInterface" Method.
-		'''
+		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
 		manager.gatherComponents()

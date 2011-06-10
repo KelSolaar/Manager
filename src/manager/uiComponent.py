@@ -26,7 +26,7 @@
 #
 #***********************************************************************************************
 
-'''
+"""
 ************************************************************************************************
 ***	uiComponent.py
 ***
@@ -39,7 +39,7 @@
 ***	Others:
 ***
 ************************************************************************************************
-'''
+"""
 
 #***********************************************************************************************
 #***	Python Begin
@@ -72,18 +72,18 @@ LOGGER = logging.getLogger(Constants.logger)
 #***	Module Classes And Definitions
 #***********************************************************************************************
 class UiComponent(QWidget):
-	'''
+	"""
 	This Class Is The UiComponent Class.
-	'''
+	"""
 
 	@core.executionTrace
 	def __init__(self, name=None, uiFile=None):
-		'''
+		"""
 		This Method Initializes The Class.
 		
 		@param name: Component Name. ( String )
 		@param uiFile: Ui File. ( String )
-		'''
+		"""
 
 		LOGGER.debug("> Initializing '{0}()' Class.".format(self.__class__.__name__))
 
@@ -106,22 +106,22 @@ class UiComponent(QWidget):
 	#***************************************************************************************
 	@property
 	def name(self):
-		'''
+		"""
 		This Method Is The Property For The _name Attribute.
 
 		@return: self._name. ( String )
-		'''
+		"""
 
 		return self._name
 
 	@name.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def name(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _name Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("name", value)
@@ -130,30 +130,30 @@ class UiComponent(QWidget):
 	@name.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def name(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _name Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("name"))
 
 	@property
 	def activated(self):
-		'''
+		"""
 		This Method Is The Property For The _activated Attribute.
 
 		@return: self._activated. ( String )
-		'''
+		"""
 
 		return self._activated
 
 	@activated.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def activated(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _activated Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("activated", value)
@@ -162,30 +162,30 @@ class UiComponent(QWidget):
 	@activated.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def activated(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _activated Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("activated"))
 
 	@property
 	def deactivatable(self):
-		'''
+		"""
 		This Method Is The Property For The _deactivatable Attribute.
 
 		@return: self._deactivatable. ( String )
-		'''
+		"""
 
 		return self._deactivatable
 
 	@deactivatable.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def deactivatable(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _deactivatable Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("deactivatable", value)
@@ -194,30 +194,30 @@ class UiComponent(QWidget):
 	@deactivatable.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def deactivatable(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _deactivatable Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("deactivatable"))
 
 	@property
 	def uiFile(self):
-		'''
+		"""
 		This Method Is The Property For The _uiFile Attribute.
 
 		@return: self._uiFile. ( String )
-		'''
+		"""
 
 		return self._uiFile
 
 	@uiFile.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def uiFile(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _uiFile Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("uiFile", value)
@@ -227,38 +227,38 @@ class UiComponent(QWidget):
 	@uiFile.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def uiFile(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _uiFile Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("uiFile"))
 
 	@property
 	def ui(self):
-		'''
+		"""
 		This Method Is The Property For The _ui Attribute.
 
 		@return: self._ui. ( Object )
-		'''
+		"""
 
 		return self._ui
 
 	@ui.setter
 	def ui(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _ui Attribute.
 		
 		@param value: Attribute Value. ( Object )
-		'''
+		"""
 
 		self._ui = value
 
 	@ui.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def ui(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _ui Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("ui"))
 
@@ -267,9 +267,9 @@ class UiComponent(QWidget):
 	#***************************************************************************************
 	@core.executionTrace
 	def _activate(self):
-		'''
+		"""
 		This Method Sets Activation State.
-		'''
+		"""
 
 		self._activated = True
 
@@ -277,18 +277,18 @@ class UiComponent(QWidget):
 
 	@core.executionTrace
 	def _deactivate(self):
-		'''
+		"""
 		This Method UnSets Activation State.
-		'''
+		"""
 
 		self._activated = False
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(common.uiExtendedExceptionHandler, False, Exception)
 	def _loadUi(self):
-		'''
+		"""
 		This Method Loads The Ui File.
-		'''
+		"""
 
 		if self._uiFile:
 			self._ui = uic.loadUi(self._uiFile)

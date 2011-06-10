@@ -26,7 +26,7 @@
 #
 #***********************************************************************************************
 
-'''
+"""
 ************************************************************************************************
 ***	testsUiComponent.py
 ***
@@ -39,7 +39,7 @@
 ***	Others:
 ***
 ************************************************************************************************
-'''
+"""
 
 #***********************************************************************************************
 #***	Python Begin
@@ -70,14 +70,14 @@ APPLICATION = QApplication(sys.argv)
 #***	Module Classes And Definitions
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
-	'''
+	"""
 	This Class Is The ComponentTestCase Class.
-	'''
+	"""
 
 	def testRequiredAttributes(self):
-		'''
+		"""
 		This Method Tests Presence Of Required Attributes.
-		'''
+		"""
 
 		uiComponent = UiComponent()
 		requiredAttributes = ("_name",
@@ -90,9 +90,9 @@ class ComponentTestCase(unittest.TestCase):
 			self.assertIn(attribute, uiComponent.__dict__)
 
 	def testRequiredMethods(self):
-		'''
+		"""
 		This Method Tests Presence Of Required Methods.
-		'''
+		"""
 
 		uiComponent = UiComponent()
 		requiredMethods = ("_activate",
@@ -103,18 +103,18 @@ class ComponentTestCase(unittest.TestCase):
 			self.assertIn(method, dir(uiComponent))
 
 	def test_activate(self):
-		'''
+		"""
 		This Method Tests The "uiComponent" Class "_activate" Method.
-		'''
+		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)
 		uiComponent._activate()
 		self.assertTrue(uiComponent._activated)
 
 	def test_deactivate(self):
-		'''
+		"""
 		This Method Tests The "uiComponent" Class "_deactivate" Method.
-		'''
+		"""
 
 		uiComponent = UiComponent()
 		uiComponent._activated = True
@@ -122,9 +122,9 @@ class ComponentTestCase(unittest.TestCase):
 		self.assertFalse(uiComponent._activated)
 
 	def test_loadUi(self):
-		'''
+		"""
 		This Method Tests The "uiComponent" Class "_loadUi" Method.
-		'''
+		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)
 		self.assertTrue(uiComponent._loadUi())

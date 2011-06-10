@@ -26,7 +26,7 @@
 #
 #***********************************************************************************************
 
-'''
+"""
 ************************************************************************************************
 ***	common.py
 ***
@@ -39,7 +39,7 @@
 ***	Others:
 ***
 ************************************************************************************************
-'''
+"""
 
 #***********************************************************************************************
 #***	Python Begin
@@ -73,14 +73,14 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 @core.executionTrace
 def uiExtendedExceptionHandler(exception, origin, *args, **kwargs):
-	'''
+	"""
 	This Definition Provides A Ui Extended Exception Handler.
 	
 	@param exception: Exception. ( Exception )
 	@param origin: Function / Method Raising The Exception. ( String )
 	@param *args: Arguments. ( * )
 	@param **kwargs: Arguments. ( * )
-	'''
+	"""
 
 	messageBox.messageBox("Error", "Exception", "Exception In '{0}': {1}".format(origin, exception))
 	foundations.exceptions.defaultExceptionsHandler(exception, origin, *args, **kwargs)

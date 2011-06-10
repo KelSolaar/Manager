@@ -26,7 +26,7 @@
 #
 #***********************************************************************************************
 
-'''
+"""
 ************************************************************************************************
 ***	testsComponent.py
 ***
@@ -39,7 +39,7 @@
 ***	Others:
 ***
 ************************************************************************************************
-'''
+"""
 
 #***********************************************************************************************
 #***	Python Begin
@@ -63,14 +63,14 @@ from manager.component import Component
 #***	Module Classes And Definitions
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
-	'''
+	"""
 	This Class Is The ComponentTestCase Class.
-	'''
+	"""
 
 	def testRequiredAttributes(self):
-		'''
+		"""
 		This Method Tests Presence Of Required Attributes.
-		'''
+		"""
 
 		component = Component()
 		requiredAttributes = ("_name",
@@ -81,9 +81,9 @@ class ComponentTestCase(unittest.TestCase):
 			self.assertIn(attribute, component.__dict__)
 
 	def testRequiredMethods(self):
-		'''
+		"""
 		This Method Tests Presence Of Required Methods.
-		'''
+		"""
 
 		component = Component()
 		requiredMethods = ("_activate",
@@ -93,18 +93,18 @@ class ComponentTestCase(unittest.TestCase):
 			self.assertIn(method, dir(component))
 
 	def test_activate(self):
-		'''
+		"""
 		This Method Tests The "Component" Class "_activate" Method.
-		'''
+		"""
 
 		component = Component()
 		component._activate()
 		self.assertTrue(component._activated)
 
 	def test_deactivate(self):
-		'''
+		"""
 		This Method Tests The "Component" Class "_deactivate" Method.
-		'''
+		"""
 
 		component = Component()
 		component._activated = True

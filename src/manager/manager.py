@@ -26,7 +26,7 @@
 #
 #***********************************************************************************************
 
-'''
+"""
 ************************************************************************************************
 ***	manager.py
 ***
@@ -39,7 +39,7 @@
 ***	Others:
 ***
 ************************************************************************************************
-'''
+"""
 
 #***********************************************************************************************
 #***	Python Begin
@@ -74,18 +74,18 @@ LOGGER = logging.getLogger(Constants.logger)
 #***	Module Classes And Definitions
 #***********************************************************************************************
 class Profile(object):
-	'''
+	"""
 	This Class Is The Profile Class.
-	'''
+	"""
 
 	@core.executionTrace
 	def __init__(self, name=None, path=None):
-		'''
+		"""
 		This Method Initializes The Class.
 		
 		@param name: Name Of The Component. ( String )
 		@param path: Path Of The Component. ( String )
-		'''
+		"""
 
 		LOGGER.debug("> Initializing '{0}()' Class.".format(self.__class__.__name__))
 
@@ -113,22 +113,22 @@ class Profile(object):
 	#***************************************************************************************
 	@property
 	def name(self):
-		'''
+		"""
 		This Method Is The Property For The _name Attribute.
 
 		@return: self._name. ( String )
-		'''
+		"""
 
 		return self._name
 
 	@name.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def name(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _name Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("name", value)
@@ -137,30 +137,30 @@ class Profile(object):
 	@name.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def name(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _name Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("name"))
 
 	@property
 	def path(self):
-		'''
+		"""
 		This Method Is The Property For The _path Attribute.
 
 		@return: self._path. ( String )
-		'''
+		"""
 
 		return self._path
 
 	@path.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def path(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _path Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("path", value)
@@ -170,30 +170,30 @@ class Profile(object):
 	@path.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def path(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _path Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("path"))
 
 	@property
 	def object_(self):
-		'''
+		"""
 		This Method Is The Property For The _object_ Attribute.
 
 		@return: self._object_. ( String )
-		'''
+		"""
 
 		return self._object_
 
 	@object_.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def object_(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _object_ Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("object_", value)
@@ -202,30 +202,30 @@ class Profile(object):
 	@object_.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def object_(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _object_ Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("object_"))
 
 	@property
 	def rank(self):
-		'''
+		"""
 		This Method Is The Property For The _rank Attribute.
 
 		@return: self._rank. ( String )
-		'''
+		"""
 
 		return self._rank
 
 	@rank.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def rank(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _rank Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("rank", value)
@@ -234,30 +234,30 @@ class Profile(object):
 	@rank.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def rank(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _rank Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("rank"))
 
 	@property
 	def import_(self):
-		'''
+		"""
 		This Method Is The Property For The _import_ Attribute.
 
 		@return: self._import. ( Module )
-		'''
+		"""
 
 		return self._import
 
 	@import_.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def import_(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _import_ Attribute.
 		
 		@param value: Attribute Value. ( Module )
-		'''
+		"""
 
 		if value:
 			assert type(value) is type(sys), "'{0}' Attribute: '{1}' Type Is Not 'module'!".format("import", value)
@@ -266,59 +266,59 @@ class Profile(object):
 	@import_.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def import_(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _import_ Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("import"))
 
 	@property
 	def interface(self):
-		'''
+		"""
 		This Method Is The Property For The _interface Attribute.
 
 		@return: self._interface. ( Object )
-		'''
+		"""
 
 		return self._interface
 
 	@interface.setter
 	def interface(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _interface Attribute.
 		
 		@param value: Attribute Value. ( Object )
-		'''
+		"""
 
 		self._interface = value
 
 	@interface.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def interface(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _interface Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("interface"))
 
 	@property
 	def categorie(self):
-		'''
+		"""
 		This Method Is The Property For The _categorie Attribute.
 
 		@return: self._categorie. ( String )
-		'''
+		"""
 
 		return self._categorie
 
 	@categorie.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def categorie(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _categorie Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("categorie", value)
@@ -327,30 +327,30 @@ class Profile(object):
 	@categorie.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def categorie(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _categorie Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("categorie"))
 
 	@property
 	def module(self):
-		'''
+		"""
 		This Method Is The Property For The _module Attribute.
 
 		@return: self._module. ( String )
-		'''
+		"""
 
 		return self._module
 
 	@module.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def module(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _module Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("module", value)
@@ -359,30 +359,30 @@ class Profile(object):
 	@module.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def module(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _module Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("module"))
 
 	@property
 	def version(self):
-		'''
+		"""
 		This Method Is The Property For The _version Attribute.
 
 		@return: self._version. ( String )
-		'''
+		"""
 
 		return self._version
 
 	@version.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def version(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _version Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("version", value)
@@ -391,30 +391,30 @@ class Profile(object):
 	@version.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def version(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _version Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("version"))
 
 	@property
 	def author(self):
-		'''
+		"""
 		This Method Is The Property For The _author Attribute.
 
 		@return: self._author. ( String )
-		'''
+		"""
 
 		return self._author
 
 	@author.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def author(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _author Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("author", value)
@@ -423,30 +423,30 @@ class Profile(object):
 	@author.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def author(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _author Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("author"))
 
 	@property
 	def email(self):
-		'''
+		"""
 		This Method Is The Property For The _email Attribute.
 
 		@return: self._email. ( String )
-		'''
+		"""
 
 		return self._email
 
 	@email.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def email(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _email Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("email", value)
@@ -455,30 +455,30 @@ class Profile(object):
 	@email.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def email(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _email Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("email"))
 
 	@property
 	def url(self):
-		'''
+		"""
 		This Method Is The Property For The _url Attribute.
 
 		@return: self._url. ( String )
-		'''
+		"""
 
 		return self._url
 
 	@url.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def url(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _url Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("url", value)
@@ -487,30 +487,30 @@ class Profile(object):
 	@url.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def url(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _url Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("url"))
 
 	@property
 	def description(self):
-		'''
+		"""
 		This Method Is The Property For The _description Attribute.
 
 		@return: self._description. ( String )
-		'''
+		"""
 
 		return self._description
 
 	@description.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def description(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _description Attribute.
 		
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("description", value)
@@ -519,24 +519,24 @@ class Profile(object):
 	@description.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def description(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _description Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("description"))
 
 class Manager(object):
-	'''
+	"""
 	This Class Is The Manager Class.
-	'''
+	"""
 
 	@core.executionTrace
 	def __init__(self, paths=None, extension="rc", categories={ "default" : Component, "ui" : UiComponent }):
-		'''
+		"""
 		This Method Initializes The Class.
 		@param paths: Paths To Walk. ( Dictionary )
 		@param extension: Extension To Look After. ( String )
-		'''
+		"""
 
 		LOGGER.debug("> Initializing '{0}()' Class.".format(self.__class__.__name__))
 
@@ -554,22 +554,22 @@ class Manager(object):
 	#***************************************************************************************
 	@property
 	def paths(self):
-		'''
+		"""
 		This Method Is The Property For The _paths Attribute.
 
 		@return: self._paths. ( Dictionary )
-		'''
+		"""
 
 		return self._paths
 
 	@paths.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def paths(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _paths Attribute.
 		
 		@param value: Attribute Value. ( Dictionary )
-		'''
+		"""
 
 		if value:
 			assert type(value) is dict, "'{0}' Attribute: '{1}' Type Is Not 'dict'!".format("paths", value)
@@ -579,30 +579,30 @@ class Manager(object):
 	@paths.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def paths(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _paths Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("paths"))
 
 	@property
 	def extension(self):
-		'''
+		"""
 		This Method Is The Property For The _extension Attribute.
 
 		@return: self._extension. ( String )
-		'''
+		"""
 
 		return self._extension
 
 	@extension.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def extension(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _extension Attribute.
 
 		@param value: Attribute Value. ( String )
-		'''
+		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("extension", value)
@@ -611,30 +611,30 @@ class Manager(object):
 	@extension.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def extension(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _extension Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("extension"))
 
 	@property
 	def categories(self):
-		'''
+		"""
 		This Method Is The Property For The _categories Attribute.
 
 		@return: self._categories. ( Dictionary )
-		'''
+		"""
 
 		return self._categories
 
 	@categories.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def categories(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _categories Attribute.
 		
 		@param value: Attribute Value. ( Dictionary )
-		'''
+		"""
 
 		if value:
 			assert type(value) is dict, "'{0}' Attribute: '{1}' Type Is Not 'dict'!".format("categories", value)
@@ -643,39 +643,39 @@ class Manager(object):
 	@categories.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def categories(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _categories Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("categories"))
 
 	@property
 	def components(self):
-		'''
+		"""
 		This Method Is The Property For The _components Attribute.
 
 		@return: self._components. ( Dictionary )
-		'''
+		"""
 
 		return self._components
 
 	@components.setter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def components(self, value):
-		'''
+		"""
 		This Method Is The Setter Method For The _components Attribute.
 
 		@param value: Attribute Value. ( Object )
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Read Only!".format("components"))
 
 	@components.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def components(self):
-		'''
+		"""
 		This Method Is The Deleter Method For The _components Attribute.
-		'''
+		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("components"))
 
@@ -685,12 +685,12 @@ class Manager(object):
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureError)
 	def getProfile(self, file):
-		'''
+		"""
 		This Method Gets Provided Component Profile.
 
 		@param file: File Path. ( String )
 		@return: Profile. ( Profile )
-		'''
+		"""
 
 		LOGGER.debug("> Building '{0}' Profile.".format(file))
 
@@ -728,9 +728,9 @@ class Manager(object):
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def gatherComponents(self):
-		'''
+		"""
 		This Method Gather The Components.
-		'''
+		"""
 
 		if self.paths:
 			self._components = {}
@@ -755,11 +755,11 @@ class Manager(object):
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError, ImportError)
 	def instantiateComponents(self, callback=None):
-		'''
+		"""
 		This Method Instantiates The Components.
 
 		@param callback: Callback Object. ( Object )
-		'''
+		"""
 
 		assert self._components, "'{0}' Manager Has No Components!".format(self)
 
@@ -786,12 +786,12 @@ class Manager(object):
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def deleteComponent(self, component):
-		'''
+		"""
 		This Method Removes The Provided Component.
 
 		@param component: Component To Remove. ( List )
 		@return: Deletion Success. ( Boolean )
-		'''
+		"""
 
 		del(self._components[component])
 		return True
@@ -799,11 +799,11 @@ class Manager(object):
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def clearComponents(self):
-		'''
+		"""
 		This Method Clears The Components.
 
 		@return: Clearing Success. ( Boolean )
-		'''
+		"""
 
 		self._components.clear()
 		return True
@@ -811,12 +811,12 @@ class Manager(object):
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError)
 	def reloadComponent(self, component):
-		'''
+		"""
 		This Method Reload The Provided Component.
 		
 		@param callback: Callback Object. ( Object )
 		@return: Reload Success. ( Boolean )
-		'''
+		"""
 
 		profile = self._components[component]
 		import_ = __import__(profile.module)
@@ -833,22 +833,22 @@ class Manager(object):
 
 	@core.executionTrace
 	def getComponents(self):
-		'''
+		"""
 		This Method Gets The Components By Ranking.
-		'''
+		"""
 
 		return [component[0] for component in sorted(((component, profile.rank) for component, profile in self._components.items()), key=lambda x:(int(x[1])))]
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def filterComponents(self, pattern, categorie=None):
-		'''
+		"""
 		This Method Filters The Components Using The Provided Pattern.
 		
 		@param pattern: Regex Filtering Pattern. ( String )
 		@param categorie: Categorie Filter. ( String )
 		@return: Matching Items. ( List )
-		'''
+		"""
 
 		assert self._components is not None, "'{0}' Manager Has No Components!".format(self)
 		matchingItems = []
@@ -861,12 +861,12 @@ class Manager(object):
 
 	@core.executionTrace
 	def getInterface(self, component):
-		'''
+		"""
 		This Method Gets The Component Interface.
 		
 		@param component: Component To Get The Interface.
 		@return: Component Interface. ( Object )
-		'''
+		"""
 
 		components = self.filterComponents("^" + component + "$")
 		if components != []: return self._components[components[0]].interface
