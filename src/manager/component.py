@@ -81,11 +81,11 @@ class Component(object):
 		LOGGER.debug("> Initializing '{0}()' Class.".format(self.__class__.__name__))
 
 		# --- Setting Class Attributes. ---
-		self._name = None
+		self.__name = None
 		self.name = name
 
-		self._activated = False
-		self._deactivatable = True
+		self.__activated = False
+		self.__deactivatable = True
 
 	#***************************************************************************************
 	#***	Attributes Properties
@@ -95,10 +95,10 @@ class Component(object):
 		"""
 		This Method Is The Property For The _name Attribute.
 
-		@return: self._name. ( String )
+		@return: self.__name. ( String )
 		"""
 
-		return self._name
+		return self.__name
 
 	@name.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -111,7 +111,7 @@ class Component(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("name", value)
-		self._name = value
+		self.__name = value
 
 	@name.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -127,10 +127,10 @@ class Component(object):
 		"""
 		This Method Is The Property For The _activated Attribute.
 
-		@return: self._activated. ( Boolean )
+		@return: self.__activated. ( Boolean )
 		"""
 
-		return self._activated
+		return self.__activated
 
 	@activated.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -143,7 +143,7 @@ class Component(object):
 
 		if value:
 			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("activated", value)
-		self._activated = value
+		self.__activated = value
 
 	@activated.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -159,10 +159,10 @@ class Component(object):
 		"""
 		This Method Is The Property For The _deactivatable Attribute.
 
-		@return: self._deactivatable. ( Boolean )
+		@return: self.__deactivatable. ( Boolean )
 		"""
 
-		return self._deactivatable
+		return self.__deactivatable
 
 	@deactivatable.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -175,7 +175,7 @@ class Component(object):
 
 		if value:
 			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("deactivatable", value)
-		self._deactivatable = value
+		self.__deactivatable = value
 
 	@deactivatable.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -195,7 +195,7 @@ class Component(object):
 		This Method Sets Activation State.
 		"""
 
-		self._activated = True
+		self.__activated = True
 
 	@core.executionTrace
 	def _deactivate(self):
@@ -203,7 +203,7 @@ class Component(object):
 		This Method UnSets Activation State.
 		"""
 
-		self._activated = False
+		self.__activated = False
 
 #***********************************************************************************************
 #***	Python End

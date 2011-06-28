@@ -80,14 +80,14 @@ class ComponentTestCase(unittest.TestCase):
 		"""
 
 		uiComponent = UiComponent()
-		requiredAttributes = ("_name",
-							"_uiFile",
-							"_activated",
-							"_deactivatable",
-							"_ui")
+		requiredAttributes = ("name",
+							"uiFile",
+							"activated",
+							"deactivatable",
+							"ui")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, uiComponent.__dict__)
+			self.assertIn(attribute, dir(uiComponent))
 
 	def testRequiredMethods(self):
 		"""

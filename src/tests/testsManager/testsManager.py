@@ -91,22 +91,22 @@ class ProfileTestCase(unittest.TestCase):
 		"""
 
 		profile = Profile()
-		requiredAttributes = ("_name",
-							"_path",
-							"_object_",
-							"_rank",
-							"_import",
-							"_interface",
-							"_categorie",
-							"_module",
-							"_version",
-							"_author",
-							"_email",
-							"_url",
-							"_description")
+		requiredAttributes = ("name",
+							"path",
+							"object_",
+							"rank",
+							"import_",
+							"interface",
+							"categorie",
+							"module",
+							"version",
+							"author",
+							"email",
+							"url",
+							"description")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, profile.__dict__)
+			self.assertIn(attribute, dir(profile))
 
 def testManagerCallback(profile):
 	"""
@@ -126,13 +126,13 @@ class ManagerTestCase(unittest.TestCase):
 		"""
 
 		manager = Manager()
-		requiredAttributes = ("_paths",
-							"_extension",
-							"_categories",
-							"_components",)
+		requiredAttributes = ("paths",
+							"extension",
+							"categories",
+							"components",)
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, manager.__dict__)
+			self.assertIn(attribute, dir(manager))
 
 	def testRequiredMethods(self):
 		"""

@@ -90,16 +90,16 @@ class UiComponent(QWidget):
 		QWidget.__init__(self)
 
 		# --- Setting Class Attributes. ---
-		self._name = None
+		self.__name = None
 		self.name = name
 
-		self._uiFile = None
+		self.__uiFile = None
 		self.uiFile = uiFile
 
-		self._activated = False
-		self._deactivatable = True
+		self.__activated = False
+		self.__deactivatable = True
 
-		self._ui = None
+		self.__ui = None
 
 	#***************************************************************************************
 	#***	Attributes Properties
@@ -109,10 +109,10 @@ class UiComponent(QWidget):
 		"""
 		This Method Is The Property For The _name Attribute.
 
-		@return: self._name. ( String )
+		@return: self.__name. ( String )
 		"""
 
-		return self._name
+		return self.__name
 
 	@name.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -125,7 +125,7 @@ class UiComponent(QWidget):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("name", value)
-		self._name = value
+		self.__name = value
 
 	@name.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -141,10 +141,10 @@ class UiComponent(QWidget):
 		"""
 		This Method Is The Property For The _activated Attribute.
 
-		@return: self._activated. ( String )
+		@return: self.__activated. ( String )
 		"""
 
-		return self._activated
+		return self.__activated
 
 	@activated.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -157,7 +157,7 @@ class UiComponent(QWidget):
 
 		if value:
 			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("activated", value)
-		self._activated = value
+		self.__activated = value
 
 	@activated.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -173,10 +173,10 @@ class UiComponent(QWidget):
 		"""
 		This Method Is The Property For The _deactivatable Attribute.
 
-		@return: self._deactivatable. ( String )
+		@return: self.__deactivatable. ( String )
 		"""
 
-		return self._deactivatable
+		return self.__deactivatable
 
 	@deactivatable.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -189,7 +189,7 @@ class UiComponent(QWidget):
 
 		if value:
 			assert type(value) is bool, "'{0}' Attribute: '{1}' Type Is Not 'bool'!".format("deactivatable", value)
-		self._deactivatable = value
+		self.__deactivatable = value
 
 	@deactivatable.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -205,10 +205,10 @@ class UiComponent(QWidget):
 		"""
 		This Method Is The Property For The _uiFile Attribute.
 
-		@return: self._uiFile. ( String )
+		@return: self.__uiFile. ( String )
 		"""
 
-		return self._uiFile
+		return self.__uiFile
 
 	@uiFile.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -222,7 +222,7 @@ class UiComponent(QWidget):
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("uiFile", value)
 			assert os.path.exists(value), "'{0}' Attribute: '{1}' ui File Doesn't Exists!".format("uiFile", value)
-		self._uiFile = value
+		self.__uiFile = value
 
 	@uiFile.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -238,10 +238,10 @@ class UiComponent(QWidget):
 		"""
 		This Method Is The Property For The _ui Attribute.
 
-		@return: self._ui. ( Object )
+		@return: self.__ui. ( Object )
 		"""
 
-		return self._ui
+		return self.__ui
 
 	@ui.setter
 	def ui(self, value):
@@ -251,7 +251,7 @@ class UiComponent(QWidget):
 		@param value: Attribute Value. ( Object )
 		"""
 
-		self._ui = value
+		self.__ui = value
 
 	@ui.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -271,7 +271,7 @@ class UiComponent(QWidget):
 		This Method Sets Activation State.
 		"""
 
-		self._activated = True
+		self.__activated = True
 
 		self._loadUi()
 
@@ -281,7 +281,7 @@ class UiComponent(QWidget):
 		This Method UnSets Activation State.
 		"""
 
-		self._activated = False
+		self.__activated = False
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(common.uiExtendedExceptionHandler, False, Exception)
@@ -290,13 +290,13 @@ class UiComponent(QWidget):
 		This Method Loads The Ui File.
 		"""
 
-		if self._uiFile:
-			self._ui = uic.loadUi(self._uiFile)
+		if self.__uiFile:
+			self.__ui = uic.loadUi(self.__uiFile)
 			if "." in sys.path:
 				sys.path.remove(".")
 			return True
 		else:
-			raise foundations.exceptions.ProgrammingError, "'{0}' Component Ui File Doesn't Exists!".format(self._name)
+			raise foundations.exceptions.ProgrammingError, "'{0}' Component Ui File Doesn't Exists!".format(self.__name)
 
 #***********************************************************************************************
 #***	Python End

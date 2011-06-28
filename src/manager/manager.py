@@ -90,23 +90,23 @@ class Profile(object):
 		LOGGER.debug("> Initializing '{0}()' Class.".format(self.__class__.__name__))
 
 		# --- Setting Class Attributes. ---
-		self._name = None
+		self.__name = None
 		self.name = name
 		self.path = None
-		self._path = path
+		self.__path = path
 
-		self._object_ = None
-		self._rank = None
-		self._import = None
-		self._interface = None
-		self._categorie = None
+		self.__object_ = None
+		self.__rank = None
+		self.__import = None
+		self.__interface = None
+		self.__categorie = None
 
-		self._module = None
-		self._version = None
-		self._author = None
-		self._email = None
-		self._url = None
-		self._description = None
+		self.__module = None
+		self.__version = None
+		self.__author = None
+		self.__email = None
+		self.__url = None
+		self.__description = None
 
 	#***************************************************************************************
 	#***	Attributes Properties
@@ -116,10 +116,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _name Attribute.
 
-		@return: self._name. ( String )
+		@return: self.__name. ( String )
 		"""
 
-		return self._name
+		return self.__name
 
 	@name.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -132,7 +132,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("name", value)
-		self._name = value
+		self.__name = value
 
 	@name.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -148,10 +148,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _path Attribute.
 
-		@return: self._path. ( String )
+		@return: self.__path. ( String )
 		"""
 
-		return self._path
+		return self.__path
 
 	@path.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -165,7 +165,7 @@ class Profile(object):
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("path", value)
 			assert os.path.exists(value), "'{0}' Attribute: '{1}' Directory Doesn't Exists!".format("path", value)
-		self._path = value
+		self.__path = value
 
 	@path.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -181,10 +181,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _object_ Attribute.
 
-		@return: self._object_. ( String )
+		@return: self.__object_. ( String )
 		"""
 
-		return self._object_
+		return self.__object_
 
 	@object_.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -197,7 +197,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("object_", value)
-		self._object_ = value
+		self.__object_ = value
 
 	@object_.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -213,10 +213,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _rank Attribute.
 
-		@return: self._rank. ( String )
+		@return: self.__rank. ( String )
 		"""
 
-		return self._rank
+		return self.__rank
 
 	@rank.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -229,7 +229,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("rank", value)
-		self._rank = value
+		self.__rank = value
 
 	@rank.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -245,10 +245,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _import_ Attribute.
 
-		@return: self._import. ( Module )
+		@return: self.__import. ( Module )
 		"""
 
-		return self._import
+		return self.__import
 
 	@import_.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -261,7 +261,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) is type(sys), "'{0}' Attribute: '{1}' Type Is Not 'module'!".format("import", value)
-		self._import = value
+		self.__import = value
 
 	@import_.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -277,10 +277,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _interface Attribute.
 
-		@return: self._interface. ( Object )
+		@return: self.__interface. ( Object )
 		"""
 
-		return self._interface
+		return self.__interface
 
 	@interface.setter
 	def interface(self, value):
@@ -290,7 +290,7 @@ class Profile(object):
 		@param value: Attribute Value. ( Object )
 		"""
 
-		self._interface = value
+		self.__interface = value
 
 	@interface.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -306,10 +306,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _categorie Attribute.
 
-		@return: self._categorie. ( String )
+		@return: self.__categorie. ( String )
 		"""
 
-		return self._categorie
+		return self.__categorie
 
 	@categorie.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -322,7 +322,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("categorie", value)
-		self._categorie = value
+		self.__categorie = value
 
 	@categorie.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -338,10 +338,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _module Attribute.
 
-		@return: self._module. ( String )
+		@return: self.__module. ( String )
 		"""
 
-		return self._module
+		return self.__module
 
 	@module.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -354,7 +354,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("module", value)
-		self._module = value
+		self.__module = value
 
 	@module.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -370,10 +370,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _version Attribute.
 
-		@return: self._version. ( String )
+		@return: self.__version. ( String )
 		"""
 
-		return self._version
+		return self.__version
 
 	@version.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -386,7 +386,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("version", value)
-		self._version = value
+		self.__version = value
 
 	@version.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -402,10 +402,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _author Attribute.
 
-		@return: self._author. ( String )
+		@return: self.__author. ( String )
 		"""
 
-		return self._author
+		return self.__author
 
 	@author.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -418,7 +418,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("author", value)
-		self._author = value
+		self.__author = value
 
 	@author.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -434,10 +434,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _email Attribute.
 
-		@return: self._email. ( String )
+		@return: self.__email. ( String )
 		"""
 
-		return self._email
+		return self.__email
 
 	@email.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -450,7 +450,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("email", value)
-		self._email = value
+		self.__email = value
 
 	@email.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -466,10 +466,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _url Attribute.
 
-		@return: self._url. ( String )
+		@return: self.__url. ( String )
 		"""
 
-		return self._url
+		return self.__url
 
 	@url.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -482,7 +482,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("url", value)
-		self._url = value
+		self.__url = value
 
 	@url.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -498,10 +498,10 @@ class Profile(object):
 		"""
 		This Method Is The Property For The _description Attribute.
 
-		@return: self._description. ( String )
+		@return: self.__description. ( String )
 		"""
 
-		return self._description
+		return self.__description
 
 	@description.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -514,7 +514,7 @@ class Profile(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("description", value)
-		self._description = value
+		self.__description = value
 
 	@description.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -541,13 +541,13 @@ class Manager(object):
 		LOGGER.debug("> Initializing '{0}()' Class.".format(self.__class__.__name__))
 
 		# --- Setting Class Attributes. ---
-		self._paths = None
+		self.__paths = None
 		self.paths = paths
-		self._extension = None
+		self.__extension = None
 		self.extension = extension
-		self._categories = None
+		self.__categories = None
 		self.categories = categories
-		self._components = None
+		self.__components = None
 
 	#***************************************************************************************
 	#***	Attributes Properties
@@ -557,10 +557,10 @@ class Manager(object):
 		"""
 		This Method Is The Property For The _paths Attribute.
 
-		@return: self._paths. ( Dictionary )
+		@return: self.__paths. ( Dictionary )
 		"""
 
-		return self._paths
+		return self.__paths
 
 	@paths.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -574,7 +574,7 @@ class Manager(object):
 		if value:
 			assert type(value) is dict, "'{0}' Attribute: '{1}' Type Is Not 'dict'!".format("paths", value)
 			for path in value.values(): assert os.path.exists(path), "'{0}' Attribute: '{1}' Directory Doesn't Exists!".format("paths", path)
-		self._paths = value
+		self.__paths = value
 
 	@paths.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -590,10 +590,10 @@ class Manager(object):
 		"""
 		This Method Is The Property For The _extension Attribute.
 
-		@return: self._extension. ( String )
+		@return: self.__extension. ( String )
 		"""
 
-		return self._extension
+		return self.__extension
 
 	@extension.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -606,7 +606,7 @@ class Manager(object):
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' Attribute: '{1}' Type Is Not 'str' or 'unicode'!".format("extension", value)
-		self._extension = value
+		self.__extension = value
 
 	@extension.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -622,10 +622,10 @@ class Manager(object):
 		"""
 		This Method Is The Property For The _categories Attribute.
 
-		@return: self._categories. ( Dictionary )
+		@return: self.__categories. ( Dictionary )
 		"""
 
-		return self._categories
+		return self.__categories
 
 	@categories.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -638,7 +638,7 @@ class Manager(object):
 
 		if value:
 			assert type(value) is dict, "'{0}' Attribute: '{1}' Type Is Not 'dict'!".format("categories", value)
-		self._categories = value
+		self.__categories = value
 
 	@categories.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -654,10 +654,10 @@ class Manager(object):
 		"""
 		This Method Is The Property For The _components Attribute.
 
-		@return: self._components. ( Dictionary )
+		@return: self.__components. ( Dictionary )
 		"""
 
-		return self._components
+		return self.__components
 
 	@components.setter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -733,17 +733,17 @@ class Manager(object):
 		"""
 
 		if self.paths:
-			self._components = {}
+			self.__components = {}
 			walker = Walker()
 			for path in self.paths.keys():
 				walker.root = self.paths[path]
-				walker.walk(("\.{0}$".format(self._extension),), ("\._",))
+				walker.walk(("\.{0}$".format(self.__extension),), ("\._",))
 				for component in walker.files.keys():
 					LOGGER.debug("> Current Component: '{0}'.".format(component))
 					profile = self.getProfile(walker.files[component])
 					if profile:
 						if os.path.isfile(os.path.join(profile.path, profile.module) + ".py"):
-							self._components[profile.name] = profile
+							self.__components[profile.name] = profile
 						else:
 							LOGGER.warning("!> {0} | '{1}' Has No Associated Module And Has Been Rejected!".format(self.__class__.__name__, component))
 							continue
@@ -761,19 +761,19 @@ class Manager(object):
 		@param callback: Callback Object. ( Object )
 		"""
 
-		assert self._components, "'{0}' Manager Has No Components!".format(self)
+		assert self.__components, "'{0}' Manager Has No Components!".format(self)
 
 		for component in self.getComponents():
-			profile = self._components[component]
+			profile = self.__components[component]
 			callback and callback(profile)
 
 			LOGGER.debug("> Current Component: '{0}'.".format(component))
 
 			sys.path.append(profile.path)
 			profile.import_ = __import__(profile.module)
-			object_ = profile.object_ in profile._import.__dict__ and getattr(profile.import_, profile.object_) or None
+			object_ = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
 			if object_ and inspect.isclass(object_):
-				for categorie, type in self._categories.items():
+				for categorie, type in self.__categories.items():
 					profile.categorie = categorie
 					profile.interface = issubclass(object_, type) and object_ is not type and object_(name=profile.name) or None
 					if profile.interface:
@@ -781,7 +781,7 @@ class Manager(object):
 						break
 			else:
 				LOGGER.error("{0} | '{1}' Component Has No Interface And Has Been Rejected!".format(self.__class__.__name__, profile.name))
-				del(self._components[component])
+				del(self.__components[component])
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
@@ -793,7 +793,7 @@ class Manager(object):
 		@return: Deletion Success. ( Boolean )
 		"""
 
-		del(self._components[component])
+		del(self.__components[component])
 		return True
 
 	@core.executionTrace
@@ -805,7 +805,7 @@ class Manager(object):
 		@return: Clearing Success. ( Boolean )
 		"""
 
-		self._components.clear()
+		self.__components.clear()
 		return True
 
 	@core.executionTrace
@@ -818,12 +818,12 @@ class Manager(object):
 		@return: Reload Success. ( Boolean )
 		"""
 
-		profile = self._components[component]
+		profile = self.__components[component]
 		import_ = __import__(profile.module)
 		reload(import_)
 		object_ = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
 		if object_ and inspect.isclass(object_):
-			interface = issubclass(object_, self._categories[profile.categorie]) and object_ is not self._categories[profile.categorie] and object_(name=profile.name) or None
+			interface = issubclass(object_, self.__categories[profile.categorie]) and object_ is not self.__categories[profile.categorie] and object_(name=profile.name) or None
 			if interface:
 				LOGGER.info("{0} | '{1}' Component Has Been Reloaded!".format(self.__class__.__name__, profile.name))
 				profile.import_ = import_
@@ -837,7 +837,7 @@ class Manager(object):
 		This Method Gets The Components By Ranking.
 		"""
 
-		return [component[0] for component in sorted(((component, profile.rank) for component, profile in self._components.items()), key=lambda x:(int(x[1])))]
+		return [component[0] for component in sorted(((component, profile.rank) for component, profile in self.__components.items()), key=lambda x:(int(x[1])))]
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
@@ -850,9 +850,9 @@ class Manager(object):
 		@return: Matching Items. ( List )
 		"""
 
-		assert self._components is not None, "'{0}' Manager Has No Components!".format(self)
+		assert self.__components is not None, "'{0}' Manager Has No Components!".format(self)
 		matchingItems = []
-		for component, profile in self._components.items():
+		for component, profile in self.__components.items():
 			if categorie:
 				if profile.categorie != categorie: continue
 			if re.search(pattern, component):
@@ -869,7 +869,7 @@ class Manager(object):
 		"""
 
 		components = self.filterComponents("^" + component + "$")
-		if components != []: return self._components[components[0]].interface
+		if components != []: return self.__components[components[0]].interface
 
 #***********************************************************************************************
 #***	Python End

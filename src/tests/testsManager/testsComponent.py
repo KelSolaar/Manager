@@ -73,12 +73,12 @@ class ComponentTestCase(unittest.TestCase):
 		"""
 
 		component = Component()
-		requiredAttributes = ("_name",
-							"_activated",
-							"_deactivatable")
+		requiredAttributes = ("name",
+							"activated",
+							"deactivatable")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, component.__dict__)
+			self.assertIn(attribute, dir(component))
 
 	def testRequiredMethods(self):
 		"""

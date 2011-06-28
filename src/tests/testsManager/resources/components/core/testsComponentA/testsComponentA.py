@@ -93,7 +93,7 @@ class TestsComponentA(Component):
 		# --- Setting Class Attributes. ---
 		self.deactivatable = True
 
-		self._container = None
+		self.__container = None
 
 	#***************************************************************************************
 	#***	Attributes Properties
@@ -103,10 +103,10 @@ class TestsComponentA(Component):
 		"""
 		This Method Is The Property For The _container Attribute.
 
-		@return: self._container. ( QObject )
+		@return: self.__container. ( QObject )
 		"""
 
-		return self._container
+		return self.__container
 
 	@container.setter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -140,7 +140,7 @@ class TestsComponentA(Component):
 
 		LOGGER.debug("> Activating '{0}' Component.".format(self.__class__.__name__))
 
-		self._container = container
+		self.__container = container
 
 		self._activate()
 
@@ -152,7 +152,7 @@ class TestsComponentA(Component):
 
 		LOGGER.debug("> Deactivating '{0}' Component.".format(self.__class__.__name__))
 
-		self._container = None
+		self.__container = None
 
 		self._deactivate()
 
