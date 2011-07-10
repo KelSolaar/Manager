@@ -99,7 +99,7 @@ class ComponentTestCase(unittest.TestCase):
 
 		component = Component()
 		component._activate()
-		self.assertTrue(component._activated)
+		self.assertTrue(component.activated)
 
 	def test_deactivate(self):
 		"""
@@ -107,9 +107,9 @@ class ComponentTestCase(unittest.TestCase):
 		"""
 
 		component = Component()
-		component._activated = True
+		component.activated = True
 		component._deactivate()
-		self.assertFalse(component._activated)
+		self.assertFalse(component.activated)
 
 if __name__ == "__main__":
 	import tests.utilities

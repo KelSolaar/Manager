@@ -109,7 +109,7 @@ class ComponentTestCase(unittest.TestCase):
 
 		uiComponent = UiComponent(uiFile=UI_FILE)
 		uiComponent._activate()
-		self.assertTrue(uiComponent._activated)
+		self.assertTrue(uiComponent.activated)
 
 	def test_deactivate(self):
 		"""
@@ -117,9 +117,9 @@ class ComponentTestCase(unittest.TestCase):
 		"""
 
 		uiComponent = UiComponent()
-		uiComponent._activated = True
+		uiComponent.activated = True
 		uiComponent._deactivate()
-		self.assertFalse(uiComponent._activated)
+		self.assertFalse(uiComponent.activated)
 
 	def test_loadUi(self):
 		"""
