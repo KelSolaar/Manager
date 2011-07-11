@@ -854,7 +854,8 @@ class Manager(object):
 		matchingItems = []
 		for component, profile in self.__components.items():
 			if categorie:
-				if profile.categorie != categorie: continue
+				if profile.categorie != categorie:
+					continue
 			if re.search(pattern, component):
 				matchingItems.append(component)
 		return matchingItems
