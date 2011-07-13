@@ -55,7 +55,7 @@ import logging
 #***********************************************************************************************
 import foundations.core as core
 import foundations.exceptions
-from globals.constants import Constants
+from manager.globals.constants import Constants
 
 #***********************************************************************************************
 #***	Global Variables

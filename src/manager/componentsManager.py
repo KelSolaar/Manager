@@ -59,11 +59,11 @@ import re
 #***********************************************************************************************
 import foundations.core as core
 import foundations.exceptions
-from component import Component
-from uiComponent import UiComponent
 from foundations.parser import Parser
 from foundations.walker import Walker
-from globals.constants import Constants
+from manager.component import Component
+from manager.globals.constants import Constants
+from manager.uiComponent import UiComponent
 
 #***********************************************************************************************
 #***	Global Variables
