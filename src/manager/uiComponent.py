@@ -60,8 +60,7 @@ from PyQt4.QtGui import *
 #***********************************************************************************************
 import foundations.core as core
 import foundations.exceptions
-import ui.common as common
-from globals.constants import Constants
+from manager.globals.constants import Constants
 
 #***********************************************************************************************
 #***	Global Variables
@@ -284,7 +283,7 @@ class UiComponent(QWidget):
 		self.__activated = False
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(common.uiExtendedExceptionHandler, False, Exception)
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def _loadUi(self):
 		"""
 		This Method Loads The Ui File.

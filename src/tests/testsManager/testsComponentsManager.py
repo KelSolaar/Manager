@@ -54,8 +54,8 @@ import unittest
 #***********************************************************************************************
 #***	Internal Imports
 #***********************************************************************************************
-from manager.manager import Manager, Profile
 from manager.component import Component
+from manager.componentsManager import Manager, Profile
 
 #***********************************************************************************************
 #***	Overall Variables

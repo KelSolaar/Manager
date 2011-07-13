@@ -28,13 +28,13 @@
 
 """
 ************************************************************************************************
-***	common.py
+***	constants.py
 ***
 ***	Platform:
 ***		Windows, Linux, Mac Os X
 ***
 ***	Description:
-***		UI Common Module.
+***		Constants Module.
 ***
 ***	Others:
 ***
@@ -48,42 +48,34 @@
 #***********************************************************************************************
 #***	External Imports
 #***********************************************************************************************
-import logging
-import os
 import platform
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-
-#***********************************************************************************************
-#***	Internal Imports
-#***********************************************************************************************
-import foundations.common
-import foundations.core as core
-import foundations.exceptions
-import ui.widgets.messageBox as messageBox
-from globals.constants import Constants
-
-#***********************************************************************************************
-#***	Overall Variables
-#***********************************************************************************************
-LOGGER = logging.getLogger(Constants.logger)
 
 #***********************************************************************************************
 #***	Module Classes And Definitions
 #***********************************************************************************************
-@core.executionTrace
-def uiExtendedExceptionHandler(exception, origin, *args, **kwargs):
+class Constants():
 	"""
-	This Definition Provides A Ui Extended Exception Handler.
-	
-	@param exception: Exception. ( Exception )
-	@param origin: Function / Method Raising The Exception. ( String )
-	@param *args: Arguments. ( * )
-	@param **kwargs: Arguments. ( * )
+	This Class Is The Constants Class.
 	"""
 
-	messageBox.messageBox("Error", "Exception", "Exception In '{0}': {1}".format(origin, exception))
-	foundations.exceptions.defaultExceptionsHandler(exception, origin, *args, **kwargs)
+	applicationName = "Manager"
+
+	logger = "Default_Logger"
+	verbosityLevel = 3
+	verbosityLabels = ("Critical", "Error", "Warning", "Info", "Debug")
+	loggingDefaultFormatter = "Default"
+	loggingSeparators = "*" * 96
+
+	encodingFormat = "utf-8"
+	encodingError = "ignore"
+
+	applicationDirectory = "Manager"
+	if platform.system() == "Windows" or platform.system() == "Microsoft" or platform.system() == "Darwin":
+		providerDirectory = "HDRLabs"
+	elif platform.system() == "Linux":
+		providerDirectory = ".HDRLabs"
+
+	nullObject = "None"
 
 #***********************************************************************************************
 #***	Python End
