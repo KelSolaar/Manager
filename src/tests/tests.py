@@ -50,6 +50,7 @@
 #***********************************************************************************************
 import os
 import unittest
+import sys
 
 #***********************************************************************************************
 #***	Internal Imports
@@ -62,6 +63,19 @@ import unittest
 #***********************************************************************************************
 #***	Module Classes And Definitions
 #***********************************************************************************************
+def _setApplicationPackageDirectory():
+	"""
+	This Definition Sets The Application Package Directory In The Path.
+
+	@return: Definition Success. ( Boolean )		
+	"""
+
+	applicationPackageDirectory = os.path.normpath(os.path.join(sys.path[0], "../"))
+	applicationPackageDirectory not in sys.path and sys.path.append(applicationPackageDirectory)
+	return True
+
+_setApplicationPackageDirectory()
+
 def testsSuite():
 	testsLoader = unittest.TestLoader()
 	return testsLoader.discover(os.path.dirname(__file__))
