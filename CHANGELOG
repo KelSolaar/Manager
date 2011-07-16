@@ -1,6 +1,12 @@
-h1=. Manager - 1.0.1 - Stable
+h1=. Manager - 1.0.2 - Stable
 
 h2=. Change Log
+
+h3. 1.0.2 - Stable
+
+* Reorganize package directories structure.
+* Replaced list comprehension expressions by generators.
+* Added missing units tests dependencies.
 
 h3. 1.0.1 - Stable
 
