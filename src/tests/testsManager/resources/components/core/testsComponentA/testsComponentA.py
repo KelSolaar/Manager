@@ -26,7 +26,7 @@
 #
 #***********************************************************************************************
 #
-# If You Are A HDRI Ressources Vendor And Are Interested In Making Your Sets SmartIBL Compliant:
+# If You Are A HDRI Resources Vendor And Are Interested In Making Your Sets SmartIBL Compliant:
 # Please Contact Us At HDRLabs:
 # Christian Bloch - blochi@edenfx.com
 # Thomas Mansencal - thomas.mansencal@gmail.com
@@ -47,16 +47,16 @@
 """
 
 #***********************************************************************************************
-#***	Python Begin
+#***	Python Begin.
 #***********************************************************************************************
 
 #***********************************************************************************************
-#***	External Imports
+#***	External Imports.
 #***********************************************************************************************
 import logging
 
 #***********************************************************************************************
-#***	Internal Imports
+#***	Internal Imports.
 #***********************************************************************************************
 import foundations.core as core
 import foundations.exceptions
@@ -64,12 +64,12 @@ from manager.component import Component
 from manager.globals.constants import Constants
 
 #***********************************************************************************************
-#***	Global Variables
+#***	Global Variables.
 #***********************************************************************************************
 LOGGER = logging.getLogger(Constants.logger)
 
 #***********************************************************************************************
-#***	Module Classes And Definitions
+#***	Module Classes And Definitions.
 #***********************************************************************************************
 class TestsComponentA(Component):
 	"""
@@ -93,9 +93,9 @@ class TestsComponentA(Component):
 
 		self.__container = None
 
-	#***************************************************************************************
-	#***	Attributes Properties
-	#***************************************************************************************
+	#***********************************************************************************************
+	#***	Attributes Properties.
+	#***********************************************************************************************
 	@property
 	def container(self):
 		"""
@@ -125,9 +125,9 @@ class TestsComponentA(Component):
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("container"))
-	#***************************************************************************************
-	#***	Class Methods
-	#***************************************************************************************
+	#***********************************************************************************************
+	#***	Class Methods.
+	#***********************************************************************************************
 	@core.executionTrace
 	def activate(self, container):
 		"""
@@ -171,5 +171,5 @@ class TestsComponentA(Component):
 		LOGGER.debug("> Uninitializing '{0}' Component.".format(self.__class__.__name__))
 
 #***********************************************************************************************
-#***	Python End
+#***	Python End.
 #***********************************************************************************************
