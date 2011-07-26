@@ -80,7 +80,7 @@ class TestsComponentC(Component):
 	def __init__(self, name=None):
 		"""
 		This Method Initializes The Class.
-		
+
 		@param name: Component Name. ( String )
 		"""
 
@@ -132,7 +132,7 @@ class TestsComponentC(Component):
 	def activate(self, container):
 		"""
 		This Method Activates The Component.
-		
+
 		@param container: Container To Attach The Component To. ( QObject )
 		"""
 

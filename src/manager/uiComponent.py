@@ -77,7 +77,7 @@ class UiComponent(QWidget):
 	def __init__(self, name=None, uiFile=None):
 		"""
 		This Method Initializes The Class.
-		
+
 		@param name: Component Name. ( String )
 		@param uiFile: Ui File. ( String )
 		"""
@@ -116,7 +116,7 @@ class UiComponent(QWidget):
 	def name(self, value):
 		"""
 		This Method Is The Setter Method For The _name Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -148,7 +148,7 @@ class UiComponent(QWidget):
 	def activated(self, value):
 		"""
 		This Method Is The Setter Method For The _activated Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -180,7 +180,7 @@ class UiComponent(QWidget):
 	def deactivatable(self, value):
 		"""
 		This Method Is The Setter Method For The _deactivatable Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -212,7 +212,7 @@ class UiComponent(QWidget):
 	def uiFile(self, value):
 		"""
 		This Method Is The Setter Method For The _uiFile Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -244,7 +244,7 @@ class UiComponent(QWidget):
 	def ui(self, value):
 		"""
 		This Method Is The Setter Method For The _ui Attribute.
-		
+
 		@param value: Attribute Value. ( Object )
 		"""
 

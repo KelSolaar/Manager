@@ -80,7 +80,7 @@ class Profile(object):
 	def __init__(self, name=None, path=None):
 		"""
 		This Method Initializes The Class.
-		
+
 		@param name: Name Of The Component. ( String )
 		@param path: Path Of The Component. ( String )
 		"""
@@ -124,7 +124,7 @@ class Profile(object):
 	def name(self, value):
 		"""
 		This Method Is The Setter Method For The _name Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -156,7 +156,7 @@ class Profile(object):
 	def path(self, value):
 		"""
 		This Method Is The Setter Method For The _path Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -189,7 +189,7 @@ class Profile(object):
 	def object_(self, value):
 		"""
 		This Method Is The Setter Method For The _object_ Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -221,7 +221,7 @@ class Profile(object):
 	def rank(self, value):
 		"""
 		This Method Is The Setter Method For The _rank Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -253,7 +253,7 @@ class Profile(object):
 	def import_(self, value):
 		"""
 		This Method Is The Setter Method For The _import_ Attribute.
-		
+
 		@param value: Attribute Value. ( Module )
 		"""
 
@@ -284,7 +284,7 @@ class Profile(object):
 	def interface(self, value):
 		"""
 		This Method Is The Setter Method For The _interface Attribute.
-		
+
 		@param value: Attribute Value. ( Object )
 		"""
 
@@ -314,7 +314,7 @@ class Profile(object):
 	def categorie(self, value):
 		"""
 		This Method Is The Setter Method For The _categorie Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -346,7 +346,7 @@ class Profile(object):
 	def module(self, value):
 		"""
 		This Method Is The Setter Method For The _module Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -378,7 +378,7 @@ class Profile(object):
 	def version(self, value):
 		"""
 		This Method Is The Setter Method For The _version Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -410,7 +410,7 @@ class Profile(object):
 	def author(self, value):
 		"""
 		This Method Is The Setter Method For The _author Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -442,7 +442,7 @@ class Profile(object):
 	def email(self, value):
 		"""
 		This Method Is The Setter Method For The _email Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -474,7 +474,7 @@ class Profile(object):
 	def url(self, value):
 		"""
 		This Method Is The Setter Method For The _url Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -506,7 +506,7 @@ class Profile(object):
 	def description(self, value):
 		"""
 		This Method Is The Setter Method For The _description Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -565,7 +565,7 @@ class Manager(object):
 	def paths(self, value):
 		"""
 		This Method Is The Setter Method For The _paths Attribute.
-		
+
 		@param value: Attribute Value. ( Dictionary )
 		"""
 
@@ -630,7 +630,7 @@ class Manager(object):
 	def categories(self, value):
 		"""
 		This Method Is The Setter Method For The _categories Attribute.
-		
+
 		@param value: Attribute Value. ( Dictionary )
 		"""
 
@@ -811,7 +811,7 @@ class Manager(object):
 	def reloadComponent(self, component):
 		"""
 		This Method Reload The Provided Component.
-		
+
 		@param callback: Callback Object. ( Object )
 		@return: Reload Success. ( Boolean )
 		"""
@@ -842,7 +842,7 @@ class Manager(object):
 	def filterComponents(self, pattern, categorie=None):
 		"""
 		This Method Filters The Components Using The Provided Pattern.
-		
+
 		@param pattern: Regex Filtering Pattern. ( String )
 		@param categorie: Categorie Filter. ( String )
 		@return: Matching Items. ( List )
@@ -862,7 +862,7 @@ class Manager(object):
 	def getInterface(self, component):
 		"""
 		This Method Gets The Component Interface.
-		
+
 		@param component: Component To Get The Interface.
 		@return: Component Interface. ( Object )
 		"""

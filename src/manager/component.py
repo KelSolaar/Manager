@@ -72,7 +72,7 @@ class Component(object):
 	def __init__(self, name=None):
 		"""
 		This Method Initializes The Class.
-		
+
 		@param name: Component Name. ( String )
 		"""
 
@@ -103,7 +103,7 @@ class Component(object):
 	def name(self, value):
 		"""
 		This Method Is The Setter Method For The _name Attribute.
-		
+
 		@param value: Attribute Value. ( String )
 		"""
 
@@ -135,7 +135,7 @@ class Component(object):
 	def activated(self, value):
 		"""
 		This Method Is The Setter Method For The _activated Attribute.
-		
+
 		@param value: Attribute Value. ( Boolean )
 		"""
 
@@ -167,7 +167,7 @@ class Component(object):
 	def deactivatable(self, value):
 		"""
 		This Method Is The Setter Method For The _deactivatable Attribute.
-		
+
 		@param value: Attribute Value. ( Boolean )
 		"""
 
