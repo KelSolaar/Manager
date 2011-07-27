@@ -33,7 +33,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	UiComponent Tests Module.
+	UiComponent tests Module.
 
 **Others:**
 
@@ -69,12 +69,12 @@ APPLICATION = QApplication(sys.argv)
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This Class Is The ComponentTestCase Class.
+	This class is the ComponentTestCase class.
 	"""
 
 	def testRequiredAttributes(self):
 		"""
-		This Method Tests Presence Of Required Attributes.
+		This method tests presence of required attributes.
 		"""
 
 		uiComponent = UiComponent()
@@ -89,7 +89,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def testRequiredMethods(self):
 		"""
-		This Method Tests Presence Of Required Methods.
+		This method tests presence of required methods.
 		"""
 
 		uiComponent = UiComponent()
@@ -102,7 +102,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_activate(self):
 		"""
-		This Method Tests The "uiComponent" Class "_activate" Method.
+		This method tests the "uiComponent" class "_activate" method.
 		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)
@@ -111,7 +111,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_deactivate(self):
 		"""
-		This Method Tests The "uiComponent" Class "_deactivate" Method.
+		This method tests the "uiComponent" class "_deactivate" method.
 		"""
 
 		uiComponent = UiComponent()
@@ -121,7 +121,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_loadUi(self):
 		"""
-		This Method Tests The "uiComponent" Class "_loadUi" Method.
+		This method tests the "uiComponent" class "_loadUi" method.
 		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)

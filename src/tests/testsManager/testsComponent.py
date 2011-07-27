@@ -33,7 +33,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Component Tests Module.
+	Component tests Module.
 
 **Others:**
 
@@ -62,12 +62,12 @@ from manager.component import Component
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This Class Is The ComponentTestCase Class.
+	This class is the ComponentTestCase class.
 	"""
 
 	def testRequiredAttributes(self):
 		"""
-		This Method Tests Presence Of Required Attributes.
+		This method tests presence of required attributes.
 		"""
 
 		component = Component()
@@ -80,7 +80,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def testRequiredMethods(self):
 		"""
-		This Method Tests Presence Of Required Methods.
+		This method tests presence of required methods.
 		"""
 
 		component = Component()
@@ -92,7 +92,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_activate(self):
 		"""
-		This Method Tests The "Component" Class "_activate" Method.
+		This method tests the "Component" class "_activate" method.
 		"""
 
 		component = Component()
@@ -101,7 +101,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_deactivate(self):
 		"""
-		This Method Tests The "Component" Class "_deactivate" Method.
+		This method tests the "Component" class "_deactivate" method.
 		"""
 
 		component = Component()

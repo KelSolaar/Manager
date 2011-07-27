@@ -40,7 +40,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Tests Component B Module.
+	Tests Component b Module.
 
 **Others:**
 
@@ -73,18 +73,18 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class TestsComponentB(Component):
 	"""
-	This Class Is The TestsComponentB Class.
+	This class is the TestsComponentB class.
 	"""
 
 	@core.executionTrace
 	def __init__(self, name=None):
 		"""
-		This Method Initializes The Class.
+		This method initializes the class.
 
-		@param name: Component Name. ( String )
+		@param name: Component name. ( String )
 		"""
 
-		LOGGER.debug("> Initializing '{0}()' Class.".format(self.__class__.__name__))
+		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
 
 		Component.__init__(self, name=name)
 
@@ -99,7 +99,7 @@ class TestsComponentB(Component):
 	@property
 	def container(self):
 		"""
-		This Method Is The Property For The _container Attribute.
+		This method is the property for the _container attribute.
 
 		@return: self.__container. ( QObject )
 		"""
@@ -110,33 +110,33 @@ class TestsComponentB(Component):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def container(self, value):
 		"""
-		This Method Is The Setter Method For The _container Attribute.
+		This method is the setter method for the _container attribute.
 
-		@param value: Attribute Value. ( QObject )
+		@param value: Attribute value. ( QObject )
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Read Only!".format("container"))
+		raise foundations.exceptions.ProgrammingError("'{0}' attribute is read only!".format("container"))
 
 	@container.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def container(self):
 		"""
-		This Method Is The Deleter Method For The _container Attribute.
+		This method is the deleter method for the _container attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' Attribute Is Not Deletable!".format("container"))
+		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("container"))
 	#***********************************************************************************************
 	#***	Class methods.
 	#***********************************************************************************************
 	@core.executionTrace
 	def activate(self, container):
 		"""
-		This Method Activates The Component.
+		This method activates the Component.
 
-		@param container: Container To Attach The Component To. ( QObject )
+		@param container: Container to attach the Component to. ( QObject )
 		"""
 
-		LOGGER.debug("> Activating '{0}' Component.".format(self.__class__.__name__))
+		LOGGER.debug("> Activating '{0}' component.".format(self.__class__.__name__))
 
 		self.__container = container
 
@@ -145,10 +145,10 @@ class TestsComponentB(Component):
 	@core.executionTrace
 	def deactivate(self):
 		"""
-		This Method Deactivates The Component.
+		This method deactivates the Component.
 		"""
 
-		LOGGER.debug("> Deactivating '{0}' Component.".format(self.__class__.__name__))
+		LOGGER.debug("> Deactivating '{0}' component.".format(self.__class__.__name__))
 
 		self.__container = None
 
@@ -157,18 +157,18 @@ class TestsComponentB(Component):
 	@core.executionTrace
 	def initialize(self):
 		"""
-		This Method Initializes The Component.
+		This method initializes the Component.
 		"""
 
-		LOGGER.debug("> Initializing '{0}' Component.".format(self.__class__.__name__))
+		LOGGER.debug("> Initializing '{0}' component.".format(self.__class__.__name__))
 
 	@core.executionTrace
 	def uninitialize(self):
 		"""
-		This Method Uninitializes The Component.
+		This method uninitializes the Component.
 		"""
 
-		LOGGER.debug("> Uninitializing '{0}' Component.".format(self.__class__.__name__))
+		LOGGER.debug("> Uninitializing '{0}' component.".format(self.__class__.__name__))
 
 #***********************************************************************************************
 #***	Python end.
