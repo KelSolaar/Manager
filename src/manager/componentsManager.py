@@ -759,7 +759,7 @@ class Manager(object):
 		@param callback: Callback object. ( Object )
 		"""
 
-		assert self.__components, "'{0}' manager has no Components!".format(self)
+		assert self.__components, "'{0}' Manager has no Components!".format(self)
 
 		for component in self.getComponents():
 			profile = self.__components[component]
@@ -775,10 +775,10 @@ class Manager(object):
 					profile.categorie = categorie
 					profile.interface = issubclass(object_, type) and object_ is not type and object_(name=profile.name) or None
 					if profile.interface:
-						LOGGER.info("{0} | '{1}' component has been instantiated!".format(self.__class__.__name__, profile.name))
+						LOGGER.info("{0} | '{1}' Component has been instantiated!".format(self.__class__.__name__, profile.name))
 						break
 			else:
-				LOGGER.error("{0} | '{1}' component has no interface and has been rejected!".format(self.__class__.__name__, profile.name))
+				LOGGER.error("{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
 				del(self.__components[component])
 
 	@core.executionTrace
@@ -823,7 +823,7 @@ class Manager(object):
 		if object_ and inspect.isclass(object_):
 			interface = issubclass(object_, self.__categories[profile.categorie]) and object_ is not self.__categories[profile.categorie] and object_(name=profile.name) or None
 			if interface:
-				LOGGER.info("{0} | '{1}' component has been reloaded!".format(self.__class__.__name__, profile.name))
+				LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
 				profile.import_ = import_
 				profile.interface = interface
 
@@ -848,7 +848,7 @@ class Manager(object):
 		@return: Matching items. ( List )
 		"""
 
-		assert self.__components is not None, "'{0}' manager has no Components!".format(self)
+		assert self.__components is not None, "'{0}' Manager has no Components!".format(self)
 		matchingItems = []
 		for component, profile in self.__components.items():
 			if categorie:

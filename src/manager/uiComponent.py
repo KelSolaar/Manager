@@ -293,7 +293,7 @@ class UiComponent(QWidget):
 				sys.path.remove(".")
 			return True
 		else:
-			raise foundations.exceptions.ProgrammingError, "'{0}' component ui file doesn't exists!".format(self.__name)
+			raise foundations.exceptions.ProgrammingError, "'{0}' Component ui file doesn't exists!".format(self.__name)
 
 #***********************************************************************************************
 #***	Python end.

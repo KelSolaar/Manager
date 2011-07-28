@@ -108,7 +108,7 @@ class ProfileTestCase(unittest.TestCase):
 
 def testManagerCallback(profile):
 	"""
-	This definition is the manager test callback.
+	This definition is the Manager test callback.
 	"""
 
 	profile.callback = True

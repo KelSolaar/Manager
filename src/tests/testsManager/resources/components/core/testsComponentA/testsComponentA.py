@@ -136,7 +136,7 @@ class TestsComponentA(Component):
 		@param container: Container to attach the Component to. ( QObject )
 		"""
 
-		LOGGER.debug("> Activating '{0}' component.".format(self.__class__.__name__))
+		LOGGER.debug("> Activating '{0}' Component.".format(self.__class__.__name__))
 
 		self.__container = container
 
@@ -148,7 +148,7 @@ class TestsComponentA(Component):
 		This method deactivates the Component.
 		"""
 
-		LOGGER.debug("> Deactivating '{0}' component.".format(self.__class__.__name__))
+		LOGGER.debug("> Deactivating '{0}' Component.".format(self.__class__.__name__))
 
 		self.__container = None
 
@@ -160,7 +160,7 @@ class TestsComponentA(Component):
 		This method initializes the Component.
 		"""
 
-		LOGGER.debug("> Initializing '{0}' component.".format(self.__class__.__name__))
+		LOGGER.debug("> Initializing '{0}' Component.".format(self.__class__.__name__))
 
 	@core.executionTrace
 	def uninitialize(self):
@@ -168,7 +168,7 @@ class TestsComponentA(Component):
 		This method uninitializes the Component.
 		"""
 
-		LOGGER.debug("> Uninitializing '{0}' component.".format(self.__class__.__name__))
+		LOGGER.debug("> Uninitializing '{0}' Component.".format(self.__class__.__name__))
 
 #***********************************************************************************************
 #***	Python end.
