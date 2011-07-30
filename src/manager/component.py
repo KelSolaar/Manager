@@ -51,7 +51,7 @@ class Component(object):
 		"""
 		This method initializes the class.
 
-		@param name: Component name. ( String )
+		:param name: Component name. ( String )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -71,7 +71,7 @@ class Component(object):
 		"""
 		This method is the property for the _name attribute.
 
-		@return: self.__name. ( String )
+		:return: self.__name. ( String )
 		"""
 
 		return self.__name
@@ -82,7 +82,7 @@ class Component(object):
 		"""
 		This method is the setter method for the _name attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -103,7 +103,7 @@ class Component(object):
 		"""
 		This method is the property for the _activated attribute.
 
-		@return: self.__activated. ( Boolean )
+		:return: self.__activated. ( Boolean )
 		"""
 
 		return self.__activated
@@ -114,7 +114,7 @@ class Component(object):
 		"""
 		This method is the setter method for the _activated attribute.
 
-		@param value: Attribute value. ( Boolean )
+		:param value: Attribute value. ( Boolean )
 		"""
 
 		if value:
@@ -135,7 +135,7 @@ class Component(object):
 		"""
 		This method is the property for the _deactivatable attribute.
 
-		@return: self.__deactivatable. ( Boolean )
+		:return: self.__deactivatable. ( Boolean )
 		"""
 
 		return self.__deactivatable
@@ -146,7 +146,7 @@ class Component(object):
 		"""
 		This method is the setter method for the _deactivatable attribute.
 
-		@param value: Attribute value. ( Boolean )
+		:param value: Attribute value. ( Boolean )
 		"""
 
 		if value:

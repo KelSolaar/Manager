@@ -56,8 +56,8 @@ class UiComponent(QWidget):
 		"""
 		This method initializes the class.
 
-		@param name: Component name. ( String )
-		@param uiFile: Ui file. ( String )
+		:param name: Component name. ( String )
+		:param uiFile: Ui file. ( String )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -84,7 +84,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the property for the _name attribute.
 
-		@return: self.__name. ( String )
+		:return: self.__name. ( String )
 		"""
 
 		return self.__name
@@ -95,7 +95,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the setter method for the _name attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -116,7 +116,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the property for the _activated attribute.
 
-		@return: self.__activated. ( String )
+		:return: self.__activated. ( String )
 		"""
 
 		return self.__activated
@@ -127,7 +127,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the setter method for the _activated attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -148,7 +148,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the property for the _deactivatable attribute.
 
-		@return: self.__deactivatable. ( String )
+		:return: self.__deactivatable. ( String )
 		"""
 
 		return self.__deactivatable
@@ -159,7 +159,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the setter method for the _deactivatable attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -180,7 +180,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the property for the _uiFile attribute.
 
-		@return: self.__uiFile. ( String )
+		:return: self.__uiFile. ( String )
 		"""
 
 		return self.__uiFile
@@ -191,7 +191,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the setter method for the _uiFile attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -213,7 +213,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the property for the _ui attribute.
 
-		@return: self.__ui. ( Object )
+		:return: self.__ui. ( Object )
 		"""
 
 		return self.__ui
@@ -223,7 +223,7 @@ class UiComponent(QWidget):
 		"""
 		This method is the setter method for the _ui attribute.
 
-		@param value: Attribute value. ( Object )
+		:param value: Attribute value. ( Object )
 		"""
 
 		self.__ui = value

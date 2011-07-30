@@ -59,8 +59,8 @@ class Profile(object):
 		"""
 		This method initializes the class.
 
-		@param name: Name of the Component. ( String )
-		@param path: Path of the Component. ( String )
+		:param name: Name of the Component. ( String )
+		:param path: Path of the Component. ( String )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -92,7 +92,7 @@ class Profile(object):
 		"""
 		This method is the property for the _name attribute.
 
-		@return: self.__name. ( String )
+		:return: self.__name. ( String )
 		"""
 
 		return self.__name
@@ -103,7 +103,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _name attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -124,7 +124,7 @@ class Profile(object):
 		"""
 		This method is the property for the _path attribute.
 
-		@return: self.__path. ( String )
+		:return: self.__path. ( String )
 		"""
 
 		return self.__path
@@ -135,7 +135,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _path attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -157,7 +157,7 @@ class Profile(object):
 		"""
 		This method is the property for the _object_ attribute.
 
-		@return: self.__object_. ( String )
+		:return: self.__object_. ( String )
 		"""
 
 		return self.__object_
@@ -168,7 +168,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _object_ attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -189,7 +189,7 @@ class Profile(object):
 		"""
 		This method is the property for the _rank attribute.
 
-		@return: self.__rank. ( String )
+		:return: self.__rank. ( String )
 		"""
 
 		return self.__rank
@@ -200,7 +200,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _rank attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -221,7 +221,7 @@ class Profile(object):
 		"""
 		This method is the property for the _import_ attribute.
 
-		@return: self.__import. ( Module )
+		:return: self.__import. ( Module )
 		"""
 
 		return self.__import
@@ -232,7 +232,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _import_ attribute.
 
-		@param value: Attribute value. ( Module )
+		:param value: Attribute value. ( Module )
 		"""
 
 		if value:
@@ -253,7 +253,7 @@ class Profile(object):
 		"""
 		This method is the property for the _interface attribute.
 
-		@return: self.__interface. ( Object )
+		:return: self.__interface. ( Object )
 		"""
 
 		return self.__interface
@@ -263,7 +263,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _interface attribute.
 
-		@param value: Attribute value. ( Object )
+		:param value: Attribute value. ( Object )
 		"""
 
 		self.__interface = value
@@ -282,7 +282,7 @@ class Profile(object):
 		"""
 		This method is the property for the _categorie attribute.
 
-		@return: self.__categorie. ( String )
+		:return: self.__categorie. ( String )
 		"""
 
 		return self.__categorie
@@ -293,7 +293,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _categorie attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -314,7 +314,7 @@ class Profile(object):
 		"""
 		This method is the property for the _module attribute.
 
-		@return: self.__module. ( String )
+		:return: self.__module. ( String )
 		"""
 
 		return self.__module
@@ -325,7 +325,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _module attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -346,7 +346,7 @@ class Profile(object):
 		"""
 		This method is the property for the _version attribute.
 
-		@return: self.__version. ( String )
+		:return: self.__version. ( String )
 		"""
 
 		return self.__version
@@ -357,7 +357,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _version attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -378,7 +378,7 @@ class Profile(object):
 		"""
 		This method is the property for the _author attribute.
 
-		@return: self.__author. ( String )
+		:return: self.__author. ( String )
 		"""
 
 		return self.__author
@@ -389,7 +389,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _author attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -410,7 +410,7 @@ class Profile(object):
 		"""
 		This method is the property for the _email attribute.
 
-		@return: self.__email. ( String )
+		:return: self.__email. ( String )
 		"""
 
 		return self.__email
@@ -421,7 +421,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _email attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -442,7 +442,7 @@ class Profile(object):
 		"""
 		This method is the property for the _url attribute.
 
-		@return: self.__url. ( String )
+		:return: self.__url. ( String )
 		"""
 
 		return self.__url
@@ -453,7 +453,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _url attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -474,7 +474,7 @@ class Profile(object):
 		"""
 		This method is the property for the _description attribute.
 
-		@return: self.__description. ( String )
+		:return: self.__description. ( String )
 		"""
 
 		return self.__description
@@ -485,7 +485,7 @@ class Profile(object):
 		"""
 		This method is the setter method for the _description attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -510,8 +510,8 @@ class Manager(object):
 	def __init__(self, paths=None, extension="rc", categories={ "default" : Component, "ui" : UiComponent }):
 		"""
 		This method initializes the class.
-		@param paths: Paths to walk. ( Dictionary )
-		@param extension: Extension to look after. ( String )
+		:param paths: Paths to walk. ( Dictionary )
+		:param extension: Extension to look after. ( String )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -533,7 +533,7 @@ class Manager(object):
 		"""
 		This method is the property for the _paths attribute.
 
-		@return: self.__paths. ( Dictionary )
+		:return: self.__paths. ( Dictionary )
 		"""
 
 		return self.__paths
@@ -544,7 +544,7 @@ class Manager(object):
 		"""
 		This method is the setter method for the _paths attribute.
 
-		@param value: Attribute value. ( Dictionary )
+		:param value: Attribute value. ( Dictionary )
 		"""
 
 		if value:
@@ -566,7 +566,7 @@ class Manager(object):
 		"""
 		This method is the property for the _extension attribute.
 
-		@return: self.__extension. ( String )
+		:return: self.__extension. ( String )
 		"""
 
 		return self.__extension
@@ -577,7 +577,7 @@ class Manager(object):
 		"""
 		This method is the setter method for the _extension attribute.
 
-		@param value: Attribute value. ( String )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -598,7 +598,7 @@ class Manager(object):
 		"""
 		This method is the property for the _categories attribute.
 
-		@return: self.__categories. ( Dictionary )
+		:return: self.__categories. ( Dictionary )
 		"""
 
 		return self.__categories
@@ -609,7 +609,7 @@ class Manager(object):
 		"""
 		This method is the setter method for the _categories attribute.
 
-		@param value: Attribute value. ( Dictionary )
+		:param value: Attribute value. ( Dictionary )
 		"""
 
 		if value:
@@ -630,7 +630,7 @@ class Manager(object):
 		"""
 		This method is the property for the _components attribute.
 
-		@return: self.__components. ( Dictionary )
+		:return: self.__components. ( Dictionary )
 		"""
 
 		return self.__components
@@ -641,7 +641,7 @@ class Manager(object):
 		"""
 		This method is the setter method for the _components attribute.
 
-		@param value: Attribute value. ( Object )
+		:param value: Attribute value. ( Object )
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is read only!".format("components"))
@@ -664,8 +664,8 @@ class Manager(object):
 		"""
 		This method gets provided Component Profile.
 
-		@param file: File path. ( String )
-		@return: Profile. ( Profile )
+		:param file: File path. ( String )
+		:return: Profile. ( Profile )
 		"""
 
 		LOGGER.debug("> Building '{0}' profile.".format(file))
@@ -734,7 +734,7 @@ class Manager(object):
 		"""
 		This method instantiates the Components.
 
-		@param callback: Callback object. ( Object )
+		:param callback: Callback object. ( Object )
 		"""
 
 		assert self.__components, "'{0}' Manager has no Components!".format(self)
@@ -765,8 +765,8 @@ class Manager(object):
 		"""
 		This method removes the Provided Component.
 
-		@param component: Component to remove. ( List )
-		@return: Deletion success. ( Boolean )
+		:param component: Component to remove. ( List )
+		:return: Deletion success. ( Boolean )
 		"""
 
 		del(self.__components[component])
@@ -778,7 +778,7 @@ class Manager(object):
 		"""
 		This method clears the Components.
 
-		@return: Clearing success. ( Boolean )
+		:return: Clearing success. ( Boolean )
 		"""
 
 		self.__components.clear()
@@ -790,8 +790,8 @@ class Manager(object):
 		"""
 		This method reload the Provided Component.
 
-		@param callback: Callback object. ( Object )
-		@return: Reload success. ( Boolean )
+		:param callback: Callback object. ( Object )
+		:return: Reload success. ( Boolean )
 		"""
 
 		profile = self.__components[component]
@@ -821,9 +821,9 @@ class Manager(object):
 		"""
 		This method filters the Components using the provided pattern.
 
-		@param pattern: Regex filtering pattern. ( String )
-		@param categorie: Categorie filter. ( String )
-		@return: Matching items. ( List )
+		:param pattern: Regex filtering pattern. ( String )
+		:param categorie: Categorie filter. ( String )
+		:return: Matching items. ( List )
 		"""
 
 		assert self.__components is not None, "'{0}' Manager has no Components!".format(self)
@@ -841,8 +841,8 @@ class Manager(object):
 		"""
 		This method gets the Component interface.
 
-		@param component: Component to get the interface.
-		@return: Component interface. ( Object )
+		:param component: Component to get the interface.
+		:return: Component interface. ( Object )
 		"""
 
 		components = self.filterComponents("^" + component + "$")
