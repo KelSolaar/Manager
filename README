@@ -4,7 +4,6 @@
 Manager is the Components Manager package of sIBL_GUI and sIBL_Reporter.
 Manager depends on Foundations package available from Github: https://github.com/KelSolaar/Foundations. You will need to create some symbolic links from "Foundations/src/foundations" to "Manager/src/foundations", from "Foundations/src/tests/testsFoundations" to "Manager/src/tests/testsFoundations" or ensure the packages are available in Python path.
 
-
 - Installation / Usage -
 
 - About -
