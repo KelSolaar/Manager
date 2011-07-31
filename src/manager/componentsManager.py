@@ -90,7 +90,7 @@ class Profile(object):
 	@property
 	def name(self):
 		"""
-		This method is the property for the _name attribute.
+		This method is the property for the __name attribute.
 
 		:return: self.__name. ( String )
 		"""
@@ -101,7 +101,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def name(self, value):
 		"""
-		This method is the setter method for the _name attribute.
+		This method is the setter method for the __name attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -114,7 +114,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
-		This method is the deleter method for the _name attribute.
+		This method is the deleter method for the __name attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("name"))
@@ -122,7 +122,7 @@ class Profile(object):
 	@property
 	def path(self):
 		"""
-		This method is the property for the _path attribute.
+		This method is the property for the __path attribute.
 
 		:return: self.__path. ( String )
 		"""
@@ -133,7 +133,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def path(self, value):
 		"""
-		This method is the setter method for the _path attribute.
+		This method is the setter method for the __path attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -147,7 +147,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def path(self):
 		"""
-		This method is the deleter method for the _path attribute.
+		This method is the deleter method for the __path attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("path"))
@@ -155,7 +155,7 @@ class Profile(object):
 	@property
 	def object_(self):
 		"""
-		This method is the property for the _object_ attribute.
+		This method is the property for the __object_ attribute.
 
 		:return: self.__object_. ( String )
 		"""
@@ -166,7 +166,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def object_(self, value):
 		"""
-		This method is the setter method for the _object_ attribute.
+		This method is the setter method for the __object_ attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -179,7 +179,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def object_(self):
 		"""
-		This method is the deleter method for the _object_ attribute.
+		This method is the deleter method for the __object_ attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("object_"))
@@ -187,7 +187,7 @@ class Profile(object):
 	@property
 	def rank(self):
 		"""
-		This method is the property for the _rank attribute.
+		This method is the property for the __rank attribute.
 
 		:return: self.__rank. ( String )
 		"""
@@ -198,7 +198,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def rank(self, value):
 		"""
-		This method is the setter method for the _rank attribute.
+		This method is the setter method for the __rank attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -211,7 +211,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def rank(self):
 		"""
-		This method is the deleter method for the _rank attribute.
+		This method is the deleter method for the __rank attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("rank"))
@@ -219,7 +219,7 @@ class Profile(object):
 	@property
 	def import_(self):
 		"""
-		This method is the property for the _import_ attribute.
+		This method is the property for the __import_ attribute.
 
 		:return: self.__import. ( Module )
 		"""
@@ -230,7 +230,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def import_(self, value):
 		"""
-		This method is the setter method for the _import_ attribute.
+		This method is the setter method for the __import_ attribute.
 
 		:param value: Attribute value. ( Module )
 		"""
@@ -243,7 +243,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def import_(self):
 		"""
-		This method is the deleter method for the _import_ attribute.
+		This method is the deleter method for the __import_ attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("import"))
@@ -251,7 +251,7 @@ class Profile(object):
 	@property
 	def interface(self):
 		"""
-		This method is the property for the _interface attribute.
+		This method is the property for the __interface attribute.
 
 		:return: self.__interface. ( Object )
 		"""
@@ -261,7 +261,7 @@ class Profile(object):
 	@interface.setter
 	def interface(self, value):
 		"""
-		This method is the setter method for the _interface attribute.
+		This method is the setter method for the __interface attribute.
 
 		:param value: Attribute value. ( Object )
 		"""
@@ -272,7 +272,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def interface(self):
 		"""
-		This method is the deleter method for the _interface attribute.
+		This method is the deleter method for the __interface attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("interface"))
@@ -280,7 +280,7 @@ class Profile(object):
 	@property
 	def categorie(self):
 		"""
-		This method is the property for the _categorie attribute.
+		This method is the property for the __categorie attribute.
 
 		:return: self.__categorie. ( String )
 		"""
@@ -291,7 +291,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def categorie(self, value):
 		"""
-		This method is the setter method for the _categorie attribute.
+		This method is the setter method for the __categorie attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -304,7 +304,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def categorie(self):
 		"""
-		This method is the deleter method for the _categorie attribute.
+		This method is the deleter method for the __categorie attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("categorie"))
@@ -312,7 +312,7 @@ class Profile(object):
 	@property
 	def module(self):
 		"""
-		This method is the property for the _module attribute.
+		This method is the property for the __module attribute.
 
 		:return: self.__module. ( String )
 		"""
@@ -323,7 +323,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def module(self, value):
 		"""
-		This method is the setter method for the _module attribute.
+		This method is the setter method for the __module attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -336,7 +336,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def module(self):
 		"""
-		This method is the deleter method for the _module attribute.
+		This method is the deleter method for the __module attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("module"))
@@ -344,7 +344,7 @@ class Profile(object):
 	@property
 	def version(self):
 		"""
-		This method is the property for the _version attribute.
+		This method is the property for the __version attribute.
 
 		:return: self.__version. ( String )
 		"""
@@ -355,7 +355,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def version(self, value):
 		"""
-		This method is the setter method for the _version attribute.
+		This method is the setter method for the __version attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -368,7 +368,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def version(self):
 		"""
-		This method is the deleter method for the _version attribute.
+		This method is the deleter method for the __version attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("version"))
@@ -376,7 +376,7 @@ class Profile(object):
 	@property
 	def author(self):
 		"""
-		This method is the property for the _author attribute.
+		This method is the property for the __author attribute.
 
 		:return: self.__author. ( String )
 		"""
@@ -387,7 +387,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def author(self, value):
 		"""
-		This method is the setter method for the _author attribute.
+		This method is the setter method for the __author attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -400,7 +400,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def author(self):
 		"""
-		This method is the deleter method for the _author attribute.
+		This method is the deleter method for the __author attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("author"))
@@ -408,7 +408,7 @@ class Profile(object):
 	@property
 	def email(self):
 		"""
-		This method is the property for the _email attribute.
+		This method is the property for the __email attribute.
 
 		:return: self.__email. ( String )
 		"""
@@ -419,7 +419,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def email(self, value):
 		"""
-		This method is the setter method for the _email attribute.
+		This method is the setter method for the __email attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -432,7 +432,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def email(self):
 		"""
-		This method is the deleter method for the _email attribute.
+		This method is the deleter method for the __email attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("email"))
@@ -440,7 +440,7 @@ class Profile(object):
 	@property
 	def url(self):
 		"""
-		This method is the property for the _url attribute.
+		This method is the property for the __url attribute.
 
 		:return: self.__url. ( String )
 		"""
@@ -451,7 +451,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def url(self, value):
 		"""
-		This method is the setter method for the _url attribute.
+		This method is the setter method for the __url attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -464,7 +464,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def url(self):
 		"""
-		This method is the deleter method for the _url attribute.
+		This method is the deleter method for the __url attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("url"))
@@ -472,7 +472,7 @@ class Profile(object):
 	@property
 	def description(self):
 		"""
-		This method is the property for the _description attribute.
+		This method is the property for the __description attribute.
 
 		:return: self.__description. ( String )
 		"""
@@ -483,7 +483,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def description(self, value):
 		"""
-		This method is the setter method for the _description attribute.
+		This method is the setter method for the __description attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -496,7 +496,7 @@ class Profile(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def description(self):
 		"""
-		This method is the deleter method for the _description attribute.
+		This method is the deleter method for the __description attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("description"))
@@ -531,7 +531,7 @@ class Manager(object):
 	@property
 	def paths(self):
 		"""
-		This method is the property for the _paths attribute.
+		This method is the property for the __paths attribute.
 
 		:return: self.__paths. ( Dictionary )
 		"""
@@ -542,7 +542,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def paths(self, value):
 		"""
-		This method is the setter method for the _paths attribute.
+		This method is the setter method for the __paths attribute.
 
 		:param value: Attribute value. ( Dictionary )
 		"""
@@ -556,7 +556,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def paths(self):
 		"""
-		This method is the deleter method for the _paths attribute.
+		This method is the deleter method for the __paths attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("paths"))
@@ -564,7 +564,7 @@ class Manager(object):
 	@property
 	def extension(self):
 		"""
-		This method is the property for the _extension attribute.
+		This method is the property for the __extension attribute.
 
 		:return: self.__extension. ( String )
 		"""
@@ -575,7 +575,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def extension(self, value):
 		"""
-		This method is the setter method for the _extension attribute.
+		This method is the setter method for the __extension attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -588,7 +588,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def extension(self):
 		"""
-		This method is the deleter method for the _extension attribute.
+		This method is the deleter method for the __extension attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("extension"))
@@ -596,7 +596,7 @@ class Manager(object):
 	@property
 	def categories(self):
 		"""
-		This method is the property for the _categories attribute.
+		This method is the property for the __categories attribute.
 
 		:return: self.__categories. ( Dictionary )
 		"""
@@ -607,7 +607,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def categories(self, value):
 		"""
-		This method is the setter method for the _categories attribute.
+		This method is the setter method for the __categories attribute.
 
 		:param value: Attribute value. ( Dictionary )
 		"""
@@ -620,7 +620,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def categories(self):
 		"""
-		This method is the deleter method for the _categories attribute.
+		This method is the deleter method for the __categories attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("categories"))
@@ -628,7 +628,7 @@ class Manager(object):
 	@property
 	def components(self):
 		"""
-		This method is the property for the _components attribute.
+		This method is the property for the __components attribute.
 
 		:return: self.__components. ( Dictionary )
 		"""
@@ -639,7 +639,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def components(self, value):
 		"""
-		This method is the setter method for the _components attribute.
+		This method is the setter method for the __components attribute.
 
 		:param value: Attribute value. ( Object )
 		"""
@@ -650,7 +650,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def components(self):
 		"""
-		This method is the deleter method for the _components attribute.
+		This method is the deleter method for the __components attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("components"))

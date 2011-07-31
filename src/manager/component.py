@@ -69,7 +69,7 @@ class Component(object):
 	@property
 	def name(self):
 		"""
-		This method is the property for the _name attribute.
+		This method is the property for the __name attribute.
 
 		:return: self.__name. ( String )
 		"""
@@ -80,7 +80,7 @@ class Component(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def name(self, value):
 		"""
-		This method is the setter method for the _name attribute.
+		This method is the setter method for the __name attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -93,7 +93,7 @@ class Component(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
-		This method is the deleter method for the _name attribute.
+		This method is the deleter method for the __name attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("name"))
@@ -101,7 +101,7 @@ class Component(object):
 	@property
 	def activated(self):
 		"""
-		This method is the property for the _activated attribute.
+		This method is the property for the __activated attribute.
 
 		:return: self.__activated. ( Boolean )
 		"""
@@ -112,7 +112,7 @@ class Component(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def activated(self, value):
 		"""
-		This method is the setter method for the _activated attribute.
+		This method is the setter method for the __activated attribute.
 
 		:param value: Attribute value. ( Boolean )
 		"""
@@ -125,7 +125,7 @@ class Component(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def activated(self):
 		"""
-		This method is the deleter method for the _activated attribute.
+		This method is the deleter method for the __activated attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("activated"))
@@ -133,7 +133,7 @@ class Component(object):
 	@property
 	def deactivatable(self):
 		"""
-		This method is the property for the _deactivatable attribute.
+		This method is the property for the __deactivatable attribute.
 
 		:return: self.__deactivatable. ( Boolean )
 		"""
@@ -144,7 +144,7 @@ class Component(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def deactivatable(self, value):
 		"""
-		This method is the setter method for the _deactivatable attribute.
+		This method is the setter method for the __deactivatable attribute.
 
 		:param value: Attribute value. ( Boolean )
 		"""
@@ -157,7 +157,7 @@ class Component(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def deactivatable(self):
 		"""
-		This method is the deleter method for the _deactivatable attribute.
+		This method is the deleter method for the __deactivatable attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("deactivatable"))

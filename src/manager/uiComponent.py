@@ -82,7 +82,7 @@ class UiComponent(QWidget):
 	@property
 	def name(self):
 		"""
-		This method is the property for the _name attribute.
+		This method is the property for the __name attribute.
 
 		:return: self.__name. ( String )
 		"""
@@ -93,7 +93,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def name(self, value):
 		"""
-		This method is the setter method for the _name attribute.
+		This method is the setter method for the __name attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -106,7 +106,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
-		This method is the deleter method for the _name attribute.
+		This method is the deleter method for the __name attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("name"))
@@ -114,7 +114,7 @@ class UiComponent(QWidget):
 	@property
 	def activated(self):
 		"""
-		This method is the property for the _activated attribute.
+		This method is the property for the __activated attribute.
 
 		:return: self.__activated. ( String )
 		"""
@@ -125,7 +125,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def activated(self, value):
 		"""
-		This method is the setter method for the _activated attribute.
+		This method is the setter method for the __activated attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -138,7 +138,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def activated(self):
 		"""
-		This method is the deleter method for the _activated attribute.
+		This method is the deleter method for the __activated attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("activated"))
@@ -146,7 +146,7 @@ class UiComponent(QWidget):
 	@property
 	def deactivatable(self):
 		"""
-		This method is the property for the _deactivatable attribute.
+		This method is the property for the __deactivatable attribute.
 
 		:return: self.__deactivatable. ( String )
 		"""
@@ -157,7 +157,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def deactivatable(self, value):
 		"""
-		This method is the setter method for the _deactivatable attribute.
+		This method is the setter method for the __deactivatable attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -170,7 +170,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def deactivatable(self):
 		"""
-		This method is the deleter method for the _deactivatable attribute.
+		This method is the deleter method for the __deactivatable attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("deactivatable"))
@@ -178,7 +178,7 @@ class UiComponent(QWidget):
 	@property
 	def uiFile(self):
 		"""
-		This method is the property for the _uiFile attribute.
+		This method is the property for the __uiFile attribute.
 
 		:return: self.__uiFile. ( String )
 		"""
@@ -189,7 +189,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def uiFile(self, value):
 		"""
-		This method is the setter method for the _uiFile attribute.
+		This method is the setter method for the __uiFile attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -203,7 +203,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def uiFile(self):
 		"""
-		This method is the deleter method for the _uiFile attribute.
+		This method is the deleter method for the __uiFile attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("uiFile"))
@@ -211,7 +211,7 @@ class UiComponent(QWidget):
 	@property
 	def ui(self):
 		"""
-		This method is the property for the _ui attribute.
+		This method is the property for the __ui attribute.
 
 		:return: self.__ui. ( Object )
 		"""
@@ -221,7 +221,7 @@ class UiComponent(QWidget):
 	@ui.setter
 	def ui(self, value):
 		"""
-		This method is the setter method for the _ui attribute.
+		This method is the setter method for the __ui attribute.
 
 		:param value: Attribute value. ( Object )
 		"""
@@ -232,7 +232,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def ui(self):
 		"""
-		This method is the deleter method for the _ui attribute.
+		This method is the deleter method for the __ui attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("ui"))
