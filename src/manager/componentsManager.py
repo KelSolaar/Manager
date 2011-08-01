@@ -721,7 +721,7 @@ class Manager(object):
 						if os.path.isfile(os.path.join(profile.path, profile.module) + ".py"):
 							self.__components[profile.name] = profile
 						else:
-							LOGGER.warning("!> {0} | '{1}' has no associated Module and has been rejected!".format(self.__class__.__name__, component))
+							LOGGER.warning("!> {0} | '{1}' has no associated module and has been rejected!".format(self.__class__.__name__, component))
 							continue
 					else:
 						LOGGER.warning("!> {0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
