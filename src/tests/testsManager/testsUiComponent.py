@@ -47,7 +47,7 @@ APPLICATION = QApplication(sys.argv)
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This class is the ComponentTestCase class.
+	This class is the **ComponentTestCase** class.
 	"""
 
 	def testRequiredAttributes(self):
@@ -80,7 +80,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_activate(self):
 		"""
-		This method tests the "uiComponent" class "_activate" method.
+		This method tests **uiComponent** class **_activate** method.
 		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)
@@ -89,7 +89,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_deactivate(self):
 		"""
-		This method tests the "uiComponent" class "_deactivate" method.
+		This method tests **uiComponent** class **_deactivate** method.
 		"""
 
 		uiComponent = UiComponent()
@@ -99,7 +99,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_loadUi(self):
 		"""
-		This method tests the "uiComponent" class "_loadUi" method.
+		This method tests **uiComponent** class **_loadUi** method.
 		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)

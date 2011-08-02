@@ -43,7 +43,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class Component(object):
 	"""
-	This class is the Component class.
+	This class is the **Component** class.
 	"""
 
 	@core.executionTrace

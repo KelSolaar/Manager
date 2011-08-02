@@ -51,7 +51,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class Profile(object):
 	"""
-	This class is the Profile class.
+	This class is the **Profile** class.
 	"""
 
 	@core.executionTrace
@@ -503,7 +503,7 @@ class Profile(object):
 
 class Manager(object):
 	"""
-	This class is the Manager class.
+	This class is the **Manager** class.
 	"""
 
 	@core.executionTrace

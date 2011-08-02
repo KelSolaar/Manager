@@ -58,7 +58,7 @@ STANDARD_PROFILE_CONTENT = {"name":"core.testsComponentA",
 #***********************************************************************************************
 class ProfileTestCase(unittest.TestCase):
 	"""
-	This class is the ProfileTestCase class.
+	This class is the **ProfileTestCase** class.
 	"""
 
 	def testRequiredAttributes(self):
@@ -93,7 +93,7 @@ def testManagerCallback(profile):
 
 class ManagerTestCase(unittest.TestCase):
 	"""
-	This class is the ManagerTestCase class.
+	This class is the **ManagerTestCase** class.
 	"""
 
 	def testRequiredAttributes(self):
@@ -129,7 +129,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGetProfile(self):
 		"""
-		This method tests the "Manager" class "getProfile" method.
+		This method tests **Manager** class **getProfile** method.
 		"""
 
 		path = os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"], "testsComponentA.rc")
@@ -143,7 +143,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGatherComponents(self):
 		"""
-		This method tests the "Manager" class "gatherComponents" method.
+		This method tests **Manager** class **gatherComponents** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
@@ -154,7 +154,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testInstantiateComponents(self):
 		"""
-		This method tests the "Manager" class "instantiateComponents" method.
+		This method tests **Manager** class **instantiateComponents** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
@@ -170,7 +170,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testDeleteComponents(self):
 		"""
-		This method tests the "Manager" class "deleteComponents" method.
+		This method tests **Manager** class **deleteComponents** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
@@ -182,7 +182,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testClearComponents(self):
 		"""
-		This method tests the "Manager" class "clearComponents" method.
+		This method tests **Manager** class **clearComponents** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
@@ -193,7 +193,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testReloadComponent(self):
 		"""
-		This method tests the "Manager" class "reloadComponent" method.
+		This method tests **Manager** class **reloadComponent** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
@@ -204,7 +204,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGetComponents(self):
 		"""
-		This method tests the "Manager" class "getComponents" method.
+		This method tests **Manager** class **getComponents** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
@@ -216,7 +216,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testFilterComponents(self):
 		"""
-		This method tests the "Manager" class "filterComponents" method.
+		This method tests **Manager** class **filterComponents** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
@@ -228,7 +228,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGetInterface(self):
 		"""
-		This method tests the "Manager" class "getInterface" method.
+		This method tests **Manager** class **getInterface** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})

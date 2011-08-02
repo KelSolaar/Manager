@@ -34,7 +34,7 @@ __status__ = "Production"
 #***********************************************************************************************
 class Constants():
 	"""
-	This class is the Constants class.
+	This class is the **Constants** class.
 	"""
 
 	applicationName = "Manager"

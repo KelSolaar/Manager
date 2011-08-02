@@ -39,7 +39,7 @@ __status__ = "Production"
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This class is the ComponentTestCase class.
+	This class is the **ComponentTestCase** class.
 	"""
 
 	def testRequiredAttributes(self):
@@ -69,7 +69,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_activate(self):
 		"""
-		This method tests the "Component" class "_activate" method.
+		This method tests **Component** class **_activate** method.
 		"""
 
 		component = Component()
@@ -78,7 +78,7 @@ class ComponentTestCase(unittest.TestCase):
 
 	def test_deactivate(self):
 		"""
-		This method tests the "Component" class "_deactivate" method.
+		This method tests **Component** class **_deactivate** method.
 		"""
 
 		component = Component()

@@ -44,7 +44,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class TestsComponentA(Component):
 	"""
-	This class is the TestsComponentA class.
+	This class is the **TestsComponentA** class.
 	"""
 
 	@core.executionTrace

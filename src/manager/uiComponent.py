@@ -48,7 +48,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class UiComponent(QWidget):
 	"""
-	This class is the UiComponent class.
+	This class is the **UiComponent** class.
 	"""
 
 	@core.executionTrace
