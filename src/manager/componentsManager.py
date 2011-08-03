@@ -659,7 +659,7 @@ class Manager(object):
 	#***	Class methods.
 	#***********************************************************************************************
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureError)
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
 	def getProfile(self, file):
 		"""
 		This method gets provided Component Profile.
@@ -678,20 +678,20 @@ class Manager(object):
 			profile.path = os.path.dirname(file)
 			profile.name = parser.attributeExists("Name", "Component") and parser.getValue("Name", "Component") or None
 			if not profile.name:
-				raise foundations.exceptions.FileStructureError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Name"))
+				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Name"))
 			profile.path = os.path.dirname(file)
 			profile.module = parser.attributeExists("Module", "Component") and parser.getValue("Module", "Component") or None
 			if not profile.module:
-				raise foundations.exceptions.FileStructureError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Module"))
+				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Module"))
 			profile.object_ = parser.attributeExists("Object", "Component") and parser.getValue("Object", "Component") or None
 			if not profile.object_:
-				raise foundations.exceptions.FileStructureError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Object"))
+				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Object"))
 			profile.rank = parser.attributeExists("Rank", "Component") and parser.getValue("Rank", "Component") or None
 			if not profile.rank:
-				raise foundations.exceptions.FileStructureError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Rank"))
+				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Rank"))
 			profile.version = parser.attributeExists("Version", "Component") and parser.getValue("Version", "Component") or None
 			if not profile.version:
-				raise foundations.exceptions.FileStructureError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Version"))
+				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Version"))
 			profile.author = parser.attributeExists("Author", "Informations") and parser.getValue("Author", "Informations") or None
 			profile.email = parser.attributeExists("Email", "Informations") and parser.getValue("Email", "Informations") or None
 			profile.url = parser.attributeExists("Url", "Informations") and parser.getValue("Url", "Informations") or None
@@ -699,7 +699,7 @@ class Manager(object):
 
 			return profile
 		else:
-			raise foundations.exceptions.FileStructureError("'{0}' no sections found, file structure seems invalid!".format(file))
+			raise foundations.exceptions.FileStructureParsingError("'{0}' no sections found, file structure seems invalid!".format(file))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
