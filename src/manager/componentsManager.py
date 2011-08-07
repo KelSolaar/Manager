@@ -848,4 +848,3 @@ class Manager(object):
 		components = self.filterComponents("^" + component + "$")
 		if components != []:
 			return self.__components[components[0]].interface
-

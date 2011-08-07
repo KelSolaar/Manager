@@ -272,4 +272,3 @@ class UiComponent(QWidget):
 			return True
 		else:
 			raise foundations.exceptions.ProgrammingError, "'{0}' Component ui file doesn't exists!".format(self.__name)
-

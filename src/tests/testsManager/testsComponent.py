@@ -89,4 +89,3 @@ class ComponentTestCase(unittest.TestCase):
 if __name__ == "__main__":
 	import tests.utilities
 	unittest.main()
-

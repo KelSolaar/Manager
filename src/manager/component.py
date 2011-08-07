@@ -180,4 +180,3 @@ class Component(object):
 		"""
 
 		self.__activated = False
-

@@ -140,4 +140,3 @@ class TestsComponentC(Component):
 		"""
 
 		LOGGER.debug("> Uninitializing '{0}' Component.".format(self.__class__.__name__))
-
