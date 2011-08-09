@@ -55,7 +55,6 @@ class ComponentTestCase(unittest.TestCase):
 		This method tests presence of required attributes.
 		"""
 
-		uiComponent = UiComponent()
 		requiredAttributes = ("name",
 							"uiFile",
 							"activated",
@@ -63,20 +62,19 @@ class ComponentTestCase(unittest.TestCase):
 							"ui")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(uiComponent))
+			self.assertIn(attribute, dir(UiComponent))
 
 	def testRequiredMethods(self):
 		"""
 		This method tests presence of required methods.
 		"""
 
-		uiComponent = UiComponent()
 		requiredMethods = ("_activate",
 						"_deactivate",
 						"_loadUi")
 
 		for method in requiredMethods:
-			self.assertIn(method, dir(uiComponent))
+			self.assertIn(method, dir(UiComponent))
 
 	def test_activate(self):
 		"""

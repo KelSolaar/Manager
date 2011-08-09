@@ -66,7 +66,6 @@ class ProfileTestCase(unittest.TestCase):
 		This method tests presence of required attributes.
 		"""
 
-		profile = Profile()
 		requiredAttributes = ("name",
 							"path",
 							"object_",
@@ -82,7 +81,7 @@ class ProfileTestCase(unittest.TestCase):
 							"description")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(profile))
+			self.assertIn(attribute, dir(Profile))
 
 def testManagerCallback(profile):
 	"""
@@ -101,21 +100,19 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests presence of required attributes.
 		"""
 
-		manager = Manager()
 		requiredAttributes = ("paths",
 							"extension",
 							"categories",
 							"components",)
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(manager))
+			self.assertIn(attribute, dir(Manager))
 
 	def testRequiredMethods(self):
 		"""
 		This method tests presence of required methods.
 		"""
 
-		manager = Manager()
 		requiredMethods = ("getProfile",
 						"getComponents",
 						"gatherComponents",

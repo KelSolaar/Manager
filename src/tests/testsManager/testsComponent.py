@@ -47,25 +47,23 @@ class ComponentTestCase(unittest.TestCase):
 		This method tests presence of required attributes.
 		"""
 
-		component = Component()
 		requiredAttributes = ("name",
 							"activated",
 							"deactivatable")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(component))
+			self.assertIn(attribute, dir(Component))
 
 	def testRequiredMethods(self):
 		"""
 		This method tests presence of required methods.
 		"""
 
-		component = Component()
 		requiredMethods = ("_activate",
 						"_deactivate")
 
 		for method in requiredMethods:
-			self.assertIn(method, dir(component))
+			self.assertIn(method, dir(Component))
 
 	def test_activate(self):
 		"""
