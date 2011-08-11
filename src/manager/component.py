@@ -166,17 +166,23 @@ class Component(object):
 	#***	Class methods.
 	#***********************************************************************************************
 	@core.executionTrace
-	def _activate(self):
+	def activate(self):
 		"""
 		This method sets activation state.
+
+		:return: Method success. ( Boolean )
 		"""
 
 		self.__activated = True
+		return True
 
 	@core.executionTrace
-	def _deactivate(self):
+	def deactivate(self):
 		"""
 		This method unsets activation state.
+
+		:return: Method success. ( Boolean )
 		"""
 
 		self.__activated = False
+		return True
