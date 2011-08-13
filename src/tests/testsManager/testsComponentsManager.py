@@ -122,7 +122,7 @@ class ManagerTestCase(unittest.TestCase):
 						"getInterface")
 
 		for method in requiredMethods:
-			self.assertIn(method, dir(manager))
+			self.assertIn(method, dir(Manager))
 
 	def testGetProfile(self):
 		"""
@@ -233,6 +233,14 @@ class ManagerTestCase(unittest.TestCase):
 		manager.instantiateComponents()
 		for component in manager.components.keys():
 			self.assertIsInstance(manager.getInterface(component), Component)
+
+	def testGetComponentAttributeName(self):
+		"""
+		This method tests **Manager** class **getComponentAttributeName** method.
+		"""
+
+		self.assertEquals(Manager.getComponentAttributeName("core.componentsManagerUi"), "coreComponentsManagerUi")
+		self.assertEquals(Manager.getComponentAttributeName("addons.loggingNotifier"), "addonsLoggingNotifier")
 
 if __name__ == "__main__":
 	import tests.utilities

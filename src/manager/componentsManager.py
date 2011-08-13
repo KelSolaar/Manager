@@ -763,7 +763,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def deleteComponent(self, component):
 		"""
-		This method removes the Provided Component.
+		This method removes provided Component.
 
 		:param component: Component to remove. ( List )
 		:return: Deletion success. ( Boolean )
@@ -788,7 +788,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError)
 	def reloadComponent(self, component):
 		"""
-		This method reload the Provided Component.
+		This method reload provided Component.
 
 		:param callback: Callback object. ( Object )
 		:return: Reload success. ( Boolean )
@@ -819,7 +819,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def filterComponents(self, pattern, categorie=None):
 		"""
-		This method filters the Components using the provided pattern.
+		This method filters the Components using provided pattern.
 
 		:param pattern: Regex filtering pattern. ( String )
 		:param categorie: Categorie filter. ( String )
@@ -839,12 +839,31 @@ class Manager(object):
 	@core.executionTrace
 	def getInterface(self, component):
 		"""
-		This method gets the Component interface.
+		This method gets provided Component interface.
 
-		:param component: Component to get the interface.
+		:param component: Component to get the interface. ( Component / UiComponent )
 		:return: Component interface. ( Object )
 		"""
 
 		components = self.filterComponents("^" + component + "$")
 		if components != []:
 			return self.__components[components[0]].interface
+
+	@staticmethod
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	def getComponentAttributeName(component):
+		"""
+		This method gets provided Component attribute name.
+
+		:param component: Component to get the attribute name. ( String )
+		:return: Component attribute name. ( Object )
+		"""
+
+		search = re.search("(?P<categorie>\w+)\.(?P<name>\w+)", component)
+		if search:
+			name = "{0}{1}{2}".format(search.group("categorie"), search.group("name")[0].upper(), search.group("name")[1:])
+			LOGGER.debug("> Component name: '{0}' to attribute name Active_QLabel: '{1}'.".format(component, name))
+			return name
+		else:
+			raise foundations.exceptions.ProgrammingError("'{0}' component name cannot be converted to attrbute name!".format("component"))
