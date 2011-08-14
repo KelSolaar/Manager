@@ -520,17 +520,33 @@ class Profile(object):
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("description"))
 
-class Manager(core.NestedAttribute):
+class Manager(object):
 	"""
-	This class defines methods to manipulate Components. 
+	| This class defines methods to manage Components, allowing Components registration / unregistration, instantiation and reloading.
+	| The Components can be registered in mass by providing paths that are recursively walk for candidates or simply by calling the registration method on a provided Component file.
+	| When a Component is registered, a Profile ( Stored using the :class:`Profile` class ) is built and associated to it, this Profile object contains the Component Interface and various description attributes. 
 	"""
 
 	@core.executionTrace
 	def __init__(self, paths=None, extension="rc", categories={ "default" : Component, "ui" : UiComponent }):
 		"""
 		This method initializes the class.
+		
+		Usage::
+		
+			>>> manager = Manager({"Core" : "./Manager/src/tests/testsManager/resources/components/core"})
+			>>> manager.registerComponents()
+			True
+			>>> manager.getComponents()
+			['core.testsComponentA', 'core.testsComponentB']
+			>>> manager.instantiateComponents()
+			True
+			>>> manager.getInterface("core.testsComponentA")
+			<testsComponentA.TestsComponentA object at 0x11dd990>
+			
 		:param paths: Paths to walk. ( Dictionary )
-		:param extension: Extension to look after. ( String )
+		:param extension: Components file extension. ( String )
+		:param categories: Components categories. ( Dictionary )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -766,12 +782,12 @@ class Manager(core.NestedAttribute):
 
 		walker = Walker()
 		unregisteredComponents = []
-		for path in self.paths.keys():
-			walker.root = self.paths[path]
+		for path in self.paths.values():
+			walker.root = path
 			walker.walk(("\.{0}$".format(self.__extension),), ("\._",))
-			for path in walker.files.values():
-				if not self.registerComponent(path):
-					unregisteredComponents.append(path)
+			for file in walker.files.values():
+				if not self.registerComponent(file):
+					unregisteredComponents.append(file)
 
 		if not unregisteredComponents:
 			return True
