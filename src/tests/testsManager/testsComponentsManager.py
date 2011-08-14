@@ -37,7 +37,7 @@ __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
-SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__), "resources/components/core/testsComponentA/testsComponentA.rc"))
+SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__), "resources/components/core/testsComponentA/testsComponentA.rc"), Component)
 COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
 COMPONENTS = {"core":{"testsComponentA":"core/testsComponentA",
 					"testsComponentB":"core/testsComponentB"},
@@ -190,6 +190,7 @@ class ManagerTestCase(unittest.TestCase):
 		manager = Manager()
 		manager.registerComponent(SINGLE_COMPONENT[1])
 		self.assertTrue(manager.instantiateComponent(SINGLE_COMPONENT[0], testManagerCallback))
+		self.assertIsInstance(manager.components.values()[0].interface, SINGLE_COMPONENT[2])
 
 	def testInstantiateComponents(self):
 		"""
