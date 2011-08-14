@@ -44,7 +44,42 @@ LOGGER = logging.getLogger(Constants.logger)
 
 class AbstractComponentError(foundations.exceptions.AbstractError):
 	"""
-	This class is the abstract base class for component related exceptions.
+	This class is the abstract base class for Components related exceptions.
+	"""
+
+	pass
+
+class ComponentProfileError(AbstractComponentError):
+	"""
+	This class is used for Component profile exceptions.
+	"""
+
+	pass
+
+class ComponentModuleError(AbstractComponentError):
+	"""
+	This class is used for Component associated module exceptions.
+	"""
+
+	pass
+
+class ComponentRegistrationError(AbstractComponentError):
+	"""
+	This class is used for Component registration exceptions.
+	"""
+
+	pass
+
+class ComponentInterfaceError(AbstractComponentError):
+	"""
+	This class is used for Component interface exceptions.
+	"""
+
+	pass
+
+class ComponentInstantiationError(AbstractComponentError):
+	"""
+	This class is used for Component instantiation exceptions.
 	"""
 
 	pass

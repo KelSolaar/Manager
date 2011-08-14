@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Ui Component Module.
+	This module defines the :class:`UiComponent` class.
 
 **Others:**
 
@@ -48,7 +48,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class UiComponent(QWidget):
 	"""
-	This class is the **UiComponent** class.
+	This class is the base class for **Manager** package ui components.
 	"""
 
 	@core.executionTrace
@@ -243,7 +243,7 @@ class UiComponent(QWidget):
 	@core.executionTrace
 	def activate(self):
 		"""
-		This method sets activation state.
+		This method sets Component activation state.
 
 		:return: Method success. ( Boolean )
 		"""
@@ -254,7 +254,7 @@ class UiComponent(QWidget):
 	@core.executionTrace
 	def deactivate(self):
 		"""
-		This method unsets activation state.
+		This method unsets Component activation state.
 
 		:return: Method success. ( Boolean )
 		"""
@@ -266,7 +266,7 @@ class UiComponent(QWidget):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def loadUi(self):
 		"""
-		This method loads the ui file.
+		This method loads Component ui file.
 
 		:return: Method success. ( Boolean )
 		"""

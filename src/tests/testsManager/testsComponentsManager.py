@@ -37,6 +37,7 @@ __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
+SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__), "resources/components/core/testsComponentA/testsComponentA.rc"))
 COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
 COMPONENTS = {"core":{"testsComponentA":"core/testsComponentA",
 					"testsComponentB":"core/testsComponentB"},
@@ -115,7 +116,7 @@ class ManagerTestCase(unittest.TestCase):
 
 		requiredMethods = ("getProfile",
 						"getComponents",
-						"gatherComponents",
+						"registerComponents",
 						"instantiateComponents",
 						"reloadComponent",
 						"filterComponents",
@@ -138,16 +139,57 @@ class ManagerTestCase(unittest.TestCase):
 			self.assertIsInstance(getattr(profile, attribute), type(value))
 			self.assertEqual(getattr(profile, attribute), value)
 
-	def testGatherComponents(self):
+	def testRegisterComponent(self):
 		"""
-		This method tests **Manager** class **gatherComponents** method.
+		This method tests **Manager** class **registerComponent** method.
+		"""
+
+		manager = Manager()
+		self.assertTrue(manager.registerComponent(SINGLE_COMPONENT[1]))
+		self.assertIn(SINGLE_COMPONENT[0], manager.components.keys())
+
+	def testUnregisterComponent(self):
+		"""
+		This method tests **Manager** class **unregisterComponent** method.
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
+		manager.registerComponents()
+		manager.instantiateComponents()
+		for component in dict(manager.components).keys():
+			self.assertTrue(manager.unregisterComponent(component))
+		self.assertTrue(not manager.components.keys())
+
+	def testRegisterComponents(self):
+		"""
+		This method tests **Manager** class **registerComponents** method.
+		"""
+
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager.registerComponents()
 		self.assertIsInstance(manager.components, dict)
 		for component in ("{0}.{1}".format(item, name) for item in COMPONENTS.keys() for name in COMPONENTS[item].keys()):
 			self.assertIn(component, manager.components.keys())
+
+	def testUnregisterComponents(self):
+		"""
+		This method tests **Manager** class **unregisterComponents** method.
+		"""
+
+		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
+		manager.registerComponents()
+		manager.instantiateComponents()
+		manager.unregisterComponents()
+		self.assertTrue(not manager.components.keys())
+
+	def testInstantiateComponent(self):
+		"""
+		This method tests **Manager** class **instantiateComponent** method.
+		"""
+
+		manager = Manager()
+		manager.registerComponent(SINGLE_COMPONENT[1])
+		self.assertTrue(manager.instantiateComponent(SINGLE_COMPONENT[0], testManagerCallback))
 
 	def testInstantiateComponents(self):
 		"""
@@ -155,38 +197,15 @@ class ManagerTestCase(unittest.TestCase):
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
+		manager.registerComponents()
 		manager.instantiateComponents()
 		for component in manager.components.values():
 			self.assertIsInstance(component.interface, Component)
-		manager.clearComponents()
-		manager.gatherComponents()
+		manager.unregisterComponents()
+		manager.registerComponents()
 		manager.instantiateComponents(testManagerCallback)
 		for component in manager.components.values():
 			self.assertTrue(component.callback)
-
-	def testDeleteComponents(self):
-		"""
-		This method tests **Manager** class **deleteComponents** method.
-		"""
-
-		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
-		manager.instantiateComponents()
-		for component in dict(manager.components).keys():
-			self.assertTrue(manager.deleteComponent(component))
-		self.assertTrue(not manager.components.keys())
-
-	def testClearComponents(self):
-		"""
-		This method tests **Manager** class **clearComponents** method.
-		"""
-
-		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
-		manager.instantiateComponents()
-		manager.clearComponents()
-		self.assertTrue(not manager.components.keys())
 
 	def testReloadComponent(self):
 		"""
@@ -194,7 +213,7 @@ class ManagerTestCase(unittest.TestCase):
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
+		manager.registerComponents()
 		manager.instantiateComponents()
 		for component in manager.components.keys():
 			manager.reloadComponent(component)
@@ -205,7 +224,7 @@ class ManagerTestCase(unittest.TestCase):
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
+		manager.registerComponents()
 		manager.instantiateComponents()
 		components = manager.getComponents()
 		self.assertIsInstance(components, list)
@@ -217,7 +236,7 @@ class ManagerTestCase(unittest.TestCase):
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
+		manager.registerComponents()
 		manager.instantiateComponents()
 		components = manager.filterComponents("addons")
 		self.assertIsInstance(components, list)
@@ -229,7 +248,7 @@ class ManagerTestCase(unittest.TestCase):
 		"""
 
 		manager = Manager({item : os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()})
-		manager.gatherComponents()
+		manager.registerComponents()
 		manager.instantiateComponents()
 		for component in manager.components.keys():
 			self.assertIsInstance(manager.getInterface(component), Component)
@@ -241,6 +260,7 @@ class ManagerTestCase(unittest.TestCase):
 
 		self.assertEquals(Manager.getComponentAttributeName("core.componentsManagerUi"), "coreComponentsManagerUi")
 		self.assertEquals(Manager.getComponentAttributeName("addons.loggingNotifier"), "addonsLoggingNotifier")
+		self.assertEquals(Manager.getComponentAttributeName("myComponent"), "myComponent")
 
 if __name__ == "__main__":
 	import tests.utilities

@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Component Module.
+	This module defines the :class:`Component` class.
 
 **Others:**
 
@@ -43,7 +43,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class Component(object):
 	"""
-	This class is the **Component** class.
+	This class is the base class for **Manager** package components.
 	"""
 
 	@core.executionTrace
@@ -168,7 +168,7 @@ class Component(object):
 	@core.executionTrace
 	def activate(self):
 		"""
-		This method sets activation state.
+		This method sets Component activation state.
 
 		:return: Method success. ( Boolean )
 		"""
@@ -179,7 +179,7 @@ class Component(object):
 	@core.executionTrace
 	def deactivate(self):
 		"""
-		This method unsets activation state.
+		This method unsets Component activation state.
 
 		:return: Method success. ( Boolean )
 		"""

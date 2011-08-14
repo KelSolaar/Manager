@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Manager Module.
+	This module defines the :class:`Manager` class and others helper objects.
 
 **Others:**
 
@@ -28,6 +28,8 @@ import re
 #***********************************************************************************************
 import foundations.core as core
 import foundations.exceptions
+import foundations.strings
+import manager.exceptions
 from foundations.parser import Parser
 from foundations.walker import Walker
 from manager.component import Component
@@ -49,18 +51,35 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 #***	Module classes and definitions.
 #***********************************************************************************************
+class Components(core.Structure):
+	"""
+	This class represents a storage object for :class:`Manager` class Components.
+	"""
+
+	@core.executionTrace
+	def __init__(self, **kwargs):
+		"""
+		This method initializes the class.
+
+		:param \*\*kwargs: Arguments. ( Key / Value pairs )
+		"""
+
+		core.Structure.__init__(self, **kwargs)
+
 class Profile(object):
 	"""
-	This class is the **Profile** class.
+	This class is used by the :class:`Manager` class to store Components informations and objects.
 	"""
 
 	@core.executionTrace
 	def __init__(self, name=None, path=None):
 		"""
 		This method initializes the class.
-
+		
 		:param name: Name of the Component. ( String )
 		:param path: Path of the Component. ( String )
+		
+		:Note: :class:`Profile` class attributes ( Except :meth:`Profile.name` and for :meth:`Profile.path` ) are initialized by the :meth:`Manager.getProfile` method.
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -501,9 +520,9 @@ class Profile(object):
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("description"))
 
-class Manager(object):
+class Manager(core.NestedAttribute):
 	"""
-	This class is the **Manager** class.
+	This class defines methods to manipulate Components. 
 	"""
 
 	@core.executionTrace
@@ -523,7 +542,7 @@ class Manager(object):
 		self.extension = extension
 		self.__categories = None
 		self.categories = categories
-		self.__components = None
+		self.__components = Components()
 
 	#***********************************************************************************************
 	#***	Attributes properties.
@@ -641,7 +660,7 @@ class Manager(object):
 		"""
 		This method is the setter method for **self.__components** attribute.
 
-		:param value: Attribute value. ( Object )
+		:param value: Attribute value. ( Dictionary )
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is read only!".format("components"))
@@ -702,34 +721,106 @@ class Manager(object):
 			raise foundations.exceptions.FileStructureParsingError("'{0}' no sections found, file structure seems invalid!".format(file))
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def gatherComponents(self):
+	@foundations.exceptions.exceptionsHandler(None, False, manager.exceptions.ComponentModuleError, manager.exceptions.ComponentProfileError)
+	def registerComponent(self, path):
 		"""
-		This method gather the Components.
+		This method registers provided component.
+		
+		:param path: Component path. ( String )
+		:return: Method success. ( Boolean )
 		"""
 
-		if self.paths:
-			self.__components = {}
-			walker = Walker()
-			for path in self.paths.keys():
-				walker.root = self.paths[path]
-				walker.walk(("\.{0}$".format(self.__extension),), ("\._",))
-				for component in walker.files.keys():
-					LOGGER.debug("> Current Component: '{0}'.".format(component))
-					profile = self.getProfile(walker.files[component])
-					if profile:
-						if os.path.isfile(os.path.join(profile.path, profile.module) + ".py"):
-							self.__components[profile.name] = profile
-						else:
-							LOGGER.warning("!> {0} | '{1}' has no associated module and has been rejected!".format(self.__class__.__name__, component))
-							continue
-					else:
-						LOGGER.warning("!> {0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
+		component = foundations.strings.getSplitextBasename(path)
+		LOGGER.debug("> Current Component: '{0}'.".format(component))
+		profile = self.getProfile(path)
+		if profile:
+			if os.path.isfile(os.path.join(profile.path, profile.module) + ".py"):
+				self.__components[profile.name] = profile
+			else:
+				raise manager.exceptions.ComponentModuleError("'{0}' has no associated module and has been rejected!".format(component))
 		else:
-			raise foundations.exceptions.ProgrammingError("'{0}' has no Components paths defined!".format(self))
+			raise manager.exceptions.ComponentProfileError("'{0}' is not a valid Component and has been rejected!".format(component))
+		return True
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError, ImportError)
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def unregisterComponent(self, component):
+		"""
+		This method unregisters provided Component.
+
+		:param component: Component to remove. ( String )
+		:return: Method success. ( Boolean )
+		"""
+
+		del(self.__components[component])
+		return True
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, manager.exceptions.ComponentRegistrationError)
+	def registerComponents(self):
+		"""
+		This method registers the Components.
+		
+		:return: Method success. ( Boolean )
+		"""
+
+		walker = Walker()
+		unregisteredComponents = []
+		for path in self.paths.keys():
+			walker.root = self.paths[path]
+			walker.walk(("\.{0}$".format(self.__extension),), ("\._",))
+			for path in walker.files.values():
+				if not self.registerComponent(path):
+					unregisteredComponents.append(path)
+
+		if not unregisteredComponents:
+			return True
+		else:
+			raise manager.exceptions.ComponentRegistrationError("'{0}' Components failed to register!".format(", ".join(unregisteredComponents)))
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def unregisterComponents(self):
+		"""
+		This method unregisters the Components.
+
+		:return: Method success. ( Boolean )
+		"""
+
+		self.__components.clear()
+		return True
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, ImportError, manager.exceptions.ComponentInterfaceError)
+	def instantiateComponent(self, component, callback=None):
+		"""
+		This method instantiates provided Component.
+
+		:param component: Component to instantiate. ( String )
+		:param callback: Callback object. ( Object )
+		"""
+
+		profile = self.__components[component]
+		callback and callback(profile)
+
+		LOGGER.debug("> Current Component: '{0}'.".format(component))
+
+		sys.path.append(profile.path)
+		profile.import_ = __import__(profile.module)
+		object_ = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
+		if object_ and inspect.isclass(object_):
+			for categorie, type in self.__categories.items():
+				profile.categorie = categorie
+				profile.interface = issubclass(object_, type) and object_ is not type and object_(name=profile.name) or None
+				if profile.interface:
+					LOGGER.info("{0} | '{1}' Component has been instantiated!".format(self.__class__.__name__, profile.name))
+					return True
+		else:
+			del(self.__components[component])
+			raise manager.exceptions.ComponentInterfaceError("'{0}' Component has no Interface and has been rejected!".format(profile.name))
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False)
 	def instantiateComponents(self, callback=None):
 		"""
 		This method instantiates the Components.
@@ -737,52 +828,11 @@ class Manager(object):
 		:param callback: Callback object. ( Object )
 		"""
 
-		assert self.__components, "'{0}' Manager has no Components!".format(self)
-
-		for component in self.getComponents():
-			profile = self.__components[component]
-			callback and callback(profile)
-
-			LOGGER.debug("> Current Component: '{0}'.".format(component))
-
-			sys.path.append(profile.path)
-			profile.import_ = __import__(profile.module)
-			object_ = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
-			if object_ and inspect.isclass(object_):
-				for categorie, type in self.__categories.items():
-					profile.categorie = categorie
-					profile.interface = issubclass(object_, type) and object_ is not type and object_(name=profile.name) or None
-					if profile.interface:
-						LOGGER.info("{0} | '{1}' Component has been instantiated!".format(self.__class__.__name__, profile.name))
-						break
-			else:
-				LOGGER.error("{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
-				del(self.__components[component])
-
-	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
-	def deleteComponent(self, component):
-		"""
-		This method removes provided Component.
-
-		:param component: Component to remove. ( List )
-		:return: Deletion success. ( Boolean )
-		"""
-
-		del(self.__components[component])
-		return True
-
-	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
-	def clearComponents(self):
-		"""
-		This method clears the Components.
-
-		:return: Clearing success. ( Boolean )
-		"""
-
-		self.__components.clear()
-		return True
+		uninstantiatedComponents = [component for component in self.getComponents() if not self.instantiateComponent(component, callback)]
+		if not uninstantiatedComponents:
+			return True
+		else:
+			raise manager.exceptions.ComponentInstantiationError("'{0}' Components failed to instantiate!".format(", ".join(uninstantiatedComponents)))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError)
@@ -800,12 +850,13 @@ class Manager(object):
 		object_ = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
 		if object_ and inspect.isclass(object_):
 			interface = issubclass(object_, self.__categories[profile.categorie]) and object_ is not self.__categories[profile.categorie] and object_(name=profile.name) or None
-			if interface:
-				LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
-				profile.import_ = import_
-				profile.interface = interface
+			if not interface:
+				return
 
-				return True
+			LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
+			profile.import_ = import_
+			profile.interface = interface
+			return True
 
 	@core.executionTrace
 	def getComponents(self):
@@ -816,7 +867,7 @@ class Manager(object):
 		return [component[0] for component in sorted(((component, profile.rank) for component, profile in self.__components.items()), key=lambda x:(int(x[1])))]
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def filterComponents(self, pattern, categorie=None):
 		"""
 		This method filters the Components using provided pattern.
@@ -826,12 +877,12 @@ class Manager(object):
 		:return: Matching items. ( List )
 		"""
 
-		assert self.__components is not None, "'{0}' Manager has no Components!".format(self)
 		matchingItems = []
 		for component, profile in self.__components.items():
 			if categorie:
 				if profile.categorie != categorie:
 					continue
+
 			if re.search(pattern, component):
 				matchingItems.append(component)
 		return matchingItems
@@ -845,13 +896,13 @@ class Manager(object):
 		:return: Component interface. ( Object )
 		"""
 
-		components = self.filterComponents("^" + component + "$")
+		components = self.filterComponents(r"^{0}$".format(component))
 		if components != []:
 			return self.__components[components[0]].interface
 
 	@staticmethod
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def getComponentAttributeName(component):
 		"""
 		This method gets provided Component attribute name.
@@ -864,6 +915,6 @@ class Manager(object):
 		if search:
 			name = "{0}{1}{2}".format(search.group("categorie"), search.group("name")[0].upper(), search.group("name")[1:])
 			LOGGER.debug("> Component name: '{0}' to attribute name Active_QLabel: '{1}'.".format(component, name))
-			return name
 		else:
-			raise foundations.exceptions.ProgrammingError("'{0}' component name cannot be converted to attrbute name!".format("component"))
+			name = component
+		return name
