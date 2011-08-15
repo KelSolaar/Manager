@@ -544,7 +544,7 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x11dd990>
 			
-		:param paths: Paths to walk. ( Dictionary )
+		:param paths: Paths to walk. ( Tuple / List )
 		:param extension: Components file extension. ( String )
 		:param categories: Components categories. ( Dictionary )
 		"""
@@ -568,7 +568,7 @@ class Manager(object):
 		"""
 		This method is the property for **self.__paths** attribute.
 
-		:return: self.__paths. ( Dictionary )
+		:return: self.__paths. ( Tuple / List )
 		"""
 
 		return self.__paths
@@ -579,12 +579,12 @@ class Manager(object):
 		"""
 		This method is the setter method for **self.__paths** attribute.
 
-		:param value: Attribute value. ( Dictionary )
+		:param value: Attribute value. ( Tuple / List )
 		"""
 
 		if value:
-			assert type(value) is dict, "'{0}' attribute: '{1}' type is not 'dict'!".format("paths", value)
-			for path in value.values(): assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
+			assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format("paths", value)
+			for path in value: assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
 		self.__paths = value
 
 	@paths.deleter
@@ -782,7 +782,7 @@ class Manager(object):
 
 		walker = Walker()
 		unregisteredComponents = []
-		for path in self.paths.values():
+		for path in self.paths:
 			walker.root = path
 			walker.walk(("\.{0}$".format(self.__extension),), ("\._",))
 			for file in walker.files.values():
