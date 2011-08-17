@@ -72,7 +72,7 @@ class ComponentRegistrationError(AbstractComponentError):
 
 class ComponentInterfaceError(AbstractComponentError):
 	"""
-	This class is used for Component interface exceptions.
+	This class is used for Component Interface exceptions.
 	"""
 
 	pass
