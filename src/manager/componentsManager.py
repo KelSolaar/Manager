@@ -765,7 +765,7 @@ class Manager(object):
 		LOGGER.debug("> Current Component: '{0}'.".format(component))
 		profile = self.getProfile(path)
 		if profile:
-			if os.path.isfile(os.path.join(profile.path, profile.module) + ".py"):
+			if os.path.isfile(os.path.join(profile.path, profile.module) + ".py") or os.path.isdir(os.path.join(profile.path, profile.module)) or os.path.basename(profile.path) == profile.module:
 				self.__components[profile.name] = profile
 				return True
 			else:
@@ -882,7 +882,11 @@ class Manager(object):
 
 		LOGGER.debug("> Current Component: '{0}'.".format(component))
 
-		sys.path.append(profile.path)
+		if os.path.isfile(os.path.join(profile.path, profile.module) + ".py") or os.path.isdir(os.path.join(profile.path, profile.module)):
+			not profile.path in sys.path and sys.path.append(profile.path)
+		elif os.path.basename(profile.path) == profile.module:
+			path = os.path.join(profile.path, "..")
+			not path in sys.path and sys.path.append(path)
 		profile.import_ = __import__(profile.module)
 		object_ = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
 		if object_ and inspect.isclass(object_):
