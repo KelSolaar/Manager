@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Exceptions tests Module.
+	This module defines units tests for :mod:`manager.exceptions` module.
 
 **Others:**
 
@@ -48,7 +48,7 @@ for attribute in dir(manager.exceptions):
 #***********************************************************************************************
 class ExceptionsTestCase(unittest.TestCase):
 	"""
-	This class is the **ExceptionsTestCase** class.
+	This class defines :mod:`manager.exceptions` module exceptions classes units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -64,7 +64,7 @@ class ExceptionsTestCase(unittest.TestCase):
 
 	def test__str__(self):
 		"""
-		This method tests **Exceptions** class **__str__** method.
+		This method tests exceptions classes **__str__** method.
 		"""
 
 		for exception in EXCEPTIONS:

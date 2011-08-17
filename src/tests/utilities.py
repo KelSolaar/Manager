@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Tests Utilities Module.
+	This module defines tests suite logging configuration.
 
 **Others:**
 
@@ -42,7 +42,3 @@ LOGGER = logging.getLogger(Constants.logger)
 LOGGING_CONSOLE_HANDLER = logging.StreamHandler(sys.__stdout__)
 LOGGING_CONSOLE_HANDLER.setFormatter(core.LOGGING_DEFAULT_FORMATTER)
 LOGGER.addHandler(LOGGING_CONSOLE_HANDLER)
-
-#***********************************************************************************************
-#***	Module classes and definitions.
-#***********************************************************************************************

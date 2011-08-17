@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	UiComponent tests Module.
+	This module defines units tests for :mod:`manager.uiComponent` module.
 
 **Others:**
 
@@ -47,7 +47,7 @@ APPLICATION = QApplication(sys.argv)
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This class is the **ComponentTestCase** class.
+	This class defines :class:`manager.uiComponent.UiComponent` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -69,39 +69,39 @@ class ComponentTestCase(unittest.TestCase):
 		This method tests presence of required methods.
 		"""
 
-		requiredMethods = ("_activate",
-						"_deactivate",
-						"_loadUi")
+		requiredMethods = ("activate",
+						"deactivate",
+						"loadUi")
 
 		for method in requiredMethods:
 			self.assertIn(method, dir(UiComponent))
 
-	def test_activate(self):
+	def testActivate(self):
 		"""
-		This method tests **uiComponent** class **_activate** method.
+		This method tests :meth:`manager.uiComponent.UiComponent.activate` method.
 		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)
-		uiComponent._activate()
+		uiComponent.activate()
 		self.assertTrue(uiComponent.activated)
 
-	def test_deactivate(self):
+	def testDeactivate(self):
 		"""
-		This method tests **uiComponent** class **_deactivate** method.
+		This method tests :meth:`manager.uiComponent.UiComponent.deactivate` method.
 		"""
 
 		uiComponent = UiComponent()
 		uiComponent.activated = True
-		uiComponent._deactivate()
+		uiComponent.deactivate()
 		self.assertFalse(uiComponent.activated)
 
-	def test_loadUi(self):
+	def testLoadUi(self):
 		"""
-		This method tests **uiComponent** class **_loadUi** method.
+		This method tests :meth:`manager.uiComponent.UiComponent.loadUi` method.
 		"""
 
 		uiComponent = UiComponent(uiFile=UI_FILE)
-		self.assertTrue(uiComponent._loadUi())
+		self.assertTrue(uiComponent.loadUi())
 
 if __name__ == "__main__":
 	import tests.utilities

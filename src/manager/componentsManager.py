@@ -531,10 +531,10 @@ class Manager(object):
 	def __init__(self, paths=None, extension="rc", categories={ "default" : Component, "ui" : UiComponent }):
 		"""
 		This method initializes the class.
-		
+
 		Usage::
-		
-			>>> manager = Manager({"Core" : "./Manager/src/tests/testsManager/resources/components/core"})
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager.getComponents()
@@ -543,7 +543,7 @@ class Manager(object):
 			True
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x11dd990>
-			
+
 		:param paths: Paths to walk. ( Tuple / List )
 		:param extension: Components file extension. ( String )
 		:param categories: Components categories. ( Dictionary )
@@ -693,11 +693,18 @@ class Manager(object):
 	#***********************************************************************************************
 	#***	Class methods.
 	#***********************************************************************************************
+	@staticmethod
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
-	def getProfile(self, file):
+	def getProfile(file):
 		"""
 		This method gets provided Component Profile.
+		
+		Usage::
+
+			>>> profile = Manager.getProfile("./Manager/src/tests/testsManager/resources/components/core/testsComponentA/testsComponentA.rc")
+			>>> profile.description
+			Core tests Component A.
 
 		:param file: File path. ( String )
 		:return: Profile. ( Profile )
@@ -741,7 +748,15 @@ class Manager(object):
 	def registerComponent(self, path):
 		"""
 		This method registers provided component.
-		
+
+		Usage::
+
+			>>> manager = Manager()
+			>>> manager.registerComponent("./Manager/src/tests/testsManager/resources/components/core/testsComponentA/testsComponentA.rc")
+			True
+			>>> manager.components
+			{'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
+
 		:param path: Component path. ( String )
 		:return: Method success. ( Boolean )
 		"""
@@ -752,17 +767,31 @@ class Manager(object):
 		if profile:
 			if os.path.isfile(os.path.join(profile.path, profile.module) + ".py"):
 				self.__components[profile.name] = profile
+				return True
 			else:
 				raise manager.exceptions.ComponentModuleError("'{0}' has no associated module and has been rejected!".format(component))
 		else:
 			raise manager.exceptions.ComponentProfileError("'{0}' is not a valid Component and has been rejected!".format(component))
-		return True
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def unregisterComponent(self, component):
 		"""
 		This method unregisters provided Component.
+
+		.. warning::
+
+			The :class:`Manager` class is not responsible of any deactivation / cleanup actions and will not trigger anything while unregistering a Component.
+	
+		Usage::
+
+			>>> manager = Manager()
+			>>> manager.registerComponent("./Manager/src/tests/testsManager/resources/components/core/testsComponentA/testsComponentA.rc")
+			True
+			>>> manager.unregisterComponent("core.testsComponentA")
+			True
+			>>> manager.components
+			{}
 
 		:param component: Component to remove. ( String )
 		:return: Method success. ( Boolean )
@@ -776,6 +805,14 @@ class Manager(object):
 	def registerComponents(self):
 		"""
 		This method registers the Components.
+
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> manager.components.keys()
+			['core.testsComponentA', 'core.testsComponentB']
 		
 		:return: Method success. ( Boolean )
 		"""
@@ -800,6 +837,20 @@ class Manager(object):
 		"""
 		This method unregisters the Components.
 
+		.. warning::
+
+			The :class:`Manager` class is not responsible of any deactivation / cleanup actions and will not trigger anything while unregistering a Component.
+	
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> manager.unregisterComponents()
+			True
+			>>> manager.components
+			{}
+
 		:return: Method success. ( Boolean )
 		"""
 
@@ -811,6 +862,16 @@ class Manager(object):
 	def instantiateComponent(self, component, callback=None):
 		"""
 		This method instantiates provided Component.
+
+		Usage::
+
+			>>> manager = Manager()
+			>>> manager.registerComponent("./Manager/src/tests/testsManager/resources/components/core/testsComponentA/testsComponentA.rc")
+			True
+			>>> manager.instantiateComponent("core.testsComponentA")
+			True
+			>>> manager.getInterface("core.testsComponentA")
+			<testsComponentA.TestsComponentA object at 0x17a5b90>
 
 		:param component: Component to instantiate. ( String )
 		:param callback: Callback object. ( Object )
@@ -841,6 +902,16 @@ class Manager(object):
 		"""
 		This method instantiates the Components.
 
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> manager.instantiateComponents()
+			True
+			>>> manager.getInterface("core.testsComponentA")
+			<testsComponentA.TestsComponentA object at 0x17a5bb0>
+
 		:param callback: Callback object. ( Object )
 		"""
 
@@ -854,9 +925,22 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError)
 	def reloadComponent(self, component):
 		"""
-		This method reload provided Component.
+		This method reload provided Component module.
 
-		:param callback: Callback object. ( Object )
+		Usage::
+
+			>>> manager = Manager()
+			>>> manager.registerComponent("./Manager/src/tests/testsManager/resources/components/core/testsComponentA/testsComponentA.rc")
+			True
+			>>> manager.instantiateComponent("core.testsComponentA")
+			True
+			>>> manager.getInterface("core.testsComponentA")
+			<testsComponentA.TestsComponentA object at 0x17b4890>
+			>>> manager.reloadComponent("core.testsComponentA")
+			True
+			>>> manager.getInterface("core.testsComponentA")
+			<testsComponentA.TestsComponentA object at 0x17b0d70>
+
 		:return: Reload success. ( Boolean )
 		"""
 
@@ -878,6 +962,19 @@ class Manager(object):
 	def getComponents(self):
 		"""
 		This method gets the Components by ranking.
+
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> manager.components["core.testsComponentA"].rank
+			'10'
+			>>> manager.components["core.testsComponentB"].rank
+			'20'
+			>>> manager.getComponents()
+			['core.testsComponentA', 'core.testsComponentB']
+
 		"""
 
 		return [component[0] for component in sorted(((component, profile.rank) for component, profile in self.__components.items()), key=lambda x:(int(x[1])))]
@@ -886,7 +983,15 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def filterComponents(self, pattern, categorie=None):
 		"""
-		This method filters the Components using provided pattern.
+		This method filters the Components using provided regex pattern.
+
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> manager.filterComponents("\w+A$")
+			['core.testsComponentA']
 
 		:param pattern: Regex filtering pattern. ( String )
 		:param categorie: Categorie filter. ( String )
@@ -908,6 +1013,14 @@ class Manager(object):
 		"""
 		This method gets provided Component interface.
 
+		Usage::
+
+			>>> manager = Manager()
+			>>> manager.registerComponent("./Manager/src/tests/testsManager/resources/components/core/testsComponentA/testsComponentA.rc")
+			True
+			>>> manager.getInterface("core.testsComponentA")
+			<testsComponentA.TestsComponentA object at 0x17b0d70>
+
 		:param component: Component to get the interface. ( Component / UiComponent )
 		:return: Component interface. ( Object )
 		"""
@@ -922,6 +1035,11 @@ class Manager(object):
 	def getComponentAttributeName(component):
 		"""
 		This method gets provided Component attribute name.
+
+		Usage::
+
+			>>> Manager.getComponentAttributeName("core.componentsManagerUi")
+			'coreComponentsManagerUi'
 
 		:param component: Component to get the attribute name. ( String )
 		:return: Component attribute name. ( Object )

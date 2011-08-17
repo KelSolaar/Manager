@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Component tests Module.
+	This module defines units tests for :mod:`manager.Component` module.
 
 **Others:**
 
@@ -39,7 +39,7 @@ __status__ = "Production"
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This class is the **ComponentTestCase** class.
+	This class defines :class:`manager.component.Component` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -59,29 +59,29 @@ class ComponentTestCase(unittest.TestCase):
 		This method tests presence of required methods.
 		"""
 
-		requiredMethods = ("_activate",
-						"_deactivate")
+		requiredMethods = ("activate",
+						"deactivate")
 
 		for method in requiredMethods:
 			self.assertIn(method, dir(Component))
 
-	def test_activate(self):
+	def testActivate(self):
 		"""
-		This method tests **Component** class **_activate** method.
+		This method tests :meth:`manager.component.Component.activate` method.
 		"""
 
 		component = Component()
-		component._activate()
+		component.activate()
 		self.assertTrue(component.activated)
 
-	def test_deactivate(self):
+	def testDeactivate(self):
 		"""
-		This method tests **Component** class **_deactivate** method.
+		This method tests :meth:`manager.component.Component.deactivate` method.
 		"""
 
 		component = Component()
 		component.activated = True
-		component._deactivate()
+		component.deactivate()
 		self.assertFalse(component.activated)
 
 if __name__ == "__main__":
