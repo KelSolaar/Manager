@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Tests Component a Module.
+	This module defines the :class:`TestsComponentA` Component Interface class.
 
 **Others:**
 
@@ -44,7 +44,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***********************************************************************************************
 class TestsComponentA(Component):
 	"""
-	This class is the **TestsComponentA** class.
+	This class is the :mod:`tests.testsManager.resources.components.core.testsComponentA.testsComponentA` Component Interface class.
 	"""
 
 	@core.executionTrace
