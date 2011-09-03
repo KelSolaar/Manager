@@ -264,7 +264,7 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.getComponentAttributeName` method.
 		"""
 
-		self.assertEquals(Manager.getComponentAttributeName("core.componentsManagerUi"), "coreComponentsManagerUi")
+		self.assertEquals(Manager.getComponentAttributeName("factory.componentsManagerUi"), "coreComponentsManagerUi")
 		self.assertEquals(Manager.getComponentAttributeName("addons.loggingNotifier"), "addonsLoggingNotifier")
 		self.assertEquals(Manager.getComponentAttributeName("myComponent"), "myComponent")
 

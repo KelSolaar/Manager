@@ -1043,7 +1043,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> Manager.getComponentAttributeName("core.componentsManagerUi")
+			>>> Manager.getComponentAttributeName("factory.componentsManagerUi")
 			'coreComponentsManagerUi'
 
 		:param component: Component to get the attribute name. ( String )
