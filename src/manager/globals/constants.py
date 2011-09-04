@@ -39,6 +39,8 @@ class Constants():
 
 	applicationName = "Manager"
 	"""Package Application name: '**Manager**' ( String )"""
+	releaseVersion = "1.0.2"
+	"""Package release version: '**1.0.2**' ( String )"""
 
 	logger = "Manager_Logger"
 	"""Package logger name: '**Manager_Logger**' ( String )"""
