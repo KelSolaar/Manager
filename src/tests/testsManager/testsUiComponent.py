@@ -37,6 +37,8 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
+__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "ComponentTestCase"]
+
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 UI_FILE = os.path.join(RESOURCES_DIRECTORY, "standard.ui")
 

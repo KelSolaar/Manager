@@ -35,6 +35,8 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
+__all__ = ["EXCEPTIONS", "ExceptionsTestCase"]
+
 EXCEPTIONS = []
 for attribute in dir(manager.exceptions):
 	object = getattr(manager.exceptions, attribute)

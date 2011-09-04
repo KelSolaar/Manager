@@ -36,6 +36,15 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
+__all__ = ["RESOURCES_DIRECTORY",
+			"SINGLE_COMPONENT",
+			"COMPONENTS_DIRECTORY",
+			"COMPONENTS",
+			"COMPONENTS_RANKING",
+			"STANDARD_PROFILE_CONTENT",
+			"ProfileTestCase",
+			"ManagerTestCase"]
+
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__), "resources/components/core/testsComponentA/testsComponentA.rc"), Component)
 COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
