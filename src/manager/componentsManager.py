@@ -98,6 +98,7 @@ class Profile(object):
 		self.__interface = None
 		self.__categorie = None
 
+		self.__title = None
 		self.__module = None
 		self.__version = None
 		self.__author = None
@@ -329,6 +330,38 @@ class Profile(object):
 		"""
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("categorie"))
+
+	@property
+	def title(self):
+		"""
+		This method is the property for **self.__title** attribute.
+
+		:return: self.__title. ( String )
+		"""
+
+		return self.__title
+
+	@title.setter
+	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	def title(self, value):
+		"""
+		This method is the setter method for **self.__title** attribute.
+
+		:param value: Attribute value. ( String )
+		"""
+
+		if value:
+			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("title", value)
+		self.__title = value
+
+	@title.deleter
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	def title(self):
+		"""
+		This method is the deleter method for **self.__title** attribute.
+		"""
+
+		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("title"))
 
 	@property
 	def module(self):
@@ -724,6 +757,9 @@ class Manager(object):
 			if not profile.name:
 				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Name"))
 			profile.path = os.path.dirname(file)
+			profile.title = parser.attributeExists("Title", "Component") and parser.getValue("Title", "Component") or None
+			if not profile.title:
+				profile.title = profile.name
 			profile.module = parser.attributeExists("Module", "Component") and parser.getValue("Module", "Component") or None
 			if not profile.module:
 				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Module"))
