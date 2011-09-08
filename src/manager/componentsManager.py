@@ -30,7 +30,7 @@ import foundations.core as core
 import foundations.exceptions
 import foundations.strings
 import manager.exceptions
-from foundations.parser import Parser
+from foundations.parsers import SectionsFileParser
 from foundations.walker import Walker
 from manager.component import Component
 from manager.globals.constants import Constants
@@ -747,7 +747,7 @@ class Manager(object):
 
 		LOGGER.debug("> Building '{0}' profile.".format(file))
 
-		parser = Parser(file)
+		parser = SectionsFileParser(file)
 		parser.read() and parser.parse()
 
 		if parser.sections:
