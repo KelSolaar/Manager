@@ -31,7 +31,7 @@ import foundations.exceptions
 import foundations.strings
 import manager.exceptions
 from foundations.parsers import SectionsFileParser
-from foundations.walker import Walker
+from foundations.walkers import OsWalker
 from manager.component import Component
 from manager.globals.constants import Constants
 from manager.uiComponent import UiComponent
@@ -855,12 +855,12 @@ class Manager(object):
 		:return: Method success. ( Boolean )
 		"""
 
-		walker = Walker()
+		osWalker = OsWalker()
 		unregisteredComponents = []
 		for path in self.paths:
-			walker.root = path
-			walker.walk(("\.{0}$".format(self.__extension),), ("\._",))
-			for file in walker.files.values():
+			osWalker.root = path
+			osWalker.walk(("\.{0}$".format(self.__extension),), ("\._",))
+			for file in osWalker.files.values():
 				if not self.registerComponent(file):
 					unregisteredComponents.append(file)
 
