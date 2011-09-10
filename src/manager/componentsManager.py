@@ -747,35 +747,35 @@ class Manager(object):
 
 		LOGGER.debug("> Building '{0}' profile.".format(file))
 
-		parser = SectionsFileParser(file)
-		parser.read() and parser.parse()
+		sectionsFileParser = SectionsFileParser(file)
+		sectionsFileParser.read() and sectionsFileParser.parse()
 
-		if parser.sections:
+		if sectionsFileParser.sections:
 			profile = Profile()
 			profile.path = os.path.dirname(file)
-			profile.name = parser.attributeExists("Name", "Component") and parser.getValue("Name", "Component") or None
+			profile.name = sectionsFileParser.attributeExists("Name", "Component") and sectionsFileParser.getValue("Name", "Component") or None
 			if not profile.name:
 				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Name"))
 			profile.path = os.path.dirname(file)
-			profile.title = parser.attributeExists("Title", "Component") and parser.getValue("Title", "Component") or None
+			profile.title = sectionsFileParser.attributeExists("Title", "Component") and sectionsFileParser.getValue("Title", "Component") or None
 			if not profile.title:
 				profile.title = profile.name
-			profile.module = parser.attributeExists("Module", "Component") and parser.getValue("Module", "Component") or None
+			profile.module = sectionsFileParser.attributeExists("Module", "Component") and sectionsFileParser.getValue("Module", "Component") or None
 			if not profile.module:
 				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Module"))
-			profile.object_ = parser.attributeExists("Object", "Component") and parser.getValue("Object", "Component") or None
+			profile.object_ = sectionsFileParser.attributeExists("Object", "Component") and sectionsFileParser.getValue("Object", "Component") or None
 			if not profile.object_:
 				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Object"))
-			profile.rank = parser.attributeExists("Rank", "Component") and parser.getValue("Rank", "Component") or None
+			profile.rank = sectionsFileParser.attributeExists("Rank", "Component") and sectionsFileParser.getValue("Rank", "Component") or None
 			if not profile.rank:
 				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Rank"))
-			profile.version = parser.attributeExists("Version", "Component") and parser.getValue("Version", "Component") or None
+			profile.version = sectionsFileParser.attributeExists("Version", "Component") and sectionsFileParser.getValue("Version", "Component") or None
 			if not profile.version:
 				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Version"))
-			profile.author = parser.attributeExists("Author", "Informations") and parser.getValue("Author", "Informations") or None
-			profile.email = parser.attributeExists("Email", "Informations") and parser.getValue("Email", "Informations") or None
-			profile.url = parser.attributeExists("Url", "Informations") and parser.getValue("Url", "Informations") or None
-			profile.description = parser.attributeExists("Description", "Informations") and parser.getValue("Description", "Informations") or None
+			profile.author = sectionsFileParser.attributeExists("Author", "Informations") and sectionsFileParser.getValue("Author", "Informations") or None
+			profile.email = sectionsFileParser.attributeExists("Email", "Informations") and sectionsFileParser.getValue("Email", "Informations") or None
+			profile.url = sectionsFileParser.attributeExists("Url", "Informations") and sectionsFileParser.getValue("Url", "Informations") or None
+			profile.description = sectionsFileParser.attributeExists("Description", "Informations") and sectionsFileParser.getValue("Description", "Informations") or None
 
 			return profile
 		else:
