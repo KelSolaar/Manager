@@ -37,7 +37,8 @@ __all__ = ["AbstractComponentError",
 			"ComponentInstantiationError",
 			"ComponentActivationError",
 			"ComponentDeactivationError",
-			"ComponentReloadError"]
+			"ComponentReloadError",
+			"ComponentExistsError"]
 
 #***********************************************************************************************
 #***	Module classes and definitions.
@@ -102,6 +103,13 @@ class ComponentDeactivationError(AbstractComponentError):
 class ComponentReloadError(AbstractComponentError):
 	"""
 	This class is used for Component reload exceptions.
+	"""
+
+	pass
+
+class ComponentExistsError(AbstractComponentError):
+	"""
+	This class is used for non existing Component exceptions.
 	"""
 
 	pass
