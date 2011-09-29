@@ -1082,7 +1082,7 @@ class Manager(object):
 		Usage::
 
 			>>> Manager.getComponentAttributeName("factory.componentsManagerUi")
-			'coreComponentsManagerUi'
+			'factoryComponentsManagerUi'
 
 		:param component: Component to get the attribute name. ( String )
 		:return: Component attribute name. ( Object )
