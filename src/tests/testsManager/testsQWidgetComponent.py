@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsUiComponent.py**
+**testsQWidgetComponent.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines units tests for :mod:`manager.uiComponent` module.
+	This module defines units tests for :mod:`manager.qwidgetComponent` module.
 
 **Others:**
 
@@ -25,7 +25,7 @@ from PyQt4.QtGui import QApplication
 #***********************************************************************************************
 #***	Internal imports.
 #***********************************************************************************************
-from manager.uiComponent import UiComponent
+from manager.qwidgetComponent import QWidgetComponent
 
 #***********************************************************************************************
 #***	Module attributes.
@@ -49,7 +49,7 @@ APPLICATION = QApplication(sys.argv)
 #***********************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This class defines :class:`manager.uiComponent.UiComponent` class units tests methods.
+	This class defines :class:`manager.qwidgetComponent.QWidgetComponent` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -64,7 +64,7 @@ class ComponentTestCase(unittest.TestCase):
 							"ui")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(UiComponent))
+			self.assertIn(attribute, dir(QWidgetComponent))
 
 	def testRequiredMethods(self):
 		"""
@@ -76,34 +76,34 @@ class ComponentTestCase(unittest.TestCase):
 						"loadUi")
 
 		for method in requiredMethods:
-			self.assertIn(method, dir(UiComponent))
+			self.assertIn(method, dir(QWidgetComponent))
 
 	def testActivate(self):
 		"""
-		This method tests :meth:`manager.uiComponent.UiComponent.activate` method.
+		This method tests :meth:`manager.qwidgetComponent.QWidgetComponent.activate` method.
 		"""
 
-		uiComponent = UiComponent(uiFile=UI_FILE)
-		uiComponent.activate()
-		self.assertTrue(uiComponent.activated)
+		qwidgetComponent = QWidgetComponent(uiFile=UI_FILE)
+		qwidgetComponent.activate()
+		self.assertTrue(qwidgetComponent.activated)
 
 	def testDeactivate(self):
 		"""
-		This method tests :meth:`manager.uiComponent.UiComponent.deactivate` method.
+		This method tests :meth:`manager.qwidgetComponent.QWidgetComponent.deactivate` method.
 		"""
 
-		uiComponent = UiComponent()
-		uiComponent.activated = True
-		uiComponent.deactivate()
-		self.assertFalse(uiComponent.activated)
+		qwidgetComponent = QWidgetComponent()
+		qwidgetComponent.activated = True
+		qwidgetComponent.deactivate()
+		self.assertFalse(qwidgetComponent.activated)
 
 	def testLoadUi(self):
 		"""
-		This method tests :meth:`manager.uiComponent.UiComponent.loadUi` method.
+		This method tests :meth:`manager.qwidgetComponent.QWidgetComponent.loadUi` method.
 		"""
 
-		uiComponent = UiComponent(uiFile=UI_FILE)
-		self.assertTrue(uiComponent.loadUi())
+		qwidgetComponent = QWidgetComponent(uiFile=UI_FILE)
+		self.assertTrue(qwidgetComponent.loadUi())
 
 if __name__ == "__main__":
 	import tests.utilities

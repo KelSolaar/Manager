@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**component.py**
+**qwidgetComponent.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`Component` class.
+	This module defines the :class:`QWidgetComponent` class.
 
 **Others:**
 
@@ -18,6 +18,11 @@
 #***	External imports.
 #***********************************************************************************************
 import logging
+import os
+import sys
+from PyQt4 import uic
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
 
 #***********************************************************************************************
 #***	Internal imports.
@@ -36,34 +41,43 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["LOGGER", "Component"]
+__all__ = ["LOGGER", "QWidgetComponent"]
 
 LOGGER = logging.getLogger(Constants.logger)
 
 #***********************************************************************************************
 #***	Module classes and definitions.
 #***********************************************************************************************
-class Component(object):
+class QWidgetComponent(QWidget):
 	"""
-	This class is the base class for **Manager** package Components.
+	This class is the base class for **Manager** package QWidget Components.
 	"""
 
 	@core.executionTrace
-	def __init__(self, name=None):
+	def __init__(self, parent=None, name=None, uiFile=None):
 		"""
 		This method initializes the class.
 
+		:param parent: Object parent. ( QObject )
 		:param name: Component name. ( String )
+		:param uiFile: Ui file. ( String )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
+
+		QWidget.__init__(self, parent)
 
 		# --- Setting class attributes. ---
 		self.__name = None
 		self.name = name
 
+		self.__uiFile = None
+		self.uiFile = uiFile
+
 		self.__activated = False
 		self.__deactivatable = True
+
+		self.__ui = None
 
 	#***********************************************************************************************
 	#***	Attributes properties.
@@ -105,7 +119,7 @@ class Component(object):
 		"""
 		This method is the property for **self.__activated** attribute.
 
-		:return: self.__activated. ( Boolean )
+		:return: self.__activated. ( String )
 		"""
 
 		return self.__activated
@@ -116,7 +130,7 @@ class Component(object):
 		"""
 		This method is the setter method for **self.__activated** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -137,7 +151,7 @@ class Component(object):
 		"""
 		This method is the property for **self.__deactivatable** attribute.
 
-		:return: self.__deactivatable. ( Boolean )
+		:return: self.__deactivatable. ( String )
 		"""
 
 		return self.__deactivatable
@@ -148,7 +162,7 @@ class Component(object):
 		"""
 		This method is the setter method for **self.__deactivatable** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value. ( String )
 		"""
 
 		if value:
@@ -164,6 +178,68 @@ class Component(object):
 
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("deactivatable"))
 
+	@property
+	def uiFile(self):
+		"""
+		This method is the property for **self.__uiFile** attribute.
+
+		:return: self.__uiFile. ( String )
+		"""
+
+		return self.__uiFile
+
+	@uiFile.setter
+	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	def uiFile(self, value):
+		"""
+		This method is the setter method for **self.__uiFile** attribute.
+
+		:param value: Attribute value. ( String )
+		"""
+
+		if value:
+			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("uiFile", value)
+			assert os.path.exists(value), "'{0}' attribute: '{1}' ui file doesn't exists!".format("uiFile", value)
+		self.__uiFile = value
+
+	@uiFile.deleter
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	def uiFile(self):
+		"""
+		This method is the deleter method for **self.__uiFile** attribute.
+		"""
+
+		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("uiFile"))
+
+	@property
+	def ui(self):
+		"""
+		This method is the property for **self.__ui** attribute.
+
+		:return: self.__ui. ( Object )
+		"""
+
+		return self.__ui
+
+	@ui.setter
+	def ui(self, value):
+		"""
+		This method is the setter method for **self.__ui** attribute.
+
+		:param value: Attribute value. ( Object )
+		"""
+
+		self.__ui = value
+
+	@ui.deleter
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	def ui(self):
+		"""
+		This method is the deleter method for **self.__ui** attribute.
+		"""
+
+		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("ui"))
+
 	#***********************************************************************************************
 	#***	Class methods.
 	#***********************************************************************************************
@@ -176,7 +252,7 @@ class Component(object):
 		"""
 
 		self.__activated = True
-		return True
+		return self.loadUi()
 
 	@core.executionTrace
 	def deactivate(self):
@@ -188,3 +264,20 @@ class Component(object):
 
 		self.__activated = False
 		return True
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	def loadUi(self):
+		"""
+		This method loads Component ui file.
+
+		:return: Method success. ( Boolean )
+		"""
+
+		if self.__uiFile:
+			self.__ui = uic.loadUi(self.__uiFile)
+			if "." in sys.path:
+				sys.path.remove(".")
+			return True
+		else:
+			raise foundations.exceptions.ProgrammingError("'{0}' Component ui file doesn't exists!".format(self.__name))

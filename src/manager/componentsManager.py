@@ -34,7 +34,8 @@ from foundations.parsers import SectionsFileParser
 from foundations.walkers import OsWalker
 from manager.component import Component
 from manager.globals.constants import Constants
-from manager.uiComponent import UiComponent
+from manager.qobjectComponent import QObjectComponent
+from manager.qwidgetComponent import QWidgetComponent
 
 #***********************************************************************************************
 #***	Module attributes.
@@ -563,7 +564,7 @@ class Manager(object):
 	"""
 
 	@core.executionTrace
-	def __init__(self, paths=None, extension="rc", categories={ "default" : Component, "ui" : UiComponent }):
+	def __init__(self, paths=None, extension="rc", categories={ "Default" : Component, "QWidget" : QWidgetComponent, "QObject" : QObjectComponent }):
 		"""
 		This method initializes the class.
 
@@ -1064,7 +1065,7 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17b0d70>
 
-		:param component: Component to get the interface. ( Component / UiComponent )
+		:param component: Component to get the interface. ( Component / QWidgetComponent / QObjectComponent )
 		:return: Component interface. ( Object )
 		"""
 
