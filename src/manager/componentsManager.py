@@ -301,7 +301,7 @@ class Profile(object):
 		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("interface"))
 
 	@property
-	def categorie(self):
+	def category(self):
 		"""
 		This method is the property for **self.__categorie** attribute.
 
@@ -310,9 +310,9 @@ class Profile(object):
 
 		return self.__categorie
 
-	@categorie.setter
+	@category.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def categorie(self, value):
+	def category(self, value):
 		"""
 		This method is the setter method for **self.__categorie** attribute.
 
@@ -320,17 +320,17 @@ class Profile(object):
 		"""
 
 		if value:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("categorie", value)
+			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("category", value)
 		self.__categorie = value
 
-	@categorie.deleter
+	@category.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def categorie(self):
+	def category(self):
 		"""
 		This method is the deleter method for **self.__categorie** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("categorie"))
+		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("category"))
 
 	@property
 	def title(self):
@@ -930,8 +930,8 @@ class Manager(object):
 		profile.import_ = __import__(profile.module)
 		object_ = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
 		if object_ and inspect.isclass(object_):
-			for categorie, type in self.__categories.items():
-				profile.categorie = categorie
+			for category, type in self.__categories.items():
+				profile.category = category
 				profile.interface = issubclass(object_, type) and object_ is not type and object_(name=profile.name) or None
 				if profile.interface:
 					LOGGER.info("{0} | '{1}' Component has been instantiated!".format(self.__class__.__name__, profile.name))
@@ -993,7 +993,7 @@ class Manager(object):
 		reload(import_)
 		object_ = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
 		if object_ and inspect.isclass(object_):
-			interface = issubclass(object_, self.__categories[profile.categorie]) and object_ is not self.__categories[profile.categorie] and object_(name=profile.name) or None
+			interface = issubclass(object_, self.__categories[profile.category]) and object_ is not self.__categories[profile.category] and object_(name=profile.name) or None
 			if not interface:
 				return
 
@@ -1025,7 +1025,7 @@ class Manager(object):
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
-	def filterComponents(self, pattern, categorie=None):
+	def filterComponents(self, pattern, category=None):
 		"""
 		This method filters the Components using provided regex pattern.
 
@@ -1038,14 +1038,14 @@ class Manager(object):
 			['core.testsComponentA']
 
 		:param pattern: Regex filtering pattern. ( String )
-		:param categorie: Categorie filter. ( String )
+		:param category: Category filter. ( String )
 		:return: Matching items. ( List )
 		"""
 
 		matchingItems = []
 		for component, profile in self.__components.items():
-			if categorie:
-				if profile.categorie != categorie:
+			if category:
+				if profile.category != category:
 					continue
 
 			if re.search(pattern, component):
@@ -1089,9 +1089,9 @@ class Manager(object):
 		:return: Component attribute name. ( Object )
 		"""
 
-		search = re.search("(?P<categorie>\w+)\.(?P<name>\w+)", component)
+		search = re.search("(?P<category>\w+)\.(?P<name>\w+)", component)
 		if search:
-			name = "{0}{1}{2}".format(search.group("categorie"), search.group("name")[0].upper(), search.group("name")[1:])
+			name = "{0}{1}{2}".format(search.group("category"), search.group("name")[0].upper(), search.group("name")[1:])
 			LOGGER.debug("> Component name: '{0}' to attribute name Active_QLabel: '{1}'.".format(component, name))
 		else:
 			name = component

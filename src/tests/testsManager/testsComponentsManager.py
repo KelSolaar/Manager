@@ -83,7 +83,7 @@ class ProfileTestCase(unittest.TestCase):
 							"rank",
 							"import_",
 							"interface",
-							"categorie",
+							"category",
 							"title",
 							"module",
 							"version",
