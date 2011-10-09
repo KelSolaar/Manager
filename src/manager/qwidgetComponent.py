@@ -29,6 +29,7 @@ from PyQt4.QtGui import *
 #***********************************************************************************************
 import foundations.core as core
 import foundations.exceptions
+import foundations.ui.common
 from manager.globals.constants import Constants
 
 #***********************************************************************************************
@@ -41,243 +42,171 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["LOGGER", "QWidgetComponent"]
+__all__ = ["LOGGER", "QWidgetComponentFactory"]
 
 LOGGER = logging.getLogger(Constants.logger)
 
 #***********************************************************************************************
 #***	Module classes and definitions.
 #***********************************************************************************************
-class QWidgetComponent(QWidget):
+def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	"""
-	This class is the base class for **Manager** package QWidget Components.
+	This definition is a class factory creating :class:`QWidgetComponent` classes using provided ui file.
+
+	:param uiFile: Ui file. ( String )
+	:param \*args: Arguments. ( \* )
+	:param \*\*kwargs: Arguments. ( \* )
 	"""
 
-	@core.executionTrace
-	def __init__(self, parent=None, name=None, uiFile=None):
+	class QWidgetComponent(foundations.ui.common.QWidgetFactory(uiFile=uiFile)):
 		"""
-		This method initializes the class.
-
-		:param parent: Object parent. ( QObject )
-		:param name: Component name. ( String )
-		:param uiFile: Ui file. ( String )
+		This class is the base class for **Manager** package QWidget Components.
 		"""
 
-		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
+		@core.executionTrace
+		def __init__(self, parent=None, name=None, *args, **kwargs):
+			"""
+			This method initializes the class.
+	
+			:param parent: Object parent. ( QObject )
+			:param name: Component name. ( String )
+			:param \*args: Arguments. ( \* )
+			:param \*\*kwargs: Arguments. ( \* )
+			"""
 
-		QWidget.__init__(self, parent)
+			LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
 
-		# --- Setting class attributes. ---
-		self.__name = None
-		self.name = name
+			super(QWidgetComponent, self).__init__(parent, *args, **kwargs)
 
-		self.__uiFile = None
-		self.uiFile = uiFile
+			# --- Setting class attributes. ---
+			self.__name = None
+			self.name = name
 
-		self.__activated = False
-		self.__deactivatable = True
+			self.__activated = False
+			self.__deactivatable = True
 
-		self.__ui = None
+		#***********************************************************************************************
+		#***	Attributes properties.
+		#***********************************************************************************************
+		@property
+		def name(self):
+			"""
+			This method is the property for **self.__name** attribute.
+	
+			:return: self.__name. ( String )
+			"""
 
-	#***********************************************************************************************
-	#***	Attributes properties.
-	#***********************************************************************************************
-	@property
-	def name(self):
-		"""
-		This method is the property for **self.__name** attribute.
+			return self.__name
 
-		:return: self.__name. ( String )
-		"""
+		@name.setter
+		@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+		def name(self, value):
+			"""
+			This method is the setter method for **self.__name** attribute.
+	
+			:param value: Attribute value. ( String )
+			"""
 
-		return self.__name
+			if value:
+				assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("name", value)
+			self.__name = value
 
-	@name.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def name(self, value):
-		"""
-		This method is the setter method for **self.__name** attribute.
+		@name.deleter
+		@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+		def name(self):
+			"""
+			This method is the deleter method for **self.__name** attribute.
+			"""
 
-		:param value: Attribute value. ( String )
-		"""
+			raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("name"))
 
-		if value:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("name", value)
-		self.__name = value
+		@property
+		def activated(self):
+			"""
+			This method is the property for **self.__activated** attribute.
+	
+			:return: self.__activated. ( String )
+			"""
 
-	@name.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def name(self):
-		"""
-		This method is the deleter method for **self.__name** attribute.
-		"""
+			return self.__activated
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("name"))
+		@activated.setter
+		@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+		def activated(self, value):
+			"""
+			This method is the setter method for **self.__activated** attribute.
+	
+			:param value: Attribute value. ( String )
+			"""
 
-	@property
-	def activated(self):
-		"""
-		This method is the property for **self.__activated** attribute.
+			if value:
+				assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("activated", value)
+			self.__activated = value
 
-		:return: self.__activated. ( String )
-		"""
+		@activated.deleter
+		@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+		def activated(self):
+			"""
+			This method is the deleter method for **self.__activated** attribute.
+			"""
 
-		return self.__activated
+			raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("activated"))
 
-	@activated.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def activated(self, value):
-		"""
-		This method is the setter method for **self.__activated** attribute.
+		@property
+		def deactivatable(self):
+			"""
+			This method is the property for **self.__deactivatable** attribute.
+	
+			:return: self.__deactivatable. ( String )
+			"""
 
-		:param value: Attribute value. ( String )
-		"""
+			return self.__deactivatable
 
-		if value:
-			assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("activated", value)
-		self.__activated = value
+		@deactivatable.setter
+		@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+		def deactivatable(self, value):
+			"""
+			This method is the setter method for **self.__deactivatable** attribute.
+	
+			:param value: Attribute value. ( String )
+			"""
 
-	@activated.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def activated(self):
-		"""
-		This method is the deleter method for **self.__activated** attribute.
-		"""
+			if value:
+				assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("deactivatable", value)
+			self.__deactivatable = value
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("activated"))
+		@deactivatable.deleter
+		@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+		def deactivatable(self):
+			"""
+			This method is the deleter method for **self.__deactivatable** attribute.
+			"""
 
-	@property
-	def deactivatable(self):
-		"""
-		This method is the property for **self.__deactivatable** attribute.
+			raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("deactivatable"))
 
-		:return: self.__deactivatable. ( String )
-		"""
+		#***********************************************************************************************
+		#***	Class methods.
+		#***********************************************************************************************
+		@core.executionTrace
+		def activate(self):
+			"""
+			This method sets Component activation state.
+	
+			:return: Method success. ( Boolean )
+			"""
 
-		return self.__deactivatable
-
-	@deactivatable.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def deactivatable(self, value):
-		"""
-		This method is the setter method for **self.__deactivatable** attribute.
-
-		:param value: Attribute value. ( String )
-		"""
-
-		if value:
-			assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("deactivatable", value)
-		self.__deactivatable = value
-
-	@deactivatable.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def deactivatable(self):
-		"""
-		This method is the deleter method for **self.__deactivatable** attribute.
-		"""
-
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("deactivatable"))
-
-	@property
-	def uiFile(self):
-		"""
-		This method is the property for **self.__uiFile** attribute.
-
-		:return: self.__uiFile. ( String )
-		"""
-
-		return self.__uiFile
-
-	@uiFile.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def uiFile(self, value):
-		"""
-		This method is the setter method for **self.__uiFile** attribute.
-
-		:param value: Attribute value. ( String )
-		"""
-
-		if value:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("uiFile", value)
-			assert os.path.exists(value), "'{0}' attribute: '{1}' ui file doesn't exists!".format("uiFile", value)
-		self.__uiFile = value
-
-	@uiFile.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def uiFile(self):
-		"""
-		This method is the deleter method for **self.__uiFile** attribute.
-		"""
-
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("uiFile"))
-
-	@property
-	def ui(self):
-		"""
-		This method is the property for **self.__ui** attribute.
-
-		:return: self.__ui. ( Object )
-		"""
-
-		return self.__ui
-
-	@ui.setter
-	def ui(self, value):
-		"""
-		This method is the setter method for **self.__ui** attribute.
-
-		:param value: Attribute value. ( Object )
-		"""
-
-		self.__ui = value
-
-	@ui.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def ui(self):
-		"""
-		This method is the deleter method for **self.__ui** attribute.
-		"""
-
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("ui"))
-
-	#***********************************************************************************************
-	#***	Class methods.
-	#***********************************************************************************************
-	@core.executionTrace
-	def activate(self):
-		"""
-		This method sets Component activation state.
-
-		:return: Method success. ( Boolean )
-		"""
-
-		self.__activated = True
-		return self.loadUi()
-
-	@core.executionTrace
-	def deactivate(self):
-		"""
-		This method unsets Component activation state.
-
-		:return: Method success. ( Boolean )
-		"""
-
-		self.__activated = False
-		return True
-
-	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def loadUi(self):
-		"""
-		This method loads Component ui file.
-
-		:return: Method success. ( Boolean )
-		"""
-
-		if self.__uiFile:
-			self.__ui = uic.loadUi(self.__uiFile)
-			if "." in sys.path:
-				sys.path.remove(".")
+			self.__activated = True
 			return True
-		else:
-			raise foundations.exceptions.ProgrammingError("'{0}' Component ui file doesn't exists!".format(self.__name))
+
+		@core.executionTrace
+		def deactivate(self):
+			"""
+			This method unsets Component activation state.
+	
+			:return: Method success. ( Boolean )
+			"""
+
+			self.__activated = False
+			return True
+
+	return QWidgetComponent

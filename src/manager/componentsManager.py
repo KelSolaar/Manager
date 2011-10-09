@@ -35,7 +35,7 @@ from foundations.walkers import OsWalker
 from manager.component import Component
 from manager.globals.constants import Constants
 from manager.qobjectComponent import QObjectComponent
-from manager.qwidgetComponent import QWidgetComponent
+from manager.qwidgetComponent import QWidgetComponentFactory
 
 #***********************************************************************************************
 #***	Module attributes.
@@ -564,7 +564,7 @@ class Manager(object):
 	"""
 
 	@core.executionTrace
-	def __init__(self, paths=None, extension="rc", categories={ "Default" : Component, "QWidget" : QWidgetComponent, "QObject" : QObjectComponent }):
+	def __init__(self, paths=None, extension="rc", categories={ "Default" : Component, "QWidget" : QWidgetComponentFactory(), "QObject" : QObjectComponent }):
 		"""
 		This method initializes the class.
 
@@ -928,11 +928,11 @@ class Manager(object):
 		not path in sys.path and sys.path.append(path)
 
 		profile.import_ = __import__(profile.module)
-		object_ = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
-		if object_ and inspect.isclass(object_):
+		object = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
+		if object and inspect.isclass(object):
 			for category, type in self.__categories.items():
 				profile.category = category
-				profile.interface = issubclass(object_, type) and object_ is not type and object_(name=profile.name) or None
+				profile.interface = (issubclass(object, type) or type.__class__ in (base.__class__ for base in object.__bases__)) and object(name=profile.name) or None
 				if profile.interface:
 					LOGGER.info("{0} | '{1}' Component has been instantiated!".format(self.__class__.__name__, profile.name))
 					return True
@@ -991,9 +991,9 @@ class Manager(object):
 		profile = self.__components[component]
 		import_ = __import__(profile.module)
 		reload(import_)
-		object_ = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
-		if object_ and inspect.isclass(object_):
-			interface = issubclass(object_, self.__categories[profile.category]) and object_ is not self.__categories[profile.category] and object_(name=profile.name) or None
+		object = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
+		if object and inspect.isclass(object):
+			interface = issubclass(object, self.__categories[profile.category]) and object is not self.__categories[profile.category] and object(name=profile.name) or None
 			if not interface:
 				return
 
