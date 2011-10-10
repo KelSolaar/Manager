@@ -930,10 +930,11 @@ class Manager(object):
 		profile.import_ = __import__(profile.module)
 		object = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
 		if object and inspect.isclass(object):
+			instance = object(name=profile.name)
 			for category, type in self.__categories.items():
-				profile.category = category
-				profile.interface = (issubclass(object, type) or type.__class__ in (base.__class__ for base in object.__bases__)) and object(name=profile.name) or None
-				if profile.interface:
+				if type.__name__ in (base.__name__ for base in object.__bases__):
+					profile.category = category
+					profile.interface = instance
 					LOGGER.info("{0} | '{1}' Component has been instantiated!".format(self.__class__.__name__, profile.name))
 					return True
 		else:

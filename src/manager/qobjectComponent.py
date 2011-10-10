@@ -50,17 +50,19 @@ class QObjectComponent(QObject):
 	"""
 
 	@core.executionTrace
-	def __init__(self, parent=None, name=None):
+	def __init__(self, parent=None, name=None, *args, **kwargs):
 		"""
 		This method initializes the class.
 
 		:param parent: Object parent. ( QObject )
 		:param name: Component name. ( String )
+		:param \*args: Arguments. ( \* )
+		:param \*\*kwargs: Arguments. ( \* )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
 
-		QObject.__init__(self, parent)
+		QObject.__init__(self, parent, *args, **kwargs)
 
 		# --- Setting class attributes. ---
 		self.__name = None
