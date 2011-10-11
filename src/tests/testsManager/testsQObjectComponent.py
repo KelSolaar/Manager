@@ -67,25 +67,6 @@ class QObjectComponentTestCase(unittest.TestCase):
 		for method in requiredMethods:
 			self.assertIn(method, dir(QObjectComponent))
 
-	def testActivate(self):
-		"""
-		This method tests :meth:`manager.qobjectComponent.QObjectComponent.activate` method.
-		"""
-
-		component = QObjectComponent()
-		component.activate()
-		self.assertTrue(component.activated)
-
-	def testDeactivate(self):
-		"""
-		This method tests :meth:`manager.qobjectComponent.QObjectComponent.deactivate` method.
-		"""
-
-		component = QObjectComponent()
-		component.activated = True
-		component.deactivate()
-		self.assertFalse(component.activated)
-
 if __name__ == "__main__":
 	import tests.utilities
 	unittest.main()

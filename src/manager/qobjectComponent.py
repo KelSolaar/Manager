@@ -174,6 +174,7 @@ class QObjectComponent(QObject):
 	#***	Class methods.
 	#***********************************************************************************************
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 	def activate(self):
 		"""
 		This method sets Component activation state.
@@ -181,10 +182,10 @@ class QObjectComponent(QObject):
 		:return: Method success. ( Boolean )
 		"""
 
-		self.__activated = True
-		return True
+		raise NotImplementedError("'{0}' must be implemented by '{1}' subclasses!".format(self.activate.__name__, self.__class__.__name__))
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 	def deactivate(self):
 		"""
 		This method unsets Component activation state.
@@ -192,5 +193,4 @@ class QObjectComponent(QObject):
 		:return: Method success. ( Boolean )
 		"""
 
-		self.__activated = False
-		return True
+		raise NotImplementedError("'{0}' must be implemented by '{1}' subclasses!".format(self.deactivate.__name__, self.__class__.__name__))

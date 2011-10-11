@@ -67,25 +67,6 @@ class ComponentTestCase(unittest.TestCase):
 		for method in requiredMethods:
 			self.assertIn(method, dir(Component))
 
-	def testActivate(self):
-		"""
-		This method tests :meth:`manager.component.Component.activate` method.
-		"""
-
-		component = Component()
-		component.activate()
-		self.assertTrue(component.activated)
-
-	def testDeactivate(self):
-		"""
-		This method tests :meth:`manager.component.Component.deactivate` method.
-		"""
-
-		component = Component()
-		component.activated = True
-		component.deactivate()
-		self.assertFalse(component.activated)
-
 if __name__ == "__main__":
 	import tests.utilities
 	unittest.main()

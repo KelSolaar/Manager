@@ -25,7 +25,7 @@ from PyQt4.QtGui import QApplication
 #***********************************************************************************************
 #***	Internal imports.
 #***********************************************************************************************
-from manager.qwidgetComponent import QWidgetComponent
+from manager.qwidgetComponent import QWidgetComponentFactory
 
 #***********************************************************************************************
 #***	Module attributes.
@@ -37,7 +37,7 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "ComponentTestCase"]
+__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "QWidgetComponentFactoryTestCase"]
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 UI_FILE = os.path.join(RESOURCES_DIRECTORY, "standard.ui")
@@ -47,9 +47,9 @@ APPLICATION = QApplication(sys.argv)
 #***********************************************************************************************
 #***	Module classes and definitions.
 #***********************************************************************************************
-class ComponentTestCase(unittest.TestCase):
+class QWidgetComponentFactoryTestCase(unittest.TestCase):
 	"""
-	This class defines :class:`manager.qwidgetComponent.QWidgetComponent` class units tests methods.
+	This class defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -60,11 +60,10 @@ class ComponentTestCase(unittest.TestCase):
 		requiredAttributes = ("name",
 							"uiFile",
 							"activated",
-							"deactivatable",
-							"ui")
+							"deactivatable",)
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(QWidgetComponent))
+			self.assertIn(attribute, dir(QWidgetComponentFactory()))
 
 	def testRequiredMethods(self):
 		"""
@@ -72,38 +71,10 @@ class ComponentTestCase(unittest.TestCase):
 		"""
 
 		requiredMethods = ("activate",
-						"deactivate",
-						"loadUi")
+						"deactivate")
 
 		for method in requiredMethods:
-			self.assertIn(method, dir(QWidgetComponent))
-
-	def testActivate(self):
-		"""
-		This method tests :meth:`manager.qwidgetComponent.QWidgetComponent.activate` method.
-		"""
-
-		qwidgetComponent = QWidgetComponent(uiFile=UI_FILE)
-		qwidgetComponent.activate()
-		self.assertTrue(qwidgetComponent.activated)
-
-	def testDeactivate(self):
-		"""
-		This method tests :meth:`manager.qwidgetComponent.QWidgetComponent.deactivate` method.
-		"""
-
-		qwidgetComponent = QWidgetComponent()
-		qwidgetComponent.activated = True
-		qwidgetComponent.deactivate()
-		self.assertFalse(qwidgetComponent.activated)
-
-	def testLoadUi(self):
-		"""
-		This method tests :meth:`manager.qwidgetComponent.QWidgetComponent.loadUi` method.
-		"""
-
-		qwidgetComponent = QWidgetComponent(uiFile=UI_FILE)
-		self.assertTrue(qwidgetComponent.loadUi())
+			self.assertIn(method, dir(QWidgetComponentFactory()))
 
 if __name__ == "__main__":
 	import tests.utilities

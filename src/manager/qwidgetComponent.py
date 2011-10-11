@@ -18,9 +18,6 @@
 #***	External imports.
 #***********************************************************************************************
 import logging
-import os
-import sys
-from PyQt4 import uic
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
@@ -188,6 +185,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		#***	Class methods.
 		#***********************************************************************************************
 		@core.executionTrace
+		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 		def activate(self):
 			"""
 			This method sets Component activation state.
@@ -195,10 +193,10 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			:return: Method success. ( Boolean )
 			"""
 
-			self.__activated = True
-			return True
+			raise NotImplementedError("'{0}' must be implemented by '{1}' subclasses!".format(self.activate.__name__, self.__class__.__name__))
 
 		@core.executionTrace
+		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 		def deactivate(self):
 			"""
 			This method unsets Component activation state.
@@ -206,7 +204,6 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			:return: Method success. ( Boolean )
 			"""
 
-			self.__activated = False
-			return True
+			raise NotImplementedError("'{0}' must be implemented by '{1}' subclasses!".format(self.deactivate.__name__, self.__class__.__name__))
 
 	return QWidgetComponent
