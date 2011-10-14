@@ -140,7 +140,7 @@ class Profile(object):
 		This method is the deleter method for **self.__name** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("name"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
 
 	@property
 	def path(self):
@@ -173,7 +173,7 @@ class Profile(object):
 		This method is the deleter method for **self.__path** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("path"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "path"))
 
 	@property
 	def object_(self):
@@ -205,7 +205,7 @@ class Profile(object):
 		This method is the deleter method for **self.__object_** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("object_"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "object_"))
 
 	@property
 	def rank(self):
@@ -237,7 +237,7 @@ class Profile(object):
 		This method is the deleter method for **self.__rank** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("rank"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "rank"))
 
 	@property
 	def import_(self):
@@ -269,7 +269,7 @@ class Profile(object):
 		This method is the deleter method for **self.__import_** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("import"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "import"))
 
 	@property
 	def interface(self):
@@ -298,7 +298,7 @@ class Profile(object):
 		This method is the deleter method for **self.__interface** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("interface"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "interface"))
 
 	@property
 	def category(self):
@@ -330,7 +330,7 @@ class Profile(object):
 		This method is the deleter method for **self.__categorie** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("category"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "category"))
 
 	@property
 	def title(self):
@@ -362,7 +362,7 @@ class Profile(object):
 		This method is the deleter method for **self.__title** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("title"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "title"))
 
 	@property
 	def module(self):
@@ -394,7 +394,7 @@ class Profile(object):
 		This method is the deleter method for **self.__module** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("module"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "module"))
 
 	@property
 	def version(self):
@@ -426,7 +426,7 @@ class Profile(object):
 		This method is the deleter method for **self.__version** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("version"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "version"))
 
 	@property
 	def author(self):
@@ -458,7 +458,7 @@ class Profile(object):
 		This method is the deleter method for **self.__author** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("author"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "author"))
 
 	@property
 	def email(self):
@@ -490,7 +490,7 @@ class Profile(object):
 		This method is the deleter method for **self.__email** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("email"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "email"))
 
 	@property
 	def url(self):
@@ -522,7 +522,7 @@ class Profile(object):
 		This method is the deleter method for **self.__url** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("url"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "url"))
 
 	@property
 	def description(self):
@@ -554,7 +554,7 @@ class Profile(object):
 		This method is the deleter method for **self.__description** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("description"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "description"))
 
 class Manager(object):
 	"""
@@ -630,7 +630,7 @@ class Manager(object):
 		This method is the deleter method for **self.__paths** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("paths"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "paths"))
 
 	@property
 	def extension(self):
@@ -662,7 +662,7 @@ class Manager(object):
 		This method is the deleter method for **self.__extension** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("extension"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "extension"))
 
 	@property
 	def categories(self):
@@ -694,7 +694,7 @@ class Manager(object):
 		This method is the deleter method for **self.__categories** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("categories"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "categories"))
 
 	@property
 	def components(self):
@@ -715,7 +715,7 @@ class Manager(object):
 		:param value: Attribute value. ( Dictionary )
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is read only!".format("components"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "components"))
 
 	@components.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
@@ -724,7 +724,7 @@ class Manager(object):
 		This method is the deleter method for **self.__components** attribute.
 		"""
 
-		raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("components"))
+		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "components"))
 
 	#***********************************************************************************************
 	#***	Class methods.

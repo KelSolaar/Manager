@@ -115,7 +115,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			This method is the deleter method for **self.__name** attribute.
 			"""
 
-			raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("name"))
+			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
 
 		@property
 		def activated(self):
@@ -147,7 +147,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			This method is the deleter method for **self.__activated** attribute.
 			"""
 
-			raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("activated"))
+			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "activated"))
 
 		@property
 		def deactivatable(self):
@@ -179,7 +179,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			This method is the deleter method for **self.__deactivatable** attribute.
 			"""
 
-			raise foundations.exceptions.ProgrammingError("'{0}' attribute is not deletable!".format("deactivatable"))
+			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "deactivatable"))
 
 		#***********************************************************************************************
 		#***	Class methods.
