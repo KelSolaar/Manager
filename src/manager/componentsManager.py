@@ -1090,7 +1090,7 @@ class Manager(object):
 		:return: Component attribute name. ( Object )
 		"""
 
-		search = re.search("(?P<category>\w+)\.(?P<name>\w+)", component)
+		search = re.search(r"(?P<category>\w+)\.(?P<name>\w+)", component)
 		if search:
 			name = "{0}{1}{2}".format(search.group("category"), search.group("name")[0].upper(), search.group("name")[1:])
 			LOGGER.debug("> Component name: '{0}' to attribute name Active_QLabel: '{1}'.".format(component, name))
