@@ -133,7 +133,7 @@ class ManagerTestCase(unittest.TestCase):
 						"instantiateComponent",
 						"instantiateComponents",
 						"reloadComponent",
-						"getComponents",
+						"listComponents",
 						"filterComponents",
 						"getInterface",
 						"getComponentAttributeName")
@@ -237,13 +237,13 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGetComponents(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.getComponents` method.
+		This method tests :meth:`manager.componentsManager.Manager.listComponents` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
 		manager.registerComponents()
 		manager.instantiateComponents()
-		components = manager.getComponents()
+		components = manager.listComponents()
 		self.assertIsInstance(components, list)
 		self.assertListEqual(components, COMPONENTS_RANKING)
 

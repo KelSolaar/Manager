@@ -573,7 +573,7 @@ class Manager(object):
 			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
-			>>> manager.getComponents()
+			>>> manager.listComponents()
 			['core.testsComponentA', 'core.testsComponentB']
 			>>> manager.instantiateComponents()
 			True
@@ -960,7 +960,7 @@ class Manager(object):
 		:param callback: Callback object. ( Object )
 		"""
 
-		uninstantiatedComponents = [component for component in self.getComponents() if not self.instantiateComponent(component, callback)]
+		uninstantiatedComponents = [component for component in self.listComponents() if not self.instantiateComponent(component, callback)]
 		if not uninstantiatedComponents:
 			return True
 		else:
@@ -1004,7 +1004,7 @@ class Manager(object):
 			return True
 
 	@core.executionTrace
-	def getComponents(self):
+	def listComponents(self):
 		"""
 		This method gets the Components by ranking.
 
@@ -1017,7 +1017,7 @@ class Manager(object):
 			'10'
 			>>> manager.components["core.testsComponentB"].rank
 			'20'
-			>>> manager.getComponents()
+			>>> manager.listComponents()
 			['core.testsComponentA', 'core.testsComponentB']
 
 		"""
