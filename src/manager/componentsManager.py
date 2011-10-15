@@ -756,23 +756,23 @@ class Manager(object):
 			profile.path = os.path.dirname(file)
 			profile.name = sectionsFileParser.attributeExists("Name", "Component") and sectionsFileParser.getValue("Name", "Component") or None
 			if not profile.name:
-				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Name"))
+				raise foundations.exceptions.FileStructureParsingError("{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(self.__class__.__name__, "Name", file))
 			profile.path = os.path.dirname(file)
 			profile.title = sectionsFileParser.attributeExists("Title", "Component") and sectionsFileParser.getValue("Title", "Component") or None
 			if not profile.title:
 				profile.title = profile.name
 			profile.module = sectionsFileParser.attributeExists("Module", "Component") and sectionsFileParser.getValue("Module", "Component") or None
 			if not profile.module:
-				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Module"))
+				raise foundations.exceptions.FileStructureParsingError("{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(self.__class__.__name__, "Module", file))
 			profile.object_ = sectionsFileParser.attributeExists("Object", "Component") and sectionsFileParser.getValue("Object", "Component") or None
 			if not profile.object_:
-				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Object"))
+				raise foundations.exceptions.FileStructureParsingError("{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(self.__class__.__name__, "Object", file))
 			profile.rank = sectionsFileParser.attributeExists("Rank", "Component") and sectionsFileParser.getValue("Rank", "Component") or None
 			if not profile.rank:
-				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Rank"))
+				raise foundations.exceptions.FileStructureParsingError("{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(self.__class__.__name__, "Rank", file))
 			profile.version = sectionsFileParser.attributeExists("Version", "Component") and sectionsFileParser.getValue("Version", "Component") or None
 			if not profile.version:
-				raise foundations.exceptions.FileStructureParsingError("'{0}' no '{1}' attribute found, file structure seems invalid!".format(file, "Version"))
+				raise foundations.exceptions.FileStructureParsingError("{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(self.__class__.__name__, "Version", file))
 			profile.author = sectionsFileParser.attributeExists("Author", "Informations") and sectionsFileParser.getValue("Author", "Informations") or None
 			profile.email = sectionsFileParser.attributeExists("Email", "Informations") and sectionsFileParser.getValue("Email", "Informations") or None
 			profile.url = sectionsFileParser.attributeExists("Url", "Informations") and sectionsFileParser.getValue("Url", "Informations") or None
@@ -780,7 +780,7 @@ class Manager(object):
 
 			return profile
 		else:
-			raise foundations.exceptions.FileStructureParsingError("'{0}' no sections found, file structure seems invalid!".format(file))
+			raise foundations.exceptions.FileStructureParsingError("{0} | No sections found, '{1}' file structure seems invalid!".format(self.__class__.__name__, file))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, manager.exceptions.ComponentModuleError, manager.exceptions.ComponentProfileError)
@@ -808,9 +808,9 @@ class Manager(object):
 				self.__components[profile.name] = profile
 				return True
 			else:
-				raise manager.exceptions.ComponentModuleError("'{0}' has no associated module and has been rejected!".format(component))
+				raise manager.exceptions.ComponentModuleError("{0} | '{1}' has no associated module and has been rejected!".format(self.__class__.__name__, component))
 		else:
-			raise manager.exceptions.ComponentProfileError("'{0}' is not a valid Component and has been rejected!".format(component))
+			raise manager.exceptions.ComponentProfileError("{0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
@@ -868,7 +868,7 @@ class Manager(object):
 		if not unregisteredComponents:
 			return True
 		else:
-			raise manager.exceptions.ComponentRegistrationError("'{0}' Components failed to register!".format(", ".join(unregisteredComponents)))
+			raise manager.exceptions.ComponentRegistrationError("{0} | '{0}' Components failed to register!".format(self.__class__.__name__, ", ".join(unregisteredComponents)))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
@@ -939,7 +939,7 @@ class Manager(object):
 					return True
 		else:
 			del(self.__components[component])
-			raise manager.exceptions.ComponentInterfaceError("'{0}' Component has no Interface and has been rejected!".format(profile.name))
+			raise manager.exceptions.ComponentInterfaceError("{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False)
@@ -964,7 +964,7 @@ class Manager(object):
 		if not uninstantiatedComponents:
 			return True
 		else:
-			raise manager.exceptions.ComponentInstantiationError("'{0}' Components failed to instantiate!".format(", ".join(uninstantiatedComponents)))
+			raise manager.exceptions.ComponentInstantiationError("{0} | '{1}' Components failed to instantiate!".format(self.__class__.__name__, ", ".join(uninstantiatedComponents)))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError)

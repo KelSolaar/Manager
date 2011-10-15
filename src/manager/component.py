@@ -176,7 +176,7 @@ class Component(object):
 		:return: Method success. ( Boolean )
 		"""
 
-		raise NotImplementedError("'{0}' must be implemented by '{1}' subclasses!".format(self.activate.__name__, self.__class__.__name__))
+		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
@@ -187,4 +187,4 @@ class Component(object):
 		:return: Method success. ( Boolean )
 		"""
 
-		raise NotImplementedError("'{0}' must be implemented by '{1}' subclasses!".format(self.deactivate.__name__, self.__class__.__name__))
+		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
