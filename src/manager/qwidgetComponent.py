@@ -54,6 +54,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	:param uiFile: Ui file. ( String )
 	:param \*args: Arguments. ( \* )
 	:param \*\*kwargs: Keywords arguments. ( \* )
+	:return: QWidgetComponent class. ( QWidgetComponent )
 	"""
 
 	class QWidgetComponent(foundations.ui.common.QWidgetFactory(uiFile=uiFile)):
