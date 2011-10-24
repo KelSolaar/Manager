@@ -47,6 +47,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #***	Module classes and definitions.
 #***********************************************************************************************
 @core.executionTrace
+@foundations.exceptions.exceptionsHandler(None, False, Exception)
 def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	"""
 	This definition is a class factory creating :class:`QWidgetComponent` classes using provided ui file.
