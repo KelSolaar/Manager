@@ -97,7 +97,7 @@ class Profile(object):
 		self.__rank = None
 		self.__import = None
 		self.__interface = None
-		self.__categorie = None
+		self.__category = None
 
 		self.__title = None
 		self.__module = None
@@ -303,31 +303,31 @@ class Profile(object):
 	@property
 	def category(self):
 		"""
-		This method is the property for **self.__categorie** attribute.
+		This method is the property for **self.__category** attribute.
 
-		:return: self.__categorie. ( String )
+		:return: self.__category. ( String )
 		"""
 
-		return self.__categorie
+		return self.__category
 
 	@category.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
 	def category(self, value):
 		"""
-		This method is the setter method for **self.__categorie** attribute.
+		This method is the setter method for **self.__category** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
 
 		if value:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("category", value)
-		self.__categorie = value
+		self.__category = value
 
 	@category.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
 	def category(self):
 		"""
-		This method is the deleter method for **self.__categorie** attribute.
+		This method is the deleter method for **self.__category** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "category"))
