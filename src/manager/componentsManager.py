@@ -1004,6 +1004,7 @@ class Manager(object):
 			return True
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def listComponents(self):
 		"""
 		This method gets the Components by ranking.
@@ -1054,6 +1055,7 @@ class Manager(object):
 		return matchingItems
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def getInterface(self, component):
 		"""
 		This method gets given Component interface.

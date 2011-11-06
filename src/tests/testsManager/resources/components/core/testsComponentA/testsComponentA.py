@@ -100,6 +100,7 @@ class TestsComponentA(Component):
 	#***	Class methods.
 	#***********************************************************************************************
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def activate(self, container):
 		"""
 		This method activates the Component.
@@ -115,6 +116,7 @@ class TestsComponentA(Component):
 		return Component.activate(self)
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def deactivate(self):
 		"""
 		This method deactivates the Component.
@@ -129,6 +131,7 @@ class TestsComponentA(Component):
 		return Component.deactivate(self)
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def initialize(self):
 		"""
 		This method initializes the Component.
@@ -137,6 +140,7 @@ class TestsComponentA(Component):
 		LOGGER.debug("> Initializing '{0}' Component.".format(self.__class__.__name__))
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def uninitialize(self):
 		"""
 		This method uninitializes the Component.
