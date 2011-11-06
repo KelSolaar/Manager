@@ -50,7 +50,7 @@ LOGGER = logging.getLogger(Constants.logger)
 @foundations.exceptions.exceptionsHandler(None, False, Exception)
 def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	"""
-	This definition is a class factory creating :class:`QWidgetComponent` classes using provided ui file.
+	This definition is a class factory creating :class:`QWidgetComponent` classes using given ui file.
 
 	:param uiFile: Ui file. ( String )
 	:param \*args: Arguments. ( \* )

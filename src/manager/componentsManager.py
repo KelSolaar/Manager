@@ -559,7 +559,7 @@ class Profile(object):
 class Manager(object):
 	"""
 	| This class defines methods to manage Components, allowing Components registration / unregistration, instantiation and reloading.
-	| The Components can be registered in mass by providing paths that are recursively walk for candidates or simply by calling the registration method on a provided Component file.
+	| The Components can be registered in mass by providing paths that are recursively walk for candidates or simply by calling the registration method on a given Component file.
 	| When a Component is registered, a Profile ( Stored using the :class:`Profile` class ) is built and associated to it, this Profile object contains the Component Interface and various description attributes. 
 	"""
 
@@ -734,7 +734,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
 	def getProfile(file):
 		"""
-		This method gets provided Component Profile.
+		This method gets given Component Profile.
 		
 		Usage::
 
@@ -786,7 +786,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, manager.exceptions.ComponentModuleError, manager.exceptions.ComponentProfileError)
 	def registerComponent(self, path):
 		"""
-		This method registers provided component.
+		This method registers given component.
 
 		Usage::
 
@@ -816,7 +816,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def unregisterComponent(self, component):
 		"""
-		This method unregisters provided Component.
+		This method unregisters given Component.
 
 		.. warning::
 
@@ -900,7 +900,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError, manager.exceptions.ComponentInterfaceError)
 	def instantiateComponent(self, component, callback=None):
 		"""
-		This method instantiates provided Component.
+		This method instantiates given Component.
 
 		Usage::
 
@@ -970,7 +970,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError)
 	def reloadComponent(self, component):
 		"""
-		This method reload provided Component module.
+		This method reload given Component module.
 
 		Usage::
 
@@ -1028,7 +1028,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def filterComponents(self, pattern, category=None):
 		"""
-		This method filters the Components using provided regex pattern.
+		This method filters the Components using given regex pattern.
 
 		Usage::
 
@@ -1056,7 +1056,7 @@ class Manager(object):
 	@core.executionTrace
 	def getInterface(self, component):
 		"""
-		This method gets provided Component interface.
+		This method gets given Component interface.
 
 		Usage::
 
@@ -1079,7 +1079,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def getComponentAttributeName(component):
 		"""
-		This method gets provided Component attribute name.
+		This method gets given Component attribute name.
 
 		Usage::
 
