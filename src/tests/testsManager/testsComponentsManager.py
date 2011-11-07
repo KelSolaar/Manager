@@ -24,7 +24,8 @@ import unittest
 #***	Internal imports.
 #***********************************************************************************************
 from manager.component import Component
-from manager.componentsManager import Manager, Profile
+from manager.componentsManager import Manager
+from manager.componentsManager import Profile
 
 #***********************************************************************************************
 #***	Module attributes.
