@@ -623,6 +623,7 @@ class Manager(object):
 		if value:
 			assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format("paths", value)
 			for path in value:
+				assert type(path) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("paths", path)
 				assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
 		self.__paths = value
 
@@ -688,6 +689,8 @@ class Manager(object):
 
 		if value:
 			assert type(value) is dict, "'{0}' attribute: '{1}' type is not 'dict'!".format("categories", value)
+			for key in value.keys():
+				assert type(key) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("categories", key)
 		self.__categories = value
 
 	@categories.deleter
