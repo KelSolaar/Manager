@@ -622,7 +622,8 @@ class Manager(object):
 
 		if value:
 			assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format("paths", value)
-			for path in value: assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
+			for path in value:
+				assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
 		self.__paths = value
 
 	@paths.deleter
