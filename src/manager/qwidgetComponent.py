@@ -108,7 +108,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 
 			if value:
-				assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("name", value)
+				assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+				"name", value)
 			self.__name = value
 
 		@name.deleter
@@ -118,7 +119,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			This method is the deleter method for **self.__name** attribute.
 			"""
 
-			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
+			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
+			self.__class__.__name__, "name"))
 
 		@property
 		def activated(self):
@@ -150,7 +152,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			This method is the deleter method for **self.__activated** attribute.
 			"""
 
-			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "activated"))
+			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
+			self.__class__.__name__, "activated"))
 
 		@property
 		def deactivatable(self):
@@ -182,7 +185,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			This method is the deleter method for **self.__deactivatable** attribute.
 			"""
 
-			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "deactivatable"))
+			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
+			self.__class__.__name__, "deactivatable"))
 
 		#**************************************************************************************************************
 		#***	Class methods.
@@ -196,7 +200,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			:return: Method success. ( Boolean )
 			"""
 
-			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
+			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+			self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
 		@core.executionTrace
 		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
@@ -207,6 +212,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			:return: Method success. ( Boolean )
 			"""
 
-			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
 	return QWidgetComponent

@@ -47,7 +47,8 @@ __all__ = ["RESOURCES_DIRECTORY",
 			"ManagerTestCase"]
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
-SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__), "resources/components/core/testsComponentA/testsComponentA.rc"), Component)
+SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__),
+					"resources/components/core/testsComponentA/testsComponentA.rc"), Component)
 COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
 COMPONENTS = {"core":{"testsComponentA":"core/testsComponentA",
 					"testsComponentB":"core/testsComponentB"},
