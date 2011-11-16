@@ -132,7 +132,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"name", value)
 		self.__name = value
@@ -166,7 +166,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"path", value)
 			assert os.path.exists(value), "'{0}' attribute: '{1}' directory doesn't exists!".format("path", value)
@@ -201,7 +201,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"object_", value)
 		self.__object_ = value
@@ -235,7 +235,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"rank", value)
 		self.__rank = value
@@ -269,7 +269,7 @@ class Profile(object):
 		:param value: Attribute value. ( Module )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) is type(sys), "'{0}' attribute: '{1}' type is not 'module'!".format("import", value)
 		self.__import = value
 
@@ -332,7 +332,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"category", value)
 		self.__category = value
@@ -366,7 +366,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"title", value)
 		self.__title = value
@@ -400,7 +400,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"module", value)
 		self.__module = value
@@ -434,7 +434,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"version", value)
 		self.__version = value
@@ -468,7 +468,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"author", value)
 		self.__author = value
@@ -502,7 +502,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"email", value)
 		self.__email = value
@@ -536,7 +536,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"url", value)
 		self.__url = value
@@ -570,7 +570,7 @@ class Profile(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"description", value)
 		self.__description = value
@@ -653,7 +653,7 @@ class Manager(object):
 		:param value: Attribute value. ( Tuple / List )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format(
 			"paths", value)
 			for path in value:
@@ -691,7 +691,7 @@ class Manager(object):
 		:param value: Attribute value. ( String )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 			"extension", value)
 		self.__extension = value
@@ -725,7 +725,7 @@ class Manager(object):
 		:param value: Attribute value. ( Dictionary )
 		"""
 
-		if value:
+		if value is not None:
 			assert type(value) is dict, "'{0}' attribute: '{1}' type is not 'dict'!".format("categories", value)
 			for key in value.keys():
 				assert type(key) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
