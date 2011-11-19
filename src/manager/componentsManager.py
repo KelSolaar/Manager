@@ -85,7 +85,7 @@ class Profile(object):
 		:param path: Path of the Component. ( String )
 		
 		:Note: :class:`Profile` class attributes ( Except :meth:`Profile.name` and for :meth:`Profile.path` )
-		are initialized by the :meth:`Manager.getProfile` method.
+			are initialized by the :meth:`Manager.getProfile` method.
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -588,11 +588,11 @@ class Profile(object):
 class Manager(object):
 	"""
 	| This class defines methods to manage Components, allowing Components registration / unregistration,
-	instantiation and reloading.
+		instantiation and reloading.
 	| The Components can be registered in mass by providing paths that are recursively walk for candidates
-	or simply by calling the registration method on a given Component file.
+		or simply by calling the registration method on a given Component file.
 	| When a Component is registered, a Profile ( Stored using the :class:`Profile` class ) is built and associated to it,
-	 this Profile object contains the Component Interface and various description attributes. 
+		 this Profile object contains the Component Interface and various description attributes. 
 	"""
 
 	@core.executionTrace
