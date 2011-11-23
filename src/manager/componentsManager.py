@@ -27,6 +27,7 @@ import re
 #***	Internal imports.
 #**********************************************************************************************************************
 import foundations.core as core
+import foundations.dataStructures
 import foundations.exceptions
 import foundations.strings
 import manager.exceptions
@@ -54,7 +55,7 @@ LOGGER = logging.getLogger(Constants.logger)
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class Components(core.Structure):
+class Components(foundations.dataStructures.Structure):
 	"""
 	This class represents a storage object for :class:`Manager` class Components.
 	"""
@@ -69,7 +70,7 @@ class Components(core.Structure):
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
 
-		core.Structure.__init__(self, **kwargs)
+		foundations.dataStructures.Structure.__init__(self, **kwargs)
 
 class Profile(object):
 	"""
