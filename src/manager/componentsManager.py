@@ -1081,15 +1081,13 @@ class Manager(object):
 		reload(import_)
 		object = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
 		if object and inspect.isclass(object):
-			interface = issubclass(object, self.__categories[profile.category]) and \
-			object is not self.__categories[profile.category] and object(name=profile.name) or None
-			if not interface:
-				return
-
-			LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
-			profile.import_ = import_
-			profile.interface = interface
-			return True
+			for type in self.__categories.values():
+				if type.__name__ in (base.__name__ for base in object.__bases__):
+					instance = object(name=profile.name)
+					profile.import_ = import_
+					profile.interface = instance
+					LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
+					return True
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
