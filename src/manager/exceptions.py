@@ -29,7 +29,7 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["AbstractComponentError",
+__all__ = ["AbstractComponentsManagerError",
 			"ComponentProfileError",
 			"ComponentModuleError",
 			"ComponentRegistrationError",
@@ -43,71 +43,70 @@ __all__ = ["AbstractComponentError",
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-
-class AbstractComponentError(foundations.exceptions.AbstractError):
+class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
 	"""
-	This class is the abstract base class for Components related exceptions.
+	This class is the abstract base class for :class:`manager.componentsManager.Manager` related exceptions.
 	"""
 
 	pass
 
-class ComponentProfileError(AbstractComponentError):
+class ComponentProfileError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component profile exceptions.
 	"""
 
 	pass
 
-class ComponentModuleError(AbstractComponentError):
+class ComponentModuleError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component associated module exceptions.
 	"""
 
 	pass
 
-class ComponentRegistrationError(AbstractComponentError):
+class ComponentRegistrationError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component registration exceptions.
 	"""
 
 	pass
 
-class ComponentInterfaceError(AbstractComponentError):
+class ComponentInterfaceError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component Interface exceptions.
 	"""
 
 	pass
 
-class ComponentInstantiationError(AbstractComponentError):
+class ComponentInstantiationError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component instantiation exceptions.
 	"""
 
 	pass
 
-class ComponentActivationError(AbstractComponentError):
+class ComponentActivationError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component activation exceptions.
 	"""
 
 	pass
 
-class ComponentDeactivationError(AbstractComponentError):
+class ComponentDeactivationError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component deactivation exceptions.
 	"""
 
 	pass
 
-class ComponentReloadError(AbstractComponentError):
+class ComponentReloadError(AbstractComponentsManagerError):
 	"""
 	This class is used for Component reload exceptions.
 	"""
 
 	pass
 
-class ComponentExistsError(AbstractComponentError):
+class ComponentExistsError(AbstractComponentsManagerError):
 	"""
 	This class is used for non existing Component exceptions.
 	"""

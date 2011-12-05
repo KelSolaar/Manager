@@ -859,7 +859,7 @@ class Manager(object):
 											manager.exceptions.ComponentProfileError)
 	def registerComponent(self, path):
 		"""
-		This method registers given component.
+		This method registers a Component using given path.
 
 		Usage::
 
@@ -947,7 +947,7 @@ class Manager(object):
 			return True
 		else:
 			raise manager.exceptions.ComponentRegistrationError(
-			"{0} | '{0}' Components failed to register!".format(self.__class__.__name__,
+			"{0} | '{1}' Components failed to register!".format(self.__class__.__name__,
 																", ".join(unregisteredComponents)))
 
 	@core.executionTrace
@@ -1025,7 +1025,7 @@ class Manager(object):
 			"{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False)
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def instantiateComponents(self, callback=None):
 		"""
 		This method instantiates the Components.
@@ -1093,7 +1093,7 @@ class Manager(object):
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def listComponents(self):
 		"""
-		This method gets the Components by ranking.
+		This method lists the Components by ranking.
 
 		Usage::
 
