@@ -939,7 +939,7 @@ class Manager(object):
 		for path in self.paths:
 			osWalker.root = path
 			osWalker.walk(("\.{0}$".format(self.__extension),), ("\._",))
-			for file in osWalker.files.values():
+			for file in osWalker.files.itervalues():
 				if not self.registerComponent(file):
 					unregisteredComponents.append(file)
 
@@ -1013,7 +1013,7 @@ class Manager(object):
 		object = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
 		if object and inspect.isclass(object):
 			instance = object(name=profile.name)
-			for category, type in self.__categories.items():
+			for category, type in self.__categories.iteritems():
 				if type.__name__ in (base.__name__ for base in object.__bases__):
 					profile.category = category
 					profile.interface = instance
@@ -1081,7 +1081,7 @@ class Manager(object):
 		reload(import_)
 		object = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
 		if object and inspect.isclass(object):
-			for type in self.__categories.values():
+			for type in self.__categories.itervalues():
 				if type.__name__ in (base.__name__ for base in object.__bases__):
 					instance = object(name=profile.name)
 					profile.import_ = import_
@@ -1110,7 +1110,7 @@ class Manager(object):
 		"""
 
 		return [component[0] for component in sorted(((component, profile.rank)
-		for component, profile in self.__components.items()), key=lambda x:(int(x[1])))]
+		for component, profile in self.__components.iteritems()), key=lambda x:(int(x[1])))]
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
@@ -1132,7 +1132,7 @@ class Manager(object):
 		"""
 
 		matchingItems = []
-		for component, profile in self.__components.items():
+		for component, profile in self.__components.iteritems():
 			if category:
 				if profile.category != category:
 					continue

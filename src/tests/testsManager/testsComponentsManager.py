@@ -153,7 +153,7 @@ class ManagerTestCase(unittest.TestCase):
 		manager = Manager()
 		profile = manager.getProfile(path)
 		self.assertIsInstance(profile, Profile)
-		for attribute, value in STANDARD_PROFILE_CONTENT.items():
+		for attribute, value in STANDARD_PROFILE_CONTENT.iteritems():
 			self.assertIsInstance(getattr(profile, attribute), type(value))
 			self.assertEqual(getattr(profile, attribute), value)
 
@@ -218,12 +218,12 @@ class ManagerTestCase(unittest.TestCase):
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
 		manager.registerComponents()
 		manager.instantiateComponents()
-		for component in manager.components.values():
+		for component in manager.components.itervalues():
 			self.assertIsInstance(component.interface, Component)
 		manager.unregisterComponents()
 		manager.registerComponents()
 		manager.instantiateComponents(testManagerCallback)
-		for component in manager.components.values():
+		for component in manager.components.itervalues():
 			self.assertTrue(component.callback)
 
 	def testReloadComponent(self):
