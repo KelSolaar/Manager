@@ -164,41 +164,41 @@ class ManagerTestCase(unittest.TestCase):
 
 		manager = Manager()
 		self.assertTrue(manager.registerComponent(SINGLE_COMPONENT[1]))
-		self.assertIn(SINGLE_COMPONENT[0], manager.components.keys())
+		self.assertIn(SINGLE_COMPONENT[0], manager.components)
 
 	def testUnregisterComponent(self):
 		"""
 		This method tests :meth:`manager.componentsManager.Manager.unregisterComponent` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		manager.instantiateComponents()
-		for component in dict(manager.components).keys():
+		for component in dict(manager.components):
 			self.assertTrue(manager.unregisterComponent(component))
-		self.assertTrue(not manager.components.keys())
+		self.assertTrue(not manager.components)
 
 	def testRegisterComponents(self):
 		"""
 		This method tests :meth:`manager.componentsManager.Manager.registerComponents` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		self.assertIsInstance(manager.components, dict)
-		for component in ("{0}.{1}".format(item, name) for item in COMPONENTS.keys() for name in COMPONENTS[item].keys()):
-			self.assertIn(component, manager.components.keys())
+		for component in ("{0}.{1}".format(item, name) for item in COMPONENTS for name in COMPONENTS[item]):
+			self.assertIn(component, manager.components)
 
 	def testUnregisterComponents(self):
 		"""
 		This method tests :meth:`manager.componentsManager.Manager.unregisterComponents` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		manager.instantiateComponents()
 		manager.unregisterComponents()
-		self.assertTrue(not manager.components.keys())
+		self.assertTrue(not manager.components)
 
 	def testInstantiateComponent(self):
 		"""
@@ -215,7 +215,7 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.instantiateComponents` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		manager.instantiateComponents()
 		for component in manager.components.itervalues():
@@ -231,10 +231,10 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.reloadComponent` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		manager.instantiateComponents()
-		for component in manager.components.keys():
+		for component in manager.components:
 			manager.reloadComponent(component)
 
 	def testGetComponents(self):
@@ -242,7 +242,7 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.listComponents` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		manager.instantiateComponents()
 		components = manager.listComponents()
@@ -254,7 +254,7 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.filterComponents` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		manager.instantiateComponents()
 		components = manager.filterComponents("addons")
@@ -266,10 +266,10 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.getInterface` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS.keys()])
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		manager.instantiateComponents()
-		for component in manager.components.keys():
+		for component in manager.components:
 			self.assertIsInstance(manager.getInterface(component), Component)
 
 	def testGetComponentAttributeName(self):

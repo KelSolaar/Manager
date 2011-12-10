@@ -728,7 +728,7 @@ class Manager(object):
 
 		if value is not None:
 			assert type(value) is dict, "'{0}' attribute: '{1}' type is not 'dict'!".format("categories", value)
-			for key in value.keys():
+			for key in value:
 				assert type(key) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
 				"categories", key)
 		self.__categories = value
