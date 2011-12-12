@@ -50,6 +50,9 @@ class ConstantsTestCase(unittest.TestCase):
 		"""
 
 		requiredAttributes = ("applicationName",
+								"majorVersion",
+								"minorVersion",
+								"changeVersion",
 								"releaseVersion",
 								"logger",
 								"verbosityLevel",
@@ -72,12 +75,33 @@ class ConstantsTestCase(unittest.TestCase):
 
 		self.assertRegexpMatches(Constants.applicationName, "\w+")
 
+	def testMajorVersionAttribute(self):
+		"""
+		This method tests :attr:`manager.globals.constants.Constants.majorVersion` attribute.
+		"""
+
+		self.assertRegexpMatches(Constants.releaseVersion, "\d")
+
+	def testMinorVersionAttribute(self):
+		"""
+		This method tests :attr:`manager.globals.constants.Constants.minorVersion` attribute.
+		"""
+
+		self.assertRegexpMatches(Constants.releaseVersion, "\d")
+
+	def testChangeVersionAttribute(self):
+		"""
+		This method tests :attr:`manager.globals.constants.Constants.changeVersion` attribute.
+		"""
+
+		self.assertRegexpMatches(Constants.releaseVersion, "\d")
+
 	def testReleaseVersionAttribute(self):
 		"""
 		This method tests :attr:`manager.globals.constants.Constants.releaseVersion` attribute.
 		"""
 
-		self.assertRegexpMatches(Constants.releaseVersion, "\w+")
+		self.assertRegexpMatches(Constants.releaseVersion, "\d\.\d\.\d")
 
 	def testLoggerAttribute(self):
 		"""
