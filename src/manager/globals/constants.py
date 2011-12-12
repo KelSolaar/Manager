@@ -17,6 +17,7 @@
 #**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
+import os
 import platform
 
 #**********************************************************************************************************************
@@ -66,7 +67,7 @@ class Constants():
 	encodingError = "ignore"
 	"""Default encoding error behavior: '**ignore**' ( String )"""
 
-	applicationDirectory = "Manager"
+	applicationDirectory = os.sep.join(("Manager", ".".join((majorVersion, minorVersion))))
 	"""Package Application directory: '**Manager**' ( String )"""
 	if platform.system() == "Windows" or platform.system() == "Microsoft" or platform.system() == "Darwin":
 		providerDirectory = "HDRLabs"
