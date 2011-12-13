@@ -271,7 +271,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) is type(sys), "'{0}' attribute: '{1}' type is not 'module'!".format("import", value)
+			assert type(value) is type(sys), "'{0}' attribute: '{1}' type is not 'module'!".format("import_", value)
 		self.__import = value
 
 	@import_.deleter
@@ -282,7 +282,7 @@ class Profile(object):
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "import"))
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "import_"))
 
 	@property
 	def interface(self):
