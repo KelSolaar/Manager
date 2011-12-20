@@ -1,25 +1,36 @@
-h1=. Manager - 1.0.2 - Stable
+Manager - 2.0.0 - Stable
+=========================
 
-h2=. Change Log
+Change Log
+==========
 
-h3. 1.0.2 - Stable
+2.0.0 - Stable
+--------------
 
-* Reorganize package directories structure.
-* Replaced list comprehension expressions by generators.
-* Added missing units tests dependencies.
+-  Major package refactor.
 
-h3. 1.0.1 - Stable
+1.0.2 - Stable
+--------------
 
-* Replaced list comprehension expressions by generators.
-* Added missing units tests dependencies.
+-  Reorganize package directories structure.
+-  Replaced list comprehension expressions by generators.
+-  Added missing units tests dependencies.
 
-h3. 1.0.0 - Stable
+1.0.1 - Stable
+--------------
 
-* Initial Release of Manager.
+-  Replaced list comprehension expressions by generators.
+-  Added missing units tests dependencies.
 
-h2=. About
+1.0.0 - Stable
+--------------
 
-Manager by Thomas Mansencal - 2008 - 2011
-Copyright (C) 2008 - 2011 - Thomas Mansencal - "thomas.mansencal@gmail.com":mailto:thomas.mansencal@gmail.com
-This Software Is Released Under Terms Of GNU GPL V3 License: "http://www.gnu.org/licenses/":http://www.gnu.org/licenses/
-"http://www.thomasmansencal.com/":http://www.thomasmansencal.com/
+-  Initial Release of Manager.
+
+About
+-----
+
+| sIBL_GUI by Thomas Mansencal – 2008 – 2011
+| Copyright© 2008 – 2011 – Thomas Mansencal – `thomas.mansencal@gmail.com <mailto:thomas.mansencal@gmail.com>`_
+| This software is released under terms of GNU GPL V3 license: http://www.gnu.org/licenses/
+| `http://www.thomasmansencal.com/ <http://www.thomasmansencal.com/>`_
