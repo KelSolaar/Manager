@@ -38,12 +38,20 @@ __status__ = "Production"
 __all__ = ["EXCEPTIONS", "ExceptionsTestCase"]
 
 EXCEPTIONS = []
-for attribute in dir(manager.exceptions):
-	object = getattr(manager.exceptions, attribute)
-	if not inspect.isclass(object):
-		continue
-	if issubclass(object, Exception):
+
+def _gatherExceptions():
+	"""
+	This definition gathers the exceptions.
+	"""
+
+	for attribute in dir(manager.exceptions):
+		object = getattr(manager.exceptions, attribute)
+		if not inspect.isclass(object):
+			continue
+		if issubclass(object, Exception):
 			EXCEPTIONS.append(object)
+
+_gatherExceptions()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.

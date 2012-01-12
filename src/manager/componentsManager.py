@@ -794,7 +794,7 @@ class Manager(object):
 		:param file: File path. ( String )
 		:return: Profile. ( Profile )
 		"""
-
+		
 		LOGGER.debug("> Building '{0}' profile.".format(file))
 
 		sectionsFileParser = SectionsFileParser(file)
@@ -808,7 +808,7 @@ class Manager(object):
 			if not profile.name:
 				raise foundations.exceptions.FileStructureParsingError(
 				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				self.__class__.__name__, "Name", file))
+				Manager.__name__, "Name", file))
 			profile.path = os.path.dirname(file)
 			profile.title = sectionsFileParser.attributeExists("Title", "Component") and \
 			sectionsFileParser.getValue("Title", "Component") or None
@@ -819,25 +819,25 @@ class Manager(object):
 			if not profile.module:
 				raise foundations.exceptions.FileStructureParsingError(
 				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				self.__class__.__name__, "Module", file))
+				Manager.__name__, "Module", file))
 			profile.object_ = sectionsFileParser.attributeExists("Object", "Component") and \
 			sectionsFileParser.getValue("Object", "Component") or None
 			if not profile.object_:
 				raise foundations.exceptions.FileStructureParsingError(
 				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				self.__class__.__name__, "Object", file))
+				Manager.__name__, "Object", file))
 			profile.rank = sectionsFileParser.attributeExists("Rank", "Component") and \
 			sectionsFileParser.getValue("Rank", "Component") or None
 			if not profile.rank:
 				raise foundations.exceptions.FileStructureParsingError(
 				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				self.__class__.__name__, "Rank", file))
+				Manager.__name__, "Rank", file))
 			profile.version = sectionsFileParser.attributeExists("Version", "Component") and \
 			sectionsFileParser.getValue("Version", "Component") or None
 			if not profile.version:
 				raise foundations.exceptions.FileStructureParsingError(
 				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				self.__class__.__name__, "Version", file))
+				Manager.__name__, "Version", file))
 			profile.author = sectionsFileParser.attributeExists("Author", "Informations") and \
 			sectionsFileParser.getValue("Author", "Informations") or None
 			profile.email = sectionsFileParser.attributeExists("Email", "Informations") and \
@@ -850,7 +850,7 @@ class Manager(object):
 			return profile
 		else:
 			raise foundations.exceptions.FileStructureParsingError(
-			"{0} | No sections found, '{1}' file structure seems invalid!".format(self.__class__.__name__, file))
+			"{0} | No sections found, '{1}' file structure seems invalid!".format(Manager.__name__, file))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None,
