@@ -41,6 +41,7 @@ __all__ = ["RESOURCES_DIRECTORY",
 			"SINGLE_COMPONENT",
 			"COMPONENTS_DIRECTORY",
 			"COMPONENTS",
+			"COMPONENTS_NAMES",
 			"COMPONENTS_RANKING",
 			"STANDARD_PROFILE_CONTENT",
 			"ProfileTestCase",
@@ -53,7 +54,7 @@ COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
 COMPONENTS = {"core":{"testsComponentA":"core/testsComponentA",
 					"testsComponentB":"core/testsComponentB"},
 			"addons":{"testsComponentC":"core/testsComponentC"}}
-COMPONENTS_RANKING = ["core.testsComponentA", "core.testsComponentB", "addons.testsComponentC"]
+COMPONENTS_NAMES = COMPONENTS_RANKING = ["core.testsComponentA", "core.testsComponentB", "addons.testsComponentC"]
 STANDARD_PROFILE_CONTENT = {"name":"core.testsComponentA",
 							"path":os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"]),
 							"title":"Tests Component A",
@@ -127,7 +128,11 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests presence of required methods.
 		"""
 
-		requiredMethods = ("getProfile",
+		requiredMethods = ("__getitem__",
+						"__iter__",
+						"__contains__",
+						"__len__",
+						"getProfile",
 						"registerComponents",
 						"unregisterComponent",
 						"registerComponents",
@@ -142,6 +147,46 @@ class ManagerTestCase(unittest.TestCase):
 
 		for method in requiredMethods:
 			self.assertIn(method, dir(Manager))
+
+	def test__getitem__(self):
+		"""
+		This method tests :meth:`manager.componentsManager.Manager.__getitem__` method.
+		"""
+
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		manager.registerComponents()
+		for name, profile in manager:
+			self.assertIsInstance(manager[name], Profile)
+
+	def test__iter__(self):
+		"""
+		This method tests :meth:`manager.componentsManager.Manager.__iter__` method.
+		"""
+
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		manager.registerComponents()
+		for name, profile in manager:
+			self.assertIn(name, COMPONENTS_NAMES)
+			self.assertIsInstance(profile, Profile)
+
+	def test__contains__(self):
+		"""
+		This method tests :meth:`manager.componentsManager.Manager.__contains__` method.
+		"""
+
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		manager.registerComponents()
+		for component in COMPONENTS_NAMES:
+			self.assertIn(component, manager)
+
+	def test__len__(self):
+		"""
+		This method tests :meth:`manager.componentsManager.Manager.__len__` method.
+		"""
+
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		manager.registerComponents()
+		self.assertEqual(3, len(manager))
 
 	def testGetProfile(self):
 		"""

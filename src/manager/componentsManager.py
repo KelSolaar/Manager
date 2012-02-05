@@ -778,6 +778,88 @@ class Manager(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def __getitem__(self, component):
+		"""
+		This method reimplements the :meth:`object.__getitem__` method.
+
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> manager["core.testsComponentA"]
+			<manager.componentsManager.Profile object at 0x101c4bd50>
+		
+		:param component: Component name. ( String )
+		:return: Component profile. ( Profile )
+		"""
+
+		return self.__components.__getitem__(component)
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def __iter__(self):
+		"""
+		This method reimplements the :meth:`object.__iter__` method.
+
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> for name, profile in manager:
+			...	print name
+			core.testsComponentB
+			core.testsComponentA
+		
+		:return: Components iterator. ( Object )
+		"""
+
+		return self.__components.iteritems()
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def __contains__(self, component):
+		"""
+		This method reimplements the :meth:`object.__contains__` method.
+
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> "core.testsComponentA" in manager
+			True
+			>>> "core.nemoComponent" in manager
+			False
+		
+		:param component: Component name. ( String )
+		:return: Component existence. ( Boolean )
+		"""
+
+		return component in self.__components.keys()
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def __len__(self):
+		"""
+		This method reimplements the :meth:`object.__len__` method.
+
+		Usage::
+
+			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> len(manager)
+			2
+		
+		:return: Components count. ( Integer )
+		"""
+
+		return len(self.__components.keys())
+
 	@staticmethod
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
@@ -794,7 +876,7 @@ class Manager(object):
 		:param file: File path. ( String )
 		:return: Profile. ( Profile )
 		"""
-		
+
 		LOGGER.debug("> Building '{0}' profile.".format(file))
 
 		sectionsFileParser = SectionsFileParser(file)
@@ -1073,6 +1155,7 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17b0d70>
 
+		:param component: Component name. ( String )
 		:return: Reload success. ( Boolean )
 		"""
 
