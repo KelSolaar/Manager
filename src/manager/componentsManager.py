@@ -1193,7 +1193,7 @@ class Manager(object):
 		"""
 
 		return [component[0] for component in sorted(((component, profile.rank)
-		for component, profile in self.__components.iteritems()), key=lambda x:(int(x[1])))]
+		for component, profile in self), key=lambda x:(int(x[1])))]
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
@@ -1215,7 +1215,7 @@ class Manager(object):
 		"""
 
 		matchingItems = []
-		for component, profile in self.__components.iteritems():
+		for component, profile in self:
 			if category:
 				if profile.category != category:
 					continue
