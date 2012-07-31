@@ -26,13 +26,14 @@ import re
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
+import foundations.common
 import foundations.core as core
 import foundations.dataStructures
 import foundations.exceptions
 import foundations.strings as strings
 import manager.exceptions
 from foundations.parsers import SectionsFileParser
-from foundations.walkers import OsWalker
+from foundations.walkers import FilesWalker
 from manager.component import Component
 from manager.globals.constants import Constants
 from manager.qobjectComponent import QObjectComponent
@@ -1016,12 +1017,12 @@ class Manager(object):
 		:return: Method success. ( Boolean )
 		"""
 
-		osWalker = OsWalker()
+		filesWalker = FilesWalker()
 		unregisteredComponents = []
 		for path in self.paths:
-			osWalker.root = path
-			osWalker.walk(("\.{0}$".format(self.__extension),), ("\._",))
-			for file in osWalker.files.itervalues():
+			filesWalker.root = path
+			filesWalker.walk(("\.{0}$".format(self.__extension),), ("\._",))
+			for file in filesWalker.files.itervalues():
 				if not self.registerComponent(file):
 					unregisteredComponents.append(file)
 
@@ -1192,7 +1193,7 @@ class Manager(object):
 
 		"""
 
-		return [component[0] for component in sorted(((component, profile.rank)
+		return [foundations.common.getFirstItem(component) for component in sorted(((component, profile.rank)
 		for component, profile in self), key=lambda x:(int(x[1])))]
 
 	@core.executionTrace
@@ -1244,7 +1245,7 @@ class Manager(object):
 
 		components = self.filterComponents(r"^{0}$".format(component))
 		if components != []:
-			return self.__components[components[0]].interface
+			return self.__components[foundations.common.getFirstItem(components)].interface
 
 	@staticmethod
 	@core.executionTrace
