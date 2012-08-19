@@ -60,7 +60,8 @@ class QWidgetComponentFactoryTestCase(unittest.TestCase):
 		requiredAttributes = ("name",
 							"uiFile",
 							"activated",
-							"deactivatable",)
+							"initializedUi",
+							"deactivatable")
 
 		for attribute in requiredAttributes:
 			self.assertIn(attribute, dir(QWidgetComponentFactory()))
@@ -71,7 +72,9 @@ class QWidgetComponentFactoryTestCase(unittest.TestCase):
 		"""
 
 		requiredMethods = ("activate",
-						"deactivate")
+						"deactivate",
+						"initializeUi",
+						"uninitializeUi")
 
 		for method in requiredMethods:
 			self.assertIn(method, dir(QWidgetComponentFactory()))

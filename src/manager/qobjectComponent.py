@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-**qtComponent.py**
+**qobjectComponent.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
@@ -19,6 +19,7 @@
 #**********************************************************************************************************************
 import logging
 from PyQt4.QtCore import QObject
+from PyQt4.QtCore import pyqtSignal
 
 #**********************************************************************************************************************
 #***	Internal imports.
@@ -49,6 +50,26 @@ class QObjectComponent(QObject):
 	This class is the base class for **Manager** package QObject Components.
 	"""
 
+	componentActivated = pyqtSignal()
+	"""
+	This signal is emited by the :class:`QObjectComponent` class when the Component is activated. ( pyqtSignal )
+	"""
+
+	componentDeactivated = pyqtSignal()
+	"""
+	This signal is emited by the :class:`QObjectComponent` class when the Component is deactivated. ( pyqtSignal )
+	"""
+
+	componentInitialized = pyqtSignal()
+	"""
+	This signal is emited by the :class:`QObjectComponent` class when the Component is initialized. ( pyqtSignal )
+	"""
+
+	componentUninitialized = pyqtSignal()
+	"""
+	This signal is emited by the :class:`QObjectComponent` class when the Component is uninitialized. ( pyqtSignal )
+	"""
+
 	@core.executionTrace
 	def __init__(self, parent=None, name=None, *args, **kwargs):
 		"""
@@ -69,6 +90,7 @@ class QObjectComponent(QObject):
 		self.name = name
 
 		self.__activated = False
+		self.__initialized = False
 		self.__deactivatable = True
 
 	#******************************************************************************************************************
@@ -128,6 +150,7 @@ class QObjectComponent(QObject):
 
 		if value is not None:
 			assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("activated", value)
+			self.componentActivated.emit() if value else self.componentDeactivated.emit()
 		self.__activated = value
 
 	@activated.deleter
@@ -139,6 +162,40 @@ class QObjectComponent(QObject):
 
 		raise foundations.exceptions.ProgrammingError(
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "activated"))
+
+	@property
+	def initialized(self):
+		"""
+		This method is the property for **self.__initialized** attribute.
+
+		:return: self.__initialized. ( Boolean )
+		"""
+
+		return self.__initialized
+
+	@initialized.setter
+	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	def initialized(self, value):
+		"""
+		This method is the setter method for **self.__initialized** attribute.
+
+		:param value: Attribute value. ( Boolean )
+		"""
+
+		if value is not None:
+			assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("initialized", value)
+			self.componentInitialized.emit() if value else self.componentUninitialized.emit()
+		self.__initialized = value
+
+	@initialized.deleter
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	def initialized(self):
+		"""
+		This method is the deleter method for **self.__initialized** attribute.
+		"""
+
+		raise foundations.exceptions.ProgrammingError(
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized"))
 
 	@property
 	def deactivatable(self):
@@ -185,10 +242,8 @@ class QObjectComponent(QObject):
 		:return: Method success. ( Boolean )
 		"""
 
-		raise NotImplementedError(
-		"{0} | '{1}' must be implemented by '{2}' subclasses!".format(self.__class__.__name__,
-																	self.activate.__name__,
-																	self.__class__.__name__))
+		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
@@ -201,3 +256,24 @@ class QObjectComponent(QObject):
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
+	def initialize(self):
+		"""
+		This method initializes the Component.
+		"""
+
+		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
+	def uninitialize(self):
+		"""
+		This method uninitializes the Component.
+		"""
+
+		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+

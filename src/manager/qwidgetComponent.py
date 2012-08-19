@@ -18,6 +18,7 @@
 #***	External imports.
 #**********************************************************************************************************************
 import logging
+from PyQt4.QtCore import pyqtSignal
 
 #**********************************************************************************************************************
 #***	Internal imports.
@@ -61,6 +62,26 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		This class is the base class for **Manager** package QWidget Components.
 		"""
 
+		componentActivated = pyqtSignal()
+		"""
+		This signal is emited by the :class:`QObjectComponent` class when the Component is activated. ( pyqtSignal )
+		"""
+
+		componentDeactivated = pyqtSignal()
+		"""
+		This signal is emited by the :class:`QObjectComponent` class when the Component is deactivated. ( pyqtSignal )
+		"""
+
+		componentInitializedUi = pyqtSignal()
+		"""
+		This signal is emited by the :class:`QObjectComponent` class when the Component ui is initialized. ( pyqtSignal )
+		"""
+
+		componentUninitializedUi = pyqtSignal()
+		"""
+		This signal is emited by the :class:`QObjectComponent` class when the Component ui is uninitialized. ( pyqtSignal )
+		"""
+
 		@core.executionTrace
 		def __init__(self, parent=None, name=None, *args, **kwargs):
 			"""
@@ -81,6 +102,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.name = name
 
 			self.__activated = False
+			self.__initializedUi = False
 			self.__deactivatable = True
 
 		#**************************************************************************************************************
@@ -141,6 +163,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 
 			if value is not None:
 				assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("activated", value)
+				self.componentActivated.emit() if value else self.componentDeactivated.emit()
 			self.__activated = value
 
 		@activated.deleter
@@ -152,6 +175,40 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 
 			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
 			self.__class__.__name__, "activated"))
+
+		@property
+		def initializedUi(self):
+			"""
+			This method is the property for **self.__initializedUi** attribute.
+	
+			:return: self.__initializedUi. ( Boolean )
+			"""
+
+			return self.__initializedUi
+
+		@initializedUi.setter
+		@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+		def initializedUi(self, value):
+			"""
+			This method is the setter method for **self.__initializedUi** attribute.
+	
+			:param value: Attribute value. ( Boolean )
+			"""
+
+			if value is not None:
+				assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("initializedUi", value)
+				self.componentInitializedUi.emit() if value else self.componentUninitializedUi.emit()
+			self.__initializedUi = value
+
+		@initializedUi.deleter
+		@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+		def initializedUi(self):
+			"""
+			This method is the deleter method for **self.__initializedUi** attribute.
+			"""
+
+			raise foundations.exceptions.ProgrammingError(
+			"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initializedUi"))
 
 		@property
 		def deactivatable(self):
@@ -208,6 +265,26 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			This method unsets Component activation state.
 	
 			:return: Method success. ( Boolean )
+			"""
+
+			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+
+		@core.executionTrace
+		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
+		def initializeUi(self):
+			"""
+			This method initializes the Component ui.
+			"""
+
+			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+
+		@core.executionTrace
+		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
+		def uninitializeUi(self):
+			"""
+			This method uninitializes the Component ui.
 			"""
 
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(

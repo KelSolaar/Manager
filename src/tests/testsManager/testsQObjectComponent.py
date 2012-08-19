@@ -51,6 +51,7 @@ class QObjectComponentTestCase(unittest.TestCase):
 
 		requiredAttributes = ("name",
 							"activated",
+							"initialized",
 							"deactivatable")
 
 		for attribute in requiredAttributes:
@@ -62,7 +63,9 @@ class QObjectComponentTestCase(unittest.TestCase):
 		"""
 
 		requiredMethods = ("activate",
-						"deactivate")
+						"deactivate",
+						"initialize",
+						"uninitialize")
 
 		for method in requiredMethods:
 			self.assertIn(method, dir(QObjectComponent))
