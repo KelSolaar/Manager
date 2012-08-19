@@ -780,7 +780,6 @@ class Manager(object):
 	#***	Class methods.
 	#******************************************************************************************************************
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __getitem__(self, component):
 		"""
 		This method reimplements the :meth:`object.__getitem__` method.
@@ -800,7 +799,6 @@ class Manager(object):
 		return self.__components.__getitem__(component)
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __iter__(self):
 		"""
 		This method reimplements the :meth:`object.__iter__` method.
@@ -821,7 +819,6 @@ class Manager(object):
 		return self.__components.iteritems()
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __contains__(self, component):
 		"""
 		This method reimplements the :meth:`object.__contains__` method.
@@ -843,7 +840,6 @@ class Manager(object):
 		return component in self.__components.keys()
 
 	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __len__(self):
 		"""
 		This method reimplements the :meth:`object.__len__` method.
