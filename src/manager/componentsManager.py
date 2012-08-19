@@ -79,15 +79,12 @@ class Profile(object):
 	"""
 
 	@core.executionTrace
-	def __init__(self, name=None, path=None):
+	def __init__(self, name=None, file=None):
 		"""
 		This method initializes the class.
 		
 		:param name: Name of the Component. ( String )
-		:param path: Path of the Component. ( String )
-		
-		:Note: :class:`Profile` class attributes ( Except :meth:`Profile.name` and for :meth:`Profile.path` )
-			are initialized by the :meth:`Manager.getProfile` method.
+		:param file: File of the Component. ( String )
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -95,17 +92,18 @@ class Profile(object):
 		# --- Setting class attributes. ---
 		self.__name = None
 		self.name = name
-		self.path = None
-		self.__path = path
+		self.__file = None
+		self.file = file
 
-		self.__object_ = None
+		self.__directory = None
+		self.__attribute = None
 		self.__rank = None
-		self.__import = None
+		self.__module = None
 		self.__interface = None
 		self.__category = None
 
 		self.__title = None
-		self.__module = None
+		self.__package = None
 		self.__version = None
 		self.__author = None
 		self.__email = None
@@ -150,73 +148,106 @@ class Profile(object):
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
 
 	@property
-	def path(self):
+	def file(self):
 		"""
-		This method is the property for **self.__path** attribute.
+		This method is the property for **self.__file** attribute.
 
-		:return: self.__path. ( String )
+		:return: self.__file. ( String )
 		"""
 
-		return self.__path
+		return self.__file
 
-	@path.setter
+	@file.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def path(self, value):
+	def file(self, value):
 		"""
-		This method is the setter method for **self.__path** attribute.
+		This method is the setter method for **self.__file** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
-			"path", value)
-			assert os.path.exists(value), "'{0}' attribute: '{1}' directory doesn't exists!".format("path", value)
-		self.__path = value
+			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("file", value)
+		self.__file = value
 
-	@path.deleter
+	@file.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def path(self):
+	def file(self):
 		"""
-		This method is the deleter method for **self.__path** attribute.
+		This method is the deleter method for **self.__file** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "path"))
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "file"))
 
 	@property
-	def object_(self):
+	def directory(self):
 		"""
-		This method is the property for **self.__object_** attribute.
+		This method is the property for **self.__directory** attribute.
 
-		:return: self.__object_. ( String )
+		:return: self.__directory. ( String )
 		"""
 
-		return self.__object_
+		return self.__directory
 
-	@object_.setter
+	@directory.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def object_(self, value):
+	def directory(self, value):
 		"""
-		This method is the setter method for **self.__object_** attribute.
+		This method is the setter method for **self.__directory** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
 
 		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
-			"object_", value)
-		self.__object_ = value
+			"directory", value)
+			assert os.path.exists(value), "'{0}' attribute: '{1}' directory doesn't exists!".format("directory", value)
+		self.__directory = value
 
-	@object_.deleter
+	@directory.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def object_(self):
+	def directory(self):
 		"""
-		This method is the deleter method for **self.__object_** attribute.
+		This method is the deleter method for **self.__directory** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "object_"))
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "directory"))
+
+	@property
+	def attribute(self):
+		"""
+		This method is the property for **self.__attribute** attribute.
+
+		:return: self.__attribute. ( String )
+		"""
+
+		return self.__attribute
+
+	@attribute.setter
+	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	def attribute(self, value):
+		"""
+		This method is the setter method for **self.__attribute** attribute.
+
+		:param value: Attribute value. ( String )
+		"""
+
+		if value is not None:
+			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			"attribute", value)
+		self.__attribute = value
+
+	@attribute.deleter
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	def attribute(self):
+		"""
+		This method is the deleter method for **self.__attribute** attribute.
+		"""
+
+		raise foundations.exceptions.ProgrammingError(
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "attribute"))
 
 	@property
 	def rank(self):
@@ -253,37 +284,37 @@ class Profile(object):
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "rank"))
 
 	@property
-	def import_(self):
+	def module(self):
 		"""
-		This method is the property for **self.__import_** attribute.
+		This method is the property for **self.__module** attribute.
 
-		:return: self.__import. ( Module )
+		:return: self.__module. ( Module )
 		"""
 
-		return self.__import
+		return self.__module
 
-	@import_.setter
+	@module.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def import_(self, value):
+	def module(self, value):
 		"""
-		This method is the setter method for **self.__import_** attribute.
+		This method is the setter method for **self.__module** attribute.
 
 		:param value: Attribute value. ( Module )
 		"""
 
 		if value is not None:
-			assert type(value) is type(sys), "'{0}' attribute: '{1}' type is not 'module'!".format("import_", value)
-		self.__import = value
+			assert type(value) is type(sys), "'{0}' attribute: '{1}' type is not 'module'!".format("module", value)
+		self.__module = value
 
-	@import_.deleter
+	@module.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def import_(self):
+	def module(self):
 		"""
-		This method is the deleter method for **self.__import_** attribute.
+		This method is the deleter method for **self.__module** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "import_"))
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "module"))
 
 	@property
 	def interface(self):
@@ -384,38 +415,38 @@ class Profile(object):
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "title"))
 
 	@property
-	def module(self):
+	def package(self):
 		"""
-		This method is the property for **self.__module** attribute.
+		This method is the property for **self.__package** attribute.
 
-		:return: self.__module. ( String )
+		:return: self.__package. ( String )
 		"""
 
-		return self.__module
+		return self.__package
 
-	@module.setter
+	@package.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def module(self, value):
+	def package(self, value):
 		"""
-		This method is the setter method for **self.__module** attribute.
+		This method is the setter method for **self.__package** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
 
 		if value is not None:
 			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
-			"module", value)
-		self.__module = value
+			"package", value)
+		self.__package = value
 
-	@module.deleter
+	@package.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def module(self):
+	def package(self):
 		"""
-		This method is the deleter method for **self.__module** attribute.
+		This method is the deleter method for **self.__package** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "module"))
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "package"))
 
 	@property
 	def version(self):
@@ -586,6 +617,76 @@ class Profile(object):
 
 		raise foundations.exceptions.ProgrammingError(
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "description"))
+
+	#******************************************************************************************************************
+	#***	Class methods.
+	#******************************************************************************************************************
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
+	def initializeProfile(self):
+		"""
+		This method gets initializes the Component Profile.
+		
+		:return: Method success. ( Boolean )
+		"""
+
+		LOGGER.debug("> Building '{0}' profile.".format(self.__file))
+
+		sectionsFileParser = SectionsFileParser(self.__file)
+		sectionsFileParser.read() and sectionsFileParser.parse()
+
+		if sectionsFileParser.sections:
+			fileStructureParsingError = lambda attribute: foundations.exceptions.FileStructureParsingError(
+			"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
+			self.__class__.__name__, attribute, self.__file))
+
+			self.__directory = os.path.dirname(self.__file)
+			self.__name = sectionsFileParser.attributeExists("Name", "Component") and \
+			sectionsFileParser.getValue("Name", "Component") or None
+			if not self.__name:
+				raise fileStructureParsingError("Name")
+
+			self.__title = sectionsFileParser.attributeExists("Title", "Component") and \
+			sectionsFileParser.getValue("Title", "Component") or None
+			if not self.__title:
+				self.__title = self.__name
+
+			self.__package = sectionsFileParser.attributeExists("Module", "Component") and \
+			sectionsFileParser.getValue("Module", "Component") or None
+			if not self.__package:
+				raise fileStructureParsingError("Module")
+
+			self.__attribute = sectionsFileParser.attributeExists("Object", "Component") and \
+			sectionsFileParser.getValue("Object", "Component") or None
+			if not self.__attribute:
+				raise fileStructureParsingError("Object")
+
+			self.__rank = sectionsFileParser.attributeExists("Rank", "Component") and \
+			sectionsFileParser.getValue("Rank", "Component") or None
+			if not self.__rank:
+				raise fileStructureParsingError("Rank")
+
+			self.__version = sectionsFileParser.attributeExists("Version", "Component") and \
+			sectionsFileParser.getValue("Version", "Component") or None
+			if not self.__version:
+				raise fileStructureParsingError("Version")
+
+			self.__author = sectionsFileParser.attributeExists("Author", "Informations") and \
+			sectionsFileParser.getValue("Author", "Informations") or None
+
+			self.__email = sectionsFileParser.attributeExists("Email", "Informations") and \
+			sectionsFileParser.getValue("Email", "Informations") or None
+
+			self.__url = sectionsFileParser.attributeExists("Url", "Informations") and \
+			sectionsFileParser.getValue("Url", "Informations") or None
+
+			self.__description = sectionsFileParser.attributeExists("Description", "Informations") and \
+			sectionsFileParser.getValue("Description", "Informations") or None
+
+			return True
+		else:
+			raise foundations.exceptions.FileStructureParsingError(
+			"{0} | No sections found, '{1}' file structure seems invalid!".format(self.__class__.__name__, self.__file))
 
 class Manager(object):
 	"""
@@ -780,6 +881,7 @@ class Manager(object):
 	#***	Class methods.
 	#******************************************************************************************************************
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __getitem__(self, component):
 		"""
 		This method reimplements the :meth:`object.__getitem__` method.
@@ -796,9 +898,10 @@ class Manager(object):
 		:return: Component profile. ( Profile )
 		"""
 
-		return self.__components.__getitem__(component)
+		return self.__components.__getitem__(component).interface
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __iter__(self):
 		"""
 		This method reimplements the :meth:`object.__iter__` method.
@@ -819,6 +922,7 @@ class Manager(object):
 		return self.__components.iteritems()
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __contains__(self, component):
 		"""
 		This method reimplements the :meth:`object.__contains__` method.
@@ -840,6 +944,7 @@ class Manager(object):
 		return component in self.__components.keys()
 
 	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __len__(self):
 		"""
 		This method reimplements the :meth:`object.__len__` method.
@@ -856,80 +961,6 @@ class Manager(object):
 		"""
 
 		return len(self.__components.keys())
-
-	@staticmethod
-	@core.executionTrace
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
-	def getProfile(file):
-		"""
-		This method gets given Component Profile.
-		
-		Usage::
-
-			>>> profile = Manager.getProfile("testsComponentA.rc")
-			>>> profile.description
-			Core tests Component A.
-
-		:param file: File path. ( String )
-		:return: Profile. ( Profile )
-		"""
-
-		LOGGER.debug("> Building '{0}' profile.".format(file))
-
-		sectionsFileParser = SectionsFileParser(file)
-		sectionsFileParser.read() and sectionsFileParser.parse()
-
-		if sectionsFileParser.sections:
-			profile = Profile()
-			profile.path = os.path.dirname(file)
-			profile.name = sectionsFileParser.attributeExists("Name", "Component") and \
-			sectionsFileParser.getValue("Name", "Component") or None
-			if not profile.name:
-				raise foundations.exceptions.FileStructureParsingError(
-				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				Manager.__name__, "Name", file))
-			profile.path = os.path.dirname(file)
-			profile.title = sectionsFileParser.attributeExists("Title", "Component") and \
-			sectionsFileParser.getValue("Title", "Component") or None
-			if not profile.title:
-				profile.title = profile.name
-			profile.module = sectionsFileParser.attributeExists("Module", "Component") and \
-			sectionsFileParser.getValue("Module", "Component") or None
-			if not profile.module:
-				raise foundations.exceptions.FileStructureParsingError(
-				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				Manager.__name__, "Module", file))
-			profile.object_ = sectionsFileParser.attributeExists("Object", "Component") and \
-			sectionsFileParser.getValue("Object", "Component") or None
-			if not profile.object_:
-				raise foundations.exceptions.FileStructureParsingError(
-				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				Manager.__name__, "Object", file))
-			profile.rank = sectionsFileParser.attributeExists("Rank", "Component") and \
-			sectionsFileParser.getValue("Rank", "Component") or None
-			if not profile.rank:
-				raise foundations.exceptions.FileStructureParsingError(
-				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				Manager.__name__, "Rank", file))
-			profile.version = sectionsFileParser.attributeExists("Version", "Component") and \
-			sectionsFileParser.getValue("Version", "Component") or None
-			if not profile.version:
-				raise foundations.exceptions.FileStructureParsingError(
-				"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-				Manager.__name__, "Version", file))
-			profile.author = sectionsFileParser.attributeExists("Author", "Informations") and \
-			sectionsFileParser.getValue("Author", "Informations") or None
-			profile.email = sectionsFileParser.attributeExists("Email", "Informations") and \
-			sectionsFileParser.getValue("Email", "Informations") or None
-			profile.url = sectionsFileParser.attributeExists("Url", "Informations") and \
-			sectionsFileParser.getValue("Url", "Informations") or None
-			profile.description = sectionsFileParser.attributeExists("Description", "Informations") and \
-			sectionsFileParser.getValue("Description", "Informations") or None
-
-			return profile
-		else:
-			raise foundations.exceptions.FileStructureParsingError(
-			"{0} | No sections found, '{1}' file structure seems invalid!".format(Manager.__name__, file))
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None,
@@ -954,11 +985,11 @@ class Manager(object):
 
 		component = strings.getSplitextBasename(path)
 		LOGGER.debug("> Current Component: '{0}'.".format(component))
-		profile = self.getProfile(path)
-		if profile:
-			if os.path.isfile(os.path.join(profile.path, profile.module) + ".py") or \
-			os.path.isdir(os.path.join(profile.path, profile.module)) or \
-			os.path.basename(profile.path) == profile.module:
+		profile = Profile(file=path)
+		if profile.initializeProfile():
+			if os.path.isfile(os.path.join(profile.directory, profile.package) + ".py") or \
+			os.path.isdir(os.path.join(profile.directory, profile.package)) or \
+			os.path.basename(profile.directory) == profile.package:
 				self.__components[profile.name] = profile
 				return True
 			else:
@@ -1081,15 +1112,15 @@ class Manager(object):
 
 		LOGGER.debug("> Current Component: '{0}'.".format(component))
 
-		if os.path.isfile(os.path.join(profile.path, profile.module) + ".py") or os.path.isdir(os.path.join(profile.path,
-																							profile.module)):
-			path = profile.path
-		elif os.path.basename(profile.path) == profile.module:
-			path = os.path.join(profile.path, "..")
+		if os.path.isfile(os.path.join(profile.directory, profile.package) + ".py") or os.path.isdir(os.path.join(profile.directory,
+																							profile.package)):
+			path = profile.directory
+		elif os.path.basename(profile.directory) == profile.package:
+			path = os.path.join(profile.directory, "..")
 		not path in sys.path and sys.path.append(path)
 
-		profile.import_ = __import__(profile.module)
-		object = profile.object_ in profile.import_.__dict__ and getattr(profile.import_, profile.object_) or None
+		profile.module = __import__(profile.package)
+		object = profile.attribute in profile.module.__dict__ and getattr(profile.module, profile.attribute) or None
 		if object and inspect.isclass(object):
 			instance = object(name=profile.name)
 			for category, type in self.__categories.iteritems():
@@ -1157,14 +1188,14 @@ class Manager(object):
 		"""
 
 		profile = self.__components[component]
-		import_ = __import__(profile.module)
-		reload(import_)
-		object = profile.object_ in dir(import_) and getattr(import_, profile.object_) or None
+		module = __import__(profile.package)
+		reload(module)
+		object = profile.attribute in dir(module) and getattr(module, profile.attribute) or None
 		if object and inspect.isclass(object):
 			for type in self.__categories.itervalues():
 				if type.__name__ in (base.__name__ for base in object.__bases__):
 					instance = object(name=profile.name)
-					profile.import_ = import_
+					profile.module = module
 					profile.interface = instance
 					LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
 					return True
@@ -1223,6 +1254,28 @@ class Manager(object):
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def getProfile(self, component):
+		"""
+		This method gets given Component profile.
+
+		Usage::
+
+			>>> manager = Manager()
+			>>> manager.registerComponent("testsComponentA.rc")
+			True
+			>>> manager.getProfile("core.testsComponentA")
+			<manager.componentsManager.Profile object at 0x10258ef10>
+
+		:param component: Component to get the profile. ( String )
+		:return: Component profile. ( Profile )
+		"""
+
+		components = self.filterComponents(r"^{0}$".format(component))
+		if components != []:
+			return self.__components[foundations.common.getFirstItem(components)]
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def getInterface(self, component):
 		"""
 		This method gets given Component interface.
@@ -1235,13 +1288,13 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17b0d70>
 
-		:param component: Component to get the interface. ( Component / QWidgetComponent / QObjectComponent )
+		:param component: Component to get the interface. ( String )
 		:return: Component interface. ( Object )
 		"""
 
-		components = self.filterComponents(r"^{0}$".format(component))
-		if components != []:
-			return self.__components[foundations.common.getFirstItem(components)].interface
+		profile = self.getProfile(component)
+		if profile:
+			return profile.interface
 
 	@staticmethod
 	@core.executionTrace

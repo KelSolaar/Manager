@@ -51,21 +51,23 @@ RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__),
 					"resources/components/core/testsComponentA/testsComponentA.rc"), Component)
 COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
-COMPONENTS = {"core":{"testsComponentA":"core/testsComponentA",
-					"testsComponentB":"core/testsComponentB"},
-			"addons":{"testsComponentC":"core/testsComponentC"}}
+COMPONENTS = {"core" : {"testsComponentA" : "core/testsComponentA",
+					"testsComponentB" : "core/testsComponentB"},
+			"addons" : {"testsComponentC" : "core/testsComponentC"}}
 COMPONENTS_NAMES = COMPONENTS_RANKING = ["core.testsComponentA", "core.testsComponentB", "addons.testsComponentC"]
-STANDARD_PROFILE_CONTENT = {"name":"core.testsComponentA",
-							"path":os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"]),
-							"title":"Tests Component A",
-							"module":"testsComponentA",
-							"object_":"TestsComponentA",
-							"rank":"10",
-							"version":"1.0",
-							"author":"Thomas Mansencal",
-							"email":"thomas.mansencal@gmail.com",
-							"url":"http://www.hdrlabs.com/",
-							"description":"Core tests Component A."}
+STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",
+							"file" : os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"],
+									"testsComponentA.rc"),
+							"directory":os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"]),
+							"title" : "Tests Component A",
+							"package" : "testsComponentA",
+							"attribute" : "TestsComponentA",
+							"rank" : "10",
+							"version" : "1.0",
+							"author" : "Thomas Mansencal",
+							"email" : "thomas.mansencal@gmail.com",
+							"url" : "http://www.hdrlabs.com/",
+							"description" : "Core tests Component A."}
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
@@ -81,14 +83,15 @@ class ProfileTestCase(unittest.TestCase):
 		"""
 
 		requiredAttributes = ("name",
-							"path",
-							"object_",
+							"file",
+							"directory",
+							"attribute",
 							"rank",
-							"import_",
+							"module",
 							"interface",
 							"category",
 							"title",
-							"module",
+							"package",
 							"version",
 							"author",
 							"email",
@@ -97,6 +100,27 @@ class ProfileTestCase(unittest.TestCase):
 
 		for attribute in requiredAttributes:
 			self.assertIn(attribute, dir(Profile))
+
+	def testRequiredMethods(self):
+		"""
+		This method tests presence of required methods.
+		"""
+
+		requiredMethods = ("initializeProfile",)
+
+		for method in requiredMethods:
+			self.assertIn(method, dir(Profile))
+
+	def testInitializeProfile(self):
+		"""
+		This method tests :meth:`manager.componentsManager.Profile.initializeProfile` method.
+		"""
+
+		profile = Profile(file=STANDARD_PROFILE_CONTENT["file"])
+		self.assertTrue(profile.initializeProfile())
+		for attribute, value in STANDARD_PROFILE_CONTENT.iteritems():
+			self.assertIsInstance(getattr(profile, attribute), type(value))
+			self.assertEqual(getattr(profile, attribute), value)
 
 def testManagerCallback(profile):
 	"""
@@ -132,7 +156,6 @@ class ManagerTestCase(unittest.TestCase):
 						"__iter__",
 						"__contains__",
 						"__len__",
-						"getProfile",
 						"registerComponents",
 						"unregisterComponent",
 						"registerComponents",
@@ -142,6 +165,7 @@ class ManagerTestCase(unittest.TestCase):
 						"reloadComponent",
 						"listComponents",
 						"filterComponents",
+						"getProfile",
 						"getInterface",
 						"getComponentAttributeName")
 
@@ -155,8 +179,9 @@ class ManagerTestCase(unittest.TestCase):
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
+		manager.instantiateComponents()
 		for name, profile in manager:
-			self.assertIsInstance(manager[name], Profile)
+			self.assertIsInstance(manager[name], Component)
 
 	def test__iter__(self):
 		"""
@@ -187,20 +212,6 @@ class ManagerTestCase(unittest.TestCase):
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
 		manager.registerComponents()
 		self.assertEqual(3, len(manager))
-
-	def testGetProfile(self):
-		"""
-		This method tests :meth:`manager.componentsManager.Manager.getProfile` method.
-		"""
-
-		path = os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"], "testsComponentA.rc")
-
-		manager = Manager()
-		profile = manager.getProfile(path)
-		self.assertIsInstance(profile, Profile)
-		for attribute, value in STANDARD_PROFILE_CONTENT.iteritems():
-			self.assertIsInstance(getattr(profile, attribute), type(value))
-			self.assertEqual(getattr(profile, attribute), value)
 
 	def testRegisterComponent(self):
 		"""
@@ -305,6 +316,17 @@ class ManagerTestCase(unittest.TestCase):
 		components = manager.filterComponents("addons")
 		self.assertIsInstance(components, list)
 		self.assertListEqual(components, ["addons.testsComponentC"])
+
+	def testGetProfile(self):
+		"""
+		This method tests :meth:`manager.componentsManager.Manager.getProfile` method.
+		"""
+
+		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		manager.registerComponents()
+		manager.instantiateComponents()
+		for component in manager.components:
+			self.assertIsInstance(manager.getProfile(component), Profile)
 
 	def testGetInterface(self):
 		"""
