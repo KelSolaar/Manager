@@ -44,6 +44,7 @@ __all__ = ["RESOURCES_DIRECTORY",
 			"COMPONENTS_NAMES",
 			"COMPONENTS_RANKING",
 			"STANDARD_PROFILE_CONTENT",
+			"managerCallback",
 			"ProfileTestCase",
 			"ManagerTestCase"]
 
@@ -72,6 +73,13 @@ STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
+def managerCallback(profile):
+	"""
+	This definition provides :class:`manager.componentsManager.Manager` class test callback.
+	"""
+
+	profile.callback = True
+
 class ProfileTestCase(unittest.TestCase):
 	"""
 	This class defines :class:`manager.componentsManager.Profile` class units tests methods.
@@ -121,13 +129,6 @@ class ProfileTestCase(unittest.TestCase):
 		for attribute, value in STANDARD_PROFILE_CONTENT.iteritems():
 			self.assertIsInstance(getattr(profile, attribute), type(value))
 			self.assertEqual(getattr(profile, attribute), value)
-
-def testManagerCallback(profile):
-	"""
-	This definition provides :class:`manager.componentsManager.Manager` class test callback.
-	"""
-
-	profile.callback = True
 
 class ManagerTestCase(unittest.TestCase):
 	"""
@@ -263,7 +264,7 @@ class ManagerTestCase(unittest.TestCase):
 
 		manager = Manager()
 		manager.registerComponent(SINGLE_COMPONENT[1])
-		self.assertTrue(manager.instantiateComponent(SINGLE_COMPONENT[0], testManagerCallback))
+		self.assertTrue(manager.instantiateComponent(SINGLE_COMPONENT[0], managerCallback))
 		self.assertIsInstance(manager.components.values()[0].interface, SINGLE_COMPONENT[2])
 
 	def testInstantiateComponents(self):
@@ -278,7 +279,7 @@ class ManagerTestCase(unittest.TestCase):
 			self.assertIsInstance(component.interface, Component)
 		manager.unregisterComponents()
 		manager.registerComponents()
-		manager.instantiateComponents(testManagerCallback)
+		manager.instantiateComponents(managerCallback)
 		for component in manager.components.itervalues():
 			self.assertTrue(component.callback)
 
