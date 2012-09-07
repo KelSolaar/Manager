@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsQObjectComponent.py**
+**testsComponent.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines units tests for :mod:`manager.qobjectComponent` module.
+	This module defines units tests for :mod:`manager.Component` module.
 
 **Others:**
 
@@ -22,7 +22,7 @@ import unittest
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-from manager.qobjectComponent import QObjectComponent
+from manager.component import Component
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -34,14 +34,14 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["QObjectComponentTestCase"]
+__all__ = ["ComponentTestCase"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class QObjectComponentTestCase(unittest.TestCase):
+class ComponentTestCase(unittest.TestCase):
 	"""
-	This class defines :class:`manager.qobjectComponent.QObjectComponent` class units tests methods.
+	This class defines :class:`manager.component.Component` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -55,7 +55,7 @@ class QObjectComponentTestCase(unittest.TestCase):
 							"deactivatable")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(QObjectComponent))
+			self.assertIn(attribute, dir(Component))
 
 	def testRequiredMethods(self):
 		"""
@@ -68,8 +68,8 @@ class QObjectComponentTestCase(unittest.TestCase):
 						"uninitialize")
 
 		for method in requiredMethods:
-			self.assertIn(method, dir(QObjectComponent))
+			self.assertIn(method, dir(Component))
 
 if __name__ == "__main__":
-	import tests.utilities
+	import manager.tests.utilities
 	unittest.main()

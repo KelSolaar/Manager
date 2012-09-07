@@ -350,5 +350,5 @@ class ManagerTestCase(unittest.TestCase):
 		self.assertEquals(Manager.getComponentAttributeName("myComponent"), "myComponent")
 
 if __name__ == "__main__":
-	import tests.utilities
+	import manager.tests.utilities
 	unittest.main()

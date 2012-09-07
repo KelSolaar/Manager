@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**tests.py**
+**testsQWidgetComponent.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module runs the tests suite.
+	This module defines units tests for :mod:`manager.qwidgetComponent` module.
 
 **Others:**
 
@@ -20,10 +20,12 @@
 import os
 import sys
 import unittest
+from PyQt4.QtGui import QApplication
 
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
+from manager.qwidgetComponent import QWidgetComponentFactory
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -35,34 +37,48 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["testsSuite"]
+__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "QWidgetComponentFactoryTestCase"]
+
+RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
+UI_FILE = os.path.join(RESOURCES_DIRECTORY, "standard.ui")
+
+APPLICATION = QApplication(sys.argv)
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-def _setApplicationPackageDirectory():
+class QWidgetComponentFactoryTestCase(unittest.TestCase):
 	"""
-	This definition sets the package directory in the path.
-
-	:return: Definition success. ( Boolean )
+	This class defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
 	"""
 
-	applicationPackageDirectory = os.path.normpath(os.path.join(sys.path[0], "../"))
-	applicationPackageDirectory not in sys.path and sys.path.append(applicationPackageDirectory)
-	return True
+	def testRequiredAttributes(self):
+		"""
+		This method tests presence of required attributes.
+		"""
 
-_setApplicationPackageDirectory()
+		requiredAttributes = ("name",
+							"uiFile",
+							"activated",
+							"initializedUi",
+							"deactivatable")
 
-def testsSuite():
-	"""
-	This definitions runs the tests suite.
-	
-	:return: Tests suite. ( TestSuite )
-	"""
+		for attribute in requiredAttributes:
+			self.assertIn(attribute, dir(QWidgetComponentFactory()))
 
-	testsLoader = unittest.TestLoader()
-	return testsLoader.discover(os.path.dirname(__file__))
+	def testRequiredMethods(self):
+		"""
+		This method tests presence of required methods.
+		"""
+
+		requiredMethods = ("activate",
+						"deactivate",
+						"initializeUi",
+						"uninitializeUi")
+
+		for method in requiredMethods:
+			self.assertIn(method, dir(QWidgetComponentFactory()))
 
 if __name__ == "__main__":
-	import utilities
-	unittest.TextTestRunner(verbosity=2).run(testsSuite())
+	import manager.tests.utilities
+	unittest.main()

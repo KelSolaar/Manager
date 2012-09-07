@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsComponent.py**
+**tests.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines units tests for :mod:`manager.Component` module.
+	This module runs the tests suite.
 
 **Others:**
 
@@ -17,12 +17,13 @@
 #**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
+import os
+import sys
 import unittest
 
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-from manager.component import Component
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -34,42 +35,34 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["ComponentTestCase"]
+__all__ = ["testsSuite"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class ComponentTestCase(unittest.TestCase):
+def _setApplicationPackageDirectory():
 	"""
-	This class defines :class:`manager.component.Component` class units tests methods.
+	This definition sets the package directory in the path.
+
+	:return: Definition success. ( Boolean )
 	"""
 
-	def testRequiredAttributes(self):
-		"""
-		This method tests presence of required attributes.
-		"""
+	applicationPackageDirectory = os.path.normpath(os.path.join(sys.path[0], "../"))
+	applicationPackageDirectory not in sys.path and sys.path.append(applicationPackageDirectory)
+	return True
 
-		requiredAttributes = ("name",
-							"activated",
-							"initialized",
-							"deactivatable")
+_setApplicationPackageDirectory()
 
-		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(Component))
+def testsSuite():
+	"""
+	This definitions runs the tests suite.
+	
+	:return: Tests suite. ( TestSuite )
+	"""
 
-	def testRequiredMethods(self):
-		"""
-		This method tests presence of required methods.
-		"""
-
-		requiredMethods = ("activate",
-						"deactivate",
-						"initialize",
-						"uninitialize")
-
-		for method in requiredMethods:
-			self.assertIn(method, dir(Component))
+	testsLoader = unittest.TestLoader()
+	return testsLoader.discover(os.path.dirname(__file__))
 
 if __name__ == "__main__":
-	import tests.utilities
-	unittest.main()
+	import manager.tests.utilities
+	unittest.TextTestRunner(verbosity=2).run(testsSuite())

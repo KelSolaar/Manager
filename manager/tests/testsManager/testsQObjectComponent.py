@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsQWidgetComponent.py**
+**testsQObjectComponent.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines units tests for :mod:`manager.qwidgetComponent` module.
+	This module defines units tests for :mod:`manager.qobjectComponent` module.
 
 **Others:**
 
@@ -17,15 +17,12 @@
 #**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
-import os
-import sys
 import unittest
-from PyQt4.QtGui import QApplication
 
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-from manager.qwidgetComponent import QWidgetComponentFactory
+from manager.qobjectComponent import QObjectComponent
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -37,19 +34,14 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "QWidgetComponentFactoryTestCase"]
-
-RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
-UI_FILE = os.path.join(RESOURCES_DIRECTORY, "standard.ui")
-
-APPLICATION = QApplication(sys.argv)
+__all__ = ["QObjectComponentTestCase"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class QWidgetComponentFactoryTestCase(unittest.TestCase):
+class QObjectComponentTestCase(unittest.TestCase):
 	"""
-	This class defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
+	This class defines :class:`manager.qobjectComponent.QObjectComponent` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -58,13 +50,12 @@ class QWidgetComponentFactoryTestCase(unittest.TestCase):
 		"""
 
 		requiredAttributes = ("name",
-							"uiFile",
 							"activated",
-							"initializedUi",
+							"initialized",
 							"deactivatable")
 
 		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(QWidgetComponentFactory()))
+			self.assertIn(attribute, dir(QObjectComponent))
 
 	def testRequiredMethods(self):
 		"""
@@ -73,12 +64,12 @@ class QWidgetComponentFactoryTestCase(unittest.TestCase):
 
 		requiredMethods = ("activate",
 						"deactivate",
-						"initializeUi",
-						"uninitializeUi")
+						"initialize",
+						"uninitialize")
 
 		for method in requiredMethods:
-			self.assertIn(method, dir(QWidgetComponentFactory()))
+			self.assertIn(method, dir(QObjectComponent))
 
 if __name__ == "__main__":
-	import tests.utilities
+	import manager.tests.utilities
 	unittest.main()
