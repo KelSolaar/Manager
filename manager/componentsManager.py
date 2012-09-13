@@ -31,9 +31,9 @@ import foundations.core as core
 import foundations.dataStructures
 import foundations.exceptions
 import foundations.strings as strings
+import foundations.walkers
 import manager.exceptions
 from foundations.parsers import SectionsFileParser
-from foundations.walkers import FilesWalker
 from manager.component import Component
 from manager.globals.constants import Constants
 from manager.qobjectComponent import QObjectComponent
@@ -708,7 +708,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager.listComponents()
@@ -888,7 +888,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager["core.testsComponentA"]
@@ -908,11 +908,12 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> for name, profile in manager:
-			...	print name
+			...	print(name)
+			...
 			core.testsComponentB
 			core.testsComponentA
 		
@@ -929,7 +930,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> "core.testsComponentA" in manager
@@ -951,7 +952,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> len(manager)
@@ -1035,7 +1036,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager.components.keys()
@@ -1044,12 +1045,9 @@ class Manager(object):
 		:return: Method success. ( Boolean )
 		"""
 
-		filesWalker = FilesWalker()
 		unregisteredComponents = []
 		for path in self.paths:
-			filesWalker.root = path
-			filesWalker.walk(("\.{0}$".format(self.__extension),), ("\._",))
-			for file in filesWalker.files.itervalues():
+			for file in foundations.walkers.filesWalker(path, ("\.{0}$".format(self.__extension),), ("\._",)):
 				if not self.registerComponent(file):
 					unregisteredComponents.append(file)
 
@@ -1073,7 +1071,7 @@ class Manager(object):
 	
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager.unregisterComponents()
@@ -1142,7 +1140,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager.instantiateComponents()
@@ -1208,7 +1206,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager.components["core.testsComponentA"].rank
@@ -1231,7 +1229,7 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./Manager/src/tests/testsManager/resources/components/core",))
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
 			>>> manager.filterComponents("\w+A$")
