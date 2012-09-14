@@ -12,8 +12,8 @@ Table Of Content
 
 -  `Introduction`_
 -  `Installation`_
--  `Changes`_
 -  `Api`_
+-  `Changes`_
 -  `About`_
 
 .. raw:: html
@@ -56,7 +56,7 @@ _`Api`
 _`Changes`
 ==========
 
-**Manager - Changes**: Change_Log.html
+**Manager - Changes**: Changes.html
 
 .. raw:: html
 

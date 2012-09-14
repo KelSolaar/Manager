@@ -24,6 +24,7 @@ echo ---------------------------------------------------------------------------
 echo Sphinx Documentation Build - Begin
 echo -------------------------------------------------------------------------------
 python $UTILITIES/sliceDocumentation.py "$HELP/Manager_Manual.rst" "$SPHINX/source/resources/pages"
+python $UTILITIES/sliceDocumentation.py "$PROJECT/CHANGES.rst" "$SPHINX/source/resources/pages"
 python $UTILITIES/getSphinxDocumentationTocTree.py "Manager" "$SPHINX/source/resources/pages/tocTree.rst" "$SPHINX/source/index.rst" "$SPHINX/source/resources/pages"
 rm -rf $SPHINX/build
 rm -rf $SPHINX/source/resources/packages

@@ -1,7 +1,7 @@
 _`Changes`
 ==========
 
-**Manager - Changes**: Change_Log.html
+**Manager - Changes**: Changes.html
 
 .. raw:: html
 
