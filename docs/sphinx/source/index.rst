@@ -9,8 +9,9 @@ Contents:
 
  Introduction <resources/pages/introduction>
  Installation <resources/pages/installation>
- Changes <resources/pages/changes>
+ Usage <resources/pages/usage>
  Api <resources/pages/api>
+ Changes <resources/pages/changes>
  About <resources/pages/about>
 
 Search:

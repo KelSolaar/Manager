@@ -1,0 +1,8 @@
+include COPYING
+include LICENSE
+include *.rst
+graft docs
+graft utilities
+recursive-exclude utilities *.pyc
+graft manager/tests/testsManager/resources
+recursive-exclude manager/tests/testsManager/resources *.pyc

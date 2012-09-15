@@ -8,6 +8,8 @@
 *.pyc
 *.pyo
 
+Manager.egg-info/
+dist/
 docs/sphinx/build/
 docs/sphinx/source/resources/packages/
 releases/

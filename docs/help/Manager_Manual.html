@@ -82,10 +82,13 @@
 						<a class="reference internal" href="#installation">Installation</a>
 					</li>
 					<li>
-						<a class="reference internal" href="#changes">Changes</a>
+						<a class="reference internal" href="#usage">Usage</a>
 					</li>
 					<li>
 						<a class="reference internal" href="#api">Api</a>
+					</li>
+					<li>
+						<a class="reference internal" href="#changes">Changes</a>
 					</li>
 					<li>
 						<a class="reference internal" href="#about">About</a>
@@ -98,41 +101,202 @@
 					<span class="target" id="introduction">Introduction</span>
 				</h1>
 				<p>
-					Manager is the Components Manager package of <a class="reference external" href="https://github.com/KelSolaar/Umbra">Umbra</a>, <a class="reference external" href="https://github.com/KelSolaar/sIBL_GUI">sIBL_GUI</a> and <a class="reference external" href="https://github.com/KelSolaar/sIBL_Reporter">sIBL_Reporter</a>.
+					<strong>Manager</strong> is the Components Manager package of <a class="reference external" href="https://github.com/KelSolaar/Umbra">Umbra</a>, <a class="reference external" href="https://github.com/KelSolaar/sIBL_GUI">sIBL_GUI</a> and <a class="reference external" href="https://github.com/KelSolaar/sIBL_Reporter">sIBL_Reporter</a>. Components are simple python packages extending capabilities of their host application.
 				</p><br />
 				<!-- .installation -->
 			</div>
 			<div class="section" id="id2">
 				<h1>
 					<span class="target" id="installation">Installation</span>
-				</h1><br />
-				<!-- .api -->
+				</h1>
+				<p>
+					To install <strong>Manager</strong> from the <a class="reference external" href="http://pypi.python.org/pypi/Manager">Python Package Index</a> you can issue this command in a shell:
+				</p>
+				<pre class="literal-block">
+pip install Manager
+</pre>
+				<p>
+					or this alternative command:
+				</p>
+				<pre class="literal-block">
+easy_install Manager
+</pre>
+				<p>
+					Alternatively, if you want to directly install from <a class="reference external" href="http://github.com/KelSolaar/Manager">Github</a> source repository:
+				</p>
+				<pre class="literal-block">
+git clone git://github.com/KelSolaar/Manager.git
+python setup.py install
+</pre><br />
+				<!-- .usage -->
 			</div>
 			<div class="section" id="id3">
+				<h1>
+					<span class="target" id="usage">Usage</span>
+				</h1>
+				<p>
+					Please refer to <a class="reference external" href="http://thomasmansencal.com/Sharing/Manager/Support/Documentation/Api/index.html">Manager - Api</a> for precise usage examples.
+				</p>
+				<p>
+					A Component package contains at least a resource <strong>.rc</strong> description file and a main module:
+				</p>
+				<pre class="literal-block">
+testsComponentA
+├── __init__.py
+├── testsComponentA.py
+└── testsComponentA.rc
+</pre>
+				<p>
+					The description file is a configuration style file with a structure similar to what you would find on Microsoft Windows INI files:
+				</p>
+				<pre class="literal-block">
+[Component]
+Name = core.testsComponentA
+Title = Tests Component A
+Module = testsComponentA
+Object = TestsComponentA
+Rank = 10
+Version = 1.0
+
+[Informations]
+Author = Thomas Mansencal
+Email = thomas.mansencal&#64;gmail.com
+Url = http://www.hdrlabs.com/
+Description = Core tests Component A.
+</pre>
+				<p>
+					Given the following directories structure:
+				</p>
+				<pre class="literal-block">
+core
+├── __init__.py
+├── testsComponentA
+│&nbsp;&nbsp; ├── __init__.py
+│&nbsp;&nbsp; ├── testsComponentA.py
+│&nbsp;&nbsp; └── testsComponentA.rc
+└── testsComponentB
+		├── __init__.py
+		├── testsComponentB.py
+		└── testsComponentB.rc
+</pre>
+				<p>
+					Instantiating the Components Manager is done the following way:
+				</p>
+				<pre class="code python literal-block">
+<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">((</span><span class="s">&quot;./manager/tests/testsManager/resources/components/core&quot;</span><span class="p">,))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">registerComponents</span><span class="p">()</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">listComponents</span><span class="p">()</span>
+<span class="p">[</span><span class="s">'core.testsComponentA'</span><span class="p">,</span> <span class="s">'core.testsComponentB'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">instantiateComponents</span><span class="p">()</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="s">&quot;core.testsComponentA&quot;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">testsComponentA</span><span class="o">.</span><span class="n">TestsComponentA</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x11dd990</span><span class="o">&gt;</span>
+</pre>
+				<p>
+					<strong>manager.componentsManager.Manager.getInterface(name)</strong> method returns the interface of given Component, in the previous example it's the object declared in the description file by this statement: <strong>Object = TestsComponentA</strong>.
+				</p>
+				<p>
+					Three base Components are provided by default:
+				</p>
+				<ul class="simple">
+					<li>
+						<strong>manager.component.Component</strong>
+					</li>
+					<li>
+						<strong>manager.qobjectComponent.QObjectComponent</strong>
+					</li>
+					<li>
+						<strong>manager.qwidgetComponent.QWidgetComponent</strong>
+					</li>
+				</ul>
+				<p>
+					When inheriting from those Components, one have to reimplement the following methods:
+				</p>
+				<ul class="simple">
+					<li>
+						<strong>activate</strong>
+					</li>
+					<li>
+						<strong>deactivate</strong>
+					</li>
+					<li>
+						<strong>initialize</strong> ( <strong>initializeUi</strong> for <strong>manager.qwidgetComponent.QWidgetComponent</strong> )
+					</li>
+					<li>
+						<strong>uninitialize</strong> ( <strong>uninitializeUi</strong> for <strong>manager.qwidgetComponent.QWidgetComponent</strong> )
+					</li>
+				</ul>
+				<p>
+					The following attributes have to be set in those methods so that associated signals are emitted:
+				</p>
+				<ul class="simple">
+					<li>
+						<strong>activated</strong>
+					</li>
+					<li>
+						<strong>initialized</strong> ( <strong>initializedUi</strong> for <strong>manager.qwidgetComponent.QWidgetComponent</strong> )
+					</li>
+				</ul>
+				<p>
+					Reference Component implementation example class:
+				</p>
+				<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">TestsComponentA</span><span class="p">(</span><span class="n">Component</span><span class="p">):</span>
+
+		<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+				<span class="n">Component</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+
+				<span class="bp">self</span><span class="o">.</span><span class="n">deactivatable</span> <span class="o">=</span> <span class="bp">True</span>
+
+		<span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Activating '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+
+				<span class="bp">self</span><span class="o">.</span><span class="n">activated</span> <span class="o">=</span> <span class="bp">True</span>
+				<span class="k">return</span> <span class="bp">True</span>
+
+		<span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Deactivating '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+
+				<span class="bp">self</span><span class="o">.</span><span class="n">activated</span> <span class="o">=</span> <span class="bp">False</span>
+				<span class="k">return</span> <span class="bp">True</span>
+
+		<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Initializing '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+
+				<span class="bp">self</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="bp">True</span>
+				<span class="k">return</span> <span class="bp">True</span>
+
+		<span class="k">def</span> <span class="nf">uninitialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Uninitializing '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+
+				<span class="bp">self</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="bp">False</span>
+				<span class="k">return</span> <span class="bp">True</span>
+</pre><br />
+				<!-- .api -->
+			</div>
+			<div class="section" id="id4">
 				<h1>
 					<span class="target" id="api">Api</span>
 				</h1>
 				<p>
-					<em>Manager</em> Api documentation is available here: <a class="reference external" href="index.html">Manager - Api</a>
+					<strong>Manager</strong> Api documentation is available here: <a class="reference external" href="http://thomasmansencal.com/Sharing/Manager/Support/Documentation/Api/index.html">Manager - Api</a>
 				</p><br />
 				<!-- .changes -->
 			</div>
-			<div class="section" id="id4">
+			<div class="section" id="id6">
 				<h1>
 					<span class="target" id="changes">Changes</span>
-				</h1>
-				<p>
-					<strong>Manager - Changes</strong>: Change_Log.html
-				</p><br />
+				</h1><br />
 				<!-- .about -->
 			</div>
-			<div class="section" id="id5">
+			<div class="section" id="id7">
 				<h1>
 					<span class="target" id="about">About</span>
 				</h1>
 				<div class="line-block">
 					<div class="line">
-						<em>Manager</em> by Thomas Mansencal - 2008 - 2012
+						<strong>Manager</strong> by Thomas Mansencal - 2008 - 2012
 					</div>
 					<div class="line">
 						Copyright© 2008 - 2012 - Thomas Mansencal - <a class="reference external" href="mailto:thomas.mansencal&#64;gmail.com">thomas.mansencal&#64;gmail.com</a>

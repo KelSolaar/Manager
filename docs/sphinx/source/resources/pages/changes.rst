@@ -1,9 +1,32 @@
-_`Changes`
-==========
+Changes
+=======
 
-**Manager - Changes**: Changes.html
+2.0.1 - Stable
+--------------
 
-.. raw:: html
+-  Updated package directory structure to be compliant with "Python Package Index".
+-  Added documentation / Api files.
 
-    <br/>
+2.0.0 - Stable
+--------------
+
+-  Major package refactor.
+
+1.0.2 - Stable
+--------------
+
+-  Reorganize package directories structure.
+-  Replaced list comprehension expressions by generators.
+-  Added missing units tests dependencies.
+
+1.0.1 - Stable
+--------------
+
+-  Replaced list comprehension expressions by generators.
+-  Added missing units tests dependencies.
+
+1.0.0 - Stable
+--------------
+
+-  Initial Release of Manager.
 

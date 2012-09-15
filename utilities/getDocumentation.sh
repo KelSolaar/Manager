@@ -30,7 +30,7 @@ rm -rf $SPHINX/build
 rm -rf $SPHINX/source/resources/packages
 rm $SPHINX/source/resources/pages/api/*
 rm "$SPHINX/source/resources/pages/tocTree.rst"
-python $UTILITIES/getSphinxDocumentationApi.py "foundations,manager" "$SPHINX/source/resources/packages" "$SPHINX/source/resources/pages/api" "$SPHINX/source/resources/pages/api.rst"
+python $UTILITIES/getSphinxDocumentationApi.py "manager" "$SPHINX/source/resources/packages" "$SPHINX/source/resources/pages/api" "$SPHINX/source/resources/pages/api.rst"
 export PYTHONPATH=$SPHINX/source/resources/packages
 sphinx-build -b html -d $SPHINX/build/doctrees $SPHINX/source $SPHINX/build/html
 echo -------------------------------------------------------------------------------
