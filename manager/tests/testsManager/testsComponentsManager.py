@@ -52,9 +52,11 @@ RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 SINGLE_COMPONENT = ("core.testsComponentA", os.path.join(os.path.dirname(__file__),
 					"resources/components/core/testsComponentA/testsComponentA.rc"), Component)
 COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
+ALTERNATIVE_COMPONENTS_DIRECTORY = os.path.join(COMPONENTS_DIRECTORY, "extras", "addons")
 COMPONENTS = {"core" : {"testsComponentA" : "core/testsComponentA",
 					"testsComponentB" : "core/testsComponentB"},
-			"addons" : {"testsComponentC" : "core/testsComponentC"}}
+			"addons" : {"testsComponentC" : "core/testsComponentC",
+					"testsComponentD" : "core/testsComponentD"}}
 COMPONENTS_NAMES = COMPONENTS_RANKING = ["core.testsComponentA", "core.testsComponentB", "addons.testsComponentC"]
 STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",
 							"file" : os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"],
@@ -240,7 +242,9 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.registerComponents` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
+		componentsPaths.append(ALTERNATIVE_COMPONENTS_DIRECTORY)
+		manager = Manager(componentsPaths)
 		manager.registerComponents()
 		self.assertIsInstance(manager.components, dict)
 		for component in ("{0}.{1}".format(item, name) for item in COMPONENTS for name in COMPONENTS[item]):
