@@ -1,7 +1,7 @@
 Manager
 =======
 
-..  image:: https://secure.travis-ci.org/KelSolaar/Foundations.png?branch=master
+..  image:: https://secure.travis-ci.org/KelSolaar/Manager.png?branch=master
 
 Introduction
 ------------
