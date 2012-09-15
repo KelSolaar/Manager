@@ -36,7 +36,7 @@ A Component package contains at least a resource **.rc** description file and a 
 	├── testsComponentA.py
 	└── testsComponentA.rc
 
-The description file is a configuration style file with a structure similar to what you would find on Microsoft Windows INI files::
+The description file is a configuration style file with a structure similar to what you would find in Microsoft Windows INI files::
 
 	[Component]
 	Name = core.testsComponentA

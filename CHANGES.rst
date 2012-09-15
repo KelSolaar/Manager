@@ -17,23 +17,17 @@ Changes
 
 -  Major package refactor.
 
-1.0.2 - Stable
+1.0.1 - Stable
 --------------
 
 -  Reorganize package directories structure.
 -  Replaced list comprehension expressions by generators.
 -  Added missing units tests dependencies.
 
-1.0.1 - Stable
---------------
-
--  Replaced list comprehension expressions by generators.
--  Added missing units tests dependencies.
-
 1.0.0 - Stable
 --------------
 
--  Initial Release of Manager.
+-  Initial release of Manager.
 
 .. .about
 
