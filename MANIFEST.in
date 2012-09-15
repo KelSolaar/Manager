@@ -2,7 +2,10 @@ include COPYING
 include LICENSE
 include *.rst
 graft docs
+prune docs/sphinx/source/resources/packages
 graft utilities
-recursive-exclude utilities *.pyc
 graft manager/tests/testsManager/resources
-recursive-exclude manager/tests/testsManager/resources *.pyc
+global-exclude ._*
+global-exclude .DS_Store
+global-exclude *.pyc
+global-exclude *.pyo
