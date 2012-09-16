@@ -282,6 +282,26 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 
 		@core.executionTrace
 		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
+		def addWidget(self):
+			"""
+			This method adds the Component Widget ui.
+			"""
+
+			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+
+		@core.executionTrace
+		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
+		def removeWidget(self):
+			"""
+			This method removes the Component Widget ui.
+			"""
+
+			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
+			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+
+		@core.executionTrace
+		@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 		def uninitializeUi(self):
 			"""
 			This method uninitializes the Component ui.

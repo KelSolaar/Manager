@@ -87,17 +87,26 @@ Three base Components are provided by default:
 -  **manager.qobjectComponent.QObjectComponent**
 -  **manager.qwidgetComponent.QWidgetComponent**
 
-When inheriting from those Components, one have to reimplement the following methods:
+When inheriting from those Components, one have to reimplement the following methods for all the Components types:
 
 -  **activate**
 -  **deactivate**
--  **initialize** ( **initializeUi** for **manager.qwidgetComponent.QWidgetComponent** )
--  **uninitialize** ( **uninitializeUi** for **manager.qwidgetComponent.QWidgetComponent** )
 
-The following attributes have to be set in those methods so that associated signals are emitted:
+**activated** attribute has to be set accordingly in the methods implementation.
 
-- **activated**
-- **initialized** ( **initializedUi** for **manager.qwidgetComponent.QWidgetComponent** )
+When implementing a **manager.qwidgetComponent.Component** or **manager.qobjectComponent.QObjectComponent**, the following methods are also needed:
+
+-  **initialize**
+-  **uninitialize**
+
+**initialized** attribute has to be set accordingly in the methods implementation.
+
+Or alternatively, those methods when implementing a **manager.qwidgetComponent.QWidgetComponent**:
+
+-  **initializeUi**
+-  **uninitializeUi**
+
+**initializedUi** attribute has to be set accordingly in the methods implementation.
 
 Reference Component implementation example class:
 
