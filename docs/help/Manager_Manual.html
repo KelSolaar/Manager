@@ -110,6 +110,17 @@
 					<span class="target" id="installation">Installation</span>
 				</h1>
 				<p>
+					The following dependencies are needed:
+				</p>
+				<ul class="simple">
+					<li>
+						<strong>Python 2.7.3</strong>: <a class="reference external" href="http://www.python.org/">http://www.python.org/</a>
+					</li>
+					<li>
+						<strong>PyQt</strong>: <a class="reference external" href="http://www.riverbankcomputing.co.uk/">http://www.riverbankcomputing.co.uk/</a>
+					</li>
+				</ul>
+				<p>
 					To install <strong>Manager</strong> from the <a class="reference external" href="http://pypi.python.org/pypi/Manager">Python Package Index</a> you can issue this command in a shell:
 				</p>
 				<pre class="literal-block">
@@ -127,7 +138,15 @@ easy_install Manager
 				<pre class="literal-block">
 git clone git://github.com/KelSolaar/Manager.git
 python setup.py install
-</pre><br />
+</pre>
+				<p>
+					If you want to build the documentation you will also need:
+				</p>
+				<ul class="simple">
+					<li>
+						<strong>Tidy</strong> <a class="reference external" href="http://tidy.sourceforge.net/">http://tidy.sourceforge.net/</a>
+					</li>
+				</ul><br />
 				<!-- .usage -->
 			</div>
 			<div class="section" id="id3">
@@ -211,7 +230,7 @@ core
 					</li>
 				</ul>
 				<p>
-					When inheriting from those Components, one have to reimplement the following methods:
+					When inheriting from those Components, one have to reimplement the following methods for all the Components types:
 				</p>
 				<ul class="simple">
 					<li>
@@ -220,24 +239,38 @@ core
 					<li>
 						<strong>deactivate</strong>
 					</li>
-					<li>
-						<strong>initialize</strong> ( <strong>initializeUi</strong> for <strong>manager.qwidgetComponent.QWidgetComponent</strong> )
-					</li>
-					<li>
-						<strong>uninitialize</strong> ( <strong>uninitializeUi</strong> for <strong>manager.qwidgetComponent.QWidgetComponent</strong> )
-					</li>
 				</ul>
 				<p>
-					The following attributes have to be set in those methods so that associated signals are emitted:
+					<strong>activated</strong> attribute has to be set accordingly in the methods implementation.
+				</p>
+				<p>
+					When implementing a <strong>manager.qwidgetComponent.Component</strong> or <strong>manager.qobjectComponent.QObjectComponent</strong>, the following methods are also needed:
 				</p>
 				<ul class="simple">
 					<li>
-						<strong>activated</strong>
+						<strong>initialize</strong>
 					</li>
 					<li>
-						<strong>initialized</strong> ( <strong>initializedUi</strong> for <strong>manager.qwidgetComponent.QWidgetComponent</strong> )
+						<strong>uninitialize</strong>
 					</li>
 				</ul>
+				<p>
+					<strong>initialized</strong> attribute has to be set accordingly in the methods implementation.
+				</p>
+				<p>
+					Or alternatively, those methods when implementing a <strong>manager.qwidgetComponent.QWidgetComponent</strong>:
+				</p>
+				<ul class="simple">
+					<li>
+						<strong>initializeUi</strong>
+					</li>
+					<li>
+						<strong>uninitializeUi</strong>
+					</li>
+				</ul>
+				<p>
+					<strong>initializedUi</strong> attribute has to be set accordingly in the methods implementation.
+				</p>
 				<p>
 					Reference Component implementation example class:
 				</p>
