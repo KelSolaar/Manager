@@ -1,6 +1,11 @@
 Changes
 =======
 
+2.0.2 - Stable
+--------------
+
+-  Added support for "Python 2.6".
+
 2.0.1 - Stable
 --------------
 
