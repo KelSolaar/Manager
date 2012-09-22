@@ -52,7 +52,6 @@ The description file is a configuration style file with a structure similar to w
 	Title = Tests Component A
 	Module = testsComponentA
 	Object = TestsComponentA
-	Rank = 10
 	Version = 1.0
 
 	[Informations]
