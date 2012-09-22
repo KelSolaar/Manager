@@ -9,12 +9,12 @@ Changes
 2.0.2 - Stable
 --------------
 
--  Added support for "Python 2.6".
+-  Added support for **Python 2.6**.
 
 2.0.1 - Stable
 --------------
 
--  Updated package directory structure to be compliant with "Python Package Index".
+-  Updated package directory structure to be compliant with **Python Package Index**.
 -  Added documentation / Api files.
 
 2.0.0 - Stable

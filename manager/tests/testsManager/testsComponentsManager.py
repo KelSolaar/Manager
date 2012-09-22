@@ -46,7 +46,7 @@ __all__ = ["RESOURCES_DIRECTORY",
 			"COMPONENTS_DIRECTORY",
 			"COMPONENTS",
 			"COMPONENTS_NAMES",
-			"COMPONENTS_RANKING",
+			"COMPONENTS_DEPENDENCY_ORDER",
 			"STANDARD_PROFILE_CONTENT",
 			"managerCallback",
 			"ProfileTestCase",
@@ -61,7 +61,10 @@ COMPONENTS = {"core" : {"testsComponentA" : "core/testsComponentA",
 					"testsComponentB" : "core/testsComponentB"},
 			"addons" : {"testsComponentC" : "core/testsComponentC",
 					"testsComponentD" : "core/testsComponentD"}}
-COMPONENTS_NAMES = COMPONENTS_RANKING = ["core.testsComponentA", "core.testsComponentB", "addons.testsComponentC"]
+COMPONENTS_NAMES = COMPONENTS_DEPENDENCY_ORDER = ["core.testsComponentA",
+										"core.testsComponentB",
+										"addons.testsComponentC",
+										"addons.testsComponentD"]
 STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",
 							"file" : os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"],
 									"testsComponentA.rc"),
@@ -69,7 +72,7 @@ STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",
 							"title" : "Tests Component A",
 							"package" : "testsComponentA",
 							"attribute" : "TestsComponentA",
-							"rank" : "10",
+							"require" : [],
 							"version" : "1.0",
 							"author" : "Thomas Mansencal",
 							"email" : "thomas.mansencal@gmail.com",
@@ -100,7 +103,7 @@ class ProfileTestCase(unittest.TestCase):
 							"file",
 							"directory",
 							"attribute",
-							"rank",
+							"require",
 							"module",
 							"interface",
 							"category",
@@ -195,7 +198,9 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.__iter__` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
+		componentsPaths.append(ALTERNATIVE_COMPONENTS_DIRECTORY)
+		manager = Manager(componentsPaths)
 		manager.registerComponents()
 		for name, profile in manager:
 			self.assertIn(name, COMPONENTS_NAMES)
@@ -206,7 +211,9 @@ class ManagerTestCase(unittest.TestCase):
 		This method tests :meth:`manager.componentsManager.Manager.__contains__` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
+		componentsPaths.append(ALTERNATIVE_COMPONENTS_DIRECTORY)
+		manager = Manager(componentsPaths)
 		manager.registerComponents()
 		for component in COMPONENTS_NAMES:
 			self.assertIn(component, manager)
@@ -302,17 +309,20 @@ class ManagerTestCase(unittest.TestCase):
 		for component in manager.components:
 			manager.reloadComponent(component)
 
-	def testGetComponents(self):
+	def testLListComponents(self):
 		"""
 		This method tests :meth:`manager.componentsManager.Manager.listComponents` method.
 		"""
 
-		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
+		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
+		componentsPaths.append(ALTERNATIVE_COMPONENTS_DIRECTORY)
+		manager = Manager(componentsPaths)
 		manager.registerComponents()
 		manager.instantiateComponents()
 		components = manager.listComponents()
 		self.assertIsInstance(components, list)
-		self.assertListEqual(components, COMPONENTS_RANKING)
+		self.assertListEqual(components, COMPONENTS_DEPENDENCY_ORDER)
+		self.assertListEqual(sorted(manager.listComponents(dependencyOrder=False)), sorted(COMPONENTS_DEPENDENCY_ORDER))
 
 	def testFilterComponents(self):
 		"""

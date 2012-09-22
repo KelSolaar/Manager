@@ -3,7 +3,7 @@ Name = core.testsComponentB
 Title = Tests Component B
 Module = testsComponentB
 Object = TestsComponentB
-Rank = 20
+Require = core.testsComponentA
 Version = 1.0
 
 [Informations]

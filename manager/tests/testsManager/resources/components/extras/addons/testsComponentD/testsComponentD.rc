@@ -2,8 +2,8 @@
 Name = addons.testsComponentD
 Title = Tests Component C
 Module = testsComponentD
-Object = TestsComponentC
-Rank = 30
+Object = TestsComponentD
+Require = core.testsComponentA|addons.testsComponentC
 Version = 1.0
 
 [Informations]

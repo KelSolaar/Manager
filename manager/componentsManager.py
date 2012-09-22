@@ -18,6 +18,7 @@
 #***	External imports.
 #**********************************************************************************************************************
 import inspect
+import itertools
 import logging
 import os
 import sys
@@ -97,7 +98,7 @@ class Profile(object):
 
 		self.__directory = None
 		self.__attribute = None
-		self.__rank = None
+		self.__require = None
 		self.__module = None
 		self.__interface = None
 		self.__category = None
@@ -250,38 +251,38 @@ class Profile(object):
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "attribute"))
 
 	@property
-	def rank(self):
+	def require(self):
 		"""
-		This method is the property for **self.__rank** attribute.
+		This method is the property for **self.__require** attribute.
 
-		:return: self.__rank. ( String )
+		:return: self.__require. ( Tuple / List )
 		"""
 
-		return self.__rank
+		return self.__require
 
-	@rank.setter
+	@require.setter
 	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
-	def rank(self, value):
+	def require(self, value):
 		"""
-		This method is the setter method for **self.__rank** attribute.
+		This method is the setter method for **self.__require** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value. ( Tuple / List )
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
-			"rank", value)
-		self.__rank = value
+			assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format(
+			"require", value)
+		self.__require = value
 
-	@rank.deleter
+	@require.deleter
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
-	def rank(self):
+	def require(self):
 		"""
-		This method is the deleter method for **self.__rank** attribute.
+		This method is the deleter method for **self.__require** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "rank"))
+		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "require"))
 
 	@property
 	def module(self):
@@ -641,47 +642,36 @@ class Profile(object):
 			self.__class__.__name__, attribute, self.__file))
 
 			self.__directory = os.path.dirname(self.__file)
-			self.__name = sectionsFileParser.attributeExists("Name", "Component") and \
-			sectionsFileParser.getValue("Name", "Component") or None
-			if not self.__name:
+			self.__name = sectionsFileParser.getValue("Name", "Component", default=None)
+			if self.__name is None:
 				raise fileStructureParsingError("Name")
 
-			self.__title = sectionsFileParser.attributeExists("Title", "Component") and \
-			sectionsFileParser.getValue("Title", "Component") or None
-			if not self.__title:
+			self.__title = sectionsFileParser.getValue("Title", "Component", default=None)
+			if self.__title is None:
 				self.__title = self.__name
 
-			self.__package = sectionsFileParser.attributeExists("Module", "Component") and \
-			sectionsFileParser.getValue("Module", "Component") or None
-			if not self.__package:
+			self.__package = sectionsFileParser.getValue("Module", "Component", default=None)
+			if self.__package is None:
 				raise fileStructureParsingError("Module")
 
-			self.__attribute = sectionsFileParser.attributeExists("Object", "Component") and \
-			sectionsFileParser.getValue("Object", "Component") or None
-			if not self.__attribute:
+			self.__attribute = sectionsFileParser.getValue("Object", "Component", default=None)
+			if self.__attribute is None:
 				raise fileStructureParsingError("Object")
 
-			self.__rank = sectionsFileParser.attributeExists("Rank", "Component") and \
-			sectionsFileParser.getValue("Rank", "Component") or None
-			if not self.__rank:
-				raise fileStructureParsingError("Rank")
+			self.__require = sectionsFileParser.getValue("Require", "Component", default=None)
+			self.__require = list() if self.__require is None else self.__require.split("|")
 
-			self.__version = sectionsFileParser.attributeExists("Version", "Component") and \
-			sectionsFileParser.getValue("Version", "Component") or None
-			if not self.__version:
+			self.__version = sectionsFileParser.getValue("Version", "Component", default=None)
+			if self.__version is None:
 				raise fileStructureParsingError("Version")
 
-			self.__author = sectionsFileParser.attributeExists("Author", "Informations") and \
-			sectionsFileParser.getValue("Author", "Informations") or None
+			self.__author = sectionsFileParser.getValue("Author", "Informations", default=None)
 
-			self.__email = sectionsFileParser.attributeExists("Email", "Informations") and \
-			sectionsFileParser.getValue("Email", "Informations") or None
+			self.__email = sectionsFileParser.getValue("Email", "Informations", default=None)
 
-			self.__url = sectionsFileParser.attributeExists("Url", "Informations") and \
-			sectionsFileParser.getValue("Url", "Informations") or None
+			self.__url = sectionsFileParser.getValue("Url", "Informations", default=None)
 
-			self.__description = sectionsFileParser.attributeExists("Description", "Informations") and \
-			sectionsFileParser.getValue("Description", "Informations") or None
+			self.__description = sectionsFileParser.getValue("Description", "Informations", default=None)
 
 			return True
 		else:
@@ -1200,26 +1190,26 @@ class Manager(object):
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
-	def listComponents(self):
+	def listComponents(self, dependencyOrder=True):
 		"""
-		This method lists the Components by ranking.
+		This method lists the Components by dependency resolving.
 
 		Usage::
 
 			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
 			>>> manager.registerComponents()
 			True
-			>>> manager.components["core.testsComponentA"].rank
-			'10'
-			>>> manager.components["core.testsComponentB"].rank
-			'20'
 			>>> manager.listComponents()
 			['core.testsComponentA', 'core.testsComponentB']
 
+		:param dependencyOrder: Components are returned by dependency order. ( Boolean )
 		"""
 
-		return [foundations.common.getFirstItem(component) for component in sorted(((component, profile.rank)
-		for component, profile in self), key=lambda x:(int(x[1])))]
+		if dependencyOrder:
+			return list(itertools.chain.from_iterable([sorted(list(batch)) for batch in
+			foundations.common.dependencyResolver(dict((key, value.require) for (key, value) in self))]))
+		else:
+			return [key for (key, value) in self]
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
