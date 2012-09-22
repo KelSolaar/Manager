@@ -1175,18 +1175,22 @@ class Manager(object):
 		:return: Reload success. ( Boolean )
 		"""
 
-		profile = self.__components[component]
-		module = __import__(profile.package)
-		reload(module)
-		object = profile.attribute in dir(module) and getattr(module, profile.attribute) or None
-		if object and inspect.isclass(object):
-			for type in self.__categories.itervalues():
-				if type.__name__ in (base.__name__ for base in object.__bases__):
-					instance = object(name=profile.name)
-					profile.module = module
-					profile.interface = instance
-					LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
-					return True
+		dependents = list(reversed(self.listDependents(component)))
+		dependents.append(component)
+
+		for dependent in dependents:
+			profile = self.__components[dependent]
+			module = __import__(profile.package)
+			reload(module)
+			object = profile.attribute in dir(module) and getattr(module, profile.attribute) or None
+			if object and inspect.isclass(object):
+				for type in self.__categories.itervalues():
+					if type.__name__ in (base.__name__ for base in object.__bases__):
+						instance = object(name=profile.name)
+						profile.module = module
+						profile.interface = instance
+						LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
+		return True
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
@@ -1213,6 +1217,35 @@ class Manager(object):
 
 	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	def listDependents(self, component, dependents=None):
+		"""
+		This method lists given Component dependents Components.
+
+		Usage::
+
+			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
+			>>> manager.registerComponents()
+			True
+			>>> manager.listDependents("core.testsComponentA")
+			['core.testsComponentB']
+
+		:param component: Component to retrieve the dependents Components. ( String )
+		:param dependents: Component dependents Components. ( Set )
+		:return: Dependent Components. ( List )
+		"""
+
+		dependents = set() if dependents is None else dependents
+		for name, profile in self:
+			if not component in profile.require:
+				continue
+
+			dependents.add(name)
+			self.listDependents(name, dependents)
+
+		return sorted(list(dependents), key=(self.listComponents()).index)
+
+	@core.executionTrace
+	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def filterComponents(self, pattern, category=None):
 		"""
 		This method filters the Components using given regex pattern.
@@ -1227,7 +1260,7 @@ class Manager(object):
 
 		:param pattern: Regex filtering pattern. ( String )
 		:param category: Category filter. ( String )
-		:return: Matching items. ( List )
+		:return: Matching Components. ( List )
 		"""
 
 		matchingItems = []

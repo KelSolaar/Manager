@@ -65,6 +65,10 @@ COMPONENTS_NAMES = COMPONENTS_DEPENDENCY_ORDER = ["core.testsComponentA",
 										"core.testsComponentB",
 										"addons.testsComponentC",
 										"addons.testsComponentD"]
+COMPONENTS_DEPENDENTS = {"core.testsComponentA" : ["core.testsComponentB", "addons.testsComponentC", "addons.testsComponentD"],
+						"core.testsComponentB" : ["addons.testsComponentC", "addons.testsComponentD"],
+						"addons.testsComponentC" : ["addons.testsComponentD"],
+						"addons.testsComponentD" :  []}
 STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",
 							"file" : os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["testsComponentA"],
 									"testsComponentA.rc"),
@@ -174,6 +178,7 @@ class ManagerTestCase(unittest.TestCase):
 						"instantiateComponents",
 						"reloadComponent",
 						"listComponents",
+						"listDependents",
 						"filterComponents",
 						"getProfile",
 						"getInterface",
@@ -309,7 +314,7 @@ class ManagerTestCase(unittest.TestCase):
 		for component in manager.components:
 			manager.reloadComponent(component)
 
-	def testLListComponents(self):
+	def testListComponents(self):
 		"""
 		This method tests :meth:`manager.componentsManager.Manager.listComponents` method.
 		"""
@@ -323,6 +328,19 @@ class ManagerTestCase(unittest.TestCase):
 		self.assertIsInstance(components, list)
 		self.assertListEqual(components, COMPONENTS_DEPENDENCY_ORDER)
 		self.assertListEqual(sorted(manager.listComponents(dependencyOrder=False)), sorted(COMPONENTS_DEPENDENCY_ORDER))
+
+	def testListDependents(self):
+		"""
+		This method tests :meth:`manager.componentsManager.Manager.listDependents` method.
+		"""
+
+		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
+		componentsPaths.append(ALTERNATIVE_COMPONENTS_DIRECTORY)
+		manager = Manager(componentsPaths)
+		manager.registerComponents()
+		manager.instantiateComponents()
+		for name, profile in manager:
+			self.assertListEqual(sorted(COMPONENTS_DEPENDENTS[name]), sorted(manager.listDependents(name)))
 
 	def testFilterComponents(self):
 		"""
