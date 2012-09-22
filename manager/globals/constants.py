@@ -43,13 +43,13 @@ class Constants():
 	applicationName = "Manager"
 	"""Package Application name: '**Manager**' ( String )"""
 	majorVersion = "2"
-	"""Package major version: '**4**' ( String )"""
+	"""Package major version: '**2**' ( String )"""
 	minorVersion = "0"
 	"""Package minor version: '**0**' ( String )"""
-	changeVersion = "2"
-	"""Package change version: '**2**' ( String )"""
+	changeVersion = "3"
+	"""Package change version: '**3**' ( String )"""
 	releaseVersion = ".".join((majorVersion, minorVersion, changeVersion))
-	"""Package release version: '**2.0.2**' ( String )"""
+	"""Package release version: '**2.0.3**' ( String )"""
 
 	logger = "Manager_Logger"
 	"""Package logger name: '**Manager_Logger**' ( String )"""
