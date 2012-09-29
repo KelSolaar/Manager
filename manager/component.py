@@ -48,7 +48,6 @@ class Component(object):
 	This class is the base class for **Manager** package Components.
 	"""
 
-	@core.executionTrace
 	def __init__(self, name=None):
 		"""
 		This method initializes the class.
@@ -204,7 +203,6 @@ class Component(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 	def activate(self):
 		"""
@@ -216,7 +214,6 @@ class Component(object):
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 		self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 	def deactivate(self):
 		"""
@@ -228,7 +225,6 @@ class Component(object):
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 	def initialize(self):
 		"""
@@ -238,7 +234,6 @@ class Component(object):
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, NotImplementedError)
 	def uninitialize(self):
 		"""

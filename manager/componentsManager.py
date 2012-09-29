@@ -62,7 +62,6 @@ class Components(foundations.dataStructures.Structure):
 	This class represents a storage object for :class:`Manager` class Components.
 	"""
 
-	@core.executionTrace
 	def __init__(self, **kwargs):
 		"""
 		This method initializes the class.
@@ -79,7 +78,6 @@ class Profile(object):
 	This class is used by the :class:`Manager` class to store Components informations and objects.
 	"""
 
-	@core.executionTrace
 	def __init__(self, name=None, file=None):
 		"""
 		This method initializes the class.
@@ -622,7 +620,6 @@ class Profile(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
 	def initializeProfile(self):
 		"""
@@ -688,7 +685,6 @@ class Manager(object):
 		 this Profile object contains the Component Interface and various description attributes. 
 	"""
 
-	@core.executionTrace
 	def __init__(self,
 				paths=None,
 				extension="rc",
@@ -870,7 +866,6 @@ class Manager(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __getitem__(self, component):
 		"""
@@ -890,7 +885,6 @@ class Manager(object):
 
 		return self.__components.__getitem__(component).interface
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __iter__(self):
 		"""
@@ -912,7 +906,6 @@ class Manager(object):
 
 		return self.__components.iteritems()
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __contains__(self, component):
 		"""
@@ -934,7 +927,6 @@ class Manager(object):
 
 		return component in self.__components.keys()
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def __len__(self):
 		"""
@@ -953,7 +945,6 @@ class Manager(object):
 
 		return len(self.__components.keys())
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None,
 											False,
 											manager.exceptions.ComponentModuleError,
@@ -990,7 +981,6 @@ class Manager(object):
 			raise manager.exceptions.ComponentProfileError(
 			"{0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def unregisterComponent(self, component):
 		"""
@@ -1018,7 +1008,6 @@ class Manager(object):
 		del(self.__components[component])
 		return True
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, manager.exceptions.ComponentRegistrationError)
 	def registerComponents(self):
 		"""
@@ -1048,7 +1037,6 @@ class Manager(object):
 			"{0} | '{1}' Components failed to register!".format(self.__class__.__name__,
 																", ".join(unregisteredComponents)))
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def unregisterComponents(self):
 		"""
@@ -1075,7 +1063,6 @@ class Manager(object):
 		self.__components.clear()
 		return True
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError, manager.exceptions.ComponentInterfaceError)
 	def instantiateComponent(self, component, callback=None):
 		"""
@@ -1122,7 +1109,6 @@ class Manager(object):
 			raise manager.exceptions.ComponentInterfaceError(
 			"{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def instantiateComponents(self, callback=None):
 		"""
@@ -1151,7 +1137,6 @@ class Manager(object):
 			"{0} | '{1}' Components failed to instantiate!".format(self.__class__.__name__,
 																	", ".join(uninstantiatedComponents)))
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, ImportError)
 	def reloadComponent(self, component):
 		"""
@@ -1192,7 +1177,6 @@ class Manager(object):
 						LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
 		return True
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def listComponents(self, dependencyOrder=True):
 		"""
@@ -1215,7 +1199,6 @@ class Manager(object):
 		else:
 			return [key for (key, value) in self]
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def listDependents(self, component, dependents=None):
 		"""
@@ -1244,7 +1227,6 @@ class Manager(object):
 
 		return sorted(list(dependents), key=(self.listComponents()).index)
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def filterComponents(self, pattern, category=None):
 		"""
@@ -1273,7 +1255,6 @@ class Manager(object):
 				matchingItems.append(component)
 		return matchingItems
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def getProfile(self, component):
 		"""
@@ -1295,7 +1276,6 @@ class Manager(object):
 		if components != []:
 			return self.__components[foundations.common.getFirstItem(components)]
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def getInterface(self, component):
 		"""
@@ -1318,7 +1298,6 @@ class Manager(object):
 			return profile.interface
 
 	@staticmethod
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def getComponentAttributeName(component):
 		"""

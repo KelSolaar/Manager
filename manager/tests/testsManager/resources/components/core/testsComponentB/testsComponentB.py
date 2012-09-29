@@ -48,7 +48,6 @@ class TestsComponentB(Component):
 	Component Interface class.
 	"""
 
-	@core.executionTrace
 	def __init__(self, name=None):
 		"""
 		This method initializes the class.
@@ -102,7 +101,6 @@ class TestsComponentB(Component):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def activate(self, container):
 		"""
@@ -119,7 +117,6 @@ class TestsComponentB(Component):
 		self.activated = True
 		return True
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def deactivate(self):
 		"""
@@ -135,7 +132,6 @@ class TestsComponentB(Component):
 		self.activated = False
 		return True
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def initialize(self):
 		"""
@@ -149,7 +145,6 @@ class TestsComponentB(Component):
 		self.initialized = True
 		return True
 
-	@core.executionTrace
 	@foundations.exceptions.exceptionsHandler(None, False, Exception)
 	def uninitialize(self):
 		"""
