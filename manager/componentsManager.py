@@ -29,7 +29,7 @@ import re
 import foundations.common
 import foundations.dataStructures
 import foundations.exceptions
-import foundations.strings as strings
+import foundations.strings
 import foundations.verbose
 import foundations.walkers
 import manager.exceptions
@@ -963,7 +963,7 @@ class Manager(object):
 		:return: Method success. ( Boolean )
 		"""
 
-		component = strings.getSplitextBasename(path)
+		component = foundations.strings.getSplitextBasename(path)
 		LOGGER.debug("> Current Component: '{0}'.".format(component))
 		profile = Profile(file=path)
 		if profile.initializeProfile():
