@@ -17,16 +17,14 @@
 #**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
-import logging
 from PyQt4.QtCore import QObject
 from PyQt4.QtCore import pyqtSignal
 
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-import foundations.core as core
 import foundations.exceptions
-from manager.globals.constants import Constants
+import foundations.verbose
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -40,7 +38,7 @@ __status__ = "Production"
 
 __all__ = ["LOGGER", "QObjectComponent"]
 
-LOGGER = logging.getLogger(Constants.logger)
+LOGGER = foundations.verbose.installLogger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.

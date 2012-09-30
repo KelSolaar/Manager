@@ -15,17 +15,11 @@
 """
 
 #**********************************************************************************************************************
-#***	External imports.
-#**********************************************************************************************************************
-import logging
-
-#**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-import foundations.core as core
 import foundations.exceptions
+import foundations.verbose
 from manager.component import Component
-from manager.globals.constants import Constants
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -37,7 +31,9 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-LOGGER = logging.getLogger(Constants.logger)
+__all__ = ["LOGGER", "TestsComponentC"]
+
+LOGGER = foundations.verbose.installLogger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.

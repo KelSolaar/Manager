@@ -17,16 +17,14 @@
 #**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
-import logging
 from PyQt4.QtCore import pyqtSignal
 
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-import foundations.core as core
 import foundations.exceptions
+import foundations.verbose
 import foundations.ui.common
-from manager.globals.constants import Constants
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -40,7 +38,7 @@ __status__ = "Production"
 
 __all__ = ["LOGGER", "QWidgetComponentFactory"]
 
-LOGGER = logging.getLogger(Constants.logger)
+LOGGER = foundations.verbose.installLogger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.

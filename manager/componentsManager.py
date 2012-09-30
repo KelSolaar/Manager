@@ -19,7 +19,6 @@
 #**********************************************************************************************************************
 import inspect
 import itertools
-import logging
 import os
 import sys
 import re
@@ -28,15 +27,14 @@ import re
 #***	Internal imports.
 #**********************************************************************************************************************
 import foundations.common
-import foundations.core as core
 import foundations.dataStructures
 import foundations.exceptions
 import foundations.strings as strings
+import foundations.verbose
 import foundations.walkers
 import manager.exceptions
 from foundations.parsers import SectionsFileParser
 from manager.component import Component
-from manager.globals.constants import Constants
 from manager.qobjectComponent import QObjectComponent
 from manager.qwidgetComponent import QWidgetComponentFactory
 
@@ -52,7 +50,7 @@ __status__ = "Production"
 
 __all__ = ["LOGGER", "Components", "Profile", "Manager"]
 
-LOGGER = logging.getLogger(Constants.logger)
+LOGGER = foundations.verbose.installLogger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
