@@ -121,7 +121,7 @@ class Profile(object):
 		return self.__name
 
 	@name.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def name(self, value):
 		"""
 		This method is the setter method for **self.__name** attribute.
@@ -135,7 +135,7 @@ class Profile(object):
 		self.__name = value
 
 	@name.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
 		This method is the deleter method for **self.__name** attribute.
@@ -155,7 +155,7 @@ class Profile(object):
 		return self.__file
 
 	@file.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def file(self, value):
 		"""
 		This method is the setter method for **self.__file** attribute.
@@ -168,7 +168,7 @@ class Profile(object):
 		self.__file = value
 
 	@file.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def file(self):
 		"""
 		This method is the deleter method for **self.__file** attribute.
@@ -188,7 +188,7 @@ class Profile(object):
 		return self.__directory
 
 	@directory.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def directory(self, value):
 		"""
 		This method is the setter method for **self.__directory** attribute.
@@ -203,7 +203,7 @@ class Profile(object):
 		self.__directory = value
 
 	@directory.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def directory(self):
 		"""
 		This method is the deleter method for **self.__directory** attribute.
@@ -223,7 +223,7 @@ class Profile(object):
 		return self.__attribute
 
 	@attribute.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def attribute(self, value):
 		"""
 		This method is the setter method for **self.__attribute** attribute.
@@ -237,7 +237,7 @@ class Profile(object):
 		self.__attribute = value
 
 	@attribute.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def attribute(self):
 		"""
 		This method is the deleter method for **self.__attribute** attribute.
@@ -257,7 +257,7 @@ class Profile(object):
 		return self.__require
 
 	@require.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def require(self, value):
 		"""
 		This method is the setter method for **self.__require** attribute.
@@ -271,7 +271,7 @@ class Profile(object):
 		self.__require = value
 
 	@require.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def require(self):
 		"""
 		This method is the deleter method for **self.__require** attribute.
@@ -291,7 +291,7 @@ class Profile(object):
 		return self.__module
 
 	@module.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def module(self, value):
 		"""
 		This method is the setter method for **self.__module** attribute.
@@ -304,7 +304,7 @@ class Profile(object):
 		self.__module = value
 
 	@module.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def module(self):
 		"""
 		This method is the deleter method for **self.__module** attribute.
@@ -334,7 +334,7 @@ class Profile(object):
 		self.__interface = value
 
 	@interface.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def interface(self):
 		"""
 		This method is the deleter method for **self.__interface** attribute.
@@ -354,7 +354,7 @@ class Profile(object):
 		return self.__category
 
 	@category.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def category(self, value):
 		"""
 		This method is the setter method for **self.__category** attribute.
@@ -368,7 +368,7 @@ class Profile(object):
 		self.__category = value
 
 	@category.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def category(self):
 		"""
 		This method is the deleter method for **self.__category** attribute.
@@ -388,7 +388,7 @@ class Profile(object):
 		return self.__title
 
 	@title.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def title(self, value):
 		"""
 		This method is the setter method for **self.__title** attribute.
@@ -402,7 +402,7 @@ class Profile(object):
 		self.__title = value
 
 	@title.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def title(self):
 		"""
 		This method is the deleter method for **self.__title** attribute.
@@ -422,7 +422,7 @@ class Profile(object):
 		return self.__package
 
 	@package.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def package(self, value):
 		"""
 		This method is the setter method for **self.__package** attribute.
@@ -436,7 +436,7 @@ class Profile(object):
 		self.__package = value
 
 	@package.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def package(self):
 		"""
 		This method is the deleter method for **self.__package** attribute.
@@ -456,7 +456,7 @@ class Profile(object):
 		return self.__version
 
 	@version.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def version(self, value):
 		"""
 		This method is the setter method for **self.__version** attribute.
@@ -470,7 +470,7 @@ class Profile(object):
 		self.__version = value
 
 	@version.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def version(self):
 		"""
 		This method is the deleter method for **self.__version** attribute.
@@ -490,7 +490,7 @@ class Profile(object):
 		return self.__author
 
 	@author.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def author(self, value):
 		"""
 		This method is the setter method for **self.__author** attribute.
@@ -504,7 +504,7 @@ class Profile(object):
 		self.__author = value
 
 	@author.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def author(self):
 		"""
 		This method is the deleter method for **self.__author** attribute.
@@ -524,7 +524,7 @@ class Profile(object):
 		return self.__email
 
 	@email.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def email(self, value):
 		"""
 		This method is the setter method for **self.__email** attribute.
@@ -538,7 +538,7 @@ class Profile(object):
 		self.__email = value
 
 	@email.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def email(self):
 		"""
 		This method is the deleter method for **self.__email** attribute.
@@ -558,7 +558,7 @@ class Profile(object):
 		return self.__url
 
 	@url.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def url(self, value):
 		"""
 		This method is the setter method for **self.__url** attribute.
@@ -572,7 +572,7 @@ class Profile(object):
 		self.__url = value
 
 	@url.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def url(self):
 		"""
 		This method is the deleter method for **self.__url** attribute.
@@ -592,7 +592,7 @@ class Profile(object):
 		return self.__description
 
 	@description.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def description(self, value):
 		"""
 		This method is the setter method for **self.__description** attribute.
@@ -606,7 +606,7 @@ class Profile(object):
 		self.__description = value
 
 	@description.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def description(self):
 		"""
 		This method is the deleter method for **self.__description** attribute.
@@ -618,7 +618,7 @@ class Profile(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.FileStructureParsingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.FileStructureParsingError)
 	def initializeProfile(self):
 		"""
 		This method gets initializes the Component Profile.
@@ -732,7 +732,7 @@ class Manager(object):
 		return self.__paths
 
 	@paths.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def paths(self, value):
 		"""
 		This method is the setter method for **self.__paths** attribute.
@@ -750,7 +750,7 @@ class Manager(object):
 		self.__paths = value
 
 	@paths.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def paths(self):
 		"""
 		This method is the deleter method for **self.__paths** attribute.
@@ -770,7 +770,7 @@ class Manager(object):
 		return self.__extension
 
 	@extension.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def extension(self, value):
 		"""
 		This method is the setter method for **self.__extension** attribute.
@@ -784,7 +784,7 @@ class Manager(object):
 		self.__extension = value
 
 	@extension.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def extension(self):
 		"""
 		This method is the deleter method for **self.__extension** attribute.
@@ -804,7 +804,7 @@ class Manager(object):
 		return self.__categories
 
 	@categories.setter
-	@foundations.exceptions.exceptionsHandler(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(None, False, AssertionError)
 	def categories(self, value):
 		"""
 		This method is the setter method for **self.__categories** attribute.
@@ -820,7 +820,7 @@ class Manager(object):
 		self.__categories = value
 
 	@categories.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def categories(self):
 		"""
 		This method is the deleter method for **self.__categories** attribute.
@@ -840,7 +840,7 @@ class Manager(object):
 		return self.__components
 
 	@components.setter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def components(self, value):
 		"""
 		This method is the setter method for **self.__components** attribute.
@@ -852,7 +852,7 @@ class Manager(object):
 		"{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "components"))
 
 	@components.deleter
-	@foundations.exceptions.exceptionsHandler(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
 	def components(self):
 		"""
 		This method is the deleter method for **self.__components** attribute.
@@ -864,7 +864,7 @@ class Manager(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __getitem__(self, component):
 		"""
 		This method reimplements the :meth:`object.__getitem__` method.
@@ -883,7 +883,7 @@ class Manager(object):
 
 		return self.__components.__getitem__(component).interface
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __iter__(self):
 		"""
 		This method reimplements the :meth:`object.__iter__` method.
@@ -904,7 +904,7 @@ class Manager(object):
 
 		return self.__components.iteritems()
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __contains__(self, component):
 		"""
 		This method reimplements the :meth:`object.__contains__` method.
@@ -925,7 +925,7 @@ class Manager(object):
 
 		return component in self.__components.keys()
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __len__(self):
 		"""
 		This method reimplements the :meth:`object.__len__` method.
@@ -943,7 +943,7 @@ class Manager(object):
 
 		return len(self.__components.keys())
 
-	@foundations.exceptions.exceptionsHandler(None,
+	@foundations.exceptions.handleExceptions(None,
 											False,
 											manager.exceptions.ComponentModuleError,
 											manager.exceptions.ComponentProfileError)
@@ -979,7 +979,7 @@ class Manager(object):
 			raise manager.exceptions.ComponentProfileError(
 			"{0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def unregisterComponent(self, component):
 		"""
 		This method unregisters given Component.
@@ -1006,7 +1006,7 @@ class Manager(object):
 		del(self.__components[component])
 		return True
 
-	@foundations.exceptions.exceptionsHandler(None, False, manager.exceptions.ComponentRegistrationError)
+	@foundations.exceptions.handleExceptions(None, False, manager.exceptions.ComponentRegistrationError)
 	def registerComponents(self):
 		"""
 		This method registers the Components.
@@ -1035,7 +1035,7 @@ class Manager(object):
 			"{0} | '{1}' Components failed to register!".format(self.__class__.__name__,
 																", ".join(unregisteredComponents)))
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def unregisterComponents(self):
 		"""
 		This method unregisters the Components.
@@ -1061,7 +1061,7 @@ class Manager(object):
 		self.__components.clear()
 		return True
 
-	@foundations.exceptions.exceptionsHandler(None, False, ImportError, manager.exceptions.ComponentInterfaceError)
+	@foundations.exceptions.handleExceptions(None, False, ImportError, manager.exceptions.ComponentInterfaceError)
 	def instantiateComponent(self, component, callback=None):
 		"""
 		This method instantiates given Component.
@@ -1107,7 +1107,7 @@ class Manager(object):
 			raise manager.exceptions.ComponentInterfaceError(
 			"{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def instantiateComponents(self, callback=None):
 		"""
 		This method instantiates the Components.
@@ -1135,7 +1135,7 @@ class Manager(object):
 			"{0} | '{1}' Components failed to instantiate!".format(self.__class__.__name__,
 																	", ".join(uninstantiatedComponents)))
 
-	@foundations.exceptions.exceptionsHandler(None, False, ImportError)
+	@foundations.exceptions.handleExceptions(None, False, ImportError)
 	def reloadComponent(self, component):
 		"""
 		This method reload given Component module.
@@ -1175,7 +1175,7 @@ class Manager(object):
 						LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
 		return True
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def listComponents(self, dependencyOrder=True):
 		"""
 		This method lists the Components by dependency resolving.
@@ -1197,7 +1197,7 @@ class Manager(object):
 		else:
 			return [key for (key, value) in self]
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def listDependents(self, component, dependents=None):
 		"""
 		This method lists given Component dependents Components.
@@ -1225,7 +1225,7 @@ class Manager(object):
 
 		return sorted(list(dependents), key=(self.listComponents()).index)
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def filterComponents(self, pattern, category=None):
 		"""
 		This method filters the Components using given regex pattern.
@@ -1253,7 +1253,7 @@ class Manager(object):
 				matchingItems.append(component)
 		return matchingItems
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def getProfile(self, component):
 		"""
 		This method gets given Component profile.
@@ -1274,7 +1274,7 @@ class Manager(object):
 		if components != []:
 			return self.__components[foundations.common.getFirstItem(components)]
 
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def getInterface(self, component):
 		"""
 		This method gets given Component interface.
@@ -1296,7 +1296,7 @@ class Manager(object):
 			return profile.interface
 
 	@staticmethod
-	@foundations.exceptions.exceptionsHandler(None, False, Exception)
+	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def getComponentAttributeName(component):
 		"""
 		This method gets given Component attribute name.
