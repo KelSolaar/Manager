@@ -97,7 +97,6 @@ class TestsComponentD(Component):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def activate(self, container):
 		"""
 		This method activates the Component.
@@ -113,7 +112,6 @@ class TestsComponentD(Component):
 		self.activated = True
 		return True
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def deactivate(self):
 		"""
 		This method deactivates the Component.
@@ -128,7 +126,6 @@ class TestsComponentD(Component):
 		self.activated = False
 		return True
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def initialize(self):
 		"""
 		This method initializes the Component.
@@ -141,7 +138,6 @@ class TestsComponentD(Component):
 		self.initialized = True
 		return True
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def uninitialize(self):
 		"""
 		This method uninitializes the Component.

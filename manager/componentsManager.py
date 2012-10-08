@@ -864,7 +864,6 @@ class Manager(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __getitem__(self, component):
 		"""
 		This method reimplements the :meth:`object.__getitem__` method.
@@ -883,7 +882,6 @@ class Manager(object):
 
 		return self.__components.__getitem__(component).interface
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __iter__(self):
 		"""
 		This method reimplements the :meth:`object.__iter__` method.
@@ -904,7 +902,6 @@ class Manager(object):
 
 		return self.__components.iteritems()
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __contains__(self, component):
 		"""
 		This method reimplements the :meth:`object.__contains__` method.
@@ -925,7 +922,6 @@ class Manager(object):
 
 		return component in self.__components.keys()
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def __len__(self):
 		"""
 		This method reimplements the :meth:`object.__len__` method.
@@ -979,7 +975,6 @@ class Manager(object):
 			raise manager.exceptions.ComponentProfileError(
 			"{0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def unregisterComponent(self, component):
 		"""
 		This method unregisters given Component.
@@ -1035,7 +1030,6 @@ class Manager(object):
 			"{0} | '{1}' Components failed to register!".format(self.__class__.__name__,
 																", ".join(unregisteredComponents)))
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def unregisterComponents(self):
 		"""
 		This method unregisters the Components.
@@ -1107,7 +1101,6 @@ class Manager(object):
 			raise manager.exceptions.ComponentInterfaceError(
 			"{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def instantiateComponents(self, callback=None):
 		"""
 		This method instantiates the Components.
@@ -1135,7 +1128,6 @@ class Manager(object):
 			"{0} | '{1}' Components failed to instantiate!".format(self.__class__.__name__,
 																	", ".join(uninstantiatedComponents)))
 
-	@foundations.exceptions.handleExceptions(None, False, ImportError)
 	def reloadComponent(self, component):
 		"""
 		This method reload given Component module.
@@ -1175,7 +1167,6 @@ class Manager(object):
 						LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
 		return True
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def listComponents(self, dependencyOrder=True):
 		"""
 		This method lists the Components by dependency resolving.
@@ -1197,7 +1188,6 @@ class Manager(object):
 		else:
 			return [key for (key, value) in self]
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def listDependents(self, component, dependents=None):
 		"""
 		This method lists given Component dependents Components.
@@ -1225,7 +1215,6 @@ class Manager(object):
 
 		return sorted(list(dependents), key=(self.listComponents()).index)
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def filterComponents(self, pattern, category=None):
 		"""
 		This method filters the Components using given regex pattern.
@@ -1253,7 +1242,6 @@ class Manager(object):
 				matchingItems.append(component)
 		return matchingItems
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def getProfile(self, component):
 		"""
 		This method gets given Component profile.
@@ -1274,7 +1262,6 @@ class Manager(object):
 		if components != []:
 			return self.__components[foundations.common.getFirstItem(components)]
 
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def getInterface(self, component):
 		"""
 		This method gets given Component interface.
@@ -1296,7 +1283,6 @@ class Manager(object):
 			return profile.interface
 
 	@staticmethod
-	@foundations.exceptions.handleExceptions(None, False, Exception)
 	def getComponentAttributeName(component):
 		"""
 		This method gets given Component attribute name.

@@ -43,7 +43,6 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-@foundations.exceptions.handleExceptions(None, False, Exception)
 def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	"""
 	This definition is a class factory creating :class:`QWidgetComponent` classes using given ui file.
