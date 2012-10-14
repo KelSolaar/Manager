@@ -114,7 +114,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			return self.__name
 
 		@name.setter
-		@foundations.exceptions.handleExceptions(None, False, AssertionError)
+		@foundations.exceptions.handleExceptions(AssertionError)
 		def name(self, value):
 			"""
 			This method is the setter method for **self.__name** attribute.
@@ -128,7 +128,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.__name = value
 
 		@name.deleter
-		@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def name(self):
 			"""
 			This method is the deleter method for **self.__name** attribute.
@@ -148,7 +148,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			return self.__activated
 
 		@activated.setter
-		@foundations.exceptions.handleExceptions(None, False, AssertionError)
+		@foundations.exceptions.handleExceptions(AssertionError)
 		def activated(self, value):
 			"""
 			This method is the setter method for **self.__activated** attribute.
@@ -162,7 +162,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.__activated = value
 
 		@activated.deleter
-		@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def activated(self):
 			"""
 			This method is the deleter method for **self.__activated** attribute.
@@ -182,7 +182,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			return self.__initializedUi
 
 		@initializedUi.setter
-		@foundations.exceptions.handleExceptions(None, False, AssertionError)
+		@foundations.exceptions.handleExceptions(AssertionError)
 		def initializedUi(self, value):
 			"""
 			This method is the setter method for **self.__initializedUi** attribute.
@@ -196,7 +196,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.__initializedUi = value
 
 		@initializedUi.deleter
-		@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def initializedUi(self):
 			"""
 			This method is the deleter method for **self.__initializedUi** attribute.
@@ -216,7 +216,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			return self.__deactivatable
 
 		@deactivatable.setter
-		@foundations.exceptions.handleExceptions(None, False, AssertionError)
+		@foundations.exceptions.handleExceptions(AssertionError)
 		def deactivatable(self, value):
 			"""
 			This method is the setter method for **self.__deactivatable** attribute.
@@ -229,7 +229,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.__deactivatable = value
 
 		@deactivatable.deleter
-		@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def deactivatable(self):
 			"""
 			This method is the deleter method for **self.__deactivatable** attribute.
@@ -241,7 +241,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		#**************************************************************************************************************
 		#***	Class methods.
 		#**************************************************************************************************************
-		@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def activate(self):
 			"""
 			This method sets Component activation state.
@@ -252,7 +252,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def deactivate(self):
 			"""
 			This method unsets Component activation state.
@@ -263,7 +263,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def initializeUi(self):
 			"""
 			This method initializes the Component ui.
@@ -272,7 +272,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def addWidget(self):
 			"""
 			This method adds the Component Widget ui.
@@ -281,7 +281,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def removeWidget(self):
 			"""
 			This method removes the Component Widget ui.
@@ -290,7 +290,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def uninitializeUi(self):
 			"""
 			This method uninitializes the Component ui.

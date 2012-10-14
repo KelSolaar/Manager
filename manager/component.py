@@ -73,7 +73,7 @@ class Component(object):
 		return self.__name
 
 	@name.setter
-	@foundations.exceptions.handleExceptions(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(AssertionError)
 	def name(self, value):
 		"""
 		This method is the setter method for **self.__name** attribute.
@@ -86,7 +86,7 @@ class Component(object):
 		self.__name = value
 
 	@name.deleter
-	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
 		This method is the deleter method for **self.__name** attribute.
@@ -106,7 +106,7 @@ class Component(object):
 		return self.__activated
 
 	@activated.setter
-	@foundations.exceptions.handleExceptions(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(AssertionError)
 	def activated(self, value):
 		"""
 		This method is the setter method for **self.__activated** attribute.
@@ -119,7 +119,7 @@ class Component(object):
 		self.__activated = value
 
 	@activated.deleter
-	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def activated(self):
 		"""
 		This method is the deleter method for **self.__activated** attribute.
@@ -139,7 +139,7 @@ class Component(object):
 		return self.__initialized
 
 	@initialized.setter
-	@foundations.exceptions.handleExceptions(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(AssertionError)
 	def initialized(self, value):
 		"""
 		This method is the setter method for **self.__initialized** attribute.
@@ -152,7 +152,7 @@ class Component(object):
 		self.__initialized = value
 
 	@initialized.deleter
-	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def initialized(self):
 		"""
 		This method is the deleter method for **self.__initialized** attribute.
@@ -172,7 +172,7 @@ class Component(object):
 		return self.__deactivatable
 
 	@deactivatable.setter
-	@foundations.exceptions.handleExceptions(None, False, AssertionError)
+	@foundations.exceptions.handleExceptions(AssertionError)
 	def deactivatable(self, value):
 		"""
 		This method is the setter method for **self.__deactivatable** attribute.
@@ -185,7 +185,7 @@ class Component(object):
 		self.__deactivatable = value
 
 	@deactivatable.deleter
-	@foundations.exceptions.handleExceptions(None, False, foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def deactivatable(self):
 		"""
 		This method is the deleter method for **self.__deactivatable** attribute.
@@ -197,7 +197,7 @@ class Component(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def activate(self):
 		"""
 		This method sets Component activation state.
@@ -208,7 +208,7 @@ class Component(object):
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 		self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
-	@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def deactivate(self):
 		"""
 		This method unsets Component activation state.
@@ -219,7 +219,7 @@ class Component(object):
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-	@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def initialize(self):
 		"""
 		This method initializes the Component.
@@ -228,7 +228,7 @@ class Component(object):
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 		self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-	@foundations.exceptions.handleExceptions(None, False, NotImplementedError)
+	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def uninitialize(self):
 		"""
 		This method uninitializes the Component.
