@@ -65,8 +65,11 @@ COMPONENTS_NAMES = COMPONENTS_DEPENDENCY_ORDER = ["core.testsComponentA",
 										"core.testsComponentB",
 										"addons.testsComponentC",
 										"addons.testsComponentD"]
-COMPONENTS_DEPENDENTS = {"core.testsComponentA" : ["core.testsComponentB", "addons.testsComponentC", "addons.testsComponentD"],
-						"core.testsComponentB" : ["addons.testsComponentC", "addons.testsComponentD"],
+COMPONENTS_DEPENDENTS = {"core.testsComponentA" : ["core.testsComponentB",
+												"addons.testsComponentC",
+												"addons.testsComponentD"],
+						"core.testsComponentB" : ["addons.testsComponentC",
+												"addons.testsComponentD"],
 						"addons.testsComponentC" : ["addons.testsComponentD"],
 						"addons.testsComponentD" :  []}
 STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",

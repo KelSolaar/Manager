@@ -1077,8 +1077,8 @@ class Manager(object):
 
 		LOGGER.debug("> Current Component: '{0}'.".format(component))
 
-		if os.path.isfile(os.path.join(profile.directory, profile.package) + ".py") or os.path.isdir(os.path.join(profile.directory,
-																							profile.package)):
+		if os.path.isfile(os.path.join(profile.directory, profile.package) + ".py") or \
+		os.path.isdir(os.path.join(profile.directory, profile.package)):
 			path = profile.directory
 		elif os.path.basename(profile.directory) == profile.package:
 			path = os.path.join(profile.directory, "..")
