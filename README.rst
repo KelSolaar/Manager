@@ -27,6 +27,7 @@ or this alternative command::
 Alternatively, if you want to directly install from `Github <http://github.com/KelSolaar/Manager>`_ source repository::
 
 	git clone git://github.com/KelSolaar/Manager.git
+	cd Manager
 	python setup.py install
 
 If you want to build the documentation you will also need:
