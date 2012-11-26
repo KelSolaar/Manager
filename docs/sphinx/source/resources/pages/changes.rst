@@ -7,6 +7,7 @@ Changes
 | **Manager** 2.0.3 - Stable - Milestone: https://github.com/KelSolaar/Manager/issues?milestone=2&state=closed
 
 -  Implemented a better dependencies resolving mechanism instead of the ranking sytem.
+-  Implemented changes from **Foundations** package.
 
 2.0.2 - Stable
 --------------
