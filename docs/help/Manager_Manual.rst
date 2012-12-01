@@ -204,6 +204,8 @@ _`Api`
 _`Changes`
 ==========
 
+**Manager** Changes file is available here: `Manager - Changes <http://thomasmansencal.com/Sharing/Manager/Changes/Changes.html>`_
+
 .. raw:: html
 
     <br/>
