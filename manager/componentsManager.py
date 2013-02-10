@@ -15,6 +15,11 @@
 """
 
 #**********************************************************************************************************************
+#***	Future imports.
+#**********************************************************************************************************************
+from __future__ import unicode_literals
+
+#**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
 import inspect
@@ -130,7 +135,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"name", value)
 		self.__name = value
 
@@ -164,7 +169,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("file", value)
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format("file", value)
 		self.__file = value
 
 	@file.deleter
@@ -197,7 +202,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"directory", value)
 			assert os.path.exists(value), "'{0}' attribute: '{1}' directory doesn't exists!".format("directory", value)
 		self.__directory = value
@@ -232,7 +237,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"attribute", value)
 		self.__attribute = value
 
@@ -363,7 +368,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"category", value)
 		self.__category = value
 
@@ -397,7 +402,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"title", value)
 		self.__title = value
 
@@ -431,7 +436,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"package", value)
 		self.__package = value
 
@@ -465,7 +470,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"version", value)
 		self.__version = value
 
@@ -499,7 +504,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"author", value)
 		self.__author = value
 
@@ -533,7 +538,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"email", value)
 		self.__email = value
 
@@ -567,7 +572,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"url", value)
 		self.__url = value
 
@@ -601,7 +606,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"description", value)
 		self.__description = value
 
@@ -744,7 +749,7 @@ class Manager(object):
 			assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format(
 			"paths", value)
 			for path in value:
-				assert type(path) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+				assert type(path) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 				"paths", path)
 				assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
 		self.__paths = value
@@ -779,7 +784,7 @@ class Manager(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"extension", value)
 		self.__extension = value
 
@@ -815,7 +820,7 @@ class Manager(object):
 		if value is not None:
 			assert type(value) is dict, "'{0}' attribute: '{1}' type is not 'dict'!".format("categories", value)
 			for key in value:
-				assert type(key) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+				assert type(key) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 				"categories", key)
 		self.__categories = value
 
