@@ -62,7 +62,7 @@ class Constants():
 	loggingSeparators = "*" * 96
 	"""Logging separators: '*' * 96 ( String )"""
 
-	encodingFormat = "utf-8"
+	encodingCodec = "utf-8"
 	"""Default encoding format: '**utf-8**' ( String )"""
 	encodingError = "ignore"
 	"""Default encoding error behavior: '**ignore**' ( String )"""
