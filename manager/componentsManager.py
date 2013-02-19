@@ -701,7 +701,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.listComponents()
-			['core.testsComponentA', 'core.testsComponentB']
+			[u'core.testsComponentA', u'core.testsComponentB']
 			>>> manager.instantiateComponents()
 			True
 			>>> manager.getInterface("core.testsComponentA")
@@ -956,7 +956,7 @@ class Manager(object):
 			>>> manager.registerComponent("testsComponentA.rc")
 			True
 			>>> manager.components
-			{'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
+			{u'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
 
 		:param path: Component path. ( String )
 		:return: Method success. ( Boolean )
@@ -1015,7 +1015,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.components.keys()
-			['core.testsComponentA', 'core.testsComponentB']
+			[u'core.testsComponentA', u'core.testsComponentB']
 		
 		:return: Method success. ( Boolean )
 		"""
@@ -1180,7 +1180,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.listComponents()
-			['core.testsComponentA', 'core.testsComponentB']
+			[u'core.testsComponentA', u'core.testsComponentB']
 
 		:param dependencyOrder: Components are returned by dependency order. ( Boolean )
 		"""
@@ -1201,7 +1201,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.listDependents("core.testsComponentA")
-			['core.testsComponentB']
+			[u'core.testsComponentB']
 
 		:param component: Component to retrieve the dependents Components. ( String )
 		:param dependents: Component dependents Components. ( Set )
@@ -1228,7 +1228,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.filterComponents("\w+A$")
-			['core.testsComponentA']
+			[u'core.testsComponentA']
 
 		:param pattern: Regex filtering pattern. ( String )
 		:param category: Category filter. ( String )
@@ -1293,7 +1293,7 @@ class Manager(object):
 		Usage::
 
 			>>> Manager.getComponentAttributeName("factory.componentsManagerUi")
-			'factoryComponentsManagerUi'
+			u'factoryComponentsManagerUi'
 
 		:param component: Component to get the attribute name. ( String )
 		:return: Component attribute name. ( Object )
