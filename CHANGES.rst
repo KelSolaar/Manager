@@ -1,10 +1,17 @@
-Manager - 2.0.3 - Stable
+Manager - 2.0.4 - Stable
 =========================
 
 .. .changes
 
 Changes
 =======
+
+2.0.4 - Stable
+--------------
+
+**Manager** 2.0.4 - Stable - Milestone: https://github.com/KelSolaar/Manager/issues?milestone=3&state=closed
+
+-  Implemented unicode support.
 
 2.0.3 - Stable
 --------------

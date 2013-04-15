@@ -51,10 +51,10 @@ class Constants():
 	"""Package major version: '**2**' ( String )"""
 	minorVersion = "0"
 	"""Package minor version: '**0**' ( String )"""
-	changeVersion = "3"
-	"""Package change version: '**3**' ( String )"""
+	changeVersion = "4"
+	"""Package change version: '**4**' ( String )"""
 	releaseVersion = ".".join((majorVersion, minorVersion, changeVersion))
-	"""Package release version: '**2.0.3**' ( String )"""
+	"""Package release version: '**2.0.4**' ( String )"""
 
 	logger = "Manager_Logger"
 	"""Package logger name: '**Manager_Logger**' ( String )"""
