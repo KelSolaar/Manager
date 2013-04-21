@@ -67,10 +67,10 @@ class Constants():
 	loggingSeparators = "*" * 96
 	"""Logging separators: '*' * 96 ( String )"""
 
-	encodingCodec = "utf-8"
-	"""Default encoding format: '**utf-8**' ( String )"""
-	encodingError = "ignore"
-	"""Default encoding error behavior: '**ignore**' ( String )"""
+	defaultCodec = "utf-8"
+	"""Default codec: '**utf-8**' ( String )"""
+	codecError = "ignore"
+	"""Default codec error behavior: '**ignore**' ( String )"""
 
 	applicationDirectory = os.sep.join(("Manager", ".".join((majorVersion, minorVersion))))
 	"""Package Application directory: '**Manager**' ( String )"""

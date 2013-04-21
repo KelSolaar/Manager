@@ -68,8 +68,8 @@ class ConstantsTestCase(unittest.TestCase):
 								"verbosityLabels",
 								"loggingDefaultFormatter",
 								"loggingSeparators",
-								"encodingCodec",
-								"encodingError",
+								"defaultCodec",
+								"codecError",
 								"applicationDirectory",
 								"providerDirectory",
 								"nullObject")
@@ -151,28 +151,27 @@ class ConstantsTestCase(unittest.TestCase):
 
 		self.assertIsInstance(Constants.loggingSeparators, unicode)
 
-	def testencodingCodecAttribute(self):
+	def testDefaultCodecAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.encodingCodec` attribute.
+		This method tests :attr:`manager.globals.constants.Constants.defaultCodec` attribute.
 		"""
 
-		validEncodings = ("ascii",
-						"utf-8",
+		validEncodings = ("utf-8",
 						"cp1252")
 
-		self.assertIn(Constants.encodingCodec, validEncodings)
+		self.assertIn(Constants.defaultCodec, validEncodings)
 
 	def testEncodingErrorAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.encodingError` attribute.
+		This method tests :attr:`manager.globals.constants.Constants.codecError` attribute.
 		"""
 
-		validEncodings = ("strict",
-						"ignore",
-						"replace",
-						"xmlcharrefreplace")
+		validEncodingsErrors = ("strict",
+							"ignore",
+							"replace",
+							"xmlcharrefreplace")
 
-		self.assertIn(Constants.encodingError, validEncodings)
+		self.assertIn(Constants.codecError, validEncodingsErrors)
 
 	def testApplicationDirectoryAttribute(self):
 		"""
