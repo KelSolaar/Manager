@@ -204,6 +204,8 @@ _`Api`
 _`Changes`
 ==========
 
+**Manager** Changes file is available here: `Manager - Changes <http://thomasmansencal.com/Sharing/Manager/Changes/Changes.html>`_
+
 .. raw:: html
 
     <br/>
@@ -213,7 +215,7 @@ _`Changes`
 _`About`
 ========
 
-| **Manager** by Thomas Mansencal - 2008 - 2012
-| Copyright© 2008 - 2012 - Thomas Mansencal - `thomas.mansencal@gmail.com <mailto:thomas.mansencal@gmail.com>`_
+| **Manager** by Thomas Mansencal - 2008 - 2013
+| Copyright© 2008 - 2013 - Thomas Mansencal - `thomas.mansencal@gmail.com <mailto:thomas.mansencal@gmail.com>`_
 | This software is released under terms of GNU GPL V3 license: http://www.gnu.org/licenses/
 | http://www.thomasmansencal.com/

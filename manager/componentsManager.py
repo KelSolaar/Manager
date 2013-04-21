@@ -15,6 +15,11 @@
 """
 
 #**********************************************************************************************************************
+#***	Future imports.
+#**********************************************************************************************************************
+from __future__ import unicode_literals
+
+#**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
 import inspect
@@ -42,7 +47,7 @@ from manager.qwidgetComponent import QWidgetComponentFactory
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2012 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -130,7 +135,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"name", value)
 		self.__name = value
 
@@ -164,7 +169,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format("file", value)
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format("file", value)
 		self.__file = value
 
 	@file.deleter
@@ -197,7 +202,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"directory", value)
 			assert os.path.exists(value), "'{0}' attribute: '{1}' directory doesn't exists!".format("directory", value)
 		self.__directory = value
@@ -232,7 +237,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"attribute", value)
 		self.__attribute = value
 
@@ -363,7 +368,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"category", value)
 		self.__category = value
 
@@ -397,7 +402,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"title", value)
 		self.__title = value
 
@@ -431,7 +436,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"package", value)
 		self.__package = value
 
@@ -465,7 +470,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"version", value)
 		self.__version = value
 
@@ -499,7 +504,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"author", value)
 		self.__author = value
 
@@ -533,7 +538,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"email", value)
 		self.__email = value
 
@@ -567,7 +572,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"url", value)
 		self.__url = value
 
@@ -601,7 +606,7 @@ class Profile(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"description", value)
 		self.__description = value
 
@@ -696,7 +701,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.listComponents()
-			['core.testsComponentA', 'core.testsComponentB']
+			[u'core.testsComponentA', u'core.testsComponentB']
 			>>> manager.instantiateComponents()
 			True
 			>>> manager.getInterface("core.testsComponentA")
@@ -744,7 +749,7 @@ class Manager(object):
 			assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format(
 			"paths", value)
 			for path in value:
-				assert type(path) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+				assert type(path) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 				"paths", path)
 				assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
 		self.__paths = value
@@ -779,7 +784,7 @@ class Manager(object):
 		"""
 
 		if value is not None:
-			assert type(value) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+			assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 			"extension", value)
 		self.__extension = value
 
@@ -815,7 +820,7 @@ class Manager(object):
 		if value is not None:
 			assert type(value) is dict, "'{0}' attribute: '{1}' type is not 'dict'!".format("categories", value)
 			for key in value:
-				assert type(key) in (str, unicode), "'{0}' attribute: '{1}' type is not 'str' or 'unicode'!".format(
+				assert type(key) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
 				"categories", key)
 		self.__categories = value
 
@@ -951,7 +956,7 @@ class Manager(object):
 			>>> manager.registerComponent("testsComponentA.rc")
 			True
 			>>> manager.components
-			{'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
+			{u'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
 
 		:param path: Component path. ( String )
 		:return: Method success. ( Boolean )
@@ -1010,7 +1015,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.components.keys()
-			['core.testsComponentA', 'core.testsComponentB']
+			[u'core.testsComponentA', u'core.testsComponentB']
 		
 		:return: Method success. ( Boolean )
 		"""
@@ -1175,7 +1180,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.listComponents()
-			['core.testsComponentA', 'core.testsComponentB']
+			[u'core.testsComponentA', u'core.testsComponentB']
 
 		:param dependencyOrder: Components are returned by dependency order. ( Boolean )
 		"""
@@ -1196,7 +1201,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.listDependents("core.testsComponentA")
-			['core.testsComponentB']
+			[u'core.testsComponentB']
 
 		:param component: Component to retrieve the dependents Components. ( String )
 		:param dependents: Component dependents Components. ( Set )
@@ -1223,7 +1228,7 @@ class Manager(object):
 			>>> manager.registerComponents()
 			True
 			>>> manager.filterComponents("\w+A$")
-			['core.testsComponentA']
+			[u'core.testsComponentA']
 
 		:param pattern: Regex filtering pattern. ( String )
 		:param category: Category filter. ( String )
@@ -1288,7 +1293,7 @@ class Manager(object):
 		Usage::
 
 			>>> Manager.getComponentAttributeName("factory.componentsManagerUi")
-			'factoryComponentsManagerUi'
+			u'factoryComponentsManagerUi'
 
 		:param component: Component to get the attribute name. ( String )
 		:return: Component attribute name. ( Object )

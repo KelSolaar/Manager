@@ -15,10 +15,29 @@
 """
 
 #**********************************************************************************************************************
+#***	Future imports.
+#**********************************************************************************************************************
+from __future__ import unicode_literals
+
+#**********************************************************************************************************************
+#***	Encoding manipulations.
+#**********************************************************************************************************************
+import sys
+
+def _setEncoding():
+	"""
+	This definition sets the Application encoding.
+	"""
+
+	reload(sys)
+	sys.setdefaultencoding("utf-8")
+
+_setEncoding()
+
+#**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
 import os
-import sys
 
 #**********************************************************************************************************************
 #***	Internal imports.
@@ -30,7 +49,7 @@ from foundations.io import File
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2012 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -81,4 +100,5 @@ def reStructuredTextToHtml(fileIn, fileOut):
 	file.write()
 
 if __name__ == "__main__":
-	reStructuredTextToHtml(sys.argv[1], sys.argv[2])
+	arguments = map(unicode, sys.argv)
+	reStructuredTextToHtml(arguments[1], arguments[2])

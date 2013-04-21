@@ -15,12 +15,31 @@
 """
 
 #**********************************************************************************************************************
+#***	Future imports.
+#**********************************************************************************************************************
+from __future__ import unicode_literals
+
+#**********************************************************************************************************************
+#***	Encoding manipulations.
+#**********************************************************************************************************************
+import sys
+
+def _setEncoding():
+	"""
+	This definition sets the Application encoding.
+	"""
+
+	reload(sys)
+	sys.setdefaultencoding("utf-8")
+
+_setEncoding()
+
+#**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
 import glob
 import os
 import re
-import sys
 if sys.version_info[:2] <= (2, 6):
 	from ordereddict import OrderedDict
 else:
@@ -37,7 +56,7 @@ from foundations.io import File
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2012 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -120,4 +139,5 @@ def getSphinxDocumentationTocTree(title, fileIn, fileOut, contentDirectory):
 	file.write()
 
 if __name__ == "__main__":
-	getSphinxDocumentationTocTree(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+	arguments = map(unicode, sys.argv)
+	getSphinxDocumentationTocTree(arguments[1], arguments[2], arguments[3], arguments[4])

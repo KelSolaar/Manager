@@ -15,6 +15,11 @@
 """
 
 #**********************************************************************************************************************
+#***	Future imports.
+#**********************************************************************************************************************
+from __future__ import unicode_literals
+
+#**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
 import os
@@ -24,7 +29,7 @@ import platform
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2012 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -46,10 +51,10 @@ class Constants():
 	"""Package major version: '**2**' ( String )"""
 	minorVersion = "0"
 	"""Package minor version: '**0**' ( String )"""
-	changeVersion = "3"
-	"""Package change version: '**3**' ( String )"""
+	changeVersion = "4"
+	"""Package change version: '**4**' ( String )"""
 	releaseVersion = ".".join((majorVersion, minorVersion, changeVersion))
-	"""Package release version: '**2.0.3**' ( String )"""
+	"""Package release version: '**2.0.4**' ( String )"""
 
 	logger = "Manager_Logger"
 	"""Package logger name: '**Manager_Logger**' ( String )"""
@@ -62,7 +67,7 @@ class Constants():
 	loggingSeparators = "*" * 96
 	"""Logging separators: '*' * 96 ( String )"""
 
-	encodingFormat = "utf-8"
+	encodingCodec = "utf-8"
 	"""Default encoding format: '**utf-8**' ( String )"""
 	encodingError = "ignore"
 	"""Default encoding error behavior: '**ignore**' ( String )"""
