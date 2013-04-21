@@ -1,9 +1,66 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+**setup.py**
+
+**Platform:**
+	Windows, Linux, Mac Os X.
+
+**Description:**
+	`https://pypi.python.org/pypi/Manager <https://pypi.python.org/pypi/Manager>`_ package setup file.
+
+**Others:**
+
+"""
+
+#**********************************************************************************************************************
+#***	Future imports.
+#**********************************************************************************************************************
+from __future__ import unicode_literals
+
+#**********************************************************************************************************************
+#***	Encoding manipulations.
+#**********************************************************************************************************************
+import sys
+
+def _setEncoding():
+	"""
+	This definition sets the Application encoding.
+	"""
+
+	reload(sys)
+	sys.setdefaultencoding("utf-8")
+
+_setEncoding()
+
+#**********************************************************************************************************************
+#***	External imports.
+#**********************************************************************************************************************
 import re
 from setuptools import setup
 from setuptools import find_packages
 
+#**********************************************************************************************************************
+#***	Internal imports.
+#**********************************************************************************************************************
 import manager.globals.constants
 
+#**********************************************************************************************************************
+#***	Module attributes.
+#**********************************************************************************************************************
+__author__ = "Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
+__license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
+__maintainer__ = "Thomas Mansencal"
+__email__ = "thomas.mansencal@gmail.com"
+__status__ = "Production"
+
+__all__ = ["getLongDescription"]
+
+#**********************************************************************************************************************
+#***	Module classes and definitions.
+#**********************************************************************************************************************
 def getLongDescription():
 	"""
 	This definition returns the Package long description.
@@ -34,7 +91,7 @@ setup(name=manager.globals.constants.Constants.applicationName,
 	license="GPLv3",
 	description="Manager is the Components Manager package of Umbra, sIBL_GUI and sIBL_Reporter.",
 	long_description=getLongDescription(),
-	install_requires=["Foundations>=2.0.6"],
+	install_requires=["Foundations>=2.0.8"],
 	classifiers=["Development Status :: 5 - Production/Stable",
 				"Environment :: Console",
 				"Intended Audience :: Developers",
