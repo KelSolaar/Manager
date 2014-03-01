@@ -45,7 +45,7 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 class TestsComponentD(Component):
 	"""
-	This class is the :mod:`tests.testsManager.resources.components.addons.testsComponentD.testsComponentD`
+	Defines the :mod:`tests.testsManager.resources.components.addons.testsComponentD.testsComponentD`
 	Component Interface class.
 	"""
 

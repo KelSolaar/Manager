@@ -50,7 +50,7 @@ __all__ = ["ComponentTestCase"]
 #**********************************************************************************************************************
 class ComponentTestCase(unittest.TestCase):
 	"""
-	This class defines :class:`manager.component.Component` class units tests methods.
+	Defines :class:`manager.component.Component` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):

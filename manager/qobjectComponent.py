@@ -50,7 +50,7 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 class QObjectComponent(QObject):
 	"""
-	This class is the base class for **Manager** package QObject Components.
+	Defines the base class for **Manager** package QObject Components.
 	"""
 
 	componentActivated = pyqtSignal()

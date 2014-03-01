@@ -67,7 +67,7 @@ _gatherExceptions()
 #**********************************************************************************************************************
 class ExceptionsTestCase(unittest.TestCase):
 	"""
-	This class defines :mod:`manager.exceptions` module exceptions classes units tests methods.
+	Defines :mod:`manager.exceptions` module exceptions classes units tests methods.
 	"""
 
 	def testRequiredAttributes(self):

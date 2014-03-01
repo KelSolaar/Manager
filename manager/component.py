@@ -44,7 +44,7 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 class Component(object):
 	"""
-	This class is the base class for **Manager** package Components.
+	Defines the base class for **Manager** package Components.
 	"""
 
 	def __init__(self, name=None):

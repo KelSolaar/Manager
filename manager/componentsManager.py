@@ -62,7 +62,7 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 class Components(foundations.dataStructures.Structure):
 	"""
-	This class represents a storage object for :class:`Manager` class Components.
+	Defines a storage object for :class:`Manager` class Components.
 	"""
 
 	def __init__(self, **kwargs):
@@ -78,7 +78,7 @@ class Components(foundations.dataStructures.Structure):
 
 class Profile(object):
 	"""
-	This class is used by the :class:`Manager` class to store Components informations and objects.
+	Stores :class:`Manager` class Components informations and objects.
 	"""
 
 	def __init__(self, name=None, file=None):
@@ -680,7 +680,7 @@ class Profile(object):
 
 class Manager(object):
 	"""
-	| This class defines methods to manage Components, allowing Components registration / unregistration,
+	| Defines methods to manage Components, allowing Components registration / unregistration,
 		instantiation and reloading.
 	| The Components can be registered in mass by providing paths that are recursively walk for candidates
 		or simply by calling the registration method on a given Component file.

@@ -50,70 +50,70 @@ __all__ = ["AbstractComponentsManagerError",
 #**********************************************************************************************************************
 class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
 	"""
-	This class is the abstract base class for :class:`manager.componentsManager.Manager` related exceptions.
+	Defines the abstract base class for :class:`manager.componentsManager.Manager` related exceptions.
 	"""
 
 	pass
 
 class ComponentProfileError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component profile exceptions.
+	Defines Component profile exceptions.
 	"""
 
 	pass
 
 class ComponentModuleError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component associated module exceptions.
+	Defines Component associated module exceptions.
 	"""
 
 	pass
 
 class ComponentRegistrationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component registration exceptions.
+	Defines Component registration exceptions.
 	"""
 
 	pass
 
 class ComponentInterfaceError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component Interface exceptions.
+	Defines Component Interface exceptions.
 	"""
 
 	pass
 
 class ComponentInstantiationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component instantiation exceptions.
+	Defines Component instantiation exceptions.
 	"""
 
 	pass
 
 class ComponentActivationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component activation exceptions.
+	Defines Component activation exceptions.
 	"""
 
 	pass
 
 class ComponentDeactivationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component deactivation exceptions.
+	Defines Component deactivation exceptions.
 	"""
 
 	pass
 
 class ComponentReloadError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component reload exceptions.
+	Defines Component reload exceptions.
 	"""
 
 	pass
 
 class ComponentExistsError(AbstractComponentsManagerError):
 	"""
-	This class is used for non existing Component exceptions.
+	Defines non existing Component exceptions.
 	"""
 
 	pass

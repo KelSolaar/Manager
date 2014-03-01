@@ -103,7 +103,7 @@ def managerCallback(profile):
 
 class ProfileTestCase(unittest.TestCase):
 	"""
-	This class defines :class:`manager.componentsManager.Profile` class units tests methods.
+	Defines :class:`manager.componentsManager.Profile` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
@@ -153,7 +153,7 @@ class ProfileTestCase(unittest.TestCase):
 
 class ManagerTestCase(unittest.TestCase):
 	"""
-	This class defines :class:`manager.componentsManager.Manager` class units tests methods.
+	Defines :class:`manager.componentsManager.Manager` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):

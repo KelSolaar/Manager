@@ -60,7 +60,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 
 	class QWidgetComponent(foundations.ui.common.QWidgetFactory(uiFile=uiFile)):
 		"""
-		This class is the base class for **Manager** package QWidget Components.
+		Defines the base class for **Manager** package QWidget Components.
 		"""
 
 		componentActivated = pyqtSignal()

@@ -50,7 +50,7 @@ __all__ = ["QObjectComponentTestCase"]
 #**********************************************************************************************************************
 class QObjectComponentTestCase(unittest.TestCase):
 	"""
-	This class defines :class:`manager.qobjectComponent.QObjectComponent` class units tests methods.
+	Defines :class:`manager.qobjectComponent.QObjectComponent` class units tests methods.
 	"""
 
 	def testRequiredAttributes(self):

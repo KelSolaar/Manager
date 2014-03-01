@@ -57,7 +57,7 @@ APPLICATION = QApplication(sys.argv)
 #**********************************************************************************************************************
 class QWidgetComponentFactoryTestCase(unittest.TestCase):
 	"""
-	This class defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
+	Defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
 	"""
 
 	def testRequiredAttributes(self):

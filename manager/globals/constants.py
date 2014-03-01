@@ -47,7 +47,7 @@ __all__ = ["Constants"]
 #**********************************************************************************************************************
 class Constants():
 	"""
-	This class provides **Manager** package default constants.
+	Defines **Manager** package default constants.
 	"""
 
 	applicationName = "Manager"
