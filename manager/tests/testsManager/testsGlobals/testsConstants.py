@@ -55,7 +55,7 @@ class ConstantsTestCase(unittest.TestCase):
 
 	def testRequiredAttributes(self):
 		"""
-		This method tests presence of required attributes.
+		Tests presence of required attributes.
 		"""
 
 		requiredAttributes = ("applicationName",
@@ -79,49 +79,49 @@ class ConstantsTestCase(unittest.TestCase):
 
 	def testApplicationNameAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.applicationName` attribute.
+		Tests :attr:`manager.globals.constants.Constants.applicationName` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.applicationName, "\w+")
 
 	def testMajorVersionAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.majorVersion` attribute.
+		Tests :attr:`manager.globals.constants.Constants.majorVersion` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.releaseVersion, "\d")
 
 	def testMinorVersionAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.minorVersion` attribute.
+		Tests :attr:`manager.globals.constants.Constants.minorVersion` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.releaseVersion, "\d")
 
 	def testChangeVersionAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.changeVersion` attribute.
+		Tests :attr:`manager.globals.constants.Constants.changeVersion` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.releaseVersion, "\d")
 
 	def testReleaseVersionAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.releaseVersion` attribute.
+		Tests :attr:`manager.globals.constants.Constants.releaseVersion` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.releaseVersion, "\d\.\d\.\d")
 
 	def testLoggerAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.logger` attribute.
+		Tests :attr:`manager.globals.constants.Constants.logger` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.logger, "\w+")
 
 	def testVerbosityLevelAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.verbosityLevel` attribute.
+		Tests :attr:`manager.globals.constants.Constants.verbosityLevel` attribute.
 		"""
 
 		self.assertIsInstance(Constants.verbosityLevel, int)
@@ -130,7 +130,7 @@ class ConstantsTestCase(unittest.TestCase):
 
 	def testVerbosityLabelsAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.verbosityLabels` attribute.
+		Tests :attr:`manager.globals.constants.Constants.verbosityLabels` attribute.
 		"""
 
 		self.assertIsInstance(Constants.verbosityLabels, tuple)
@@ -139,21 +139,21 @@ class ConstantsTestCase(unittest.TestCase):
 
 	def testLoggingDefaultFormaterAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.loggingDefaultFormatter` attribute.
+		Tests :attr:`manager.globals.constants.Constants.loggingDefaultFormatter` attribute.
 		"""
 
 		self.assertIsInstance(Constants.loggingDefaultFormatter, unicode)
 
 	def testLoggingSeparatorsAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.loggingSeparators` attribute.
+		Tests :attr:`manager.globals.constants.Constants.loggingSeparators` attribute.
 		"""
 
 		self.assertIsInstance(Constants.loggingSeparators, unicode)
 
 	def testDefaultCodecAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.defaultCodec` attribute.
+		Tests :attr:`manager.globals.constants.Constants.defaultCodec` attribute.
 		"""
 
 		validEncodings = ("utf-8",
@@ -163,7 +163,7 @@ class ConstantsTestCase(unittest.TestCase):
 
 	def testEncodingErrorAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.codecError` attribute.
+		Tests :attr:`manager.globals.constants.Constants.codecError` attribute.
 		"""
 
 		validEncodingsErrors = ("strict",
@@ -175,21 +175,21 @@ class ConstantsTestCase(unittest.TestCase):
 
 	def testApplicationDirectoryAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.applicationDirectory` attribute.
+		Tests :attr:`manager.globals.constants.Constants.applicationDirectory` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.applicationDirectory, "\w+")
 
 	def testProviderDirectoryAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.providerDirectory` attribute.
+		Tests :attr:`manager.globals.constants.Constants.providerDirectory` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.providerDirectory, "\.*\w")
 
 	def testNullObjectAttribute(self):
 		"""
-		This method tests :attr:`manager.globals.constants.Constants.nullObject` attribute.
+		Tests :attr:`manager.globals.constants.Constants.nullObject` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.nullObject, "\w+")

@@ -96,7 +96,7 @@ STANDARD_PROFILE_CONTENT = {"name" : "core.testsComponentA",
 #**********************************************************************************************************************
 def managerCallback(profile):
 	"""
-	This definition provides :class:`manager.componentsManager.Manager` class test callback.
+	Provides :class:`manager.componentsManager.Manager` class test callback.
 	"""
 
 	profile.callback = True
@@ -108,7 +108,7 @@ class ProfileTestCase(unittest.TestCase):
 
 	def testRequiredAttributes(self):
 		"""
-		This method tests presence of required attributes.
+		Tests presence of required attributes.
 		"""
 
 		requiredAttributes = ("name",
@@ -132,7 +132,7 @@ class ProfileTestCase(unittest.TestCase):
 
 	def testRequiredMethods(self):
 		"""
-		This method tests presence of required methods.
+		Tests presence of required methods.
 		"""
 
 		requiredMethods = ("initializeProfile",)
@@ -142,7 +142,7 @@ class ProfileTestCase(unittest.TestCase):
 
 	def testInitializeProfile(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Profile.initializeProfile` method.
+		Tests :meth:`manager.componentsManager.Profile.initializeProfile` method.
 		"""
 
 		profile = Profile(file=STANDARD_PROFILE_CONTENT["file"])
@@ -158,7 +158,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testRequiredAttributes(self):
 		"""
-		This method tests presence of required attributes.
+		Tests presence of required attributes.
 		"""
 
 		requiredAttributes = ("paths",
@@ -171,7 +171,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testRequiredMethods(self):
 		"""
-		This method tests presence of required methods.
+		Tests presence of required methods.
 		"""
 
 		requiredMethods = ("__getitem__",
@@ -197,7 +197,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def test__getitem__(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.__getitem__` method.
+		Tests :meth:`manager.componentsManager.Manager.__getitem__` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -208,7 +208,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def test__iter__(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.__iter__` method.
+		Tests :meth:`manager.componentsManager.Manager.__iter__` method.
 		"""
 
 		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
@@ -221,7 +221,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def test__contains__(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.__contains__` method.
+		Tests :meth:`manager.componentsManager.Manager.__contains__` method.
 		"""
 
 		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
@@ -233,7 +233,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def test__len__(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.__len__` method.
+		Tests :meth:`manager.componentsManager.Manager.__len__` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -242,7 +242,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testRegisterComponent(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.registerComponent` method.
+		Tests :meth:`manager.componentsManager.Manager.registerComponent` method.
 		"""
 
 		manager = Manager()
@@ -251,7 +251,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testUnregisterComponent(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.unregisterComponent` method.
+		Tests :meth:`manager.componentsManager.Manager.unregisterComponent` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -263,7 +263,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testRegisterComponents(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.registerComponents` method.
+		Tests :meth:`manager.componentsManager.Manager.registerComponents` method.
 		"""
 
 		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
@@ -276,7 +276,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testUnregisterComponents(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.unregisterComponents` method.
+		Tests :meth:`manager.componentsManager.Manager.unregisterComponents` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -287,7 +287,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testInstantiateComponent(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.instantiateComponent` method.
+		Tests :meth:`manager.componentsManager.Manager.instantiateComponent` method.
 		"""
 
 		manager = Manager()
@@ -297,7 +297,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testInstantiateComponents(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.instantiateComponents` method.
+		Tests :meth:`manager.componentsManager.Manager.instantiateComponents` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -313,7 +313,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testReloadComponent(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.reloadComponent` method.
+		Tests :meth:`manager.componentsManager.Manager.reloadComponent` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -324,7 +324,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testListComponents(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.listComponents` method.
+		Tests :meth:`manager.componentsManager.Manager.listComponents` method.
 		"""
 
 		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
@@ -339,7 +339,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testListDependents(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.listDependents` method.
+		Tests :meth:`manager.componentsManager.Manager.listDependents` method.
 		"""
 
 		componentsPaths = [os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS]
@@ -352,7 +352,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testFilterComponents(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.filterComponents` method.
+		Tests :meth:`manager.componentsManager.Manager.filterComponents` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -364,7 +364,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGetProfile(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.getProfile` method.
+		Tests :meth:`manager.componentsManager.Manager.getProfile` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -375,7 +375,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGetInterface(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.getInterface` method.
+		Tests :meth:`manager.componentsManager.Manager.getInterface` method.
 		"""
 
 		manager = Manager([os.path.join(COMPONENTS_DIRECTORY, item) for item in COMPONENTS])
@@ -386,7 +386,7 @@ class ManagerTestCase(unittest.TestCase):
 
 	def testGetComponentAttributeName(self):
 		"""
-		This method tests :meth:`manager.componentsManager.Manager.getComponentAttributeName` method.
+		Tests :meth:`manager.componentsManager.Manager.getComponentAttributeName` method.
 		"""
 
 		self.assertEquals(Manager.getComponentAttributeName("factory.componentsManagerUi"), "factoryComponentsManagerUi")

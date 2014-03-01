@@ -50,7 +50,7 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	"""
-	This definition is a class factory creating :class:`QWidgetComponent` classes using given ui file.
+	Defines a class factory creating :class:`QWidgetComponent` classes using given ui file.
 
 	:param uiFile: Ui file. ( String )
 	:param \*args: Arguments. ( \* )
@@ -85,7 +85,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 
 		def __init__(self, parent=None, name=None, *args, **kwargs):
 			"""
-			This method initializes the class.
+			Initializes the class.
 	
 			:param parent: Object parent. ( QObject )
 			:param name: Component name. ( String )
@@ -111,7 +111,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@property
 		def name(self):
 			"""
-			This method is the property for **self.__name** attribute.
+			Property for **self.__name** attribute.
 	
 			:return: self.__name. ( String )
 			"""
@@ -122,7 +122,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(AssertionError)
 		def name(self, value):
 			"""
-			This method is the setter method for **self.__name** attribute.
+			Setter for **self.__name** attribute.
 	
 			:param value: Attribute value. ( String )
 			"""
@@ -136,7 +136,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def name(self):
 			"""
-			This method is the deleter method for **self.__name** attribute.
+			Deleter for **self.__name** attribute.
 			"""
 
 			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
@@ -145,7 +145,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@property
 		def activated(self):
 			"""
-			This method is the property for **self.__activated** attribute.
+			Property for **self.__activated** attribute.
 	
 			:return: self.__activated. ( String )
 			"""
@@ -156,7 +156,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(AssertionError)
 		def activated(self, value):
 			"""
-			This method is the setter method for **self.__activated** attribute.
+			Setter for **self.__activated** attribute.
 	
 			:param value: Attribute value. ( String )
 			"""
@@ -170,7 +170,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def activated(self):
 			"""
-			This method is the deleter method for **self.__activated** attribute.
+			Deleter for **self.__activated** attribute.
 			"""
 
 			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
@@ -179,7 +179,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@property
 		def initializedUi(self):
 			"""
-			This method is the property for **self.__initializedUi** attribute.
+			Property for **self.__initializedUi** attribute.
 	
 			:return: self.__initializedUi. ( Boolean )
 			"""
@@ -190,7 +190,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(AssertionError)
 		def initializedUi(self, value):
 			"""
-			This method is the setter method for **self.__initializedUi** attribute.
+			Setter for **self.__initializedUi** attribute.
 	
 			:param value: Attribute value. ( Boolean )
 			"""
@@ -204,7 +204,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def initializedUi(self):
 			"""
-			This method is the deleter method for **self.__initializedUi** attribute.
+			Deleter for **self.__initializedUi** attribute.
 			"""
 
 			raise foundations.exceptions.ProgrammingError(
@@ -213,7 +213,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@property
 		def deactivatable(self):
 			"""
-			This method is the property for **self.__deactivatable** attribute.
+			Property for **self.__deactivatable** attribute.
 	
 			:return: self.__deactivatable. ( String )
 			"""
@@ -224,7 +224,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(AssertionError)
 		def deactivatable(self, value):
 			"""
-			This method is the setter method for **self.__deactivatable** attribute.
+			Setter for **self.__deactivatable** attribute.
 	
 			:param value: Attribute value. ( String )
 			"""
@@ -237,7 +237,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 		def deactivatable(self):
 			"""
-			This method is the deleter method for **self.__deactivatable** attribute.
+			Deleter for **self.__deactivatable** attribute.
 			"""
 
 			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
@@ -249,7 +249,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def activate(self):
 			"""
-			This method sets Component activation state.
+			Sets Component activation state.
 	
 			:return: Method success. ( Boolean )
 			"""
@@ -260,7 +260,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def deactivate(self):
 			"""
-			This method unsets Component activation state.
+			Unsets Component activation state.
 	
 			:return: Method success. ( Boolean )
 			"""
@@ -271,7 +271,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def initializeUi(self):
 			"""
-			This method initializes the Component ui.
+			Initializes the Component ui.
 			"""
 
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -280,7 +280,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def addWidget(self):
 			"""
-			This method adds the Component Widget ui.
+			Adds the Component Widget ui.
 			"""
 
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -289,7 +289,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def removeWidget(self):
 			"""
-			This method removes the Component Widget ui.
+			Removes the Component Widget ui.
 			"""
 
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -298,7 +298,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		@foundations.exceptions.handleExceptions(NotImplementedError)
 		def uninitializeUi(self):
 			"""
-			This method uninitializes the Component ui.
+			Uninitializes the Component ui.
 			"""
 
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(

@@ -67,7 +67,7 @@ class Components(foundations.dataStructures.Structure):
 
 	def __init__(self, **kwargs):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
 		:param \*\*kwargs: Arguments. ( Key / Value pairs )
 		"""
@@ -83,7 +83,7 @@ class Profile(object):
 
 	def __init__(self, name=None, file=None):
 		"""
-		This method initializes the class.
+		Initializes the class.
 		
 		:param name: Name of the Component. ( String )
 		:param file: File of the Component. ( String )
@@ -118,7 +118,7 @@ class Profile(object):
 	@property
 	def name(self):
 		"""
-		This method is the property for **self.__name** attribute.
+		Property for **self.__name** attribute.
 
 		:return: self.__name. ( String )
 		"""
@@ -129,7 +129,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def name(self, value):
 		"""
-		This method is the setter method for **self.__name** attribute.
+		Setter for **self.__name** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -143,7 +143,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
-		This method is the deleter method for **self.__name** attribute.
+		Deleter for **self.__name** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -152,7 +152,7 @@ class Profile(object):
 	@property
 	def file(self):
 		"""
-		This method is the property for **self.__file** attribute.
+		Property for **self.__file** attribute.
 
 		:return: self.__file. ( String )
 		"""
@@ -163,7 +163,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def file(self, value):
 		"""
-		This method is the setter method for **self.__file** attribute.
+		Setter for **self.__file** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -176,7 +176,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def file(self):
 		"""
-		This method is the deleter method for **self.__file** attribute.
+		Deleter for **self.__file** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -185,7 +185,7 @@ class Profile(object):
 	@property
 	def directory(self):
 		"""
-		This method is the property for **self.__directory** attribute.
+		Property for **self.__directory** attribute.
 
 		:return: self.__directory. ( String )
 		"""
@@ -196,7 +196,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def directory(self, value):
 		"""
-		This method is the setter method for **self.__directory** attribute.
+		Setter for **self.__directory** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -211,7 +211,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def directory(self):
 		"""
-		This method is the deleter method for **self.__directory** attribute.
+		Deleter for **self.__directory** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -220,7 +220,7 @@ class Profile(object):
 	@property
 	def attribute(self):
 		"""
-		This method is the property for **self.__attribute** attribute.
+		Property for **self.__attribute** attribute.
 
 		:return: self.__attribute. ( String )
 		"""
@@ -231,7 +231,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def attribute(self, value):
 		"""
-		This method is the setter method for **self.__attribute** attribute.
+		Setter for **self.__attribute** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -245,7 +245,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def attribute(self):
 		"""
-		This method is the deleter method for **self.__attribute** attribute.
+		Deleter for **self.__attribute** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -254,7 +254,7 @@ class Profile(object):
 	@property
 	def require(self):
 		"""
-		This method is the property for **self.__require** attribute.
+		Property for **self.__require** attribute.
 
 		:return: self.__require. ( Tuple / List )
 		"""
@@ -265,7 +265,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def require(self, value):
 		"""
-		This method is the setter method for **self.__require** attribute.
+		Setter for **self.__require** attribute.
 
 		:param value: Attribute value. ( Tuple / List )
 		"""
@@ -279,7 +279,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def require(self):
 		"""
-		This method is the deleter method for **self.__require** attribute.
+		Deleter for **self.__require** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -288,7 +288,7 @@ class Profile(object):
 	@property
 	def module(self):
 		"""
-		This method is the property for **self.__module** attribute.
+		Property for **self.__module** attribute.
 
 		:return: self.__module. ( Module )
 		"""
@@ -299,7 +299,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def module(self, value):
 		"""
-		This method is the setter method for **self.__module** attribute.
+		Setter for **self.__module** attribute.
 
 		:param value: Attribute value. ( Module )
 		"""
@@ -312,7 +312,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def module(self):
 		"""
-		This method is the deleter method for **self.__module** attribute.
+		Deleter for **self.__module** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -321,7 +321,7 @@ class Profile(object):
 	@property
 	def interface(self):
 		"""
-		This method is the property for **self.__interface** attribute.
+		Property for **self.__interface** attribute.
 
 		:return: self.__interface. ( Object )
 		"""
@@ -331,7 +331,7 @@ class Profile(object):
 	@interface.setter
 	def interface(self, value):
 		"""
-		This method is the setter method for **self.__interface** attribute.
+		Setter for **self.__interface** attribute.
 
 		:param value: Attribute value. ( Object )
 		"""
@@ -342,7 +342,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def interface(self):
 		"""
-		This method is the deleter method for **self.__interface** attribute.
+		Deleter for **self.__interface** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -351,7 +351,7 @@ class Profile(object):
 	@property
 	def category(self):
 		"""
-		This method is the property for **self.__category** attribute.
+		Property for **self.__category** attribute.
 
 		:return: self.__category. ( String )
 		"""
@@ -362,7 +362,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def category(self, value):
 		"""
-		This method is the setter method for **self.__category** attribute.
+		Setter for **self.__category** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -376,7 +376,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def category(self):
 		"""
-		This method is the deleter method for **self.__category** attribute.
+		Deleter for **self.__category** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -385,7 +385,7 @@ class Profile(object):
 	@property
 	def title(self):
 		"""
-		This method is the property for **self.__title** attribute.
+		Property for **self.__title** attribute.
 
 		:return: self.__title. ( String )
 		"""
@@ -396,7 +396,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def title(self, value):
 		"""
-		This method is the setter method for **self.__title** attribute.
+		Setter for **self.__title** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -410,7 +410,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def title(self):
 		"""
-		This method is the deleter method for **self.__title** attribute.
+		Deleter for **self.__title** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -419,7 +419,7 @@ class Profile(object):
 	@property
 	def package(self):
 		"""
-		This method is the property for **self.__package** attribute.
+		Property for **self.__package** attribute.
 
 		:return: self.__package. ( String )
 		"""
@@ -430,7 +430,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def package(self, value):
 		"""
-		This method is the setter method for **self.__package** attribute.
+		Setter for **self.__package** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -444,7 +444,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def package(self):
 		"""
-		This method is the deleter method for **self.__package** attribute.
+		Deleter for **self.__package** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -453,7 +453,7 @@ class Profile(object):
 	@property
 	def version(self):
 		"""
-		This method is the property for **self.__version** attribute.
+		Property for **self.__version** attribute.
 
 		:return: self.__version. ( String )
 		"""
@@ -464,7 +464,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def version(self, value):
 		"""
-		This method is the setter method for **self.__version** attribute.
+		Setter for **self.__version** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -478,7 +478,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def version(self):
 		"""
-		This method is the deleter method for **self.__version** attribute.
+		Deleter for **self.__version** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -487,7 +487,7 @@ class Profile(object):
 	@property
 	def author(self):
 		"""
-		This method is the property for **self.__author** attribute.
+		Property for **self.__author** attribute.
 
 		:return: self.__author. ( String )
 		"""
@@ -498,7 +498,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def author(self, value):
 		"""
-		This method is the setter method for **self.__author** attribute.
+		Setter for **self.__author** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -512,7 +512,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def author(self):
 		"""
-		This method is the deleter method for **self.__author** attribute.
+		Deleter for **self.__author** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -521,7 +521,7 @@ class Profile(object):
 	@property
 	def email(self):
 		"""
-		This method is the property for **self.__email** attribute.
+		Property for **self.__email** attribute.
 
 		:return: self.__email. ( String )
 		"""
@@ -532,7 +532,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def email(self, value):
 		"""
-		This method is the setter method for **self.__email** attribute.
+		Setter for **self.__email** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -546,7 +546,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def email(self):
 		"""
-		This method is the deleter method for **self.__email** attribute.
+		Deleter for **self.__email** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -555,7 +555,7 @@ class Profile(object):
 	@property
 	def url(self):
 		"""
-		This method is the property for **self.__url** attribute.
+		Property for **self.__url** attribute.
 
 		:return: self.__url. ( String )
 		"""
@@ -566,7 +566,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def url(self, value):
 		"""
-		This method is the setter method for **self.__url** attribute.
+		Setter for **self.__url** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -580,7 +580,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def url(self):
 		"""
-		This method is the deleter method for **self.__url** attribute.
+		Deleter for **self.__url** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -589,7 +589,7 @@ class Profile(object):
 	@property
 	def description(self):
 		"""
-		This method is the property for **self.__description** attribute.
+		Property for **self.__description** attribute.
 
 		:return: self.__description. ( String )
 		"""
@@ -600,7 +600,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def description(self, value):
 		"""
-		This method is the setter method for **self.__description** attribute.
+		Setter for **self.__description** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -614,7 +614,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def description(self):
 		"""
-		This method is the deleter method for **self.__description** attribute.
+		Deleter for **self.__description** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -626,7 +626,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.FileStructureParsingError)
 	def initializeProfile(self):
 		"""
-		This method gets initializes the Component Profile.
+		Gets initializes the Component Profile.
 		
 		:return: Method success. ( Boolean )
 		"""
@@ -693,7 +693,7 @@ class Manager(object):
 				extension="rc",
 				categories={"Default" : Component, "QWidget" : QWidgetComponentFactory(), "QObject" : QObjectComponent}):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
 		Usage::
 
@@ -729,7 +729,7 @@ class Manager(object):
 	@property
 	def paths(self):
 		"""
-		This method is the property for **self.__paths** attribute.
+		Property for **self.__paths** attribute.
 
 		:return: self.__paths. ( Tuple / List )
 		"""
@@ -740,7 +740,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def paths(self, value):
 		"""
-		This method is the setter method for **self.__paths** attribute.
+		Setter for **self.__paths** attribute.
 
 		:param value: Attribute value. ( Tuple / List )
 		"""
@@ -758,7 +758,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def paths(self):
 		"""
-		This method is the deleter method for **self.__paths** attribute.
+		Deleter for **self.__paths** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -767,7 +767,7 @@ class Manager(object):
 	@property
 	def extension(self):
 		"""
-		This method is the property for **self.__extension** attribute.
+		Property for **self.__extension** attribute.
 
 		:return: self.__extension. ( String )
 		"""
@@ -778,7 +778,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def extension(self, value):
 		"""
-		This method is the setter method for **self.__extension** attribute.
+		Setter for **self.__extension** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -792,7 +792,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def extension(self):
 		"""
-		This method is the deleter method for **self.__extension** attribute.
+		Deleter for **self.__extension** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -801,7 +801,7 @@ class Manager(object):
 	@property
 	def categories(self):
 		"""
-		This method is the property for **self.__categories** attribute.
+		Property for **self.__categories** attribute.
 
 		:return: self.__categories. ( Dictionary )
 		"""
@@ -812,7 +812,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def categories(self, value):
 		"""
-		This method is the setter method for **self.__categories** attribute.
+		Setter for **self.__categories** attribute.
 
 		:param value: Attribute value. ( Dictionary )
 		"""
@@ -828,7 +828,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def categories(self):
 		"""
-		This method is the deleter method for **self.__categories** attribute.
+		Deleter for **self.__categories** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -837,7 +837,7 @@ class Manager(object):
 	@property
 	def components(self):
 		"""
-		This method is the property for **self.__components** attribute.
+		Property for **self.__components** attribute.
 
 		:return: self.__components. ( Dictionary )
 		"""
@@ -848,7 +848,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def components(self, value):
 		"""
-		This method is the setter method for **self.__components** attribute.
+		Setter for **self.__components** attribute.
 
 		:param value: Attribute value. ( Dictionary )
 		"""
@@ -860,7 +860,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def components(self):
 		"""
-		This method is the deleter method for **self.__components** attribute.
+		Deleter for **self.__components** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -871,7 +871,7 @@ class Manager(object):
 	#******************************************************************************************************************
 	def __getitem__(self, component):
 		"""
-		This method reimplements the :meth:`object.__getitem__` method.
+		Reimplements the :meth:`object.__getitem__` method.
 
 		Usage::
 
@@ -889,7 +889,7 @@ class Manager(object):
 
 	def __iter__(self):
 		"""
-		This method reimplements the :meth:`object.__iter__` method.
+		Reimplements the :meth:`object.__iter__` method.
 
 		Usage::
 
@@ -909,7 +909,7 @@ class Manager(object):
 
 	def __contains__(self, component):
 		"""
-		This method reimplements the :meth:`object.__contains__` method.
+		Reimplements the :meth:`object.__contains__` method.
 
 		Usage::
 
@@ -929,7 +929,7 @@ class Manager(object):
 
 	def __len__(self):
 		"""
-		This method reimplements the :meth:`object.__len__` method.
+		Reimplements the :meth:`object.__len__` method.
 
 		Usage::
 
@@ -948,7 +948,7 @@ class Manager(object):
 											manager.exceptions.ComponentProfileError)
 	def registerComponent(self, path):
 		"""
-		This method registers a Component using given path.
+		Registers a Component using given path.
 
 		Usage::
 
@@ -980,7 +980,7 @@ class Manager(object):
 
 	def unregisterComponent(self, component):
 		"""
-		This method unregisters given Component.
+		Unregisters given Component.
 
 		.. warning::
 
@@ -1007,7 +1007,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(manager.exceptions.ComponentRegistrationError)
 	def registerComponents(self):
 		"""
-		This method registers the Components.
+		Registers the Components.
 
 		Usage::
 
@@ -1035,7 +1035,7 @@ class Manager(object):
 
 	def unregisterComponents(self):
 		"""
-		This method unregisters the Components.
+		Unregisters the Components.
 
 		.. warning::
 
@@ -1061,7 +1061,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(manager.exceptions.ComponentInterfaceError)
 	def instantiateComponent(self, component, callback=None):
 		"""
-		This method instantiates given Component.
+		Instantiates given Component.
 
 		Usage::
 
@@ -1106,7 +1106,7 @@ class Manager(object):
 
 	def instantiateComponents(self, callback=None):
 		"""
-		This method instantiates the Components.
+		Instantiates the Components.
 
 		Usage::
 
@@ -1133,7 +1133,7 @@ class Manager(object):
 
 	def reloadComponent(self, component):
 		"""
-		This method reload given Component module.
+		Reload given Component module.
 
 		Usage::
 
@@ -1172,7 +1172,7 @@ class Manager(object):
 
 	def listComponents(self, dependencyOrder=True):
 		"""
-		This method lists the Components by dependency resolving.
+		Lists the Components by dependency resolving.
 
 		Usage::
 
@@ -1193,7 +1193,7 @@ class Manager(object):
 
 	def listDependents(self, component, dependents=None):
 		"""
-		This method lists given Component dependents Components.
+		Lists given Component dependents Components.
 
 		Usage::
 
@@ -1220,7 +1220,7 @@ class Manager(object):
 
 	def filterComponents(self, pattern, category=None):
 		"""
-		This method filters the Components using given regex pattern.
+		Filters the Components using given regex pattern.
 
 		Usage::
 
@@ -1247,7 +1247,7 @@ class Manager(object):
 
 	def getProfile(self, component):
 		"""
-		This method gets given Component profile.
+		Gets given Component profile.
 
 		Usage::
 
@@ -1267,7 +1267,7 @@ class Manager(object):
 
 	def getInterface(self, component):
 		"""
-		This method gets given Component interface.
+		Gets given Component interface.
 
 		Usage::
 
@@ -1288,7 +1288,7 @@ class Manager(object):
 	@staticmethod
 	def getComponentAttributeName(component):
 		"""
-		This method gets given Component attribute name.
+		Gets given Component attribute name.
 
 		Usage::
 

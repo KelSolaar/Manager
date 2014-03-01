@@ -51,7 +51,7 @@ class TestsComponentD(Component):
 
 	def __init__(self, name=None):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
 		:param name: Component name. ( String )
 		"""
@@ -71,7 +71,7 @@ class TestsComponentD(Component):
 	@property
 	def container(self):
 		"""
-		This method is the property for **self.__container** attribute.
+		Property for **self.__container** attribute.
 
 		:return: self.__container. ( QObject )
 		"""
@@ -82,7 +82,7 @@ class TestsComponentD(Component):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def container(self, value):
 		"""
-		This method is the setter method for **self.__container** attribute.
+		Setter for **self.__container** attribute.
 
 		:param value: Attribute value. ( QObject )
 		"""
@@ -94,7 +94,7 @@ class TestsComponentD(Component):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def container(self):
 		"""
-		This method is the deleter method for **self.__container** attribute.
+		Deleter for **self.__container** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -104,7 +104,7 @@ class TestsComponentD(Component):
 	#******************************************************************************************************************
 	def activate(self, container):
 		"""
-		This method activates the Component.
+		Activates the Component.
 
 		:param container: Container to attach the Component to. ( QObject )
 		:return: Method success. ( Boolean )
@@ -119,7 +119,7 @@ class TestsComponentD(Component):
 
 	def deactivate(self):
 		"""
-		This method deactivates the Component.
+		Deactivates the Component.
 
 		:return: Method success. ( Boolean )
 		"""
@@ -133,7 +133,7 @@ class TestsComponentD(Component):
 
 	def initialize(self):
 		"""
-		This method initializes the Component.
+		Initializes the Component.
 
 		:return: Method success. ( Boolean )
 		"""
@@ -145,7 +145,7 @@ class TestsComponentD(Component):
 
 	def uninitialize(self):
 		"""
-		This method uninitializes the Component.
+		Uninitializes the Component.
 
 		:return: Method success. ( Boolean )
 		"""

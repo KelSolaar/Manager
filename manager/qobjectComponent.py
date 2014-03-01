@@ -75,7 +75,7 @@ class QObjectComponent(QObject):
 
 	def __init__(self, parent=None, name=None, *args, **kwargs):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
 		:param parent: Object parent. ( QObject )
 		:param name: Component name. ( String )
@@ -101,7 +101,7 @@ class QObjectComponent(QObject):
 	@property
 	def name(self):
 		"""
-		This method is the property for **self.__name** attribute.
+		Property for **self.__name** attribute.
 
 		:return: self.__name. ( String )
 		"""
@@ -112,7 +112,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def name(self, value):
 		"""
-		This method is the setter method for **self.__name** attribute.
+		Setter for **self.__name** attribute.
 
 		:param value: Attribute value. ( String )
 		"""
@@ -125,7 +125,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
-		This method is the deleter method for **self.__name** attribute.
+		Deleter for **self.__name** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -134,7 +134,7 @@ class QObjectComponent(QObject):
 	@property
 	def activated(self):
 		"""
-		This method is the property for **self.__activated** attribute.
+		Property for **self.__activated** attribute.
 
 		:return: self.__activated. ( Boolean )
 		"""
@@ -145,7 +145,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def activated(self, value):
 		"""
-		This method is the setter method for **self.__activated** attribute.
+		Setter for **self.__activated** attribute.
 
 		:param value: Attribute value. ( Boolean )
 		"""
@@ -159,7 +159,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def activated(self):
 		"""
-		This method is the deleter method for **self.__activated** attribute.
+		Deleter for **self.__activated** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -168,7 +168,7 @@ class QObjectComponent(QObject):
 	@property
 	def initialized(self):
 		"""
-		This method is the property for **self.__initialized** attribute.
+		Property for **self.__initialized** attribute.
 
 		:return: self.__initialized. ( Boolean )
 		"""
@@ -179,7 +179,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def initialized(self, value):
 		"""
-		This method is the setter method for **self.__initialized** attribute.
+		Setter for **self.__initialized** attribute.
 
 		:param value: Attribute value. ( Boolean )
 		"""
@@ -193,7 +193,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def initialized(self):
 		"""
-		This method is the deleter method for **self.__initialized** attribute.
+		Deleter for **self.__initialized** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -202,7 +202,7 @@ class QObjectComponent(QObject):
 	@property
 	def deactivatable(self):
 		"""
-		This method is the property for **self.__deactivatable** attribute.
+		Property for **self.__deactivatable** attribute.
 
 		:return: self.__deactivatable. ( Boolean )
 		"""
@@ -213,7 +213,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def deactivatable(self, value):
 		"""
-		This method is the setter method for **self.__deactivatable** attribute.
+		Setter for **self.__deactivatable** attribute.
 
 		:param value: Attribute value. ( Boolean )
 		"""
@@ -226,7 +226,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def deactivatable(self):
 		"""
-		This method is the deleter method for **self.__deactivatable** attribute.
+		Deleter for **self.__deactivatable** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
@@ -238,7 +238,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def activate(self):
 		"""
-		This method sets Component activation state.
+		Sets Component activation state.
 
 		:return: Method success. ( Boolean )
 		"""
@@ -249,7 +249,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def deactivate(self):
 		"""
-		This method unsets Component activation state.
+		Unsets Component activation state.
 
 		:return: Method success. ( Boolean )
 		"""
@@ -260,7 +260,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def initialize(self):
 		"""
-		This method initializes the Component.
+		Initializes the Component.
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -269,7 +269,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def uninitialize(self):
 		"""
-		This method uninitializes the Component.
+		Uninitializes the Component.
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
