@@ -137,7 +137,7 @@ class ConstantsTestCase(unittest.TestCase):
 		for label in Constants.verbosityLabels:
 			self.assertIsInstance(label, unicode)
 
-	def testLoggingDefaultFormaterAttribute(self):
+	def testLoggingDefaultFormatterAttribute(self):
 		"""
 		Tests :attr:`manager.globals.constants.Constants.loggingDefaultFormatter` attribute.
 		"""
