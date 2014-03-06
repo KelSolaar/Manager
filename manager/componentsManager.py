@@ -69,7 +69,8 @@ class Components(foundations.dataStructures.Structure):
 		"""
 		Initializes the class.
 
-		:param \*\*kwargs: Arguments. ( Key / Value pairs )
+		:param \*\*kwargs: Arguments.
+		:type \*\*kwargs: dict
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -85,8 +86,10 @@ class Profile(object):
 		"""
 		Initializes the class.
 		
-		:param name: Name of the Component. ( String )
-		:param file: File of the Component. ( String )
+		:param name: Name of the Component.
+		:type name: unicode
+		:param file: File of the Component.
+		:type file: unicode
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -120,7 +123,8 @@ class Profile(object):
 		"""
 		Property for **self.__name** attribute.
 
-		:return: self.__name. ( String )
+		:return: self.__name.
+		:rtype: unicode
 		"""
 
 		return self.__name
@@ -131,7 +135,8 @@ class Profile(object):
 		"""
 		Setter for **self.__name** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -154,7 +159,8 @@ class Profile(object):
 		"""
 		Property for **self.__file** attribute.
 
-		:return: self.__file. ( String )
+		:return: self.__file.
+		:rtype: unicode
 		"""
 
 		return self.__file
@@ -165,7 +171,8 @@ class Profile(object):
 		"""
 		Setter for **self.__file** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -187,7 +194,8 @@ class Profile(object):
 		"""
 		Property for **self.__directory** attribute.
 
-		:return: self.__directory. ( String )
+		:return: self.__directory.
+		:rtype: unicode
 		"""
 
 		return self.__directory
@@ -198,7 +206,8 @@ class Profile(object):
 		"""
 		Setter for **self.__directory** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -222,7 +231,8 @@ class Profile(object):
 		"""
 		Property for **self.__attribute** attribute.
 
-		:return: self.__attribute. ( String )
+		:return: self.__attribute.
+		:rtype: unicode
 		"""
 
 		return self.__attribute
@@ -233,7 +243,8 @@ class Profile(object):
 		"""
 		Setter for **self.__attribute** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -256,7 +267,8 @@ class Profile(object):
 		"""
 		Property for **self.__require** attribute.
 
-		:return: self.__require. ( Tuple / List )
+		:return: self.__require.
+		:rtype: tuple or list
 		"""
 
 		return self.__require
@@ -267,7 +279,8 @@ class Profile(object):
 		"""
 		Setter for **self.__require** attribute.
 
-		:param value: Attribute value. ( Tuple / List )
+		:param value: Attribute value.
+		:type value: tuple or list
 		"""
 
 		if value is not None:
@@ -290,7 +303,8 @@ class Profile(object):
 		"""
 		Property for **self.__module** attribute.
 
-		:return: self.__module. ( Module )
+		:return: self.__module.
+		:rtype: ModuleType
 		"""
 
 		return self.__module
@@ -301,7 +315,8 @@ class Profile(object):
 		"""
 		Setter for **self.__module** attribute.
 
-		:param value: Attribute value. ( Module )
+		:param value: Attribute value.
+		:type value: ModuleType
 		"""
 
 		if value is not None:
@@ -323,7 +338,8 @@ class Profile(object):
 		"""
 		Property for **self.__interface** attribute.
 
-		:return: self.__interface. ( Object )
+		:return: self.__interface.
+		:rtype: object
 		"""
 
 		return self.__interface
@@ -333,7 +349,8 @@ class Profile(object):
 		"""
 		Setter for **self.__interface** attribute.
 
-		:param value: Attribute value. ( Object )
+		:param value: Attribute value.
+		:type value: object
 		"""
 
 		self.__interface = value
@@ -353,7 +370,8 @@ class Profile(object):
 		"""
 		Property for **self.__category** attribute.
 
-		:return: self.__category. ( String )
+		:return: self.__category.
+		:rtype: unicode
 		"""
 
 		return self.__category
@@ -364,7 +382,8 @@ class Profile(object):
 		"""
 		Setter for **self.__category** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -387,7 +406,8 @@ class Profile(object):
 		"""
 		Property for **self.__title** attribute.
 
-		:return: self.__title. ( String )
+		:return: self.__title.
+		:rtype: unicode
 		"""
 
 		return self.__title
@@ -398,7 +418,8 @@ class Profile(object):
 		"""
 		Setter for **self.__title** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -421,7 +442,8 @@ class Profile(object):
 		"""
 		Property for **self.__package** attribute.
 
-		:return: self.__package. ( String )
+		:return: self.__package.
+		:rtype: unicode
 		"""
 
 		return self.__package
@@ -432,7 +454,8 @@ class Profile(object):
 		"""
 		Setter for **self.__package** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -455,7 +478,8 @@ class Profile(object):
 		"""
 		Property for **self.__version** attribute.
 
-		:return: self.__version. ( String )
+		:return: self.__version.
+		:rtype: unicode
 		"""
 
 		return self.__version
@@ -466,7 +490,8 @@ class Profile(object):
 		"""
 		Setter for **self.__version** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -489,7 +514,8 @@ class Profile(object):
 		"""
 		Property for **self.__author** attribute.
 
-		:return: self.__author. ( String )
+		:return: self.__author.
+		:rtype: unicode
 		"""
 
 		return self.__author
@@ -500,7 +526,8 @@ class Profile(object):
 		"""
 		Setter for **self.__author** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -523,7 +550,8 @@ class Profile(object):
 		"""
 		Property for **self.__email** attribute.
 
-		:return: self.__email. ( String )
+		:return: self.__email.
+		:rtype: unicode
 		"""
 
 		return self.__email
@@ -534,7 +562,8 @@ class Profile(object):
 		"""
 		Setter for **self.__email** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -557,7 +586,8 @@ class Profile(object):
 		"""
 		Property for **self.__url** attribute.
 
-		:return: self.__url. ( String )
+		:return: self.__url.
+		:rtype: unicode
 		"""
 
 		return self.__url
@@ -568,7 +598,8 @@ class Profile(object):
 		"""
 		Setter for **self.__url** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -591,7 +622,8 @@ class Profile(object):
 		"""
 		Property for **self.__description** attribute.
 
-		:return: self.__description. ( String )
+		:return: self.__description.
+		:rtype: unicode
 		"""
 
 		return self.__description
@@ -602,7 +634,8 @@ class Profile(object):
 		"""
 		Setter for **self.__description** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -628,7 +661,8 @@ class Profile(object):
 		"""
 		Gets initializes the Component Profile.
 		
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		LOGGER.debug("> Building '{0}' profile.".format(self.__file))
@@ -707,9 +741,12 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x11dd990>
 
-		:param paths: Paths to walk. ( Tuple / List )
-		:param extension: Components file extension. ( String )
-		:param categories: Components categories. ( Dictionary )
+		:param paths: Paths to walk.
+		:type paths: tuple or list
+		:param extension: Components file extension.
+		:type extension: unicode
+		:param categories: Components categories.
+		:type categories: dict
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -731,7 +768,8 @@ class Manager(object):
 		"""
 		Property for **self.__paths** attribute.
 
-		:return: self.__paths. ( Tuple / List )
+		:return: self.__paths.
+		:rtype: tuple or list
 		"""
 
 		return self.__paths
@@ -742,7 +780,8 @@ class Manager(object):
 		"""
 		Setter for **self.__paths** attribute.
 
-		:param value: Attribute value. ( Tuple / List )
+		:param value: Attribute value.
+		:type value: tuple or list
 		"""
 
 		if value is not None:
@@ -769,7 +808,8 @@ class Manager(object):
 		"""
 		Property for **self.__extension** attribute.
 
-		:return: self.__extension. ( String )
+		:return: self.__extension.
+		:rtype: unicode
 		"""
 
 		return self.__extension
@@ -780,7 +820,8 @@ class Manager(object):
 		"""
 		Setter for **self.__extension** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -803,7 +844,8 @@ class Manager(object):
 		"""
 		Property for **self.__categories** attribute.
 
-		:return: self.__categories. ( Dictionary )
+		:return: self.__categories.
+		:rtype: dict
 		"""
 
 		return self.__categories
@@ -814,7 +856,8 @@ class Manager(object):
 		"""
 		Setter for **self.__categories** attribute.
 
-		:param value: Attribute value. ( Dictionary )
+		:param value: Attribute value.
+		:type value: dict
 		"""
 
 		if value is not None:
@@ -839,7 +882,8 @@ class Manager(object):
 		"""
 		Property for **self.__components** attribute.
 
-		:return: self.__components. ( Dictionary )
+		:return: self.__components.
+		:rtype: dict
 		"""
 
 		return self.__components
@@ -850,7 +894,8 @@ class Manager(object):
 		"""
 		Setter for **self.__components** attribute.
 
-		:param value: Attribute value. ( Dictionary )
+		:param value: Attribute value.
+		:type value: dict
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -881,8 +926,10 @@ class Manager(object):
 			>>> manager["core.testsComponentA"]
 			<manager.componentsManager.Profile object at 0x101c4bd50>
 		
-		:param component: Component name. ( String )
-		:return: Component profile. ( Profile )
+		:param component: Component name.
+		:type component: unicode
+		:return: Component profile.
+		:rtype: Profile
 		"""
 
 		return self.__components.__getitem__(component).interface
@@ -902,7 +949,8 @@ class Manager(object):
 			core.testsComponentB
 			core.testsComponentA
 		
-		:return: Components iterator. ( Object )
+		:return: Components iterator.
+		:rtype: object
 		"""
 
 		return self.__components.iteritems()
@@ -921,8 +969,10 @@ class Manager(object):
 			>>> "core.nemoComponent" in manager
 			False
 		
-		:param component: Component name. ( String )
-		:return: Component existence. ( Boolean )
+		:param component: Component name.
+		:type component: unicode
+		:return: Component existence.
+		:rtype: bool
 		"""
 
 		return component in self.__components.keys()
@@ -939,7 +989,8 @@ class Manager(object):
 			>>> len(manager)
 			2
 		
-		:return: Components count. ( Integer )
+		:return: Components count.
+		:rtype: int
 		"""
 
 		return len(self.__components.keys())
@@ -958,8 +1009,10 @@ class Manager(object):
 			>>> manager.components
 			{u'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
 
-		:param path: Component path. ( String )
-		:return: Method success. ( Boolean )
+		:param path: Component path.
+		:type path: unicode
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		component = foundations.strings.getSplitextBasename(path)
@@ -997,8 +1050,10 @@ class Manager(object):
 			>>> manager.components
 			{}
 
-		:param component: Component to remove. ( String )
-		:return: Method success. ( Boolean )
+		:param component: Component to remove.
+		:type component: unicode
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		del(self.__components[component])
@@ -1017,7 +1072,8 @@ class Manager(object):
 			>>> manager.components.keys()
 			[u'core.testsComponentA', u'core.testsComponentB']
 		
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		unregisteredComponents = []
@@ -1052,7 +1108,8 @@ class Manager(object):
 			>>> manager.components
 			{}
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		self.__components.clear()
@@ -1073,8 +1130,10 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17a5b90>
 
-		:param component: Component to instantiate. ( String )
-		:param callback: Callback object. ( Object )
+		:param component: Component to instantiate.
+		:type component: unicode
+		:param callback: Callback object.
+		:type callback: object
 		"""
 
 		profile = self.__components[component]
@@ -1118,7 +1177,8 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17a5bb0>
 
-		:param callback: Callback object. ( Object )
+		:param callback: Callback object.
+		:type callback: object
 		"""
 
 		uninstantiatedComponents = [component
@@ -1149,8 +1209,10 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17b0d70>
 
-		:param component: Component name. ( String )
-		:return: Reload success. ( Boolean )
+		:param component: Component name.
+		:type component: unicode
+		:return: Reload success.
+		:rtype: bool
 		"""
 
 		dependents = list(reversed(self.listDependents(component)))
@@ -1182,7 +1244,8 @@ class Manager(object):
 			>>> manager.listComponents()
 			[u'core.testsComponentA', u'core.testsComponentB']
 
-		:param dependencyOrder: Components are returned by dependency order. ( Boolean )
+		:param dependencyOrder: Components are returned by dependency order.
+		:type dependencyOrder: bool
 		"""
 
 		if dependencyOrder:
@@ -1203,9 +1266,12 @@ class Manager(object):
 			>>> manager.listDependents("core.testsComponentA")
 			[u'core.testsComponentB']
 
-		:param component: Component to retrieve the dependents Components. ( String )
-		:param dependents: Component dependents Components. ( Set )
-		:return: Dependent Components. ( List )
+		:param component: Component to retrieve the dependents Components.
+		:type component: unicode
+		:param dependents: Component dependents Components.
+		:type dependents: set
+		:return: Dependent Components.
+		:rtype: list
 		"""
 
 		dependents = set() if dependents is None else dependents
@@ -1230,9 +1296,12 @@ class Manager(object):
 			>>> manager.filterComponents("\w+A$")
 			[u'core.testsComponentA']
 
-		:param pattern: Regex filtering pattern. ( String )
-		:param category: Category filter. ( String )
-		:return: Matching Components. ( List )
+		:param pattern: Regex filtering pattern.
+		:type pattern: unicode
+		:param category: Category filter.
+		:type category: unicode
+		:return: Matching Components.
+		:rtype: list
 		"""
 
 		matchingItems = []
@@ -1257,8 +1326,10 @@ class Manager(object):
 			>>> manager.getProfile("core.testsComponentA")
 			<manager.componentsManager.Profile object at 0x10258ef10>
 
-		:param component: Component to get the profile. ( String )
-		:return: Component profile. ( Profile )
+		:param component: Component to get the profile.
+		:type component: unicode
+		:return: Component profile.
+		:rtype: Profile
 		"""
 
 		components = self.filterComponents(r"^{0}$".format(component))
@@ -1277,8 +1348,10 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17b0d70>
 
-		:param component: Component to get the interface. ( String )
-		:return: Component interface. ( Object )
+		:param component: Component to get the interface.
+		:type component: unicode
+		:return: Component interface.
+		:rtype: object
 		"""
 
 		profile = self.getProfile(component)
@@ -1295,8 +1368,10 @@ class Manager(object):
 			>>> Manager.getComponentAttributeName("factory.componentsManagerUi")
 			u'factoryComponentsManagerUi'
 
-		:param component: Component to get the attribute name. ( String )
-		:return: Component attribute name. ( Object )
+		:param component: Component to get the attribute name.
+		:type component: unicode
+		:return: Component attribute name.
+		:rtype: object
 		"""
 
 		search = re.search(r"(?P<category>\w+)\.(?P<name>\w+)", component)

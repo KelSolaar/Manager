@@ -77,10 +77,14 @@ class QObjectComponent(QObject):
 		"""
 		Initializes the class.
 
-		:param parent: Object parent. ( QObject )
-		:param name: Component name. ( String )
-		:param \*args: Arguments. ( \* )
-		:param \*\*kwargs: Keywords arguments. ( \*\* )
+		:param parent: Object parent.
+		:type parent: QObject
+		:param name: Component name.
+		:type name: unicode
+		:param \*args: Arguments.
+		:type \*args: \*
+		:param \*\*kwargs: Keywords arguments.
+		:type \*\*kwargs: \*\*
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -103,7 +107,8 @@ class QObjectComponent(QObject):
 		"""
 		Property for **self.__name** attribute.
 
-		:return: self.__name. ( String )
+		:return: self.__name.
+		:rtype: unicode
 		"""
 
 		return self.__name
@@ -114,7 +119,8 @@ class QObjectComponent(QObject):
 		"""
 		Setter for **self.__name** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -136,7 +142,8 @@ class QObjectComponent(QObject):
 		"""
 		Property for **self.__activated** attribute.
 
-		:return: self.__activated. ( Boolean )
+		:return: self.__activated.
+		:rtype: bool
 		"""
 
 		return self.__activated
@@ -147,7 +154,8 @@ class QObjectComponent(QObject):
 		"""
 		Setter for **self.__activated** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -170,7 +178,8 @@ class QObjectComponent(QObject):
 		"""
 		Property for **self.__initialized** attribute.
 
-		:return: self.__initialized. ( Boolean )
+		:return: self.__initialized.
+		:rtype: bool
 		"""
 
 		return self.__initialized
@@ -181,7 +190,8 @@ class QObjectComponent(QObject):
 		"""
 		Setter for **self.__initialized** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -204,7 +214,8 @@ class QObjectComponent(QObject):
 		"""
 		Property for **self.__deactivatable** attribute.
 
-		:return: self.__deactivatable. ( Boolean )
+		:return: self.__deactivatable.
+		:rtype: bool
 		"""
 
 		return self.__deactivatable
@@ -215,7 +226,8 @@ class QObjectComponent(QObject):
 		"""
 		Setter for **self.__deactivatable** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -240,7 +252,8 @@ class QObjectComponent(QObject):
 		"""
 		Sets Component activation state.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -251,7 +264,8 @@ class QObjectComponent(QObject):
 		"""
 		Unsets Component activation state.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(

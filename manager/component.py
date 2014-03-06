@@ -51,7 +51,8 @@ class Component(object):
 		"""
 		Initializes the class.
 
-		:param name: Component name. ( String )
+		:param name: Component name.
+		:type name: unicode
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -72,7 +73,8 @@ class Component(object):
 		"""
 		Property for **self.__name** attribute.
 
-		:return: self.__name. ( String )
+		:return: self.__name.
+		:rtype: unicode
 		"""
 
 		return self.__name
@@ -83,7 +85,8 @@ class Component(object):
 		"""
 		Setter for **self.__name** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -105,7 +108,8 @@ class Component(object):
 		"""
 		Property for **self.__activated** attribute.
 
-		:return: self.__activated. ( Boolean )
+		:return: self.__activated.
+		:rtype: bool
 		"""
 
 		return self.__activated
@@ -116,7 +120,8 @@ class Component(object):
 		"""
 		Setter for **self.__activated** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -138,7 +143,8 @@ class Component(object):
 		"""
 		Property for **self.__initialized** attribute.
 
-		:return: self.__initialized. ( Boolean )
+		:return: self.__initialized.
+		:rtype: bool
 		"""
 
 		return self.__initialized
@@ -149,7 +155,8 @@ class Component(object):
 		"""
 		Setter for **self.__initialized** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -171,7 +178,8 @@ class Component(object):
 		"""
 		Property for **self.__deactivatable** attribute.
 
-		:return: self.__deactivatable. ( Boolean )
+		:return: self.__deactivatable.
+		:rtype: bool
 		"""
 
 		return self.__deactivatable
@@ -182,7 +190,8 @@ class Component(object):
 		"""
 		Setter for **self.__deactivatable** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -207,7 +216,8 @@ class Component(object):
 		"""
 		Sets Component activation state.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -218,7 +228,8 @@ class Component(object):
 		"""
 		Unsets Component activation state.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(

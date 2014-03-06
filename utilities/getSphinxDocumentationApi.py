@@ -99,10 +99,14 @@ def getSphinxDocumentationApi(packages, cloneDirectory, outputDirectory, apiFile
 	"""
 	Gets Sphinx documentation API.
 
-	:param packages: Packages. ( String )
-	:param cloneDirectory: Source clone directory. ( String )
-	:param outputDirectory: Content directory. ( String )
-	:param apiFile: API file. ( String )
+	:param packages: Packages.
+	:type packages: unicode
+	:param cloneDirectory: Source clone directory.
+	:type cloneDirectory: unicode
+	:param outputDirectory: Content directory.
+	:type outputDirectory: unicode
+	:param apiFile: API file.
+	:type apiFile: unicode
 	"""
 
 	LOGGER.info("{0} | Building Sphinx documentation API!".format(getSphinxDocumentationApi.__name__))

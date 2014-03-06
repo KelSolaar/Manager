@@ -52,10 +52,14 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	"""
 	Defines a class factory creating :class:`QWidgetComponent` classes using given ui file.
 
-	:param uiFile: Ui file. ( String )
-	:param \*args: Arguments. ( \* )
-	:param \*\*kwargs: Keywords arguments. ( \*\* )
-	:return: QWidgetComponent class. ( QWidgetComponent )
+	:param uiFile: Ui file.
+	:type uiFile: unicode
+	:param \*args: Arguments.
+	:type \*args: \*
+	:param \*\*kwargs: Keywords arguments.
+	:type \*\*kwargs: \*\*
+	:return: QWidgetComponent class.
+	:rtype: QWidgetComponent
 	"""
 
 	class QWidgetComponent(foundations.ui.common.QWidgetFactory(uiFile=uiFile)):
@@ -87,10 +91,14 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Initializes the class.
 	
-			:param parent: Object parent. ( QObject )
-			:param name: Component name. ( String )
-			:param \*args: Arguments. ( \* )
-			:param \*\*kwargs: Keywords arguments. ( \*\* )
+			:param parent: Object parent.
+			:type parent: QObject
+			:param name: Component name.
+			:type name: unicode
+			:param \*args: Arguments.
+			:type \*args: \*
+			:param \*\*kwargs: Keywords arguments.
+			:type \*\*kwargs: \*\*
 			"""
 
 			LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -113,7 +121,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Property for **self.__name** attribute.
 	
-			:return: self.__name. ( String )
+			:return: self.__name.
+			:rtype: unicode
 			"""
 
 			return self.__name
@@ -124,7 +133,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Setter for **self.__name** attribute.
 	
-			:param value: Attribute value. ( String )
+			:param value: Attribute value.
+			:type value: unicode
 			"""
 
 			if value is not None:
@@ -147,7 +157,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Property for **self.__activated** attribute.
 	
-			:return: self.__activated. ( String )
+			:return: self.__activated.
+			:rtype: unicode
 			"""
 
 			return self.__activated
@@ -158,7 +169,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Setter for **self.__activated** attribute.
 	
-			:param value: Attribute value. ( String )
+			:param value: Attribute value.
+			:type value: unicode
 			"""
 
 			if value is not None:
@@ -181,7 +193,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Property for **self.__initializedUi** attribute.
 	
-			:return: self.__initializedUi. ( Boolean )
+			:return: self.__initializedUi.
+			:rtype: bool
 			"""
 
 			return self.__initializedUi
@@ -192,7 +205,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Setter for **self.__initializedUi** attribute.
 	
-			:param value: Attribute value. ( Boolean )
+			:param value: Attribute value.
+			:type value: bool
 			"""
 
 			if value is not None:
@@ -215,7 +229,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Property for **self.__deactivatable** attribute.
 	
-			:return: self.__deactivatable. ( String )
+			:return: self.__deactivatable.
+			:rtype: unicode
 			"""
 
 			return self.__deactivatable
@@ -226,7 +241,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Setter for **self.__deactivatable** attribute.
 	
-			:param value: Attribute value. ( String )
+			:param value: Attribute value.
+			:type value: unicode
 			"""
 
 			if value is not None:
@@ -251,7 +267,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Sets Component activation state.
 	
-			:return: Method success. ( Boolean )
+			:return: Method success.
+			:rtype: bool
 			"""
 
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -262,7 +279,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			"""
 			Unsets Component activation state.
 	
-			:return: Method success. ( Boolean )
+			:return: Method success.
+			:rtype: bool
 			"""
 
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
