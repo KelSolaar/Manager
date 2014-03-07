@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines **Manager** package default constants through the :class:`Constants` class.
+	Defines **Manager** package default constants through the :class:`Constants` class.
 
 **Others:**
 

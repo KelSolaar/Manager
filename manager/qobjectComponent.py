@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`QObjectComponent` class.
+	Defines the :class:`QObjectComponent` class.
 
 **Others:**
 

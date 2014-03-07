@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`Component` class.
+	Defines the :class:`Component` class.
 
 **Others:**
 

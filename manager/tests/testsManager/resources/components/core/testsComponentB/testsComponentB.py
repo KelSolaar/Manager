@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`TestsComponentB` Component Interface class.
+	Defines the :class:`TestsComponentB` Component Interface class.
 
 **Others:**
 

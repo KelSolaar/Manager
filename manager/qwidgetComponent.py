@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`QWidgetComponent` class.
+	Defines the :class:`QWidgetComponent` class.
 
 **Others:**
 
