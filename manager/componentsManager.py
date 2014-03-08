@@ -659,7 +659,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.FileStructureParsingError)
 	def initializeProfile(self):
 		"""
-		Gets initializes the Component Profile.
+		Initializes the Component Profile.
 		
 		:return: Method success.
 		:rtype: bool
@@ -1304,15 +1304,15 @@ class Manager(object):
 		:rtype: list
 		"""
 
-		matchingItems = []
+		filteredComponents = []
 		for component, profile in self:
 			if category:
 				if profile.category != category:
 					continue
 
 			if re.search(pattern, component):
-				matchingItems.append(component)
-		return matchingItems
+				filteredComponents.append(component)
+		return filteredComponents
 
 	def getProfile(self, component):
 		"""
