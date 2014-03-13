@@ -86,7 +86,7 @@ STATEMENTS_UPDATE_MESSAGGE = "#*************************************************
 
 DECORATORS_COMMENT_MESSAGE = "#***\tSphinx: Decorator commented for auto-documentation purpose."
 
-CONTENT_SUBSTITUTIONS = {"This method initializes the class.\n" :
+CONTENT_SUBSTITUTIONS = {"Initializes the class.\n" :
 						".. Sphinx: Statements updated for auto-documentation purpose.\n"}
 
 foundations.verbose.getLoggingConsoleHandler()
