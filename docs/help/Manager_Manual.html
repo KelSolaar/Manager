@@ -2,88 +2,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="generator" content="Docutils 0.9.1: http://docutils.sourceforge.net/" />
+		<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
 		<title></title>
 		<style type="text/css">
 /*<![CDATA[*/
 
 		body {
-		background-color: rgb(32, 32, 32);
-		color: rgb(192, 192, 192);
+		background-color: rgb(252, 252, 252);
+		color: rgb(64, 64, 64);
+		font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
 		text-align: justify;
-		font-size: 10pt;
 		margin: 10px 10px 10px 10px;
 		}
 
 		A:link {
-		color: rgb(160, 96, 64);
+		color: rgb(41, 128, 185);
 		text-decoration: none;
 		}
 
 		A:visited {
 		text-decoration: none;
-		color: rgb(160, 96, 64);
+		color: rgb(155, 89, 182);
 		}
 
 		A:active {
 		text-decoration: none;
-		color: rgb(160, 96, 64);
+		color: rgb(41, 128, 185);
 		}
 
 		A:hover {
 		text-decoration: underline;
-		color: rgb(160, 96, 64);
+		color: rgb(48, 145, 209);
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+		font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+		font-weight: 700;
+		margin-top: 0;
+		}
+
+		p {
+		font-size: 16px;
+		line-height: 24px;
+		margin: 0;
+		margin-bottom: 24px;
 		}
 
 		table {
-		border-color: rgb(96, 96, 96);
+		border-color: rgb(225, 228, 229);
 		border-collapse: collapse;
 		border-style: solid;
-		border-width: 2px;
-		}
-
-		pre {
-		background-color: rgb(64, 64, 64);
-		border: 2px solid rgb(160, 96, 64);
-		border-left: none;
-		border-right: none;
-		color: rgb(224, 224, 224);
-		font-size: 12pt;
-		padding: 5px;
-		white-space: pre-wrap;
+		border-width: 1px;
 		}
 
 		tt {
-		background-color: rgb(64, 64, 64);
-		color: rgb(224, 224, 224);
+		background-color: rgb(255, 255, 255);
+		color: rgb(80, 80, 80);
 		padding: 5px;
-		white-space: pre-wrap;
 		white-space: -moz-pre-wrap !important;
 		}
 
-		::-webkit-scrollbar {
-		height: 12px;
-		width: 12px;
-		}
-
-		::-webkit-scrollbar-track-piece  {
-		background-color: rgb(48, 48, 48);
-		}
-
-		::-webkit-scrollbar-thumb:horizontal, ::-webkit-scrollbar-thumb:vertical {
-		background-color: rgb(96, 96, 96);
-		}
-
-		::-webkit-scrollbar-thumb:horizontal:hover, ::-webkit-scrollbar-thumb:vertical:hover {
-		background-color: rgb(128, 128, 128);
-		}
-
-		::-webkit-scrollbar-thumb:horizontal {
-		width: 50px;
-		}
-
-		::-webkit-scrollbar-thumb:vertical {
-		height: 50px;
+		pre {
+		background: rgb(255, 255, 255);
+		border: 1px solid rgb(225, 228, 229);
+		display: block;
+		font-size: 12px;
+		font-family: "Incosolata", "Consolata", "Monaco", monospace;
+		line-height: 1.5;
+		margin: 1px 0px 24px 0px;
+		overflow: auto;
+		padding: 12px 12px;
+		white-space: pre;
 		}
 		/*]]>*/
 		</style>
@@ -227,15 +216,15 @@ core
 					Instantiating the Components Manager is done the following way:
 				</p>
 				<pre class="code python literal-block">
-<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">((</span><span class="s">&quot;./manager/tests/testsManager/resources/components/core&quot;</span><span class="p">,))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">registerComponents</span><span class="p">()</span>
-<span class="bp">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">listComponents</span><span class="p">()</span>
-<span class="p">[</span><span class="s">'core.testsComponentA'</span><span class="p">,</span> <span class="s">'core.testsComponentB'</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">instantiateComponents</span><span class="p">()</span>
-<span class="bp">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">manager</span><span class="o">.</span><span class="n">getInterface</span><span class="p">(</span><span class="s">&quot;core.testsComponentA&quot;</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">testsComponentA</span><span class="o">.</span><span class="n">TestsComponentA</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x11dd990</span><span class="o">&gt;</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">manager</span> <span class="operator">=</span> <span class="name">Manager</span><span class="punctuation">((</span><span class="literal string">&quot;./manager/tests/testsManager/resources/components/core&quot;</span><span class="punctuation">,))</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">manager</span><span class="operator">.</span><span class="name">registerComponents</span><span class="punctuation">()</span>
+<span class="name builtin pseudo">True</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">manager</span><span class="operator">.</span><span class="name">listComponents</span><span class="punctuation">()</span>
+<span class="punctuation">[</span><span class="literal string">'core.testsComponentA'</span><span class="punctuation">,</span> <span class="literal string">'core.testsComponentB'</span><span class="punctuation">]</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">manager</span><span class="operator">.</span><span class="name">instantiateComponents</span><span class="punctuation">()</span>
+<span class="name builtin pseudo">True</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">manager</span><span class="operator">.</span><span class="name">getInterface</span><span class="punctuation">(</span><span class="literal string">&quot;core.testsComponentA&quot;</span><span class="punctuation">)</span>
+<span class="operator">&lt;</span><span class="name">testsComponentA</span><span class="operator">.</span><span class="name">TestsComponentA</span> <span class="name builtin">object</span> <span class="name">at</span> <span class="literal number hex">0x11dd990</span><span class="operator">&gt;</span>
 </pre>
 				<p>
 					<strong>manager.componentsManager.Manager.getInterface(name)</strong> method returns the interface of given Component, in the previous example it's the object declared in the description file by this statement: <strong>Object = TestsComponentA</strong>.
@@ -300,36 +289,36 @@ core
 					Reference Component implementation example class:
 				</p>
 				<pre class="code python literal-block">
-<span class="k">class</span> <span class="nc">TestsComponentA</span><span class="p">(</span><span class="n">Component</span><span class="p">):</span>
+<span class="keyword">class</span> <span class="name class">TestsComponentA</span><span class="punctuation">(</span><span class="name">Component</span><span class="punctuation">):</span>
 
-		<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-				<span class="n">Component</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+		<span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="operator">=</span><span class="name builtin pseudo">None</span><span class="punctuation">):</span>
+				<span class="name">Component</span><span class="operator">.</span><span class="name">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="operator">=</span><span class="name">name</span><span class="punctuation">)</span>
 
-				<span class="bp">self</span><span class="o">.</span><span class="n">deactivatable</span> <span class="o">=</span> <span class="bp">True</span>
+				<span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">deactivatable</span> <span class="operator">=</span> <span class="name builtin pseudo">True</span>
 
-		<span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Activating '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+		<span class="keyword">def</span> <span class="name function">activate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+				<span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">&quot;&gt; Activating '{0}' Component.&quot;</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">__class__</span><span class="operator">.</span><span class="name">__name__</span><span class="punctuation">))</span>
 
-				<span class="bp">self</span><span class="o">.</span><span class="n">activated</span> <span class="o">=</span> <span class="bp">True</span>
-				<span class="k">return</span> <span class="bp">True</span>
+				<span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">activated</span> <span class="operator">=</span> <span class="name builtin pseudo">True</span>
+				<span class="keyword">return</span> <span class="name builtin pseudo">True</span>
 
-		<span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Deactivating '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+		<span class="keyword">def</span> <span class="name function">deactivate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+				<span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">&quot;&gt; Deactivating '{0}' Component.&quot;</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">__class__</span><span class="operator">.</span><span class="name">__name__</span><span class="punctuation">))</span>
 
-				<span class="bp">self</span><span class="o">.</span><span class="n">activated</span> <span class="o">=</span> <span class="bp">False</span>
-				<span class="k">return</span> <span class="bp">True</span>
+				<span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">activated</span> <span class="operator">=</span> <span class="name builtin pseudo">False</span>
+				<span class="keyword">return</span> <span class="name builtin pseudo">True</span>
 
-		<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Initializing '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+		<span class="keyword">def</span> <span class="name function">initialize</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+				<span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">&quot;&gt; Initializing '{0}' Component.&quot;</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">__class__</span><span class="operator">.</span><span class="name">__name__</span><span class="punctuation">))</span>
 
-				<span class="bp">self</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="bp">True</span>
-				<span class="k">return</span> <span class="bp">True</span>
+				<span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">initialized</span> <span class="operator">=</span> <span class="name builtin pseudo">True</span>
+				<span class="keyword">return</span> <span class="name builtin pseudo">True</span>
 
-		<span class="k">def</span> <span class="nf">uninitialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-				<span class="k">print</span><span class="p">(</span><span class="s">&quot;&gt; Uninitializing '{0}' Component.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+		<span class="keyword">def</span> <span class="name function">uninitialize</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+				<span class="keyword">print</span><span class="punctuation">(</span><span class="literal string">&quot;&gt; Uninitializing '{0}' Component.&quot;</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">__class__</span><span class="operator">.</span><span class="name">__name__</span><span class="punctuation">))</span>
 
-				<span class="bp">self</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="bp">False</span>
-				<span class="k">return</span> <span class="bp">True</span>
+				<span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">initialized</span> <span class="operator">=</span> <span class="name builtin pseudo">False</span>
+				<span class="keyword">return</span> <span class="name builtin pseudo">True</span>
 </pre><br />
 				<!-- .api -->
 			</div>
