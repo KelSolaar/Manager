@@ -668,7 +668,7 @@ class Profile(object):
 		LOGGER.debug("> Building '{0}' profile.".format(self.__file))
 
 		sectionsFileParser = SectionsFileParser(self.__file)
-		sectionsFileParser.read() and sectionsFileParser.parse()
+		sectionsFileParser.parse()
 
 		if sectionsFileParser.sections:
 			fileStructureParsingError = lambda attribute: foundations.exceptions.FileStructureParsingError(
