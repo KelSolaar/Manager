@@ -74,7 +74,7 @@ class Constants():
 
 	defaultCodec = manager.DEFAULT_CODEC
 	"""Default codec: '**utf-8**' ( String )"""
-	codecError = "ignore"
+	codecError = manager.CODEC_ERROR
 	"""Default codec error behavior: '**ignore**' ( String )"""
 
 	applicationDirectory = os.sep.join(("Manager", ".".join((majorVersion, minorVersion))))
