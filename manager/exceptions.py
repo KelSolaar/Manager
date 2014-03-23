@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines **Manager** package exceptions. 
+	Defines **Manager** package exceptions.
 
 **Others:**
 
@@ -57,63 +57,63 @@ class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
 
 class ComponentProfileError(AbstractComponentsManagerError):
 	"""
-	Defines Component profile exceptions.
+	Defines Component profile exception.
 	"""
 
 	pass
 
 class ComponentModuleError(AbstractComponentsManagerError):
 	"""
-	Defines Component associated module exceptions.
+	Defines Component associated module exception.
 	"""
 
 	pass
 
 class ComponentRegistrationError(AbstractComponentsManagerError):
 	"""
-	Defines Component registration exceptions.
+	Defines Component registration exception.
 	"""
 
 	pass
 
 class ComponentInterfaceError(AbstractComponentsManagerError):
 	"""
-	Defines Component Interface exceptions.
+	Defines Component Interface exception.
 	"""
 
 	pass
 
 class ComponentInstantiationError(AbstractComponentsManagerError):
 	"""
-	Defines Component instantiation exceptions.
+	Defines Component instantiation exception.
 	"""
 
 	pass
 
 class ComponentActivationError(AbstractComponentsManagerError):
 	"""
-	Defines Component activation exceptions.
+	Defines Component activation exception.
 	"""
 
 	pass
 
 class ComponentDeactivationError(AbstractComponentsManagerError):
 	"""
-	Defines Component deactivation exceptions.
+	Defines Component deactivation exception.
 	"""
 
 	pass
 
 class ComponentReloadError(AbstractComponentsManagerError):
 	"""
-	Defines Component reload exceptions.
+	Defines Component reload exception.
 	"""
 
 	pass
 
 class ComponentExistsError(AbstractComponentsManagerError):
 	"""
-	Defines non existing Component exceptions.
+	Defines non existing Component exception.
 	"""
 
 	pass
