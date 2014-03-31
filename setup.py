@@ -82,7 +82,7 @@ def getLongDescription():
 	return "".join(description)
 
 setup(name=manager.globals.constants.Constants.applicationName,
-	version=manager.globals.constants.Constants.releaseVersion,
+	version=manager.globals.constants.Constants.version,
 	author=manager.globals.constants.__author__,
 	author_email=manager.globals.constants.__email__,
 	include_package_data=True,
