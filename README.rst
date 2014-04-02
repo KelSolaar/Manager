@@ -2,6 +2,7 @@ Manager
 =======
 
 ..  image:: https://secure.travis-ci.org/KelSolaar/Manager.png?branch=master
+..  image:: https://gemnasium.com/KelSolaar/Manager.png  
 
 Introduction
 ------------
