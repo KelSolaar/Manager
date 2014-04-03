@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines **Manager** package exceptions. 
+	Defines **Manager** package exceptions.
 
 **Others:**
 
@@ -28,7 +28,7 @@ import foundations.exceptions
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2014 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -50,70 +50,70 @@ __all__ = ["AbstractComponentsManagerError",
 #**********************************************************************************************************************
 class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
 	"""
-	This class is the abstract base class for :class:`manager.componentsManager.Manager` related exceptions.
+	Defines the abstract base class for :class:`manager.componentsManager.Manager` related exceptions.
 	"""
 
 	pass
 
 class ComponentProfileError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component profile exceptions.
+	Defines Component profile exception.
 	"""
 
 	pass
 
 class ComponentModuleError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component associated module exceptions.
+	Defines Component associated module exception.
 	"""
 
 	pass
 
 class ComponentRegistrationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component registration exceptions.
+	Defines Component registration exception.
 	"""
 
 	pass
 
 class ComponentInterfaceError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component Interface exceptions.
+	Defines Component Interface exception.
 	"""
 
 	pass
 
 class ComponentInstantiationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component instantiation exceptions.
+	Defines Component instantiation exception.
 	"""
 
 	pass
 
 class ComponentActivationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component activation exceptions.
+	Defines Component activation exception.
 	"""
 
 	pass
 
 class ComponentDeactivationError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component deactivation exceptions.
+	Defines Component deactivation exception.
 	"""
 
 	pass
 
 class ComponentReloadError(AbstractComponentsManagerError):
 	"""
-	This class is used for Component reload exceptions.
+	Defines Component reload exception.
 	"""
 
 	pass
 
 class ComponentExistsError(AbstractComponentsManagerError):
 	"""
-	This class is used for non existing Component exceptions.
+	Defines non existing Component exception.
 	"""
 
 	pass

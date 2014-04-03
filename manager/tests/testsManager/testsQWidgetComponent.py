@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines units tests for :mod:`manager.qwidgetComponent` module.
+	Defines units tests for :mod:`manager.qwidgetComponent` module.
 
 **Others:**
 
@@ -39,7 +39,7 @@ from manager.qwidgetComponent import QWidgetComponentFactory
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2014 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -57,12 +57,12 @@ APPLICATION = QApplication(sys.argv)
 #**********************************************************************************************************************
 class QWidgetComponentFactoryTestCase(unittest.TestCase):
 	"""
-	This class defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
+	Defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
 	"""
 
 	def testRequiredAttributes(self):
 		"""
-		This method tests presence of required attributes.
+		Tests presence of required attributes.
 		"""
 
 		requiredAttributes = ("name",
@@ -76,7 +76,7 @@ class QWidgetComponentFactoryTestCase(unittest.TestCase):
 
 	def testRequiredMethods(self):
 		"""
-		This method tests presence of required methods.
+		Tests presence of required methods.
 		"""
 
 		requiredMethods = ("activate",

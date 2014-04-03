@@ -1,10 +1,18 @@
-Manager - 2.0.4 - Stable
-=========================
+Manager - 2.0.5 - Stable
+========================
 
 .. .changes
 
 Changes
 =======
+
+2.0.5 - Stable
+--------------
+
+| **Manager** 2.0.5 - Stable - Milestone: https://github.com/KelSolaar/Manager/issues?milestone=4&state=closed
+| **Foundations** 2.1.0 - Stable - Milestone: https://github.com/KelSolaar/Foundations/issues?milestone=8&page=1&state=closed
+
+-  Reformatted package docstrings.
 
 2.0.4 - Stable
 --------------
@@ -55,7 +63,7 @@ Changes
 About
 -----
 
-| **Manager** by Thomas Mansencal – 2008 - 2013
-| Copyright© 2008 - 2013 – Thomas Mansencal – `thomas.mansencal@gmail.com <mailto:thomas.mansencal@gmail.com>`_
+| **Manager** by Thomas Mansencal – 2008 - 2014
+| Copyright © 2008 - 2014 – Thomas Mansencal – `thomas.mansencal@gmail.com <mailto:thomas.mansencal@gmail.com>`_
 | This software is released under terms of GNU GPL V3 license: http://www.gnu.org/licenses/
 | `http://www.thomasmansencal.com/ <http://www.thomasmansencal.com/>`_

@@ -14,7 +14,7 @@ or this alternative command::
 
 	easy_install Manager
 
-Alternatively, if you want to directly install from `Github <http://github.com/KelSolaar/Manager>`_ source repository::
+You can also directly install from `Github <http://github.com/KelSolaar/Manager>`_ source repository::
 
 	git clone git://github.com/KelSolaar/Manager.git
 	cd Manager
