@@ -3,23 +3,23 @@ echo ---------------------------------------------------------------------------
 echo Manager - Files Gathering
 echo -------------------------------------------------------------------------------
 
-export PROJECT=$( dirname "${BASH_SOURCE[0]}" )/..
+export PROJECT_DIRECTORY=$(cd $( dirname "${BASH_SOURCE[0]}" )/..; pwd)
 
-export DOCUMENTATION=$PROJECT/docs/
-export RELEASES=$PROJECT/releases/
-export REPOSITORY=$RELEASES/repository/
-export UTILITIES=$PROJECT/utilities
+export DOCUMENTATION_DIRECTORY=$PROJECT_DIRECTORY/docs/
+export RELEASES_DIRECTORY=$PROJECT_DIRECTORY/releases/
+export REPOSITORY_DIRECTORY=$RELEASES_DIRECTORY/repository/
+export UTILITIES_DIRECTORY=$PROJECT_DIRECTORY/utilities
 
 #! Gathering folder cleanup.
-rm -rf $REPOSITORY
-mkdir -p $REPOSITORY/Manager
+rm -rf $REPOSITORY_DIRECTORY
+mkdir -p $REPOSITORY_DIRECTORY/Manager
 
 #! Manager Changes gathering.
-cp -rf $RELEASES/Changes.html $REPOSITORY/Manager/
+cp -rf $RELEASES_DIRECTORY/Changes.html $REPOSITORY_DIRECTORY/Manager/
 
 #! Manager Manual / Help files.
-cp -rf $DOCUMENTATION/help $REPOSITORY/Manager/Help
-rm $REPOSITORY/Manager/help/Manager_Manual.rst
+cp -rf $DOCUMENTATION_DIRECTORY/help $REPOSITORY_DIRECTORY/Manager/Help
+rm $REPOSITORY_DIRECTORY/Manager/help/Manager_Manual.rst
 
 #! Manager Api files.
-cp -rf $DOCUMENTATION/sphinx/build/html $REPOSITORY/Manager/Api
+cp -rf $DOCUMENTATION_DIRECTORY/sphinx/build/html $REPOSITORY_DIRECTORY/Manager/Api

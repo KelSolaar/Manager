@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`Manager` class and others helper objects.
+	Defines the :class:`Manager` class and others helper objects.
 
 **Others:**
 
@@ -47,7 +47,7 @@ from manager.qwidgetComponent import QWidgetComponentFactory
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2014 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -62,14 +62,15 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 class Components(foundations.dataStructures.Structure):
 	"""
-	This class represents a storage object for :class:`Manager` class Components.
+	Defines a storage object for :class:`Manager` class Components.
 	"""
 
 	def __init__(self, **kwargs):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
-		:param \*\*kwargs: Arguments. ( Key / Value pairs )
+		:param \*\*kwargs: Arguments.
+		:type \*\*kwargs: dict
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -78,15 +79,17 @@ class Components(foundations.dataStructures.Structure):
 
 class Profile(object):
 	"""
-	This class is used by the :class:`Manager` class to store Components informations and objects.
+	Stores :class:`Manager` class Components informations and objects.
 	"""
 
 	def __init__(self, name=None, file=None):
 		"""
-		This method initializes the class.
+		Initializes the class.
 		
-		:param name: Name of the Component. ( String )
-		:param file: File of the Component. ( String )
+		:param name: Name of the Component.
+		:type name: unicode
+		:param file: File of the Component.
+		:type file: unicode
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -118,9 +121,10 @@ class Profile(object):
 	@property
 	def name(self):
 		"""
-		This method is the property for **self.__name** attribute.
+		Property for **self.__name** attribute.
 
-		:return: self.__name. ( String )
+		:return: self.__name.
+		:rtype: unicode
 		"""
 
 		return self.__name
@@ -129,9 +133,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def name(self, value):
 		"""
-		This method is the setter method for **self.__name** attribute.
+		Setter for **self.__name** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -143,7 +148,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
-		This method is the deleter method for **self.__name** attribute.
+		Deleter for **self.__name** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -152,9 +157,10 @@ class Profile(object):
 	@property
 	def file(self):
 		"""
-		This method is the property for **self.__file** attribute.
+		Property for **self.__file** attribute.
 
-		:return: self.__file. ( String )
+		:return: self.__file.
+		:rtype: unicode
 		"""
 
 		return self.__file
@@ -163,9 +169,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def file(self, value):
 		"""
-		This method is the setter method for **self.__file** attribute.
+		Setter for **self.__file** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -176,7 +183,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def file(self):
 		"""
-		This method is the deleter method for **self.__file** attribute.
+		Deleter for **self.__file** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -185,9 +192,10 @@ class Profile(object):
 	@property
 	def directory(self):
 		"""
-		This method is the property for **self.__directory** attribute.
+		Property for **self.__directory** attribute.
 
-		:return: self.__directory. ( String )
+		:return: self.__directory.
+		:rtype: unicode
 		"""
 
 		return self.__directory
@@ -196,9 +204,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def directory(self, value):
 		"""
-		This method is the setter method for **self.__directory** attribute.
+		Setter for **self.__directory** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -211,7 +220,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def directory(self):
 		"""
-		This method is the deleter method for **self.__directory** attribute.
+		Deleter for **self.__directory** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -220,9 +229,10 @@ class Profile(object):
 	@property
 	def attribute(self):
 		"""
-		This method is the property for **self.__attribute** attribute.
+		Property for **self.__attribute** attribute.
 
-		:return: self.__attribute. ( String )
+		:return: self.__attribute.
+		:rtype: unicode
 		"""
 
 		return self.__attribute
@@ -231,9 +241,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def attribute(self, value):
 		"""
-		This method is the setter method for **self.__attribute** attribute.
+		Setter for **self.__attribute** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -245,7 +256,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def attribute(self):
 		"""
-		This method is the deleter method for **self.__attribute** attribute.
+		Deleter for **self.__attribute** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -254,9 +265,10 @@ class Profile(object):
 	@property
 	def require(self):
 		"""
-		This method is the property for **self.__require** attribute.
+		Property for **self.__require** attribute.
 
-		:return: self.__require. ( Tuple / List )
+		:return: self.__require.
+		:rtype: tuple or list
 		"""
 
 		return self.__require
@@ -265,9 +277,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def require(self, value):
 		"""
-		This method is the setter method for **self.__require** attribute.
+		Setter for **self.__require** attribute.
 
-		:param value: Attribute value. ( Tuple / List )
+		:param value: Attribute value.
+		:type value: tuple or list
 		"""
 
 		if value is not None:
@@ -279,7 +292,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def require(self):
 		"""
-		This method is the deleter method for **self.__require** attribute.
+		Deleter for **self.__require** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -288,9 +301,10 @@ class Profile(object):
 	@property
 	def module(self):
 		"""
-		This method is the property for **self.__module** attribute.
+		Property for **self.__module** attribute.
 
-		:return: self.__module. ( Module )
+		:return: self.__module.
+		:rtype: ModuleType
 		"""
 
 		return self.__module
@@ -299,9 +313,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def module(self, value):
 		"""
-		This method is the setter method for **self.__module** attribute.
+		Setter for **self.__module** attribute.
 
-		:param value: Attribute value. ( Module )
+		:param value: Attribute value.
+		:type value: ModuleType
 		"""
 
 		if value is not None:
@@ -312,7 +327,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def module(self):
 		"""
-		This method is the deleter method for **self.__module** attribute.
+		Deleter for **self.__module** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -321,9 +336,10 @@ class Profile(object):
 	@property
 	def interface(self):
 		"""
-		This method is the property for **self.__interface** attribute.
+		Property for **self.__interface** attribute.
 
-		:return: self.__interface. ( Object )
+		:return: self.__interface.
+		:rtype: object
 		"""
 
 		return self.__interface
@@ -331,9 +347,10 @@ class Profile(object):
 	@interface.setter
 	def interface(self, value):
 		"""
-		This method is the setter method for **self.__interface** attribute.
+		Setter for **self.__interface** attribute.
 
-		:param value: Attribute value. ( Object )
+		:param value: Attribute value.
+		:type value: object
 		"""
 
 		self.__interface = value
@@ -342,7 +359,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def interface(self):
 		"""
-		This method is the deleter method for **self.__interface** attribute.
+		Deleter for **self.__interface** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -351,9 +368,10 @@ class Profile(object):
 	@property
 	def category(self):
 		"""
-		This method is the property for **self.__category** attribute.
+		Property for **self.__category** attribute.
 
-		:return: self.__category. ( String )
+		:return: self.__category.
+		:rtype: unicode
 		"""
 
 		return self.__category
@@ -362,9 +380,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def category(self, value):
 		"""
-		This method is the setter method for **self.__category** attribute.
+		Setter for **self.__category** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -376,7 +395,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def category(self):
 		"""
-		This method is the deleter method for **self.__category** attribute.
+		Deleter for **self.__category** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -385,9 +404,10 @@ class Profile(object):
 	@property
 	def title(self):
 		"""
-		This method is the property for **self.__title** attribute.
+		Property for **self.__title** attribute.
 
-		:return: self.__title. ( String )
+		:return: self.__title.
+		:rtype: unicode
 		"""
 
 		return self.__title
@@ -396,9 +416,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def title(self, value):
 		"""
-		This method is the setter method for **self.__title** attribute.
+		Setter for **self.__title** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -410,7 +431,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def title(self):
 		"""
-		This method is the deleter method for **self.__title** attribute.
+		Deleter for **self.__title** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -419,9 +440,10 @@ class Profile(object):
 	@property
 	def package(self):
 		"""
-		This method is the property for **self.__package** attribute.
+		Property for **self.__package** attribute.
 
-		:return: self.__package. ( String )
+		:return: self.__package.
+		:rtype: unicode
 		"""
 
 		return self.__package
@@ -430,9 +452,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def package(self, value):
 		"""
-		This method is the setter method for **self.__package** attribute.
+		Setter for **self.__package** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -444,7 +467,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def package(self):
 		"""
-		This method is the deleter method for **self.__package** attribute.
+		Deleter for **self.__package** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -453,9 +476,10 @@ class Profile(object):
 	@property
 	def version(self):
 		"""
-		This method is the property for **self.__version** attribute.
+		Property for **self.__version** attribute.
 
-		:return: self.__version. ( String )
+		:return: self.__version.
+		:rtype: unicode
 		"""
 
 		return self.__version
@@ -464,9 +488,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def version(self, value):
 		"""
-		This method is the setter method for **self.__version** attribute.
+		Setter for **self.__version** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -478,7 +503,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def version(self):
 		"""
-		This method is the deleter method for **self.__version** attribute.
+		Deleter for **self.__version** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -487,9 +512,10 @@ class Profile(object):
 	@property
 	def author(self):
 		"""
-		This method is the property for **self.__author** attribute.
+		Property for **self.__author** attribute.
 
-		:return: self.__author. ( String )
+		:return: self.__author.
+		:rtype: unicode
 		"""
 
 		return self.__author
@@ -498,9 +524,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def author(self, value):
 		"""
-		This method is the setter method for **self.__author** attribute.
+		Setter for **self.__author** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -512,7 +539,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def author(self):
 		"""
-		This method is the deleter method for **self.__author** attribute.
+		Deleter for **self.__author** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -521,9 +548,10 @@ class Profile(object):
 	@property
 	def email(self):
 		"""
-		This method is the property for **self.__email** attribute.
+		Property for **self.__email** attribute.
 
-		:return: self.__email. ( String )
+		:return: self.__email.
+		:rtype: unicode
 		"""
 
 		return self.__email
@@ -532,9 +560,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def email(self, value):
 		"""
-		This method is the setter method for **self.__email** attribute.
+		Setter for **self.__email** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -546,7 +575,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def email(self):
 		"""
-		This method is the deleter method for **self.__email** attribute.
+		Deleter for **self.__email** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -555,9 +584,10 @@ class Profile(object):
 	@property
 	def url(self):
 		"""
-		This method is the property for **self.__url** attribute.
+		Property for **self.__url** attribute.
 
-		:return: self.__url. ( String )
+		:return: self.__url.
+		:rtype: unicode
 		"""
 
 		return self.__url
@@ -566,9 +596,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def url(self, value):
 		"""
-		This method is the setter method for **self.__url** attribute.
+		Setter for **self.__url** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -580,7 +611,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def url(self):
 		"""
-		This method is the deleter method for **self.__url** attribute.
+		Deleter for **self.__url** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -589,9 +620,10 @@ class Profile(object):
 	@property
 	def description(self):
 		"""
-		This method is the property for **self.__description** attribute.
+		Property for **self.__description** attribute.
 
-		:return: self.__description. ( String )
+		:return: self.__description.
+		:rtype: unicode
 		"""
 
 		return self.__description
@@ -600,9 +632,10 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def description(self, value):
 		"""
-		This method is the setter method for **self.__description** attribute.
+		Setter for **self.__description** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -614,7 +647,7 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def description(self):
 		"""
-		This method is the deleter method for **self.__description** attribute.
+		Deleter for **self.__description** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -626,15 +659,16 @@ class Profile(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.FileStructureParsingError)
 	def initializeProfile(self):
 		"""
-		This method gets initializes the Component Profile.
+		Initializes the Component Profile.
 		
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		LOGGER.debug("> Building '{0}' profile.".format(self.__file))
 
 		sectionsFileParser = SectionsFileParser(self.__file)
-		sectionsFileParser.read() and sectionsFileParser.parse()
+		sectionsFileParser.parse()
 
 		if sectionsFileParser.sections:
 			fileStructureParsingError = lambda attribute: foundations.exceptions.FileStructureParsingError(
@@ -680,7 +714,7 @@ class Profile(object):
 
 class Manager(object):
 	"""
-	| This class defines methods to manage Components, allowing Components registration / unregistration,
+	| Defines methods to manage Components, allowing Components registration / unregistration,
 		instantiation and reloading.
 	| The Components can be registered in mass by providing paths that are recursively walk for candidates
 		or simply by calling the registration method on a given Component file.
@@ -693,7 +727,7 @@ class Manager(object):
 				extension="rc",
 				categories={"Default" : Component, "QWidget" : QWidgetComponentFactory(), "QObject" : QObjectComponent}):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
 		Usage::
 
@@ -707,9 +741,12 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x11dd990>
 
-		:param paths: Paths to walk. ( Tuple / List )
-		:param extension: Components file extension. ( String )
-		:param categories: Components categories. ( Dictionary )
+		:param paths: Paths to walk.
+		:type paths: tuple or list
+		:param extension: Components file extension.
+		:type extension: unicode
+		:param categories: Components categories.
+		:type categories: dict
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -729,9 +766,10 @@ class Manager(object):
 	@property
 	def paths(self):
 		"""
-		This method is the property for **self.__paths** attribute.
+		Property for **self.__paths** attribute.
 
-		:return: self.__paths. ( Tuple / List )
+		:return: self.__paths.
+		:rtype: tuple or list
 		"""
 
 		return self.__paths
@@ -740,9 +778,10 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def paths(self, value):
 		"""
-		This method is the setter method for **self.__paths** attribute.
+		Setter for **self.__paths** attribute.
 
-		:param value: Attribute value. ( Tuple / List )
+		:param value: Attribute value.
+		:type value: tuple or list
 		"""
 
 		if value is not None:
@@ -758,7 +797,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def paths(self):
 		"""
-		This method is the deleter method for **self.__paths** attribute.
+		Deleter for **self.__paths** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -767,9 +806,10 @@ class Manager(object):
 	@property
 	def extension(self):
 		"""
-		This method is the property for **self.__extension** attribute.
+		Property for **self.__extension** attribute.
 
-		:return: self.__extension. ( String )
+		:return: self.__extension.
+		:rtype: unicode
 		"""
 
 		return self.__extension
@@ -778,9 +818,10 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def extension(self, value):
 		"""
-		This method is the setter method for **self.__extension** attribute.
+		Setter for **self.__extension** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -792,7 +833,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def extension(self):
 		"""
-		This method is the deleter method for **self.__extension** attribute.
+		Deleter for **self.__extension** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -801,9 +842,10 @@ class Manager(object):
 	@property
 	def categories(self):
 		"""
-		This method is the property for **self.__categories** attribute.
+		Property for **self.__categories** attribute.
 
-		:return: self.__categories. ( Dictionary )
+		:return: self.__categories.
+		:rtype: dict
 		"""
 
 		return self.__categories
@@ -812,9 +854,10 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def categories(self, value):
 		"""
-		This method is the setter method for **self.__categories** attribute.
+		Setter for **self.__categories** attribute.
 
-		:param value: Attribute value. ( Dictionary )
+		:param value: Attribute value.
+		:type value: dict
 		"""
 
 		if value is not None:
@@ -828,7 +871,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def categories(self):
 		"""
-		This method is the deleter method for **self.__categories** attribute.
+		Deleter for **self.__categories** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -837,9 +880,10 @@ class Manager(object):
 	@property
 	def components(self):
 		"""
-		This method is the property for **self.__components** attribute.
+		Property for **self.__components** attribute.
 
-		:return: self.__components. ( Dictionary )
+		:return: self.__components.
+		:rtype: dict
 		"""
 
 		return self.__components
@@ -848,9 +892,10 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def components(self, value):
 		"""
-		This method is the setter method for **self.__components** attribute.
+		Setter for **self.__components** attribute.
 
-		:param value: Attribute value. ( Dictionary )
+		:param value: Attribute value.
+		:type value: dict
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -860,7 +905,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def components(self):
 		"""
-		This method is the deleter method for **self.__components** attribute.
+		Deleter for **self.__components** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -871,7 +916,7 @@ class Manager(object):
 	#******************************************************************************************************************
 	def __getitem__(self, component):
 		"""
-		This method reimplements the :meth:`object.__getitem__` method.
+		Reimplements the :meth:`object.__getitem__` method.
 
 		Usage::
 
@@ -881,15 +926,17 @@ class Manager(object):
 			>>> manager["core.testsComponentA"]
 			<manager.componentsManager.Profile object at 0x101c4bd50>
 		
-		:param component: Component name. ( String )
-		:return: Component profile. ( Profile )
+		:param component: Component name.
+		:type component: unicode
+		:return: Component profile.
+		:rtype: Profile
 		"""
 
 		return self.__components.__getitem__(component).interface
 
 	def __iter__(self):
 		"""
-		This method reimplements the :meth:`object.__iter__` method.
+		Reimplements the :meth:`object.__iter__` method.
 
 		Usage::
 
@@ -902,14 +949,15 @@ class Manager(object):
 			core.testsComponentB
 			core.testsComponentA
 		
-		:return: Components iterator. ( Object )
+		:return: Components iterator.
+		:rtype: object
 		"""
 
 		return self.__components.iteritems()
 
 	def __contains__(self, component):
 		"""
-		This method reimplements the :meth:`object.__contains__` method.
+		Reimplements the :meth:`object.__contains__` method.
 
 		Usage::
 
@@ -921,15 +969,17 @@ class Manager(object):
 			>>> "core.nemoComponent" in manager
 			False
 		
-		:param component: Component name. ( String )
-		:return: Component existence. ( Boolean )
+		:param component: Component name.
+		:type component: unicode
+		:return: Component existence.
+		:rtype: bool
 		"""
 
 		return component in self.__components.keys()
 
 	def __len__(self):
 		"""
-		This method reimplements the :meth:`object.__len__` method.
+		Reimplements the :meth:`object.__len__` method.
 
 		Usage::
 
@@ -939,7 +989,8 @@ class Manager(object):
 			>>> len(manager)
 			2
 		
-		:return: Components count. ( Integer )
+		:return: Components count.
+		:rtype: int
 		"""
 
 		return len(self.__components.keys())
@@ -948,7 +999,7 @@ class Manager(object):
 											manager.exceptions.ComponentProfileError)
 	def registerComponent(self, path):
 		"""
-		This method registers a Component using given path.
+		Registers a Component using given path.
 
 		Usage::
 
@@ -958,8 +1009,10 @@ class Manager(object):
 			>>> manager.components
 			{u'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
 
-		:param path: Component path. ( String )
-		:return: Method success. ( Boolean )
+		:param path: Component path.
+		:type path: unicode
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		component = foundations.strings.getSplitextBasename(path)
@@ -980,7 +1033,7 @@ class Manager(object):
 
 	def unregisterComponent(self, component):
 		"""
-		This method unregisters given Component.
+		Unregisters given Component.
 
 		.. warning::
 
@@ -997,8 +1050,10 @@ class Manager(object):
 			>>> manager.components
 			{}
 
-		:param component: Component to remove. ( String )
-		:return: Method success. ( Boolean )
+		:param component: Component to remove.
+		:type component: unicode
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		del(self.__components[component])
@@ -1007,7 +1062,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(manager.exceptions.ComponentRegistrationError)
 	def registerComponents(self):
 		"""
-		This method registers the Components.
+		Registers the Components.
 
 		Usage::
 
@@ -1017,7 +1072,8 @@ class Manager(object):
 			>>> manager.components.keys()
 			[u'core.testsComponentA', u'core.testsComponentB']
 		
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		unregisteredComponents = []
@@ -1035,7 +1091,7 @@ class Manager(object):
 
 	def unregisterComponents(self):
 		"""
-		This method unregisters the Components.
+		Unregisters the Components.
 
 		.. warning::
 
@@ -1052,7 +1108,8 @@ class Manager(object):
 			>>> manager.components
 			{}
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		self.__components.clear()
@@ -1061,7 +1118,7 @@ class Manager(object):
 	@foundations.exceptions.handleExceptions(manager.exceptions.ComponentInterfaceError)
 	def instantiateComponent(self, component, callback=None):
 		"""
-		This method instantiates given Component.
+		Instantiates given Component.
 
 		Usage::
 
@@ -1073,8 +1130,10 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17a5b90>
 
-		:param component: Component to instantiate. ( String )
-		:param callback: Callback object. ( Object )
+		:param component: Component to instantiate.
+		:type component: unicode
+		:param callback: Callback object.
+		:type callback: object
 		"""
 
 		profile = self.__components[component]
@@ -1106,7 +1165,7 @@ class Manager(object):
 
 	def instantiateComponents(self, callback=None):
 		"""
-		This method instantiates the Components.
+		Instantiates the Components.
 
 		Usage::
 
@@ -1118,7 +1177,8 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17a5bb0>
 
-		:param callback: Callback object. ( Object )
+		:param callback: Callback object.
+		:type callback: object
 		"""
 
 		uninstantiatedComponents = [component
@@ -1133,7 +1193,7 @@ class Manager(object):
 
 	def reloadComponent(self, component):
 		"""
-		This method reload given Component module.
+		Reload given Component module.
 
 		Usage::
 
@@ -1149,8 +1209,10 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17b0d70>
 
-		:param component: Component name. ( String )
-		:return: Reload success. ( Boolean )
+		:param component: Component name.
+		:type component: unicode
+		:return: Reload success.
+		:rtype: bool
 		"""
 
 		dependents = list(reversed(self.listDependents(component)))
@@ -1172,7 +1234,7 @@ class Manager(object):
 
 	def listComponents(self, dependencyOrder=True):
 		"""
-		This method lists the Components by dependency resolving.
+		Lists the Components by dependency resolving.
 
 		Usage::
 
@@ -1182,7 +1244,8 @@ class Manager(object):
 			>>> manager.listComponents()
 			[u'core.testsComponentA', u'core.testsComponentB']
 
-		:param dependencyOrder: Components are returned by dependency order. ( Boolean )
+		:param dependencyOrder: Components are returned by dependency order.
+		:type dependencyOrder: bool
 		"""
 
 		if dependencyOrder:
@@ -1193,7 +1256,7 @@ class Manager(object):
 
 	def listDependents(self, component, dependents=None):
 		"""
-		This method lists given Component dependents Components.
+		Lists given Component dependents Components.
 
 		Usage::
 
@@ -1203,9 +1266,12 @@ class Manager(object):
 			>>> manager.listDependents("core.testsComponentA")
 			[u'core.testsComponentB']
 
-		:param component: Component to retrieve the dependents Components. ( String )
-		:param dependents: Component dependents Components. ( Set )
-		:return: Dependent Components. ( List )
+		:param component: Component to retrieve the dependents Components.
+		:type component: unicode
+		:param dependents: Component dependents Components.
+		:type dependents: set
+		:return: Dependent Components.
+		:rtype: list
 		"""
 
 		dependents = set() if dependents is None else dependents
@@ -1220,7 +1286,7 @@ class Manager(object):
 
 	def filterComponents(self, pattern, category=None):
 		"""
-		This method filters the Components using given regex pattern.
+		Filters the Components using given regex pattern.
 
 		Usage::
 
@@ -1230,24 +1296,27 @@ class Manager(object):
 			>>> manager.filterComponents("\w+A$")
 			[u'core.testsComponentA']
 
-		:param pattern: Regex filtering pattern. ( String )
-		:param category: Category filter. ( String )
-		:return: Matching Components. ( List )
+		:param pattern: Regex filtering pattern.
+		:type pattern: unicode
+		:param category: Category filter.
+		:type category: unicode
+		:return: Matching Components.
+		:rtype: list
 		"""
 
-		matchingItems = []
+		filteredComponents = []
 		for component, profile in self:
 			if category:
 				if profile.category != category:
 					continue
 
 			if re.search(pattern, component):
-				matchingItems.append(component)
-		return matchingItems
+				filteredComponents.append(component)
+		return filteredComponents
 
 	def getProfile(self, component):
 		"""
-		This method gets given Component profile.
+		Gets given Component profile.
 
 		Usage::
 
@@ -1257,8 +1326,10 @@ class Manager(object):
 			>>> manager.getProfile("core.testsComponentA")
 			<manager.componentsManager.Profile object at 0x10258ef10>
 
-		:param component: Component to get the profile. ( String )
-		:return: Component profile. ( Profile )
+		:param component: Component to get the profile.
+		:type component: unicode
+		:return: Component profile.
+		:rtype: Profile
 		"""
 
 		components = self.filterComponents(r"^{0}$".format(component))
@@ -1267,7 +1338,7 @@ class Manager(object):
 
 	def getInterface(self, component):
 		"""
-		This method gets given Component interface.
+		Gets given Component interface.
 
 		Usage::
 
@@ -1277,8 +1348,10 @@ class Manager(object):
 			>>> manager.getInterface("core.testsComponentA")
 			<testsComponentA.TestsComponentA object at 0x17b0d70>
 
-		:param component: Component to get the interface. ( String )
-		:return: Component interface. ( Object )
+		:param component: Component to get the interface.
+		:type component: unicode
+		:return: Component interface.
+		:rtype: object
 		"""
 
 		profile = self.getProfile(component)
@@ -1288,15 +1361,17 @@ class Manager(object):
 	@staticmethod
 	def getComponentAttributeName(component):
 		"""
-		This method gets given Component attribute name.
+		Gets given Component attribute name.
 
 		Usage::
 
 			>>> Manager.getComponentAttributeName("factory.componentsManagerUi")
 			u'factoryComponentsManagerUi'
 
-		:param component: Component to get the attribute name. ( String )
-		:return: Component attribute name. ( Object )
+		:param component: Component to get the attribute name.
+		:type component: unicode
+		:return: Component attribute name.
+		:rtype: object
 		"""
 
 		search = re.search(r"(?P<category>\w+)\.(?P<name>\w+)", component)

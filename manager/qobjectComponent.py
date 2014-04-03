@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`QObjectComponent` class.
+	Defines the :class:`QObjectComponent` class.
 
 **Others:**
 
@@ -35,7 +35,7 @@ import foundations.verbose
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2014 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -50,7 +50,7 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 class QObjectComponent(QObject):
 	"""
-	This class is the base class for **Manager** package QObject Components.
+	Defines the base class for **Manager** package QObject Components.
 	"""
 
 	componentActivated = pyqtSignal()
@@ -75,12 +75,16 @@ class QObjectComponent(QObject):
 
 	def __init__(self, parent=None, name=None, *args, **kwargs):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
-		:param parent: Object parent. ( QObject )
-		:param name: Component name. ( String )
-		:param \*args: Arguments. ( \* )
-		:param \*\*kwargs: Keywords arguments. ( \*\* )
+		:param parent: Object parent.
+		:type parent: QObject
+		:param name: Component name.
+		:type name: unicode
+		:param \*args: Arguments.
+		:type \*args: \*
+		:param \*\*kwargs: Keywords arguments.
+		:type \*\*kwargs: \*\*
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -101,9 +105,10 @@ class QObjectComponent(QObject):
 	@property
 	def name(self):
 		"""
-		This method is the property for **self.__name** attribute.
+		Property for **self.__name** attribute.
 
-		:return: self.__name. ( String )
+		:return: self.__name.
+		:rtype: unicode
 		"""
 
 		return self.__name
@@ -112,9 +117,10 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def name(self, value):
 		"""
-		This method is the setter method for **self.__name** attribute.
+		Setter for **self.__name** attribute.
 
-		:param value: Attribute value. ( String )
+		:param value: Attribute value.
+		:type value: unicode
 		"""
 
 		if value is not None:
@@ -125,7 +131,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
-		This method is the deleter method for **self.__name** attribute.
+		Deleter for **self.__name** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -134,9 +140,10 @@ class QObjectComponent(QObject):
 	@property
 	def activated(self):
 		"""
-		This method is the property for **self.__activated** attribute.
+		Property for **self.__activated** attribute.
 
-		:return: self.__activated. ( Boolean )
+		:return: self.__activated.
+		:rtype: bool
 		"""
 
 		return self.__activated
@@ -145,9 +152,10 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def activated(self, value):
 		"""
-		This method is the setter method for **self.__activated** attribute.
+		Setter for **self.__activated** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -159,7 +167,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def activated(self):
 		"""
-		This method is the deleter method for **self.__activated** attribute.
+		Deleter for **self.__activated** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -168,9 +176,10 @@ class QObjectComponent(QObject):
 	@property
 	def initialized(self):
 		"""
-		This method is the property for **self.__initialized** attribute.
+		Property for **self.__initialized** attribute.
 
-		:return: self.__initialized. ( Boolean )
+		:return: self.__initialized.
+		:rtype: bool
 		"""
 
 		return self.__initialized
@@ -179,9 +188,10 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def initialized(self, value):
 		"""
-		This method is the setter method for **self.__initialized** attribute.
+		Setter for **self.__initialized** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -193,7 +203,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def initialized(self):
 		"""
-		This method is the deleter method for **self.__initialized** attribute.
+		Deleter for **self.__initialized** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -202,9 +212,10 @@ class QObjectComponent(QObject):
 	@property
 	def deactivatable(self):
 		"""
-		This method is the property for **self.__deactivatable** attribute.
+		Property for **self.__deactivatable** attribute.
 
-		:return: self.__deactivatable. ( Boolean )
+		:return: self.__deactivatable.
+		:rtype: bool
 		"""
 
 		return self.__deactivatable
@@ -213,9 +224,10 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(AssertionError)
 	def deactivatable(self, value):
 		"""
-		This method is the setter method for **self.__deactivatable** attribute.
+		Setter for **self.__deactivatable** attribute.
 
-		:param value: Attribute value. ( Boolean )
+		:param value: Attribute value.
+		:type value: bool
 		"""
 
 		if value is not None:
@@ -226,7 +238,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def deactivatable(self):
 		"""
-		This method is the deleter method for **self.__deactivatable** attribute.
+		Deleter for **self.__deactivatable** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
@@ -238,9 +250,10 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def activate(self):
 		"""
-		This method sets Component activation state.
+		Sets Component activation state.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -249,9 +262,10 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def deactivate(self):
 		"""
-		This method unsets Component activation state.
+		Unsets Component activation state.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -260,7 +274,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def initialize(self):
 		"""
-		This method initializes the Component.
+		Initializes the Component.
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
@@ -269,7 +283,7 @@ class QObjectComponent(QObject):
 	@foundations.exceptions.handleExceptions(NotImplementedError)
 	def uninitialize(self):
 		"""
-		This method uninitializes the Component.
+		Uninitializes the Component.
 		"""
 
 		raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(

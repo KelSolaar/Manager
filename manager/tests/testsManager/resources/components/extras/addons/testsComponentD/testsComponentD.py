@@ -8,7 +8,7 @@
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	This module defines the :class:`TestsComponentD` Component Interface class.
+	Defines the :class:`TestsComponentD` Component Interface class.
 
 **Others:**
 
@@ -30,7 +30,7 @@ from manager.component import Component
 #***	Module attributes.
 #**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
-__copyright__ = "Copyright (C) 2008 - 2013 - Thomas Mansencal"
+__copyright__ = "Copyright (C) 2008 - 2014 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
 __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
@@ -45,15 +45,16 @@ LOGGER = foundations.verbose.installLogger()
 #**********************************************************************************************************************
 class TestsComponentD(Component):
 	"""
-	This class is the :mod:`tests.testsManager.resources.components.addons.testsComponentD.testsComponentD`
+	Defines the :mod:`tests.testsManager.resources.components.addons.testsComponentD.testsComponentD`
 	Component Interface class.
 	"""
 
 	def __init__(self, name=None):
 		"""
-		This method initializes the class.
+		Initializes the class.
 
-		:param name: Component name. ( String )
+		:param name: Component name.
+		:type name: unicode
 		"""
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
@@ -71,9 +72,10 @@ class TestsComponentD(Component):
 	@property
 	def container(self):
 		"""
-		This method is the property for **self.__container** attribute.
+		Property for **self.__container** attribute.
 
-		:return: self.__container. ( QObject )
+		:return: self.__container.
+		:rtype: QObject
 		"""
 
 		return self.__container
@@ -82,9 +84,10 @@ class TestsComponentD(Component):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def container(self, value):
 		"""
-		This method is the setter method for **self.__container** attribute.
+		Setter for **self.__container** attribute.
 
-		:param value: Attribute value. ( QObject )
+		:param value: Attribute value.
+		:type value: QObject
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -94,7 +97,7 @@ class TestsComponentD(Component):
 	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
 	def container(self):
 		"""
-		This method is the deleter method for **self.__container** attribute.
+		Deleter for **self.__container** attribute.
 		"""
 
 		raise foundations.exceptions.ProgrammingError(
@@ -104,10 +107,12 @@ class TestsComponentD(Component):
 	#******************************************************************************************************************
 	def activate(self, container):
 		"""
-		This method activates the Component.
+		Activates the Component.
 
-		:param container: Container to attach the Component to. ( QObject )
-		:return: Method success. ( Boolean )
+		:param container: Container to attach the Component to.
+		:type container: QObject
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		LOGGER.debug("> Activating '{0}' Component.".format(self.__class__.__name__))
@@ -119,9 +124,10 @@ class TestsComponentD(Component):
 
 	def deactivate(self):
 		"""
-		This method deactivates the Component.
+		Deactivates the Component.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		LOGGER.debug("> Deactivating '{0}' Component.".format(self.__class__.__name__))
@@ -133,9 +139,10 @@ class TestsComponentD(Component):
 
 	def initialize(self):
 		"""
-		This method initializes the Component.
+		Initializes the Component.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		LOGGER.debug("> Initializing '{0}' Component.".format(self.__class__.__name__))
@@ -145,9 +152,10 @@ class TestsComponentD(Component):
 
 	def uninitialize(self):
 		"""
-		This method uninitializes the Component.
+		Uninitializes the Component.
 
-		:return: Method success. ( Boolean )
+		:return: Method success.
+		:rtype: bool
 		"""
 
 		LOGGER.debug("> Uninitializing '{0}' Component.".format(self.__class__.__name__))

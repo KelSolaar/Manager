@@ -13,3 +13,4 @@ dist/
 docs/sphinx/build/
 docs/sphinx/source/resources/packages/
 releases/
+.idea/
