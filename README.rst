@@ -1,3 +1,6 @@
+.. image:: https://badge.waffle.io/kelsolaar/manager.png?label=ready&title=Ready 
+ :target: https://waffle.io/kelsolaar/manager
+ :alt: 'Stories in Ready'
 Manager
 =======
 
