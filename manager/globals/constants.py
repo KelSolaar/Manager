@@ -102,12 +102,12 @@ class Constants():
 	:type loggingSeparators: unicode
 	"""
 
-	defaultCodec = manager.DEFAULT_CODEC
+	defaultCodec = "utf-8"
 	"""
 	:param defaultCodec: Default codec.
 	:type defaultCodec: unicode
 	"""
-	codecError = manager.CODEC_ERROR
+	codecError = "ignore"
 	"""
 	:param codecError: Default codec error behavior.
 	:type codecError: unicode
