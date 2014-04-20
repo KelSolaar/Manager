@@ -32,7 +32,7 @@ import re
 #***	Internal imports.
 #**********************************************************************************************************************
 import foundations.common
-import foundations.dataStructures
+import foundations.data_structures
 import foundations.exceptions
 import foundations.strings
 import foundations.verbose
@@ -40,8 +40,8 @@ import foundations.walkers
 import manager.exceptions
 from foundations.parsers import SectionsFileParser
 from manager.component import Component
-from manager.qobjectComponent import QObjectComponent
-from manager.qwidgetComponent import QWidgetComponentFactory
+from manager.QObject_component import QObjectComponent
+from manager.QWidget_component import QWidgetComponentFactory
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -55,12 +55,12 @@ __status__ = "Production"
 
 __all__ = ["LOGGER", "Components", "Profile", "Manager"]
 
-LOGGER = foundations.verbose.installLogger()
+LOGGER = foundations.verbose.install_logger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class Components(foundations.dataStructures.Structure):
+class Components(foundations.data_structures.Structure):
 	"""
 	Defines a storage object for :class:`Manager` class Components.
 	"""
@@ -75,7 +75,7 @@ class Components(foundations.dataStructures.Structure):
 
 		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
 
-		foundations.dataStructures.Structure.__init__(self, **kwargs)
+		foundations.data_structures.Structure.__init__(self, **kwargs)
 
 class Profile(object):
 	"""
@@ -85,7 +85,7 @@ class Profile(object):
 	def __init__(self, name=None, file=None):
 		"""
 		Initializes the class.
-		
+
 		:param name: Name of the Component.
 		:type name: unicode
 		:param file: File of the Component.
@@ -130,7 +130,7 @@ class Profile(object):
 		return self.__name
 
 	@name.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def name(self, value):
 		"""
 		Setter for **self.__name** attribute.
@@ -145,7 +145,7 @@ class Profile(object):
 		self.__name = value
 
 	@name.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def name(self):
 		"""
 		Deleter for **self.__name** attribute.
@@ -166,7 +166,7 @@ class Profile(object):
 		return self.__file
 
 	@file.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def file(self, value):
 		"""
 		Setter for **self.__file** attribute.
@@ -180,7 +180,7 @@ class Profile(object):
 		self.__file = value
 
 	@file.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def file(self):
 		"""
 		Deleter for **self.__file** attribute.
@@ -201,7 +201,7 @@ class Profile(object):
 		return self.__directory
 
 	@directory.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def directory(self, value):
 		"""
 		Setter for **self.__directory** attribute.
@@ -217,7 +217,7 @@ class Profile(object):
 		self.__directory = value
 
 	@directory.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def directory(self):
 		"""
 		Deleter for **self.__directory** attribute.
@@ -238,7 +238,7 @@ class Profile(object):
 		return self.__attribute
 
 	@attribute.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def attribute(self, value):
 		"""
 		Setter for **self.__attribute** attribute.
@@ -253,7 +253,7 @@ class Profile(object):
 		self.__attribute = value
 
 	@attribute.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def attribute(self):
 		"""
 		Deleter for **self.__attribute** attribute.
@@ -274,7 +274,7 @@ class Profile(object):
 		return self.__require
 
 	@require.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def require(self, value):
 		"""
 		Setter for **self.__require** attribute.
@@ -289,7 +289,7 @@ class Profile(object):
 		self.__require = value
 
 	@require.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def require(self):
 		"""
 		Deleter for **self.__require** attribute.
@@ -310,7 +310,7 @@ class Profile(object):
 		return self.__module
 
 	@module.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def module(self, value):
 		"""
 		Setter for **self.__module** attribute.
@@ -324,7 +324,7 @@ class Profile(object):
 		self.__module = value
 
 	@module.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def module(self):
 		"""
 		Deleter for **self.__module** attribute.
@@ -356,7 +356,7 @@ class Profile(object):
 		self.__interface = value
 
 	@interface.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def interface(self):
 		"""
 		Deleter for **self.__interface** attribute.
@@ -377,7 +377,7 @@ class Profile(object):
 		return self.__category
 
 	@category.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def category(self, value):
 		"""
 		Setter for **self.__category** attribute.
@@ -392,7 +392,7 @@ class Profile(object):
 		self.__category = value
 
 	@category.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def category(self):
 		"""
 		Deleter for **self.__category** attribute.
@@ -413,7 +413,7 @@ class Profile(object):
 		return self.__title
 
 	@title.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def title(self, value):
 		"""
 		Setter for **self.__title** attribute.
@@ -428,7 +428,7 @@ class Profile(object):
 		self.__title = value
 
 	@title.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def title(self):
 		"""
 		Deleter for **self.__title** attribute.
@@ -449,7 +449,7 @@ class Profile(object):
 		return self.__package
 
 	@package.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def package(self, value):
 		"""
 		Setter for **self.__package** attribute.
@@ -464,7 +464,7 @@ class Profile(object):
 		self.__package = value
 
 	@package.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def package(self):
 		"""
 		Deleter for **self.__package** attribute.
@@ -485,7 +485,7 @@ class Profile(object):
 		return self.__version
 
 	@version.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def version(self, value):
 		"""
 		Setter for **self.__version** attribute.
@@ -500,7 +500,7 @@ class Profile(object):
 		self.__version = value
 
 	@version.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def version(self):
 		"""
 		Deleter for **self.__version** attribute.
@@ -521,7 +521,7 @@ class Profile(object):
 		return self.__author
 
 	@author.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def author(self, value):
 		"""
 		Setter for **self.__author** attribute.
@@ -536,7 +536,7 @@ class Profile(object):
 		self.__author = value
 
 	@author.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def author(self):
 		"""
 		Deleter for **self.__author** attribute.
@@ -557,7 +557,7 @@ class Profile(object):
 		return self.__email
 
 	@email.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def email(self, value):
 		"""
 		Setter for **self.__email** attribute.
@@ -572,7 +572,7 @@ class Profile(object):
 		self.__email = value
 
 	@email.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def email(self):
 		"""
 		Deleter for **self.__email** attribute.
@@ -593,7 +593,7 @@ class Profile(object):
 		return self.__url
 
 	@url.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def url(self, value):
 		"""
 		Setter for **self.__url** attribute.
@@ -608,7 +608,7 @@ class Profile(object):
 		self.__url = value
 
 	@url.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def url(self):
 		"""
 		Deleter for **self.__url** attribute.
@@ -629,7 +629,7 @@ class Profile(object):
 		return self.__description
 
 	@description.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def description(self, value):
 		"""
 		Setter for **self.__description** attribute.
@@ -644,7 +644,7 @@ class Profile(object):
 		self.__description = value
 
 	@description.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def description(self):
 		"""
 		Deleter for **self.__description** attribute.
@@ -656,56 +656,56 @@ class Profile(object):
 	#******************************************************************************************************************
 	#***	Class methods.
 	#******************************************************************************************************************
-	@foundations.exceptions.handleExceptions(foundations.exceptions.FileStructureParsingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.FileStructureParsingError)
 	def initializeProfile(self):
 		"""
 		Initializes the Component Profile.
-		
+
 		:return: Method success.
 		:rtype: bool
 		"""
 
 		LOGGER.debug("> Building '{0}' profile.".format(self.__file))
 
-		sectionsFileParser = SectionsFileParser(self.__file)
-		sectionsFileParser.parse()
+		sections_file_parser = SectionsFileParser(self.__file)
+		sections_file_parser.parse()
 
-		if sectionsFileParser.sections:
+		if sections_file_parser.sections:
 			fileStructureParsingError = lambda attribute: foundations.exceptions.FileStructureParsingError(
 			"{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
 			self.__class__.__name__, attribute, self.__file))
 
 			self.__directory = os.path.dirname(self.__file)
-			self.__name = sectionsFileParser.getValue("Name", "Component", default=None)
+			self.__name = sections_file_parser.get_value("Name", "Component", default=None)
 			if self.__name is None:
 				raise fileStructureParsingError("Name")
 
-			self.__title = sectionsFileParser.getValue("Title", "Component", default=None)
+			self.__title = sections_file_parser.get_value("Title", "Component", default=None)
 			if self.__title is None:
 				self.__title = self.__name
 
-			self.__package = sectionsFileParser.getValue("Module", "Component", default=None)
+			self.__package = sections_file_parser.get_value("Module", "Component", default=None)
 			if self.__package is None:
 				raise fileStructureParsingError("Module")
 
-			self.__attribute = sectionsFileParser.getValue("Object", "Component", default=None)
+			self.__attribute = sections_file_parser.get_value("Object", "Component", default=None)
 			if self.__attribute is None:
 				raise fileStructureParsingError("Object")
 
-			self.__require = sectionsFileParser.getValue("Require", "Component", default=None)
+			self.__require = sections_file_parser.get_value("Require", "Component", default=None)
 			self.__require = list() if self.__require is None else self.__require.split("|")
 
-			self.__version = sectionsFileParser.getValue("Version", "Component", default=None)
+			self.__version = sections_file_parser.get_value("Version", "Component", default=None)
 			if self.__version is None:
 				raise fileStructureParsingError("Version")
 
-			self.__author = sectionsFileParser.getValue("Author", "Informations", default=None)
+			self.__author = sections_file_parser.get_value("Author", "Informations", default=None)
 
-			self.__email = sectionsFileParser.getValue("Email", "Informations", default=None)
+			self.__email = sections_file_parser.get_value("Email", "Informations", default=None)
 
-			self.__url = sectionsFileParser.getValue("Url", "Informations", default=None)
+			self.__url = sections_file_parser.get_value("Url", "Informations", default=None)
 
-			self.__description = sectionsFileParser.getValue("Description", "Informations", default=None)
+			self.__description = sections_file_parser.get_value("Description", "Informations", default=None)
 
 			return True
 		else:
@@ -719,7 +719,7 @@ class Manager(object):
 	| The Components can be registered in mass by providing paths that are recursively walk for candidates
 		or simply by calling the registration method on a given Component file.
 	| When a Component is registered, a Profile ( Stored using the :class:`Profile` class ) is built and associated to it,
-		 this Profile object contains the Component Interface and various description attributes. 
+		 this Profile object contains the Component Interface and various description attributes.
 	"""
 
 	def __init__(self,
@@ -731,15 +731,15 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
-			>>> manager.listComponents()
-			[u'core.testsComponentA', u'core.testsComponentB']
-			>>> manager.instantiateComponents()
+			>>> manager.list_components()
+			[u'core.tests_component_a', u'core.tests_component_b']
+			>>> manager.instantiate_components()
 			True
-			>>> manager.getInterface("core.testsComponentA")
-			<testsComponentA.TestsComponentA object at 0x11dd990>
+			>>> manager.get_interface("core.tests_component_a")
+			<tests_component_a.TestsComponentA object at 0x11dd990>
 
 		:param paths: Paths to walk.
 		:type paths: tuple or list
@@ -775,7 +775,7 @@ class Manager(object):
 		return self.__paths
 
 	@paths.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def paths(self, value):
 		"""
 		Setter for **self.__paths** attribute.
@@ -794,7 +794,7 @@ class Manager(object):
 		self.__paths = value
 
 	@paths.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def paths(self):
 		"""
 		Deleter for **self.__paths** attribute.
@@ -815,7 +815,7 @@ class Manager(object):
 		return self.__extension
 
 	@extension.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def extension(self, value):
 		"""
 		Setter for **self.__extension** attribute.
@@ -830,7 +830,7 @@ class Manager(object):
 		self.__extension = value
 
 	@extension.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def extension(self):
 		"""
 		Deleter for **self.__extension** attribute.
@@ -851,7 +851,7 @@ class Manager(object):
 		return self.__categories
 
 	@categories.setter
-	@foundations.exceptions.handleExceptions(AssertionError)
+	@foundations.exceptions.handle_exceptions(AssertionError)
 	def categories(self, value):
 		"""
 		Setter for **self.__categories** attribute.
@@ -868,7 +868,7 @@ class Manager(object):
 		self.__categories = value
 
 	@categories.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def categories(self):
 		"""
 		Deleter for **self.__categories** attribute.
@@ -889,7 +889,7 @@ class Manager(object):
 		return self.__components
 
 	@components.setter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def components(self, value):
 		"""
 		Setter for **self.__components** attribute.
@@ -902,7 +902,7 @@ class Manager(object):
 		"{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "components"))
 
 	@components.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def components(self):
 		"""
 		Deleter for **self.__components** attribute.
@@ -920,12 +920,12 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
-			>>> manager["core.testsComponentA"]
-			<manager.componentsManager.Profile object at 0x101c4bd50>
-		
+			>>> manager["core.tests_component_a"]
+			<manager.components_manager.Profile object at 0x101c4bd50>
+
 		:param component: Component name.
 		:type component: unicode
 		:return: Component profile.
@@ -940,15 +940,15 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
 			>>> for name, profile in manager:
 			...	print(name)
 			...
-			core.testsComponentB
-			core.testsComponentA
-		
+			core.tests_component_b
+			core.tests_component_a
+
 		:return: Components iterator.
 		:rtype: object
 		"""
@@ -961,14 +961,14 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
-			>>> "core.testsComponentA" in manager
+			>>> tests_component_a in manager
 			True
 			>>> "core.nemoComponent" in manager
 			False
-		
+
 		:param component: Component name.
 		:type component: unicode
 		:return: Component existence.
@@ -983,31 +983,31 @@ class Manager(object):
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
 			>>> len(manager)
 			2
-		
+
 		:return: Components count.
 		:rtype: int
 		"""
 
 		return len(self.__components.keys())
 
-	@foundations.exceptions.handleExceptions(manager.exceptions.ComponentModuleError,
+	@foundations.exceptions.handle_exceptions(manager.exceptions.ComponentModuleError,
 											manager.exceptions.ComponentProfileError)
-	def registerComponent(self, path):
+	def register_component(self, path):
 		"""
 		Registers a Component using given path.
 
 		Usage::
 
 			>>> manager = Manager()
-			>>> manager.registerComponent("testsComponentA.rc")
+			>>> manager.register_component("tests_component_a.rc")
 			True
 			>>> manager.components
-			{u'core.testsComponentA': <manager.componentsManager.Profile object at 0x11c9eb0>}
+			{u'core.tests_component_a': <manager.components_manager.Profile object at 0x11c9eb0>}
 
 		:param path: Component path.
 		:type path: unicode
@@ -1015,7 +1015,7 @@ class Manager(object):
 		:rtype: bool
 		"""
 
-		component = foundations.strings.getSplitextBasename(path)
+		component = foundations.strings.get_splitext_basename(path)
 		LOGGER.debug("> Current Component: '{0}'.".format(component))
 		profile = Profile(file=path)
 		if profile.initializeProfile():
@@ -1031,7 +1031,7 @@ class Manager(object):
 			raise manager.exceptions.ComponentProfileError(
 			"{0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
 
-	def unregisterComponent(self, component):
+	def unregister_component(self, component):
 		"""
 		Unregisters given Component.
 
@@ -1039,13 +1039,13 @@ class Manager(object):
 
 			The :class:`Manager` class is not responsible of any deactivation / cleanup actions
 			and will not trigger anything while unregistering a Component.
-	
+
 		Usage::
 
 			>>> manager = Manager()
-			>>> manager.registerComponent("testsComponentA.rc")
+			>>> manager.register_component("tests_component_a.rc")
 			True
-			>>> manager.unregisterComponent("core.testsComponentA")
+			>>> manager.unregister_component("core.tests_component_a")
 			True
 			>>> manager.components
 			{}
@@ -1059,37 +1059,37 @@ class Manager(object):
 		del(self.__components[component])
 		return True
 
-	@foundations.exceptions.handleExceptions(manager.exceptions.ComponentRegistrationError)
-	def registerComponents(self):
+	@foundations.exceptions.handle_exceptions(manager.exceptions.ComponentRegistrationError)
+	def register_components(self):
 		"""
 		Registers the Components.
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
 			>>> manager.components.keys()
-			[u'core.testsComponentA', u'core.testsComponentB']
-		
+			[u'core.tests_component_a', u'core.tests_component_b']
+
 		:return: Method success.
 		:rtype: bool
 		"""
 
-		unregisteredComponents = []
+		unregistered_components = []
 		for path in self.paths:
-			for file in foundations.walkers.filesWalker(path, ("\.{0}$".format(self.__extension),), ("\._",)):
-				if not self.registerComponent(file):
-					unregisteredComponents.append(file)
+			for file in foundations.walkers.files_walker(path, ("\.{0}$".format(self.__extension),), ("\._",)):
+				if not self.register_component(file):
+					unregistered_components.append(file)
 
-		if not unregisteredComponents:
+		if not unregistered_components:
 			return True
 		else:
 			raise manager.exceptions.ComponentRegistrationError(
 			"{0} | '{1}' Components failed to register!".format(self.__class__.__name__,
-																", ".join(unregisteredComponents)))
+																", ".join(unregistered_components)))
 
-	def unregisterComponents(self):
+	def unregister_components(self):
 		"""
 		Unregisters the Components.
 
@@ -1097,13 +1097,13 @@ class Manager(object):
 
 			The :class:`Manager` class is not responsible of any deactivation / cleanup actions
 			and will not trigger anything while unregistering a Component.
-	
+
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
-			>>> manager.unregisterComponents()
+			>>> manager.unregister_components()
 			True
 			>>> manager.components
 			{}
@@ -1115,20 +1115,20 @@ class Manager(object):
 		self.__components.clear()
 		return True
 
-	@foundations.exceptions.handleExceptions(manager.exceptions.ComponentInterfaceError)
-	def instantiateComponent(self, component, callback=None):
+	@foundations.exceptions.handle_exceptions(manager.exceptions.ComponentInterfaceError)
+	def instantiate_component(self, component, callback=None):
 		"""
 		Instantiates given Component.
 
 		Usage::
 
 			>>> manager = Manager()
-			>>> manager.registerComponent("testsComponentA.rc")
+			>>> manager.register_component("tests_component_a.rc")
 			True
-			>>> manager.instantiateComponent("core.testsComponentA")
+			>>> manager.instantiate_component("core.tests_component_a")
 			True
-			>>> manager.getInterface("core.testsComponentA")
-			<testsComponentA.TestsComponentA object at 0x17a5b90>
+			>>> manager.get_interface("core.tests_component_a")
+			<tests_component_a.TestsComponentA object at 0x17a5b90>
 
 		:param component: Component to instantiate.
 		:type component: unicode
@@ -1163,51 +1163,51 @@ class Manager(object):
 			raise manager.exceptions.ComponentInterfaceError(
 			"{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
 
-	def instantiateComponents(self, callback=None):
+	def instantiate_components(self, callback=None):
 		"""
 		Instantiates the Components.
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager((tests_manager,))
+			>>> manager.register_components()
 			True
-			>>> manager.instantiateComponents()
+			>>> manager.instantiate_components()
 			True
-			>>> manager.getInterface("core.testsComponentA")
-			<testsComponentA.TestsComponentA object at 0x17a5bb0>
+			>>> manager.get_interface("core.tests_component_a")
+			<tests_component_a.TestsComponentA object at 0x17a5bb0>
 
 		:param callback: Callback object.
 		:type callback: object
 		"""
 
-		uninstantiatedComponents = [component
-									for component in self.listComponents()
-									if not self.instantiateComponent(component, callback)]
-		if not uninstantiatedComponents:
+		uninstantiated_components = [component
+									for component in self.list_components()
+									if not self.instantiate_component(component, callback)]
+		if not uninstantiated_components:
 			return True
 		else:
 			raise manager.exceptions.ComponentInstantiationError(
 			"{0} | '{1}' Components failed to instantiate!".format(self.__class__.__name__,
-																	", ".join(uninstantiatedComponents)))
+																	", ".join(uninstantiated_components)))
 
-	def reloadComponent(self, component):
+	def reload_component(self, component):
 		"""
 		Reload given Component module.
 
 		Usage::
 
 			>>> manager = Manager()
-			>>> manager.registerComponent("testsComponentA.rc")
+			>>> manager.register_component("tests_component_a.rc")
 			True
-			>>> manager.instantiateComponent("core.testsComponentA")
+			>>> manager.instantiate_component("core.tests_component_a")
 			True
-			>>> manager.getInterface("core.testsComponentA")
-			<testsComponentA.TestsComponentA object at 0x17b4890>
-			>>> manager.reloadComponent("core.testsComponentA")
+			>>> manager.get_interface("core.tests_component_a")
+			<tests_component_a.TestsComponentA object at 0x17b4890>
+			>>> manager.reload_component("core.tests_component_a")
 			True
-			>>> manager.getInterface("core.testsComponentA")
-			<testsComponentA.TestsComponentA object at 0x17b0d70>
+			>>> manager.get_interface("core.tests_component_a")
+			<tests_component_a.TestsComponentA object at 0x17b0d70>
 
 		:param component: Component name.
 		:type component: unicode
@@ -1215,7 +1215,7 @@ class Manager(object):
 		:rtype: bool
 		"""
 
-		dependents = list(reversed(self.listDependents(component)))
+		dependents = list(reversed(self.list_dependents(component)))
 		dependents.append(component)
 
 		for dependent in dependents:
@@ -1232,39 +1232,39 @@ class Manager(object):
 						LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
 		return True
 
-	def listComponents(self, dependencyOrder=True):
+	def list_components(self, dependency_order=True):
 		"""
 		Lists the Components by dependency resolving.
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
-			>>> manager.listComponents()
-			[u'core.testsComponentA', u'core.testsComponentB']
+			>>> manager.list_components()
+			[u'core.tests_component_a', u'core.tests_component_b']
 
-		:param dependencyOrder: Components are returned by dependency order.
-		:type dependencyOrder: bool
+		:param dependency_order: Components are returned by dependency order.
+		:type dependency_order: bool
 		"""
 
-		if dependencyOrder:
+		if dependency_order:
 			return list(itertools.chain.from_iterable([sorted(list(batch)) for batch in
-			foundations.common.dependencyResolver(dict((key, value.require) for (key, value) in self))]))
+			foundations.common.dependency_resolver(dict((key, value.require) for (key, value) in self))]))
 		else:
 			return [key for (key, value) in self]
 
-	def listDependents(self, component, dependents=None):
+	def list_dependents(self, component, dependents=None):
 		"""
 		Lists given Component dependents Components.
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
-			>>> manager.listDependents("core.testsComponentA")
-			[u'core.testsComponentB']
+			>>> manager.list_dependents("core.tests_component_a")
+			[u'core.tests_component_b']
 
 		:param component: Component to retrieve the dependents Components.
 		:type component: unicode
@@ -1280,21 +1280,21 @@ class Manager(object):
 				continue
 
 			dependents.add(name)
-			self.listDependents(name, dependents)
+			self.list_dependents(name, dependents)
 
-		return sorted(list(dependents), key=(self.listComponents()).index)
+		return sorted(list(dependents), key=(self.list_components()).index)
 
-	def filterComponents(self, pattern, category=None):
+	def filter_components(self, pattern, category=None):
 		"""
 		Filters the Components using given regex pattern.
 
 		Usage::
 
-			>>> manager = Manager(("./manager/tests/testsManager/resources/components/core",))
-			>>> manager.registerComponents()
+			>>> manager = Manager(("./manager/tests/tests_manager/resources/components/core",))
+			>>> manager.register_components()
 			True
-			>>> manager.filterComponents("\w+A$")
-			[u'core.testsComponentA']
+			>>> manager.filter_components("\w+A$")
+			[u'core.tests_component_a']
 
 		:param pattern: Regex filtering pattern.
 		:type pattern: unicode
@@ -1304,27 +1304,27 @@ class Manager(object):
 		:rtype: list
 		"""
 
-		filteredComponents = []
+		filtered_components = []
 		for component, profile in self:
 			if category:
 				if profile.category != category:
 					continue
 
 			if re.search(pattern, component):
-				filteredComponents.append(component)
-		return filteredComponents
+				filtered_components.append(component)
+		return filtered_components
 
-	def getProfile(self, component):
+	def get_profile(self, component):
 		"""
 		Gets given Component profile.
 
 		Usage::
 
 			>>> manager = Manager()
-			>>> manager.registerComponent("testsComponentA.rc")
+			>>> manager.register_component("tests_component_a.rc")
 			True
-			>>> manager.getProfile("core.testsComponentA")
-			<manager.componentsManager.Profile object at 0x10258ef10>
+			>>> manager.get_profile("core.tests_component_a")
+			<manager.components_manager.Profile object at 0x10258ef10>
 
 		:param component: Component to get the profile.
 		:type component: unicode
@@ -1332,21 +1332,21 @@ class Manager(object):
 		:rtype: Profile
 		"""
 
-		components = self.filterComponents(r"^{0}$".format(component))
+		components = self.filter_components(r"^{0}$".format(component))
 		if components != []:
-			return self.__components[foundations.common.getFirstItem(components)]
+			return self.__components[foundations.common.get_first_item(components)]
 
-	def getInterface(self, component):
+	def get_interface(self, component):
 		"""
 		Gets given Component interface.
 
 		Usage::
 
 			>>> manager = Manager()
-			>>> manager.registerComponent("testsComponentA.rc")
+			>>> manager.register_component("tests_component_a.rc")
 			True
-			>>> manager.getInterface("core.testsComponentA")
-			<testsComponentA.TestsComponentA object at 0x17b0d70>
+			>>> manager.get_interface("core.tests_component_a")
+			<tests_component_a.TestsComponentA object at 0x17b0d70>
 
 		:param component: Component to get the interface.
 		:type component: unicode
@@ -1354,18 +1354,18 @@ class Manager(object):
 		:rtype: object
 		"""
 
-		profile = self.getProfile(component)
+		profile = self.get_profile(component)
 		if profile:
 			return profile.interface
 
 	@staticmethod
-	def getComponentAttributeName(component):
+	def get_component_attribute_name(component):
 		"""
 		Gets given Component attribute name.
 
 		Usage::
 
-			>>> Manager.getComponentAttributeName("factory.componentsManagerUi")
+			>>> Manager.get_component_attribute_name("factory.components_manager_ui")
 			u'factoryComponentsManagerUi'
 
 		:param component: Component to get the attribute name.

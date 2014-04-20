@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsQObjectComponent.py**
+**tests_exceptions.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines units tests for :mod:`manager.qobjectComponent` module.
+	Defines units tests for :mod:`manager.exceptions` module.
 
 **Others:**
 
@@ -22,6 +22,7 @@ from __future__ import unicode_literals
 #**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
+import inspect
 import sys
 if sys.version_info[:2] <= (2, 6):
 	import unittest2 as unittest
@@ -31,7 +32,7 @@ else:
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-from manager.qobjectComponent import QObjectComponent
+import manager.exceptions
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -43,42 +44,55 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["QObjectComponentTestCase"]
+__all__ = ["EXCEPTIONS", "ExceptionsTestCase"]
+
+EXCEPTIONS = []
+
+def _gather_exceptions():
+	"""
+	Gathers the exceptions.
+	"""
+
+	for attribute in dir(manager.exceptions):
+		object = getattr(manager.exceptions, attribute)
+		if not inspect.isclass(object):
+			continue
+		if issubclass(object, Exception):
+			EXCEPTIONS.append(object)
+
+_gather_exceptions()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class QObjectComponentTestCase(unittest.TestCase):
+class ExceptionsTestCase(unittest.TestCase):
 	"""
-	Defines :class:`manager.qobjectComponent.QObjectComponent` class units tests methods.
+	Defines :mod:`manager.exceptions` module exceptions classes units tests methods.
 	"""
 
-	def testRequiredAttributes(self):
+	def test_required_attributes(self):
 		"""
 		Tests presence of required attributes.
 		"""
 
-		requiredAttributes = ("name",
-							"activated",
-							"initialized",
-							"deactivatable")
+		required_attributes = ("value",)
+		for exception in EXCEPTIONS:
+			exception_instance = exception(None)
+			for attribute in required_attributes:
+				self.assertIn(attribute, dir(exception_instance))
 
-		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(QObjectComponent))
-
-	def testRequiredMethods(self):
+	def test__str__(self):
 		"""
-		Tests presence of required methods.
+		Tests exceptions classes **__str__** method.
 		"""
 
-		requiredMethods = ("activate",
-						"deactivate",
-						"initialize",
-						"uninitialize")
-
-		for method in requiredMethods:
-			self.assertIn(method, dir(QObjectComponent))
+		for exception in EXCEPTIONS:
+			exception_instance = exception("{0} Exception raised!".format(exception.__class__))
+			self.assertIsInstance(exception_instance.__str__(), str)
+			exception_instance = exception([exception.__class__, "Exception raised!"])
+			self.assertIsInstance(exception_instance.__str__(), str)
+			exception_instance = exception(0)
+			self.assertIsInstance(exception_instance.__str__(), str)
 
 if __name__ == "__main__":
-	import manager.tests.utilities
 	unittest.main()

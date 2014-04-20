@@ -50,7 +50,7 @@ __all__ = ["AbstractComponentsManagerError",
 #**********************************************************************************************************************
 class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
 	"""
-	Defines the abstract base class for :class:`manager.componentsManager.Manager` related exceptions.
+	Defines the abstract base class for :class:`manager.components_manager.Manager` related exceptions.
 	"""
 
 	pass

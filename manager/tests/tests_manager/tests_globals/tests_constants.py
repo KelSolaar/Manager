@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsConstants.py**
+**tests_constants.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
@@ -53,146 +53,146 @@ class ConstantsTestCase(unittest.TestCase):
 	Defines :class:`manager.globals.constants.Constants` class units tests methods.
 	"""
 
-	def testRequiredAttributes(self):
+	def test_required_attributes(self):
 		"""
 		Tests presence of required attributes.
 		"""
 
-		requiredAttributes = ("applicationName",
-								"majorVersion",
-								"minorVersion",
-								"changeVersion",
+		required_attributes = ("application_name",
+								"major_version",
+								"minor_version",
+								"change_version",
 								"version",
 								"logger",
-								"verbosityLevel",
-								"verbosityLabels",
-								"loggingDefaultFormatter",
-								"loggingSeparators",
-								"defaultCodec",
-								"codecError",
-								"applicationDirectory",
-								"providerDirectory",
-								"nullObject")
+								"verbosity_level",
+								"verbosity_labels",
+								"logging_default_formatter",
+								"logging_separators",
+								"default_codec",
+								"codec_error",
+								"application_directory",
+								"provider_directory",
+								"null_object")
 
-		for attribute in requiredAttributes:
+		for attribute in required_attributes:
 			self.assertIn(attribute, Constants.__dict__)
 
-	def testApplicationNameAttribute(self):
+	def test_application_name_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.applicationName` attribute.
-		"""
-
-		self.assertRegexpMatches(Constants.applicationName, "\w+")
-
-	def testMajorVersionAttribute(self):
-		"""
-		Tests :attr:`manager.globals.constants.Constants.majorVersion` attribute.
+		Tests :attr:`manager.globals.constants.Constants.application_name` attribute.
 		"""
 
-		self.assertRegexpMatches(Constants.version, "\d")
+		self.assertRegexpMatches(Constants.application_name, "\w+")
 
-	def testMinorVersionAttribute(self):
+	def test_major_version_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.minorVersion` attribute.
+		Tests :attr:`manager.globals.constants.Constants.major_version` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.version, "\d")
 
-	def testChangeVersionAttribute(self):
+	def test_minor_version_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.changeVersion` attribute.
+		Tests :attr:`manager.globals.constants.Constants.minor_version` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.version, "\d")
 
-	def testversionAttribute(self):
+	def test_change_version_attribute(self):
+		"""
+		Tests :attr:`manager.globals.constants.Constants.change_version` attribute.
+		"""
+
+		self.assertRegexpMatches(Constants.version, "\d")
+
+	def test_version_attribute(self):
 		"""
 		Tests :attr:`manager.globals.constants.Constants.version` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.version, "\d\.\d\.\d")
 
-	def testLoggerAttribute(self):
+	def test_logger_attribute(self):
 		"""
 		Tests :attr:`manager.globals.constants.Constants.logger` attribute.
 		"""
 
 		self.assertRegexpMatches(Constants.logger, "\w+")
 
-	def testVerbosityLevelAttribute(self):
+	def test_verbosity_level_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.verbosityLevel` attribute.
-		"""
-
-		self.assertIsInstance(Constants.verbosityLevel, int)
-		self.assertGreaterEqual(Constants.verbosityLevel, 0)
-		self.assertLessEqual(Constants.verbosityLevel, 4)
-
-	def testVerbosityLabelsAttribute(self):
-		"""
-		Tests :attr:`manager.globals.constants.Constants.verbosityLabels` attribute.
+		Tests :attr:`manager.globals.constants.Constants.verbosity_level` attribute.
 		"""
 
-		self.assertIsInstance(Constants.verbosityLabels, tuple)
-		for label in Constants.verbosityLabels:
+		self.assertIsInstance(Constants.verbosity_level, int)
+		self.assertGreaterEqual(Constants.verbosity_level, 0)
+		self.assertLessEqual(Constants.verbosity_level, 4)
+
+	def test_verbosity_labels_attribute(self):
+		"""
+		Tests :attr:`manager.globals.constants.Constants.verbosity_labels` attribute.
+		"""
+
+		self.assertIsInstance(Constants.verbosity_labels, tuple)
+		for label in Constants.verbosity_labels:
 			self.assertIsInstance(label, unicode)
 
-	def testLoggingDefaultFormatterAttribute(self):
+	def test_logging_default_formatter_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.loggingDefaultFormatter` attribute.
-		"""
-
-		self.assertIsInstance(Constants.loggingDefaultFormatter, unicode)
-
-	def testLoggingSeparatorsAttribute(self):
-		"""
-		Tests :attr:`manager.globals.constants.Constants.loggingSeparators` attribute.
+		Tests :attr:`manager.globals.constants.Constants.logging_default_formatter` attribute.
 		"""
 
-		self.assertIsInstance(Constants.loggingSeparators, unicode)
+		self.assertIsInstance(Constants.logging_default_formatter, unicode)
 
-	def testDefaultCodecAttribute(self):
+	def test_logging_separators_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.defaultCodec` attribute.
+		Tests :attr:`manager.globals.constants.Constants.logging_separators` attribute.
 		"""
 
-		validEncodings = ("utf-8",
+		self.assertIsInstance(Constants.logging_separators, unicode)
+
+	def test_default_codec_attribute(self):
+		"""
+		Tests :attr:`manager.globals.constants.Constants.default_codec` attribute.
+		"""
+
+		valid_encodings = ("utf-8",
 						"cp1252")
 
-		self.assertIn(Constants.defaultCodec, validEncodings)
+		self.assertIn(Constants.default_codec, valid_encodings)
 
-	def testEncodingErrorAttribute(self):
+	def test_encoding_error_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.codecError` attribute.
+		Tests :attr:`manager.globals.constants.Constants.codec_error` attribute.
 		"""
 
-		validEncodingsErrors = ("strict",
+		valid_encodings_errors = ("strict",
 							"ignore",
 							"replace",
 							"xmlcharrefreplace")
 
-		self.assertIn(Constants.codecError, validEncodingsErrors)
+		self.assertIn(Constants.codec_error, valid_encodings_errors)
 
-	def testApplicationDirectoryAttribute(self):
+	def test_application_directory_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.applicationDirectory` attribute.
-		"""
-
-		self.assertRegexpMatches(Constants.applicationDirectory, "\w+")
-
-	def testProviderDirectoryAttribute(self):
-		"""
-		Tests :attr:`manager.globals.constants.Constants.providerDirectory` attribute.
+		Tests :attr:`manager.globals.constants.Constants.application_directory` attribute.
 		"""
 
-		self.assertRegexpMatches(Constants.providerDirectory, "\.*\w")
+		self.assertRegexpMatches(Constants.application_directory, "\w+")
 
-	def testNullObjectAttribute(self):
+	def test_provider_directory_attribute(self):
 		"""
-		Tests :attr:`manager.globals.constants.Constants.nullObject` attribute.
+		Tests :attr:`manager.globals.constants.Constants.provider_directory` attribute.
 		"""
 
-		self.assertRegexpMatches(Constants.nullObject, "\w+")
+		self.assertRegexpMatches(Constants.provider_directory, "\.*\w")
+
+	def test_null_object_attribute(self):
+		"""
+		Tests :attr:`manager.globals.constants.Constants.null_object` attribute.
+		"""
+
+		self.assertRegexpMatches(Constants.null_object, "\w+")
 
 if __name__ == "__main__":
 	unittest.main()

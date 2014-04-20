@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsExceptions.py**
+**tests_component.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines units tests for :mod:`manager.exceptions` module.
+	Defines units tests for :mod:`manager.Component` module.
 
 **Others:**
 
@@ -22,7 +22,6 @@ from __future__ import unicode_literals
 #**********************************************************************************************************************
 #***	External imports.
 #**********************************************************************************************************************
-import inspect
 import sys
 if sys.version_info[:2] <= (2, 6):
 	import unittest2 as unittest
@@ -32,7 +31,7 @@ else:
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-import manager.exceptions
+from manager.component import Component
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -44,55 +43,42 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["EXCEPTIONS", "ExceptionsTestCase"]
-
-EXCEPTIONS = []
-
-def _gatherExceptions():
-	"""
-	Gathers the exceptions.
-	"""
-
-	for attribute in dir(manager.exceptions):
-		object = getattr(manager.exceptions, attribute)
-		if not inspect.isclass(object):
-			continue
-		if issubclass(object, Exception):
-			EXCEPTIONS.append(object)
-
-_gatherExceptions()
+__all__ = ["ComponentTestCase"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class ExceptionsTestCase(unittest.TestCase):
+class ComponentTestCase(unittest.TestCase):
 	"""
-	Defines :mod:`manager.exceptions` module exceptions classes units tests methods.
+	Defines :class:`manager.component.Component` class units tests methods.
 	"""
 
-	def testRequiredAttributes(self):
+	def test_required_attributes(self):
 		"""
 		Tests presence of required attributes.
 		"""
 
-		requiredAttributes = ("value",)
-		for exception in EXCEPTIONS:
-			exceptionInstance = exception(None)
-			for attribute in requiredAttributes:
-				self.assertIn(attribute, dir(exceptionInstance))
+		required_attributes = ("name",
+							"activated",
+							"initialized",
+							"deactivatable")
 
-	def test__str__(self):
+		for attribute in required_attributes:
+			self.assertIn(attribute, dir(Component))
+
+	def test_required_methods(self):
 		"""
-		Tests exceptions classes **__str__** method.
+		Tests presence of required methods.
 		"""
 
-		for exception in EXCEPTIONS:
-			exceptionInstance = exception("{0} Exception raised!".format(exception.__class__))
-			self.assertIsInstance(exceptionInstance.__str__(), str)
-			exceptionInstance = exception([exception.__class__, "Exception raised!"])
-			self.assertIsInstance(exceptionInstance.__str__(), str)
-			exceptionInstance = exception(0)
-			self.assertIsInstance(exceptionInstance.__str__(), str)
+		required_methods = ("activate",
+						"deactivate",
+						"initialize",
+						"uninitialize")
+
+		for method in required_methods:
+			self.assertIn(method, dir(Component))
 
 if __name__ == "__main__":
+	import manager.tests.utilities
 	unittest.main()

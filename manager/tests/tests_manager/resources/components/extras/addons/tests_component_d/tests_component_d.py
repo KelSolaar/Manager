@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsComponentC.py**
+**tests_component_d.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines the :class:`TestsComponentC` Component Interface class.
+	Defines the :class:`TestsComponentD` Component Interface class.
 
 **Others:**
 
@@ -36,16 +36,16 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["LOGGER", "TestsComponentC"]
+__all__ = ["LOGGER", "TestsComponentD"]
 
-LOGGER = foundations.verbose.installLogger()
+LOGGER = foundations.verbose.install_logger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class TestsComponentC(Component):
+class TestsComponentD(Component):
 	"""
-	Defines the :mod:`tests.testsManager.resources.components.addons.testsComponentC.testsComponentC`
+	Defines the :mod:`tests.tests_manager.resources.components.addons.tests_component_d.tests_component_d`
 	Component Interface class.
 	"""
 
@@ -81,7 +81,7 @@ class TestsComponentC(Component):
 		return self.__container
 
 	@container.setter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def container(self, value):
 		"""
 		Setter for **self.__container** attribute.
@@ -94,7 +94,7 @@ class TestsComponentC(Component):
 		"{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "container"))
 
 	@container.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def container(self):
 		"""
 		Deleter for **self.__container** attribute.

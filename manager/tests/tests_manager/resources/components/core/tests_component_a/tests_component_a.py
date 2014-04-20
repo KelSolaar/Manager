@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsComponentD.py**
+**tests_component_a.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines the :class:`TestsComponentD` Component Interface class.
+	Defines the :class:`TestsComponentA` Component Interface class.
 
 **Others:**
 
@@ -36,16 +36,16 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["LOGGER", "TestsComponentD"]
+__all__ = ["LOGGER", "TestsComponentA"]
 
-LOGGER = foundations.verbose.installLogger()
+LOGGER = foundations.verbose.install_logger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class TestsComponentD(Component):
+class TestsComponentA(Component):
 	"""
-	Defines the :mod:`tests.testsManager.resources.components.addons.testsComponentD.testsComponentD`
+	Defines the :mod:`tests.tests_manager.resources.components.core.tests_component_a.tests_component_a`
 	Component Interface class.
 	"""
 
@@ -81,7 +81,7 @@ class TestsComponentD(Component):
 		return self.__container
 
 	@container.setter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def container(self, value):
 		"""
 		Setter for **self.__container** attribute.
@@ -94,7 +94,7 @@ class TestsComponentD(Component):
 		"{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "container"))
 
 	@container.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def container(self):
 		"""
 		Deleter for **self.__container** attribute.
@@ -162,4 +162,3 @@ class TestsComponentD(Component):
 
 		self.initialized = False
 		return True
-

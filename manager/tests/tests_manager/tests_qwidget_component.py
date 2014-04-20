@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsQWidgetComponent.py**
+**tests_QWidget_component**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines units tests for :mod:`manager.qwidgetComponent` module.
+	Defines units tests for :mod:`manager.QWidget_component` module.
 
 **Others:**
 
@@ -33,7 +33,7 @@ from PyQt4.QtGui import QApplication
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-from manager.qwidgetComponent import QWidgetComponentFactory
+from manager.QWidget_component import QWidgetComponentFactory
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -57,34 +57,34 @@ APPLICATION = QApplication(sys.argv)
 #**********************************************************************************************************************
 class QWidgetComponentFactoryTestCase(unittest.TestCase):
 	"""
-	Defines :func:`manager.qwidgetComponent.QWidgetComponentFactory` factory units tests methods.
+	Defines :func:`manager.QWidget_component.QWidgetComponentFactory` factory units tests methods.
 	"""
 
-	def testRequiredAttributes(self):
+	def test_required_attributes(self):
 		"""
 		Tests presence of required attributes.
 		"""
 
-		requiredAttributes = ("name",
-							"uiFile",
+		required_attributes = ("name",
+							"ui_file",
 							"activated",
-							"initializedUi",
+							"initialized_ui",
 							"deactivatable")
 
-		for attribute in requiredAttributes:
+		for attribute in required_attributes:
 			self.assertIn(attribute, dir(QWidgetComponentFactory()))
 
-	def testRequiredMethods(self):
+	def test_required_methods(self):
 		"""
 		Tests presence of required methods.
 		"""
 
-		requiredMethods = ("activate",
+		required_methods = ("activate",
 						"deactivate",
-						"initializeUi",
-						"uninitializeUi")
+						"initialize_ui",
+						"uninitialize_ui")
 
-		for method in requiredMethods:
+		for method in required_methods:
 			self.assertIn(method, dir(QWidgetComponentFactory()))
 
 if __name__ == "__main__":

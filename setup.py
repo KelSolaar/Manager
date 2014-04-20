@@ -41,12 +41,12 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["getLongDescription"]
+__all__ = ["get_long_description"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-def getLongDescription():
+def get_long_description():
 	"""
 	Returns the Package long description.
 
@@ -66,7 +66,7 @@ def getLongDescription():
 			description.append(line)
 	return "".join(description)
 
-setup(name=manager.globals.constants.Constants.applicationName,
+setup(name=manager.globals.constants.Constants.application_name,
 	version=manager.globals.constants.Constants.version,
 	author=manager.globals.constants.__author__,
 	author_email=manager.globals.constants.__email__,
@@ -76,7 +76,7 @@ setup(name=manager.globals.constants.Constants.applicationName,
 	url="https://github.com/KelSolaar/Manager",
 	license="GPLv3",
 	description="Manager is the Components Manager package of Umbra, sIBL_GUI and sIBL_Reporter.",
-	long_description=getLongDescription(),
+	long_description=get_long_description(),
 	install_requires=["Foundations>=2.1.0"],
 	classifiers=["Development Status :: 5 - Production/Stable",
 				"Environment :: Console",

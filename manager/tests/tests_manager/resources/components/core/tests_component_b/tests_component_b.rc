@@ -1,9 +1,9 @@
 [Component]
-Name = core.testsComponentB
+Name = core.tests_component_b
 Title = Tests Component B
-Module = testsComponentB
+Module = tests_component_b
 Object = TestsComponentB
-Require = core.testsComponentA
+Require = core.tests_component_a
 Version = 1.0
 
 [Informations]

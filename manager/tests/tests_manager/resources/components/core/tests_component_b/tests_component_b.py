@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsComponentA.py**
+**tests_component_b.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines the :class:`TestsComponentA` Component Interface class.
+	Defines the :class:`TestsComponentB` Component Interface class.
 
 **Others:**
 
@@ -36,16 +36,16 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["LOGGER", "TestsComponentA"]
+__all__ = ["LOGGER", "TestsComponentB"]
 
-LOGGER = foundations.verbose.installLogger()
+LOGGER = foundations.verbose.install_logger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class TestsComponentA(Component):
+class TestsComponentB(Component):
 	"""
-	Defines the :mod:`tests.testsManager.resources.components.core.testsComponentA.testsComponentA`
+	Defines the :mod:`tests.tests_manager.resources.components.core.tests_component_b.tests_component_b`
 	Component Interface class.
 	"""
 
@@ -81,7 +81,7 @@ class TestsComponentA(Component):
 		return self.__container
 
 	@container.setter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def container(self, value):
 		"""
 		Setter for **self.__container** attribute.
@@ -94,7 +94,7 @@ class TestsComponentA(Component):
 		"{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "container"))
 
 	@container.deleter
-	@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 	def container(self):
 		"""
 		Deleter for **self.__container** attribute.
@@ -162,3 +162,4 @@ class TestsComponentA(Component):
 
 		self.initialized = False
 		return True
+

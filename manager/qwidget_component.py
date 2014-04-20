@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-**qwidgetComponent.py**
+**QWidget_component.py**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
@@ -43,17 +43,17 @@ __status__ = "Production"
 
 __all__ = ["LOGGER", "QWidgetComponentFactory"]
 
-LOGGER = foundations.verbose.installLogger()
+LOGGER = foundations.verbose.install_logger()
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
+def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
 	"""
 	Defines a class factory creating :class:`QWidgetComponent` classes using given ui file.
 
-	:param uiFile: Ui file.
-	:type uiFile: unicode
+	:param ui_file: Ui file.
+	:type ui_file: unicode
 	:param \*args: Arguments.
 	:type \*args: \*
 	:param \*\*kwargs: Keywords arguments.
@@ -62,35 +62,35 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 	:rtype: QWidgetComponent
 	"""
 
-	class QWidgetComponent(foundations.ui.common.QWidgetFactory(uiFile=uiFile)):
+	class QWidgetComponent(foundations.ui.common.QWidget_factory(ui_file=ui_file)):
 		"""
 		Defines the base class for **Manager** package QWidget Components.
 		"""
 
-		componentActivated = pyqtSignal()
+		component_activated = pyqtSignal()
 		"""
-		This signal is emited by the :class:`QObjectComponent` class when the Component is activated. ( pyqtSignal )
-		"""
-
-		componentDeactivated = pyqtSignal()
-		"""
-		This signal is emited by the :class:`QObjectComponent` class when the Component is deactivated. ( pyqtSignal )
+		This signal is emited by the :class:`QObjectComponent` class when the Component is activated.
 		"""
 
-		componentInitializedUi = pyqtSignal()
+		component_deactivated = pyqtSignal()
 		"""
-		This signal is emited by the :class:`QObjectComponent` class when the Component ui is initialized. ( pyqtSignal )
+		This signal is emited by the :class:`QObjectComponent` class when the Component is deactivated.
 		"""
 
-		componentUninitializedUi = pyqtSignal()
+		component_initialized_ui = pyqtSignal()
 		"""
-		This signal is emited by the :class:`QObjectComponent` class when the Component ui is uninitialized. ( pyqtSignal )
+		This signal is emited by the :class:`QObjectComponent` class when the Component ui is initialized.
+		"""
+
+		component_uninitialized_ui = pyqtSignal()
+		"""
+		This signal is emited by the :class:`QObjectComponent` class when the Component ui is uninitialized.
 		"""
 
 		def __init__(self, parent=None, name=None, *args, **kwargs):
 			"""
 			Initializes the class.
-	
+
 			:param parent: Object parent.
 			:type parent: QObject
 			:param name: Component name.
@@ -110,7 +110,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.name = name
 
 			self.__activated = False
-			self.__initializedUi = False
+			self.__initialized_ui = False
 			self.__deactivatable = True
 
 		#**************************************************************************************************************
@@ -120,7 +120,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		def name(self):
 			"""
 			Property for **self.__name** attribute.
-	
+
 			:return: self.__name.
 			:rtype: unicode
 			"""
@@ -128,11 +128,11 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			return self.__name
 
 		@name.setter
-		@foundations.exceptions.handleExceptions(AssertionError)
+		@foundations.exceptions.handle_exceptions(AssertionError)
 		def name(self, value):
 			"""
 			Setter for **self.__name** attribute.
-	
+
 			:param value: Attribute value.
 			:type value: unicode
 			"""
@@ -143,7 +143,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.__name = value
 
 		@name.deleter
-		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+		@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 		def name(self):
 			"""
 			Deleter for **self.__name** attribute.
@@ -156,7 +156,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		def activated(self):
 			"""
 			Property for **self.__activated** attribute.
-	
+
 			:return: self.__activated.
 			:rtype: unicode
 			"""
@@ -164,22 +164,22 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			return self.__activated
 
 		@activated.setter
-		@foundations.exceptions.handleExceptions(AssertionError)
+		@foundations.exceptions.handle_exceptions(AssertionError)
 		def activated(self, value):
 			"""
 			Setter for **self.__activated** attribute.
-	
+
 			:param value: Attribute value.
 			:type value: unicode
 			"""
 
 			if value is not None:
 				assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("activated", value)
-				self.componentActivated.emit() if value else self.componentDeactivated.emit()
+				self.component_activated.emit() if value else self.component_deactivated.emit()
 			self.__activated = value
 
 		@activated.deleter
-		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+		@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 		def activated(self):
 			"""
 			Deleter for **self.__activated** attribute.
@@ -189,46 +189,46 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.__class__.__name__, "activated"))
 
 		@property
-		def initializedUi(self):
+		def initialized_ui(self):
 			"""
-			Property for **self.__initializedUi** attribute.
-	
-			:return: self.__initializedUi.
+			Property for **self.__initialized_ui** attribute.
+
+			:return: self.__initialized_ui.
 			:rtype: bool
 			"""
 
-			return self.__initializedUi
+			return self.__initialized_ui
 
-		@initializedUi.setter
-		@foundations.exceptions.handleExceptions(AssertionError)
-		def initializedUi(self, value):
+		@initialized_ui.setter
+		@foundations.exceptions.handle_exceptions(AssertionError)
+		def initialized_ui(self, value):
 			"""
-			Setter for **self.__initializedUi** attribute.
-	
+			Setter for **self.__initialized_ui** attribute.
+
 			:param value: Attribute value.
 			:type value: bool
 			"""
 
 			if value is not None:
-				assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("initializedUi", value)
-				self.componentInitializedUi.emit() if value else self.componentUninitializedUi.emit()
-			self.__initializedUi = value
+				assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("initialized_ui", value)
+				self.component_initialized_ui.emit() if value else self.component_uninitialized_ui.emit()
+			self.__initialized_ui = value
 
-		@initializedUi.deleter
-		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
-		def initializedUi(self):
+		@initialized_ui.deleter
+		@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
+		def initialized_ui(self):
 			"""
-			Deleter for **self.__initializedUi** attribute.
+			Deleter for **self.__initialized_ui** attribute.
 			"""
 
 			raise foundations.exceptions.ProgrammingError(
-			"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initializedUi"))
+			"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized_ui"))
 
 		@property
 		def deactivatable(self):
 			"""
 			Property for **self.__deactivatable** attribute.
-	
+
 			:return: self.__deactivatable.
 			:rtype: unicode
 			"""
@@ -236,11 +236,11 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			return self.__deactivatable
 
 		@deactivatable.setter
-		@foundations.exceptions.handleExceptions(AssertionError)
+		@foundations.exceptions.handle_exceptions(AssertionError)
 		def deactivatable(self, value):
 			"""
 			Setter for **self.__deactivatable** attribute.
-	
+
 			:param value: Attribute value.
 			:type value: unicode
 			"""
@@ -250,7 +250,7 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			self.__deactivatable = value
 
 		@deactivatable.deleter
-		@foundations.exceptions.handleExceptions(foundations.exceptions.ProgrammingError)
+		@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
 		def deactivatable(self):
 			"""
 			Deleter for **self.__deactivatable** attribute.
@@ -262,11 +262,11 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 		#**************************************************************************************************************
 		#***	Class methods.
 		#**************************************************************************************************************
-		@foundations.exceptions.handleExceptions(NotImplementedError)
+		@foundations.exceptions.handle_exceptions(NotImplementedError)
 		def activate(self):
 			"""
 			Sets Component activation state.
-	
+
 			:return: Method success.
 			:rtype: bool
 			"""
@@ -274,11 +274,11 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(NotImplementedError)
+		@foundations.exceptions.handle_exceptions(NotImplementedError)
 		def deactivate(self):
 			"""
 			Unsets Component activation state.
-	
+
 			:return: Method success.
 			:rtype: bool
 			"""
@@ -286,8 +286,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(NotImplementedError)
-		def initializeUi(self):
+		@foundations.exceptions.handle_exceptions(NotImplementedError)
+		def initialize_ui(self):
 			"""
 			Initializes the Component ui.
 			"""
@@ -295,8 +295,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(NotImplementedError)
-		def addWidget(self):
+		@foundations.exceptions.handle_exceptions(NotImplementedError)
+		def add_widget(self):
 			"""
 			Adds the Component Widget ui.
 			"""
@@ -304,8 +304,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(NotImplementedError)
-		def removeWidget(self):
+		@foundations.exceptions.handle_exceptions(NotImplementedError)
+		def remove_widget(self):
 			"""
 			Removes the Component Widget ui.
 			"""
@@ -313,8 +313,8 @@ def QWidgetComponentFactory(uiFile=None, *args, **kwargs):
 			raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
 			self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
-		@foundations.exceptions.handleExceptions(NotImplementedError)
-		def uninitializeUi(self):
+		@foundations.exceptions.handle_exceptions(NotImplementedError)
+		def uninitialize_ui(self):
 			"""
 			Uninitializes the Component ui.
 			"""

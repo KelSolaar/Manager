@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-**testsComponent.py**
+**tests_QObject_component**
 
 **Platform:**
 	Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines units tests for :mod:`manager.Component` module.
+	Defines units tests for :mod:`manager.QObject_component` module.
 
 **Others:**
 
@@ -31,7 +31,7 @@ else:
 #**********************************************************************************************************************
 #***	Internal imports.
 #**********************************************************************************************************************
-from manager.component import Component
+from manager.QObject_component import QObjectComponent
 
 #**********************************************************************************************************************
 #***	Module attributes.
@@ -43,41 +43,41 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["ComponentTestCase"]
+__all__ = ["QObjectComponentTestCase"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class ComponentTestCase(unittest.TestCase):
+class QObjectComponentTestCase(unittest.TestCase):
 	"""
-	Defines :class:`manager.component.Component` class units tests methods.
+	Defines :class:`manager.QObject_component.QObjectComponent` class units tests methods.
 	"""
 
-	def testRequiredAttributes(self):
+	def test_required_attributes(self):
 		"""
 		Tests presence of required attributes.
 		"""
 
-		requiredAttributes = ("name",
+		required_attributes = ("name",
 							"activated",
 							"initialized",
 							"deactivatable")
 
-		for attribute in requiredAttributes:
-			self.assertIn(attribute, dir(Component))
+		for attribute in required_attributes:
+			self.assertIn(attribute, dir(QObjectComponent))
 
-	def testRequiredMethods(self):
+	def test_required_methods(self):
 		"""
 		Tests presence of required methods.
 		"""
 
-		requiredMethods = ("activate",
+		required_methods = ("activate",
 						"deactivate",
 						"initialize",
 						"uninitialize")
 
-		for method in requiredMethods:
-			self.assertIn(method, dir(Component))
+		for method in required_methods:
+			self.assertIn(method, dir(QObjectComponent))
 
 if __name__ == "__main__":
 	import manager.tests.utilities
