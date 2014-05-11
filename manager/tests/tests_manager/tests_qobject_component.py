@@ -43,12 +43,12 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["QObjectComponentTestCase"]
+__all__ = ["TestQObjectComponent"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class QObjectComponentTestCase(unittest.TestCase):
+class TestQObjectComponent(unittest.TestCase):
 	"""
 	Defines :class:`manager.QObject_component.QObjectComponent` class units tests methods.
 	"""

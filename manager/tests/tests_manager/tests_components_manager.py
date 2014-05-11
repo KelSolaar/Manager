@@ -54,8 +54,8 @@ __all__ = ["RESOURCES_DIRECTORY",
 			"COMPONENTS_DEPENDENCY_ORDER",
 			"STANDARD_PROFILE_CONTENT",
 			"managerCallback",
-			"ProfileTestCase",
-			"ManagerTestCase"]
+			"TestProfile",
+			"TestManager"]
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 SINGLE_COMPONENT = ("core.tests_component_a", os.path.join(os.path.dirname(__file__),
@@ -101,7 +101,7 @@ def managerCallback(profile):
 
 	profile.callback = True
 
-class ProfileTestCase(unittest.TestCase):
+class TestProfile(unittest.TestCase):
 	"""
 	Defines :class:`manager.components_manager.Profile` class units tests methods.
 	"""
@@ -151,7 +151,7 @@ class ProfileTestCase(unittest.TestCase):
 			self.assertIsInstance(getattr(profile, attribute), type(value))
 			self.assertEqual(getattr(profile, attribute), value)
 
-class ManagerTestCase(unittest.TestCase):
+class TestManager(unittest.TestCase):
 	"""
 	Defines :class:`manager.components_manager.Manager` class units tests methods.
 	"""

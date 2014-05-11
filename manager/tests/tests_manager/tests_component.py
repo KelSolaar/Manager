@@ -43,12 +43,12 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["ComponentTestCase"]
+__all__ = ["TestComponent"]
 
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class ComponentTestCase(unittest.TestCase):
+class TestComponent(unittest.TestCase):
 	"""
 	Defines :class:`manager.component.Component` class units tests methods.
 	"""

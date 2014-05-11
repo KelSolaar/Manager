@@ -45,7 +45,7 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "QWidgetComponentFactoryTestCase"]
+__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "TestQWidgetComponentFactory"]
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 UI_FILE = os.path.join(RESOURCES_DIRECTORY, "standard.ui")
@@ -55,7 +55,7 @@ APPLICATION = QApplication(sys.argv)
 #**********************************************************************************************************************
 #***	Module classes and definitions.
 #**********************************************************************************************************************
-class QWidgetComponentFactoryTestCase(unittest.TestCase):
+class TestQWidgetComponentFactory(unittest.TestCase):
 	"""
 	Defines :func:`manager.QWidget_component.QWidgetComponentFactory` factory units tests methods.
 	"""
