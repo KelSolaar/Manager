@@ -14,23 +14,14 @@
 
 """
 
-#**********************************************************************************************************************
-#***	Future imports.
-#**********************************************************************************************************************
 from __future__ import unicode_literals
 
-#**********************************************************************************************************************
-#***	External imports.
-#**********************************************************************************************************************
 import inspect
 import itertools
 import os
 import sys
 import re
 
-#**********************************************************************************************************************
-#***	Internal imports.
-#**********************************************************************************************************************
 import foundations.common
 import foundations.data_structures
 import foundations.exceptions
@@ -43,9 +34,6 @@ from manager.component import Component
 from manager.QObject_component import QObjectComponent
 from manager.QWidget_component import QWidgetComponentFactory
 
-#**********************************************************************************************************************
-#***	Module attributes.
-#**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
 __copyright__ = "Copyright (C) 2008 - 2014 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
@@ -57,9 +45,6 @@ __all__ = ["LOGGER", "Components", "Profile", "Manager"]
 
 LOGGER = foundations.verbose.install_logger()
 
-#**********************************************************************************************************************
-#***	Module classes and definitions.
-#**********************************************************************************************************************
 class Components(foundations.data_structures.Structure):
 	"""
 	Defines a storage object for :class:`Manager` class Components.
@@ -115,9 +100,6 @@ class Profile(object):
 		self.__url = None
 		self.__description = None
 
-	#******************************************************************************************************************
-	#***	Attributes properties.
-	#******************************************************************************************************************
 	@property
 	def name(self):
 		"""
@@ -653,9 +635,6 @@ class Profile(object):
 		raise foundations.exceptions.ProgrammingError(
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "description"))
 
-	#******************************************************************************************************************
-	#***	Class methods.
-	#******************************************************************************************************************
 	@foundations.exceptions.handle_exceptions(foundations.exceptions.FileStructureParsingError)
 	def initializeProfile(self):
 		"""
@@ -760,9 +739,6 @@ class Manager(object):
 		self.categories = categories
 		self.__components = Components()
 
-	#******************************************************************************************************************
-	#***	Attributes properties.
-	#******************************************************************************************************************
 	@property
 	def paths(self):
 		"""
@@ -911,9 +887,6 @@ class Manager(object):
 		raise foundations.exceptions.ProgrammingError(
 		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "components"))
 
-	#******************************************************************************************************************
-	#***	Class methods.
-	#******************************************************************************************************************
 	def __getitem__(self, component):
 		"""
 		Reimplements the :meth:`object.__getitem__` method.

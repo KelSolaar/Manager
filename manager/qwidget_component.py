@@ -14,26 +14,14 @@
 
 """
 
-#**********************************************************************************************************************
-#***	Future imports.
-#**********************************************************************************************************************
 from __future__ import unicode_literals
 
-#**********************************************************************************************************************
-#***	External imports.
-#**********************************************************************************************************************
 from PyQt4.QtCore import pyqtSignal
 
-#**********************************************************************************************************************
-#***	Internal imports.
-#**********************************************************************************************************************
 import foundations.exceptions
 import foundations.verbose
 import foundations.ui.common
 
-#**********************************************************************************************************************
-#***	Module attributes.
-#**********************************************************************************************************************
 __author__ = "Thomas Mansencal"
 __copyright__ = "Copyright (C) 2008 - 2014 - Thomas Mansencal"
 __license__ = "GPL V3.0 - http://www.gnu.org/licenses/"
@@ -45,9 +33,6 @@ __all__ = ["LOGGER", "QWidgetComponentFactory"]
 
 LOGGER = foundations.verbose.install_logger()
 
-#**********************************************************************************************************************
-#***	Module classes and definitions.
-#**********************************************************************************************************************
 def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
 	"""
 	Defines a class factory creating :class:`QWidgetComponent` classes using given ui file.
@@ -113,9 +98,6 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
 			self.__initialized_ui = False
 			self.__deactivatable = True
 
-		#**************************************************************************************************************
-		#***	Attributes properties.
-		#**************************************************************************************************************
 		@property
 		def name(self):
 			"""
@@ -259,9 +241,6 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
 			raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
 			self.__class__.__name__, "deactivatable"))
 
-		#**************************************************************************************************************
-		#***	Class methods.
-		#**************************************************************************************************************
 		@foundations.exceptions.handle_exceptions(NotImplementedError)
 		def activate(self):
 			"""
