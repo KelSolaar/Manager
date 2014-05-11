@@ -26,15 +26,16 @@ __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
 __all__ = ["AbstractComponentsManagerError",
-            "ComponentProfileError",
-            "ComponentModuleError",
-            "ComponentRegistrationError",
-            "ComponentInterfaceError",
-            "ComponentInstantiationError",
-            "ComponentActivationError",
-            "ComponentDeactivationError",
-            "ComponentReloadError",
-            "ComponentExistsError"]
+           "ComponentProfileError",
+           "ComponentModuleError",
+           "ComponentRegistrationError",
+           "ComponentInterfaceError",
+           "ComponentInstantiationError",
+           "ComponentActivationError",
+           "ComponentDeactivationError",
+           "ComponentReloadError",
+           "ComponentExistsError"]
+
 
 class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
     """
@@ -43,12 +44,14 @@ class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
 
     pass
 
+
 class ComponentProfileError(AbstractComponentsManagerError):
     """
     Defines Component profile exception.
     """
 
     pass
+
 
 class ComponentModuleError(AbstractComponentsManagerError):
     """
@@ -57,12 +60,14 @@ class ComponentModuleError(AbstractComponentsManagerError):
 
     pass
 
+
 class ComponentRegistrationError(AbstractComponentsManagerError):
     """
     Defines Component registration exception.
     """
 
     pass
+
 
 class ComponentInterfaceError(AbstractComponentsManagerError):
     """
@@ -71,12 +76,14 @@ class ComponentInterfaceError(AbstractComponentsManagerError):
 
     pass
 
+
 class ComponentInstantiationError(AbstractComponentsManagerError):
     """
     Defines Component instantiation exception.
     """
 
     pass
+
 
 class ComponentActivationError(AbstractComponentsManagerError):
     """
@@ -85,6 +92,7 @@ class ComponentActivationError(AbstractComponentsManagerError):
 
     pass
 
+
 class ComponentDeactivationError(AbstractComponentsManagerError):
     """
     Defines Component deactivation exception.
@@ -92,12 +100,14 @@ class ComponentDeactivationError(AbstractComponentsManagerError):
 
     pass
 
+
 class ComponentReloadError(AbstractComponentsManagerError):
     """
     Defines Component reload exception.
     """
 
     pass
+
 
 class ComponentExistsError(AbstractComponentsManagerError):
     """

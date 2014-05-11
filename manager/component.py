@@ -30,6 +30,7 @@ __all__ = ["LOGGER", "Component"]
 
 LOGGER = foundations.verbose.install_logger()
 
+
 class Component(object):
     """
     Defines the base class for **Manager** package Components.
@@ -86,7 +87,7 @@ class Component(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
 
     @property
     def activated(self):
@@ -121,7 +122,7 @@ class Component(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "activated"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "activated"))
 
     @property
     def initialized(self):
@@ -156,7 +157,7 @@ class Component(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized"))
 
     @property
     def deactivatable(self):
@@ -191,7 +192,7 @@ class Component(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "deactivatable"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "deactivatable"))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def activate(self):
@@ -203,7 +204,7 @@ class Component(object):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def deactivate(self):
@@ -215,7 +216,7 @@ class Component(object):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def initialize(self):
@@ -224,7 +225,7 @@ class Component(object):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def uninitialize(self):
@@ -233,4 +234,4 @@ class Component(object):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))

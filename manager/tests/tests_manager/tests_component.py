@@ -17,6 +17,7 @@
 from __future__ import unicode_literals
 
 import sys
+
 if sys.version_info[:2] <= (2, 6):
     import unittest2 as unittest
 else:
@@ -33,6 +34,7 @@ __status__ = "Production"
 
 __all__ = ["TestComponent"]
 
+
 class TestComponent(unittest.TestCase):
     """
     Defines :class:`manager.component.Component` class units tests methods.
@@ -44,9 +46,9 @@ class TestComponent(unittest.TestCase):
         """
 
         required_attributes = ("name",
-                            "activated",
-                            "initialized",
-                            "deactivatable")
+                               "activated",
+                               "initialized",
+                               "deactivatable")
 
         for attribute in required_attributes:
             self.assertIn(attribute, dir(Component))
@@ -57,13 +59,15 @@ class TestComponent(unittest.TestCase):
         """
 
         required_methods = ("activate",
-                        "deactivate",
-                        "initialize",
-                        "uninitialize")
+                            "deactivate",
+                            "initialize",
+                            "uninitialize")
 
         for method in required_methods:
             self.assertIn(method, dir(Component))
 
+
 if __name__ == "__main__":
     import manager.tests.utilities
+
     unittest.main()

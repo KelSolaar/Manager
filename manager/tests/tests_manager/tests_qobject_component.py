@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-**tests_QObject_component**
+**tests_QObject_component.py**
 
 **Platform:**
     Windows, Linux, Mac Os X.
@@ -17,6 +17,7 @@
 from __future__ import unicode_literals
 
 import sys
+
 if sys.version_info[:2] <= (2, 6):
     import unittest2 as unittest
 else:
@@ -33,6 +34,7 @@ __status__ = "Production"
 
 __all__ = ["TestQObjectComponent"]
 
+
 class TestQObjectComponent(unittest.TestCase):
     """
     Defines :class:`manager.QObject_component.QObjectComponent` class units tests methods.
@@ -44,9 +46,9 @@ class TestQObjectComponent(unittest.TestCase):
         """
 
         required_attributes = ("name",
-                            "activated",
-                            "initialized",
-                            "deactivatable")
+                               "activated",
+                               "initialized",
+                               "deactivatable")
 
         for attribute in required_attributes:
             self.assertIn(attribute, dir(QObjectComponent))
@@ -57,13 +59,15 @@ class TestQObjectComponent(unittest.TestCase):
         """
 
         required_methods = ("activate",
-                        "deactivate",
-                        "initialize",
-                        "uninitialize")
+                            "deactivate",
+                            "initialize",
+                            "uninitialize")
 
         for method in required_methods:
             self.assertIn(method, dir(QObjectComponent))
 
+
 if __name__ == "__main__":
     import manager.tests.utilities
+
     unittest.main()

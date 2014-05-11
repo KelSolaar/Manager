@@ -33,6 +33,7 @@ __all__ = ["LOGGER", "QObjectComponent"]
 
 LOGGER = foundations.verbose.install_logger()
 
+
 class QObjectComponent(QObject):
     """
     Defines the base class for **Manager** package QObject Components.
@@ -117,7 +118,7 @@ class QObjectComponent(QObject):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
 
     @property
     def activated(self):
@@ -153,7 +154,7 @@ class QObjectComponent(QObject):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "activated"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "activated"))
 
     @property
     def initialized(self):
@@ -189,7 +190,7 @@ class QObjectComponent(QObject):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized"))
 
     @property
     def deactivatable(self):
@@ -224,7 +225,7 @@ class QObjectComponent(QObject):
         """
 
         raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
-        self.__class__.__name__, "deactivatable"))
+            self.__class__.__name__, "deactivatable"))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def activate(self):
@@ -236,7 +237,7 @@ class QObjectComponent(QObject):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def deactivate(self):
@@ -248,7 +249,7 @@ class QObjectComponent(QObject):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def initialize(self):
@@ -257,7 +258,7 @@ class QObjectComponent(QObject):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def uninitialize(self):
@@ -266,4 +267,4 @@ class QObjectComponent(QObject):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-        self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))

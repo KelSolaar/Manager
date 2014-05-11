@@ -45,6 +45,7 @@ __all__ = ["LOGGER", "Components", "Profile", "Manager"]
 
 LOGGER = foundations.verbose.install_logger()
 
+
 class Components(foundations.data_structures.Structure):
     """
     Defines a storage object for :class:`Manager` class Components.
@@ -61,6 +62,7 @@ class Components(foundations.data_structures.Structure):
         LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
 
         foundations.data_structures.Structure.__init__(self, **kwargs)
+
 
 class Profile(object):
     """
@@ -123,7 +125,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "name", value)
+                "name", value)
         self.__name = value
 
     @name.deleter
@@ -134,7 +136,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "name"))
 
     @property
     def file(self):
@@ -169,7 +171,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "file"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "file"))
 
     @property
     def directory(self):
@@ -194,7 +196,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "directory", value)
+                "directory", value)
             assert os.path.exists(value), "'{0}' attribute: '{1}' directory doesn't exists!".format("directory", value)
         self.__directory = value
 
@@ -206,7 +208,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "directory"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "directory"))
 
     @property
     def attribute(self):
@@ -231,7 +233,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "attribute", value)
+                "attribute", value)
         self.__attribute = value
 
     @attribute.deleter
@@ -242,7 +244,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "attribute"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "attribute"))
 
     @property
     def require(self):
@@ -267,7 +269,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format(
-            "require", value)
+                "require", value)
         self.__require = value
 
     @require.deleter
@@ -278,7 +280,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "require"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "require"))
 
     @property
     def module(self):
@@ -313,7 +315,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "module"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "module"))
 
     @property
     def interface(self):
@@ -345,7 +347,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "interface"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "interface"))
 
     @property
     def category(self):
@@ -370,7 +372,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "category", value)
+                "category", value)
         self.__category = value
 
     @category.deleter
@@ -381,7 +383,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "category"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "category"))
 
     @property
     def title(self):
@@ -406,7 +408,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "title", value)
+                "title", value)
         self.__title = value
 
     @title.deleter
@@ -417,7 +419,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "title"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "title"))
 
     @property
     def package(self):
@@ -442,7 +444,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "package", value)
+                "package", value)
         self.__package = value
 
     @package.deleter
@@ -453,7 +455,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "package"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "package"))
 
     @property
     def version(self):
@@ -478,7 +480,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "version", value)
+                "version", value)
         self.__version = value
 
     @version.deleter
@@ -489,7 +491,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "version"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "version"))
 
     @property
     def author(self):
@@ -514,7 +516,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "author", value)
+                "author", value)
         self.__author = value
 
     @author.deleter
@@ -525,7 +527,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "author"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "author"))
 
     @property
     def email(self):
@@ -550,7 +552,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "email", value)
+                "email", value)
         self.__email = value
 
     @email.deleter
@@ -561,7 +563,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "email"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "email"))
 
     @property
     def url(self):
@@ -586,7 +588,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "url", value)
+                "url", value)
         self.__url = value
 
     @url.deleter
@@ -597,7 +599,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "url"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "url"))
 
     @property
     def description(self):
@@ -622,7 +624,7 @@ class Profile(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "description", value)
+                "description", value)
         self.__description = value
 
     @description.deleter
@@ -633,7 +635,7 @@ class Profile(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "description"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "description"))
 
     @foundations.exceptions.handle_exceptions(foundations.exceptions.FileStructureParsingError)
     def initializeProfile(self):
@@ -651,8 +653,8 @@ class Profile(object):
 
         if sections_file_parser.sections:
             fileStructureParsingError = lambda attribute: foundations.exceptions.FileStructureParsingError(
-            "{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
-            self.__class__.__name__, attribute, self.__file))
+                "{0} | No '{1}' attribute found, '{2}' file structure seems invalid!".format(
+                    self.__class__.__name__, attribute, self.__file))
 
             self.__directory = os.path.dirname(self.__file)
             self.__name = sections_file_parser.get_value("Name", "Component", default=None)
@@ -689,7 +691,9 @@ class Profile(object):
             return True
         else:
             raise foundations.exceptions.FileStructureParsingError(
-            "{0} | No sections found, '{1}' file structure seems invalid!".format(self.__class__.__name__, self.__file))
+                "{0} | No sections found, '{1}' file structure seems invalid!".format(self.__class__.__name__,
+                                                                                      self.__file))
+
 
 class Manager(object):
     """
@@ -702,9 +706,9 @@ class Manager(object):
     """
 
     def __init__(self,
-                paths=None,
-                extension="rc",
-                categories={"Default" : Component, "QWidget" : QWidgetComponentFactory(), "QObject" : QObjectComponent}):
+                 paths=None,
+                 extension="rc",
+                 categories={"Default": Component, "QWidget": QWidgetComponentFactory(), "QObject": QObjectComponent}):
         """
         Initializes the class.
 
@@ -762,10 +766,10 @@ class Manager(object):
 
         if value is not None:
             assert type(value) in (tuple, list), "'{0}' attribute: '{1}' type is not 'tuple' or 'list'!".format(
-            "paths", value)
+                "paths", value)
             for path in value:
                 assert type(path) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-                "paths", path)
+                    "paths", path)
                 assert os.path.exists(path), "'{0}' attribute: '{1}' directory doesn't exists!".format("paths", path)
         self.__paths = value
 
@@ -777,7 +781,7 @@ class Manager(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "paths"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "paths"))
 
     @property
     def extension(self):
@@ -802,7 +806,7 @@ class Manager(object):
 
         if value is not None:
             assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-            "extension", value)
+                "extension", value)
         self.__extension = value
 
     @extension.deleter
@@ -813,7 +817,7 @@ class Manager(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "extension"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "extension"))
 
     @property
     def categories(self):
@@ -840,7 +844,7 @@ class Manager(object):
             assert type(value) is dict, "'{0}' attribute: '{1}' type is not 'dict'!".format("categories", value)
             for key in value:
                 assert type(key) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-                "categories", key)
+                    "categories", key)
         self.__categories = value
 
     @categories.deleter
@@ -851,7 +855,7 @@ class Manager(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "categories"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "categories"))
 
     @property
     def components(self):
@@ -875,7 +879,7 @@ class Manager(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "components"))
+            "{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "components"))
 
     @components.deleter
     @foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
@@ -885,7 +889,7 @@ class Manager(object):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "components"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "components"))
 
     def __getitem__(self, component):
         """
@@ -969,7 +973,7 @@ class Manager(object):
         return len(self.__components.keys())
 
     @foundations.exceptions.handle_exceptions(manager.exceptions.ComponentModuleError,
-                                            manager.exceptions.ComponentProfileError)
+                                              manager.exceptions.ComponentProfileError)
     def register_component(self, path):
         """
         Registers a Component using given path.
@@ -993,16 +997,18 @@ class Manager(object):
         profile = Profile(file=path)
         if profile.initializeProfile():
             if os.path.isfile(os.path.join(profile.directory, profile.package) + ".py") or \
-            os.path.isdir(os.path.join(profile.directory, profile.package)) or \
-            os.path.basename(profile.directory) == profile.package:
+                    os.path.isdir(os.path.join(profile.directory, profile.package)) or \
+                            os.path.basename(profile.directory) == profile.package:
                 self.__components[profile.name] = profile
                 return True
             else:
                 raise manager.exceptions.ComponentModuleError(
-                "{0} | '{1}' has no associated module and has been rejected!".format(self.__class__.__name__, component))
+                    "{0} | '{1}' has no associated module and has been rejected!".format(self.__class__.__name__,
+                                                                                         component))
         else:
             raise manager.exceptions.ComponentProfileError(
-            "{0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__, component))
+                "{0} | '{1}' is not a valid Component and has been rejected!".format(self.__class__.__name__,
+                                                                                     component))
 
     def unregister_component(self, component):
         """
@@ -1029,7 +1035,7 @@ class Manager(object):
         :rtype: bool
         """
 
-        del(self.__components[component])
+        del (self.__components[component])
         return True
 
     @foundations.exceptions.handle_exceptions(manager.exceptions.ComponentRegistrationError)
@@ -1059,8 +1065,8 @@ class Manager(object):
             return True
         else:
             raise manager.exceptions.ComponentRegistrationError(
-            "{0} | '{1}' Components failed to register!".format(self.__class__.__name__,
-                                                                ", ".join(unregistered_components)))
+                "{0} | '{1}' Components failed to register!".format(self.__class__.__name__,
+                                                                    ", ".join(unregistered_components)))
 
     def unregister_components(self):
         """
@@ -1115,7 +1121,7 @@ class Manager(object):
         LOGGER.debug("> Current Component: '{0}'.".format(component))
 
         if os.path.isfile(os.path.join(profile.directory, profile.package) + ".py") or \
-        os.path.isdir(os.path.join(profile.directory, profile.package)):
+                os.path.isdir(os.path.join(profile.directory, profile.package)):
             path = profile.directory
         elif os.path.basename(profile.directory) == profile.package:
             path = os.path.join(profile.directory, "..")
@@ -1129,12 +1135,14 @@ class Manager(object):
                 if type.__name__ in (base.__name__ for base in object.__bases__):
                     profile.category = category
                     profile.interface = instance
-                    LOGGER.info("{0} | '{1}' Component has been instantiated!".format(self.__class__.__name__, profile.name))
+                    LOGGER.info("{0} | '{1}' Component has been instantiated!".format(
+                        self.__class__.__name__, profile.name))
                     return True
         else:
-            del(self.__components[component])
+            del (self.__components[component])
             raise manager.exceptions.ComponentInterfaceError(
-            "{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__, profile.name))
+                "{0} | '{1}' Component has no Interface and has been rejected!".format(self.__class__.__name__,
+                                                                                       profile.name))
 
     def instantiate_components(self, callback=None):
         """
@@ -1155,14 +1163,14 @@ class Manager(object):
         """
 
         uninstantiated_components = [component
-                                    for component in self.list_components()
-                                    if not self.instantiate_component(component, callback)]
+                                     for component in self.list_components()
+                                     if not self.instantiate_component(component, callback)]
         if not uninstantiated_components:
             return True
         else:
             raise manager.exceptions.ComponentInstantiationError(
-            "{0} | '{1}' Components failed to instantiate!".format(self.__class__.__name__,
-                                                                    ", ".join(uninstantiated_components)))
+                "{0} | '{1}' Components failed to instantiate!".format(self.__class__.__name__,
+                                                                       ", ".join(uninstantiated_components)))
 
     def reload_component(self, component):
         """
@@ -1202,7 +1210,8 @@ class Manager(object):
                         instance = object(name=profile.name)
                         profile.module = module
                         profile.interface = instance
-                        LOGGER.info("{0} | '{1}' Component has been reloaded!".format(self.__class__.__name__, profile.name))
+                        LOGGER.info("{0} | '{1}' Component has been reloaded!".format(
+                            self.__class__.__name__, profile.name))
         return True
 
     def list_components(self, dependency_order=True):
@@ -1223,7 +1232,8 @@ class Manager(object):
 
         if dependency_order:
             return list(itertools.chain.from_iterable([sorted(list(batch)) for batch in
-            foundations.common.dependency_resolver(dict((key, value.require) for (key, value) in self))]))
+                                                       foundations.common.dependency_resolver(
+                                                           dict((key, value.require) for (key, value) in self))]))
         else:
             return [key for (key, value) in self]
 
@@ -1349,7 +1359,8 @@ class Manager(object):
 
         search = re.search(r"(?P<category>\w+)\.(?P<name>\w+)", component)
         if search:
-            name = "{0}{1}{2}".format(search.group("category"), search.group("name")[0].upper(), search.group("name")[1:])
+            name = "{0}{1}{2}".format(
+                search.group("category"), search.group("name")[0].upper(), search.group("name")[1:])
             LOGGER.debug("> Component name: '{0}' to attribute name Active_QLabel: '{1}'.".format(component, name))
         else:
             name = component

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-**tests_QWidget_component**
+**tests_QWidget_component.py**
 
 **Platform:**
     Windows, Linux, Mac Os X.
@@ -18,6 +18,7 @@ from __future__ import unicode_literals
 
 import os
 import sys
+
 if sys.version_info[:2] <= (2, 6):
     import unittest2 as unittest
 else:
@@ -33,12 +34,13 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["RESOURCES_DIRECTORY", "UI_FILE" , "APPLICATION" , "TestQWidgetComponentFactory"]
+__all__ = ["RESOURCES_DIRECTORY", "UI_FILE", "APPLICATION", "TestQWidgetComponentFactory"]
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 UI_FILE = os.path.join(RESOURCES_DIRECTORY, "standard.ui")
 
 APPLICATION = QApplication(sys.argv)
+
 
 class TestQWidgetComponentFactory(unittest.TestCase):
     """
@@ -51,10 +53,10 @@ class TestQWidgetComponentFactory(unittest.TestCase):
         """
 
         required_attributes = ("name",
-                            "ui_file",
-                            "activated",
-                            "initialized_ui",
-                            "deactivatable")
+                               "ui_file",
+                               "activated",
+                               "initialized_ui",
+                               "deactivatable")
 
         for attribute in required_attributes:
             self.assertIn(attribute, dir(QWidgetComponentFactory()))
@@ -65,13 +67,15 @@ class TestQWidgetComponentFactory(unittest.TestCase):
         """
 
         required_methods = ("activate",
-                        "deactivate",
-                        "initialize_ui",
-                        "uninitialize_ui")
+                            "deactivate",
+                            "initialize_ui",
+                            "uninitialize_ui")
 
         for method in required_methods:
             self.assertIn(method, dir(QWidgetComponentFactory()))
 
+
 if __name__ == "__main__":
     import manager.tests.utilities
+
     unittest.main()

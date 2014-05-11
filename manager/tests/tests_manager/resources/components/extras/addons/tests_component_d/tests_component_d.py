@@ -31,6 +31,7 @@ __all__ = ["LOGGER", "TestsComponentD"]
 
 LOGGER = foundations.verbose.install_logger()
 
+
 class TestsComponentD(Component):
     """
     Defines the :mod:`tests.tests_manager.resources.components.addons.tests_component_d.tests_component_d`
@@ -76,7 +77,7 @@ class TestsComponentD(Component):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "container"))
+            "{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "container"))
 
     @container.deleter
     @foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
@@ -86,7 +87,8 @@ class TestsComponentD(Component):
         """
 
         raise foundations.exceptions.ProgrammingError(
-        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "container"))
+            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "container"))
+
     def activate(self, container):
         """
         Activates the Component.

@@ -18,6 +18,7 @@ from __future__ import unicode_literals
 
 import os
 import sys
+
 if sys.version_info[:2] <= (2, 6):
     import unittest2 as unittest
 else:
@@ -35,49 +36,51 @@ __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
 __all__ = ["RESOURCES_DIRECTORY",
-            "SINGLE_COMPONENT",
-            "COMPONENTS_DIRECTORY",
-            "COMPONENTS",
-            "COMPONENTS_NAMES",
-            "COMPONENTS_DEPENDENCY_ORDER",
-            "STANDARD_PROFILE_CONTENT",
-            "managerCallback",
-            "TestProfile",
-            "TestManager"]
+           "SINGLE_COMPONENT",
+           "COMPONENTS_DIRECTORY",
+           "COMPONENTS",
+           "COMPONENTS_NAMES",
+           "COMPONENTS_DEPENDENCY_ORDER",
+           "STANDARD_PROFILE_CONTENT",
+           "managerCallback",
+           "TestProfile",
+           "TestManager"]
 
 RESOURCES_DIRECTORY = os.path.join(os.path.dirname(__file__), "resources")
 SINGLE_COMPONENT = ("core.tests_component_a", os.path.join(os.path.dirname(__file__),
-                                                         "resources/components/core/tests_component_a/tests_component_a.rc"), Component)
+                                                           "resources/components/core/tests_component_a/tests_component_a.rc"),
+                    Component)
 COMPONENTS_DIRECTORY = os.path.join(RESOURCES_DIRECTORY, "components")
 ALTERNATIVE_COMPONENTS_DIRECTORY = os.path.join(COMPONENTS_DIRECTORY, "extras", "addons")
-COMPONENTS = {"core" : {"tests_component_a" : "core/tests_component_a",
-                    "tests_component_b" : "core/tests_component_b"},
-            "addons" : {"tests_component_c" : "core/tests_component_c",
-                    "tests_component_d" : "core/tests_component_d"}}
+COMPONENTS = {"core": {"tests_component_a": "core/tests_component_a",
+                       "tests_component_b": "core/tests_component_b"},
+              "addons": {"tests_component_c": "core/tests_component_c",
+                         "tests_component_d": "core/tests_component_d"}}
 COMPONENTS_NAMES = COMPONENTS_DEPENDENCY_ORDER = ["core.tests_component_a",
-                                        "core.tests_component_b",
-                                        "addons.tests_component_c",
-                                        "addons.tests_component_d"]
-COMPONENTS_DEPENDENTS = {"core.tests_component_a" : ["core.tests_component_b",
-                                                "addons.tests_component_c",
-                                                "addons.tests_component_d"],
-                        "core.tests_component_b" : ["addons.tests_component_c",
-                                                "addons.tests_component_d"],
-                        "addons.tests_component_c" : ["addons.tests_component_d"],
-                        "addons.tests_component_d" :  []}
-STANDARD_PROFILE_CONTENT = {"name" : "core.tests_component_a",
-                            "file" : os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["tests_component_a"],
-                                    "tests_component_a.rc"),
-                            "directory":os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["tests_component_a"]),
-                            "title" : "Tests Component A",
-                            "package" : "tests_component_a",
-                            "attribute" : "TestsComponentA",
-                            "require" : [],
-                            "version" : "1.0",
-                            "author" : "Thomas Mansencal",
-                            "email" : "thomas.mansencal@gmail.com",
-                            "url" : "http://www.hdrlabs.com/",
-                            "description" : "Core tests Component A."}
+                                                  "core.tests_component_b",
+                                                  "addons.tests_component_c",
+                                                  "addons.tests_component_d"]
+COMPONENTS_DEPENDENTS = {"core.tests_component_a": ["core.tests_component_b",
+                                                    "addons.tests_component_c",
+                                                    "addons.tests_component_d"],
+                         "core.tests_component_b": ["addons.tests_component_c",
+                                                    "addons.tests_component_d"],
+                         "addons.tests_component_c": ["addons.tests_component_d"],
+                         "addons.tests_component_d": []}
+STANDARD_PROFILE_CONTENT = {"name": "core.tests_component_a",
+                            "file": os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["tests_component_a"],
+                                                 "tests_component_a.rc"),
+                            "directory": os.path.join(COMPONENTS_DIRECTORY, COMPONENTS["core"]["tests_component_a"]),
+                            "title": "Tests Component A",
+                            "package": "tests_component_a",
+                            "attribute": "TestsComponentA",
+                            "require": [],
+                            "version": "1.0",
+                            "author": "Thomas Mansencal",
+                            "email": "thomas.mansencal@gmail.com",
+                            "url": "http://www.hdrlabs.com/",
+                            "description": "Core tests Component A."}
+
 
 def managerCallback(profile):
     """
@@ -85,6 +88,7 @@ def managerCallback(profile):
     """
 
     profile.callback = True
+
 
 class TestProfile(unittest.TestCase):
     """
@@ -97,20 +101,20 @@ class TestProfile(unittest.TestCase):
         """
 
         required_attributes = ("name",
-                            "file",
-                            "directory",
-                            "attribute",
-                            "require",
-                            "module",
-                            "interface",
-                            "category",
-                            "title",
-                            "package",
-                            "version",
-                            "author",
-                            "email",
-                            "url",
-                            "description")
+                               "file",
+                               "directory",
+                               "attribute",
+                               "require",
+                               "module",
+                               "interface",
+                               "category",
+                               "title",
+                               "package",
+                               "version",
+                               "author",
+                               "email",
+                               "url",
+                               "description")
 
         for attribute in required_attributes:
             self.assertIn(attribute, dir(Profile))
@@ -136,6 +140,7 @@ class TestProfile(unittest.TestCase):
             self.assertIsInstance(getattr(profile, attribute), type(value))
             self.assertEqual(getattr(profile, attribute), value)
 
+
 class TestManager(unittest.TestCase):
     """
     Defines :class:`manager.components_manager.Manager` class units tests methods.
@@ -147,9 +152,9 @@ class TestManager(unittest.TestCase):
         """
 
         required_attributes = ("paths",
-                            "extension",
-                            "categories",
-                            "components",)
+                               "extension",
+                               "categories",
+                               "components",)
 
         for attribute in required_attributes:
             self.assertIn(attribute, dir(Manager))
@@ -160,22 +165,22 @@ class TestManager(unittest.TestCase):
         """
 
         required_methods = ("__getitem__",
-                        "__iter__",
-                        "__contains__",
-                        "__len__",
-                        "register_components",
-                        "unregister_component",
-                        "register_components",
-                        "unregister_components",
-                        "instantiate_component",
-                        "instantiate_components",
-                        "reload_component",
-                        "list_components",
-                        "list_dependents",
-                        "filter_components",
-                        "get_profile",
-                        "get_interface",
-                        "get_component_attribute_name")
+                            "__iter__",
+                            "__contains__",
+                            "__len__",
+                            "register_components",
+                            "unregister_component",
+                            "register_components",
+                            "unregister_components",
+                            "instantiate_component",
+                            "instantiate_components",
+                            "reload_component",
+                            "list_components",
+                            "list_dependents",
+                            "filter_components",
+                            "get_profile",
+                            "get_interface",
+                            "get_component_attribute_name")
 
         for method in required_methods:
             self.assertIn(method, dir(Manager))
@@ -320,7 +325,8 @@ class TestManager(unittest.TestCase):
         components = manager.list_components()
         self.assertIsInstance(components, list)
         self.assertListEqual(components, COMPONENTS_DEPENDENCY_ORDER)
-        self.assertListEqual(sorted(manager.list_components(dependency_order=False)), sorted(COMPONENTS_DEPENDENCY_ORDER))
+        self.assertListEqual(
+            sorted(manager.list_components(dependency_order=False)), sorted(COMPONENTS_DEPENDENCY_ORDER))
 
     def test_list_dependents(self):
         """
@@ -374,10 +380,13 @@ class TestManager(unittest.TestCase):
         Tests :meth:`manager.components_manager.Manager.get_component_attribute_name` method.
         """
 
-        self.assertEquals(Manager.get_component_attribute_name("factory.componentsManagerUi"), "factoryComponentsManagerUi")
+        self.assertEquals(Manager.get_component_attribute_name(
+            "factory.componentsManagerUi"), "factoryComponentsManagerUi")
         self.assertEquals(Manager.get_component_attribute_name("addons.loggingNotifier"), "addonsLoggingNotifier")
         self.assertEquals(Manager.get_component_attribute_name("myComponent"), "myComponent")
 
+
 if __name__ == "__main__":
     import manager.tests.utilities
+
     unittest.main()

@@ -33,6 +33,7 @@ __all__ = ["LOGGER", "QWidgetComponentFactory"]
 
 LOGGER = foundations.verbose.install_logger()
 
+
 def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
     """
     Defines a class factory creating :class:`QWidgetComponent` classes using given ui file.
@@ -48,6 +49,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
     """
 
     class QWidgetComponent(foundations.ui.common.QWidget_factory(ui_file=ui_file)):
+
         """
         Defines the base class for **Manager** package QWidget Components.
         """
@@ -121,7 +123,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
 
             if value is not None:
                 assert type(value) is unicode, "'{0}' attribute: '{1}' type is not 'unicode'!".format(
-                "name", value)
+                    "name", value)
             self.__name = value
 
         @name.deleter
@@ -132,7 +134,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
-            self.__class__.__name__, "name"))
+                self.__class__.__name__, "name"))
 
         @property
         def activated(self):
@@ -168,7 +170,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
-            self.__class__.__name__, "activated"))
+                self.__class__.__name__, "activated"))
 
         @property
         def initialized_ui(self):
@@ -192,7 +194,8 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             if value is not None:
-                assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("initialized_ui", value)
+                assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format(
+                    "initialized_ui", value)
                 self.component_initialized_ui.emit() if value else self.component_uninitialized_ui.emit()
             self.__initialized_ui = value
 
@@ -204,7 +207,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise foundations.exceptions.ProgrammingError(
-            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized_ui"))
+                "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "initialized_ui"))
 
         @property
         def deactivatable(self):
@@ -239,7 +242,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
-            self.__class__.__name__, "deactivatable"))
+                self.__class__.__name__, "deactivatable"))
 
         @foundations.exceptions.handle_exceptions(NotImplementedError)
         def activate(self):
@@ -251,7 +254,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-            self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
+                self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
 
         @foundations.exceptions.handle_exceptions(NotImplementedError)
         def deactivate(self):
@@ -263,7 +266,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+                self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
         @foundations.exceptions.handle_exceptions(NotImplementedError)
         def initialize_ui(self):
@@ -272,7 +275,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+                self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
         @foundations.exceptions.handle_exceptions(NotImplementedError)
         def add_widget(self):
@@ -281,7 +284,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+                self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
         @foundations.exceptions.handle_exceptions(NotImplementedError)
         def remove_widget(self):
@@ -290,7 +293,7 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+                self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
         @foundations.exceptions.handle_exceptions(NotImplementedError)
         def uninitialize_ui(self):
@@ -299,6 +302,6 @@ def QWidgetComponentFactory(ui_file=None, *args, **kwargs):
             """
 
             raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
+                self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
     return QWidgetComponent
