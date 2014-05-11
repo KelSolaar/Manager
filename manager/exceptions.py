@@ -5,10 +5,10 @@
 **exceptions.py**
 
 **Platform:**
-	Windows, Linux, Mac Os X.
+    Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines **Manager** package exceptions.
+    Defines **Manager** package exceptions.
 
 **Others:**
 
@@ -26,82 +26,82 @@ __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
 __all__ = ["AbstractComponentsManagerError",
-			"ComponentProfileError",
-			"ComponentModuleError",
-			"ComponentRegistrationError",
-			"ComponentInterfaceError",
-			"ComponentInstantiationError",
-			"ComponentActivationError",
-			"ComponentDeactivationError",
-			"ComponentReloadError",
-			"ComponentExistsError"]
+            "ComponentProfileError",
+            "ComponentModuleError",
+            "ComponentRegistrationError",
+            "ComponentInterfaceError",
+            "ComponentInstantiationError",
+            "ComponentActivationError",
+            "ComponentDeactivationError",
+            "ComponentReloadError",
+            "ComponentExistsError"]
 
 class AbstractComponentsManagerError(foundations.exceptions.AbstractError):
-	"""
-	Defines the abstract base class for :class:`manager.components_manager.Manager` related exceptions.
-	"""
+    """
+    Defines the abstract base class for :class:`manager.components_manager.Manager` related exceptions.
+    """
 
-	pass
+    pass
 
 class ComponentProfileError(AbstractComponentsManagerError):
-	"""
-	Defines Component profile exception.
-	"""
+    """
+    Defines Component profile exception.
+    """
 
-	pass
+    pass
 
 class ComponentModuleError(AbstractComponentsManagerError):
-	"""
-	Defines Component associated module exception.
-	"""
+    """
+    Defines Component associated module exception.
+    """
 
-	pass
+    pass
 
 class ComponentRegistrationError(AbstractComponentsManagerError):
-	"""
-	Defines Component registration exception.
-	"""
+    """
+    Defines Component registration exception.
+    """
 
-	pass
+    pass
 
 class ComponentInterfaceError(AbstractComponentsManagerError):
-	"""
-	Defines Component Interface exception.
-	"""
+    """
+    Defines Component Interface exception.
+    """
 
-	pass
+    pass
 
 class ComponentInstantiationError(AbstractComponentsManagerError):
-	"""
-	Defines Component instantiation exception.
-	"""
+    """
+    Defines Component instantiation exception.
+    """
 
-	pass
+    pass
 
 class ComponentActivationError(AbstractComponentsManagerError):
-	"""
-	Defines Component activation exception.
-	"""
+    """
+    Defines Component activation exception.
+    """
 
-	pass
+    pass
 
 class ComponentDeactivationError(AbstractComponentsManagerError):
-	"""
-	Defines Component deactivation exception.
-	"""
+    """
+    Defines Component deactivation exception.
+    """
 
-	pass
+    pass
 
 class ComponentReloadError(AbstractComponentsManagerError):
-	"""
-	Defines Component reload exception.
-	"""
+    """
+    Defines Component reload exception.
+    """
 
-	pass
+    pass
 
 class ComponentExistsError(AbstractComponentsManagerError):
-	"""
-	Defines non existing Component exception.
-	"""
+    """
+    Defines non existing Component exception.
+    """
 
-	pass
+    pass

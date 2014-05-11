@@ -5,10 +5,10 @@
 **tests_component_a.py**
 
 **Platform:**
-	Windows, Linux, Mac Os X.
+    Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines the :class:`TestsComponentA` Component Interface class.
+    Defines the :class:`TestsComponentA` Component Interface class.
 
 **Others:**
 
@@ -32,115 +32,115 @@ __all__ = ["LOGGER", "TestsComponentA"]
 LOGGER = foundations.verbose.install_logger()
 
 class TestsComponentA(Component):
-	"""
-	Defines the :mod:`tests.tests_manager.resources.components.core.tests_component_a.tests_component_a`
-	Component Interface class.
-	"""
+    """
+    Defines the :mod:`tests.tests_manager.resources.components.core.tests_component_a.tests_component_a`
+    Component Interface class.
+    """
 
-	def __init__(self, name=None):
-		"""
-		Initializes the class.
+    def __init__(self, name=None):
+        """
+        Initializes the class.
 
-		:param name: Component name.
-		:type name: unicode
-		"""
+        :param name: Component name.
+        :type name: unicode
+        """
 
-		LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
+        LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
 
-		Component.__init__(self, name=name)
+        Component.__init__(self, name=name)
 
-		# --- Setting class attributes. ---
-		self.deactivatable = True
+        # --- Setting class attributes. ---
+        self.deactivatable = True
 
-		self.__container = None
+        self.__container = None
 
-	@property
-	def container(self):
-		"""
-		Property for **self.__container** attribute.
+    @property
+    def container(self):
+        """
+        Property for **self.__container** attribute.
 
-		:return: self.__container.
-		:rtype: QObject
-		"""
+        :return: self.__container.
+        :rtype: QObject
+        """
 
-		return self.__container
+        return self.__container
 
-	@container.setter
-	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
-	def container(self, value):
-		"""
-		Setter for **self.__container** attribute.
+    @container.setter
+    @foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
+    def container(self, value):
+        """
+        Setter for **self.__container** attribute.
 
-		:param value: Attribute value.
-		:type value: QObject
-		"""
+        :param value: Attribute value.
+        :type value: QObject
+        """
 
-		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "container"))
+        raise foundations.exceptions.ProgrammingError(
+        "{0} | '{1}' attribute is read only!".format(self.__class__.__name__, "container"))
 
-	@container.deleter
-	@foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
-	def container(self):
-		"""
-		Deleter for **self.__container** attribute.
-		"""
+    @container.deleter
+    @foundations.exceptions.handle_exceptions(foundations.exceptions.ProgrammingError)
+    def container(self):
+        """
+        Deleter for **self.__container** attribute.
+        """
 
-		raise foundations.exceptions.ProgrammingError(
-		"{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "container"))
-	def activate(self, container):
-		"""
-		Activates the Component.
+        raise foundations.exceptions.ProgrammingError(
+        "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "container"))
+    def activate(self, container):
+        """
+        Activates the Component.
 
-		:param container: Container to attach the Component to.
-		:type container: QObject
-		:return: Method success.
-		:rtype: bool
-		"""
+        :param container: Container to attach the Component to.
+        :type container: QObject
+        :return: Method success.
+        :rtype: bool
+        """
 
-		LOGGER.debug("> Activating '{0}' Component.".format(self.__class__.__name__))
+        LOGGER.debug("> Activating '{0}' Component.".format(self.__class__.__name__))
 
-		self.__container = container
+        self.__container = container
 
-		self.activated = True
-		return True
+        self.activated = True
+        return True
 
-	def deactivate(self):
-		"""
-		Deactivates the Component.
+    def deactivate(self):
+        """
+        Deactivates the Component.
 
-		:return: Method success.
-		:rtype: bool
-		"""
+        :return: Method success.
+        :rtype: bool
+        """
 
-		LOGGER.debug("> Deactivating '{0}' Component.".format(self.__class__.__name__))
+        LOGGER.debug("> Deactivating '{0}' Component.".format(self.__class__.__name__))
 
-		self.__container = None
+        self.__container = None
 
-		self.activated = False
-		return True
+        self.activated = False
+        return True
 
-	def initialize(self):
-		"""
-		Initializes the Component.
+    def initialize(self):
+        """
+        Initializes the Component.
 
-		:return: Method success.
-		:rtype: bool
-		"""
+        :return: Method success.
+        :rtype: bool
+        """
 
-		LOGGER.debug("> Initializing '{0}' Component.".format(self.__class__.__name__))
+        LOGGER.debug("> Initializing '{0}' Component.".format(self.__class__.__name__))
 
-		self.initialized = True
-		return True
+        self.initialized = True
+        return True
 
-	def uninitialize(self):
-		"""
-		Uninitializes the Component.
+    def uninitialize(self):
+        """
+        Uninitializes the Component.
 
-		:return: Method success.
-		:rtype: bool
-		"""
+        :return: Method success.
+        :rtype: bool
+        """
 
-		LOGGER.debug("> Uninitializing '{0}' Component.".format(self.__class__.__name__))
+        LOGGER.debug("> Uninitializing '{0}' Component.".format(self.__class__.__name__))
 
-		self.initialized = False
-		return True
+        self.initialized = False
+        return True

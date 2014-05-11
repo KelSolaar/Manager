@@ -5,10 +5,10 @@
 **tests_QObject_component**
 
 **Platform:**
-	Windows, Linux, Mac Os X.
+    Windows, Linux, Mac Os X.
 
 **Description:**
-	Defines units tests for :mod:`manager.QObject_component` module.
+    Defines units tests for :mod:`manager.QObject_component` module.
 
 **Others:**
 
@@ -18,9 +18,9 @@ from __future__ import unicode_literals
 
 import sys
 if sys.version_info[:2] <= (2, 6):
-	import unittest2 as unittest
+    import unittest2 as unittest
 else:
-	import unittest
+    import unittest
 
 from manager.QObject_component import QObjectComponent
 
@@ -34,36 +34,36 @@ __status__ = "Production"
 __all__ = ["TestQObjectComponent"]
 
 class TestQObjectComponent(unittest.TestCase):
-	"""
-	Defines :class:`manager.QObject_component.QObjectComponent` class units tests methods.
-	"""
+    """
+    Defines :class:`manager.QObject_component.QObjectComponent` class units tests methods.
+    """
 
-	def test_required_attributes(self):
-		"""
-		Tests presence of required attributes.
-		"""
+    def test_required_attributes(self):
+        """
+        Tests presence of required attributes.
+        """
 
-		required_attributes = ("name",
-							"activated",
-							"initialized",
-							"deactivatable")
+        required_attributes = ("name",
+                            "activated",
+                            "initialized",
+                            "deactivatable")
 
-		for attribute in required_attributes:
-			self.assertIn(attribute, dir(QObjectComponent))
+        for attribute in required_attributes:
+            self.assertIn(attribute, dir(QObjectComponent))
 
-	def test_required_methods(self):
-		"""
-		Tests presence of required methods.
-		"""
+    def test_required_methods(self):
+        """
+        Tests presence of required methods.
+        """
 
-		required_methods = ("activate",
-						"deactivate",
-						"initialize",
-						"uninitialize")
+        required_methods = ("activate",
+                        "deactivate",
+                        "initialize",
+                        "uninitialize")
 
-		for method in required_methods:
-			self.assertIn(method, dir(QObjectComponent))
+        for method in required_methods:
+            self.assertIn(method, dir(QObjectComponent))
 
 if __name__ == "__main__":
-	import manager.tests.utilities
-	unittest.main()
+    import manager.tests.utilities
+    unittest.main()
