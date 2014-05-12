@@ -1,9 +1,9 @@
 [Component]
-Name = addons.testsComponentC
+Name = addons.tests_component_c
 Title = Tests Component C
-Module = testsComponentC
+Module = tests_component_c
 Object = TestsComponentC
-Require = core.testsComponentB
+Require = core.tests_component_b
 Version = 1.0
 
 [Informations]

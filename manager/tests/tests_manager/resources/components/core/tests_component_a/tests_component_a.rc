@@ -1,7 +1,7 @@
 [Component]
-Name = core.testsComponentA
+Name = core.tests_component_a
 Title = Tests Component A
-Module = testsComponentA
+Module = tests_component_a
 Object = TestsComponentA
 Version = 1.0
 

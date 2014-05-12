@@ -2,19 +2,22 @@
 # -*- coding: utf-8 -*-
 
 """
-**component.py**
+**QObject_component.py**
 
 **Platform:**
     Windows, Linux, Mac Os X.
 
 **Description:**
-    Defines the :class:`Component` class.
+    Defines the :class:`QObjectComponent` class.
 
 **Others:**
 
 """
 
 from __future__ import unicode_literals
+
+from PyQt4.QtCore import QObject
+from PyQt4.QtCore import pyqtSignal
 
 import foundations.exceptions
 import foundations.verbose
@@ -26,25 +29,53 @@ __maintainer__ = "Thomas Mansencal"
 __email__ = "thomas.mansencal@gmail.com"
 __status__ = "Production"
 
-__all__ = ["LOGGER", "Component"]
+__all__ = ["LOGGER", "QObjectComponent"]
 
 LOGGER = foundations.verbose.install_logger()
 
 
-class Component(object):
+class QObjectComponent(QObject):
     """
-    Defines the base class for **Manager** package Components.
+    Defines the base class for **Manager** package QObject Components.
     """
 
-    def __init__(self, name=None):
+    component_activated = pyqtSignal()
+    """
+    This signal is emited by the :class:`QObjectComponent` class when the Component is activated.
+    """
+
+    component_deactivated = pyqtSignal()
+    """
+    This signal is emited by the :class:`QObjectComponent` class when the Component is deactivated.
+    """
+
+    component_initialized = pyqtSignal()
+    """
+    This signal is emited by the :class:`QObjectComponent` class when the Component is initialized.
+    """
+
+    component_uninitialized = pyqtSignal()
+    """
+    This signal is emited by the :class:`QObjectComponent` class when the Component is uninitialized.
+    """
+
+    def __init__(self, parent=None, name=None, *args, **kwargs):
         """
         Initializes the class.
 
+        :param parent: Object parent.
+        :type parent: QObject
         :param name: Component name.
         :type name: unicode
+        :param \*args: Arguments.
+        :type \*args: \*
+        :param \*\*kwargs: Keywords arguments.
+        :type \*\*kwargs: \*\*
         """
 
         LOGGER.debug("> Initializing '{0}()' class.".format(self.__class__.__name__))
+
+        QObject.__init__(self, parent, *args, **kwargs)
 
         # --- Setting class attributes. ---
         self.__name = None
@@ -112,6 +143,7 @@ class Component(object):
 
         if value is not None:
             assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("activated", value)
+            self.component_activated.emit() if value else self.component_deactivated.emit()
         self.__activated = value
 
     @activated.deleter
@@ -147,6 +179,7 @@ class Component(object):
 
         if value is not None:
             assert type(value) is bool, "'{0}' attribute: '{1}' type is not 'bool'!".format("initialized", value)
+            self.component_initialized.emit() if value else self.component_uninitialized.emit()
         self.__initialized = value
 
     @initialized.deleter
@@ -191,8 +224,8 @@ class Component(object):
         Deleter for **self.__deactivatable** attribute.
         """
 
-        raise foundations.exceptions.ProgrammingError(
-            "{0} | '{1}' attribute is not deletable!".format(self.__class__.__name__, "deactivatable"))
+        raise foundations.exceptions.ProgrammingError("{0} | '{1}' attribute is not deletable!".format(
+            self.__class__.__name__, "deactivatable"))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def activate(self):
@@ -204,7 +237,7 @@ class Component(object):
         """
 
         raise NotImplementedError("{0} | '{1}' must be implemented by '{2}' subclasses!".format(
-            self.__class__.__name__, self.activate.__name__, self.__class__.__name__))
+            self.__class__.__name__, self.deactivate.__name__, self.__class__.__name__))
 
     @foundations.exceptions.handle_exceptions(NotImplementedError)
     def deactivate(self):
